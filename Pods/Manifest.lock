@@ -1,0 +1,80 @@
+PODS:
+  - Alamofire (4.9.1)
+  - DropDown (2.3.13)
+  - GoogleMaps (6.0.1):
+    - GoogleMaps/Maps (= 6.0.1)
+  - GoogleMaps/Base (6.0.1)
+  - GoogleMaps/Maps (6.0.1):
+    - GoogleMaps/Base
+  - GooglePlaces (6.0.0)
+  - KKPinCodeTextField (1.0.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - PKHUD (5.3.0)
+  - ReachabilitySwift (5.0.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxKeyboard (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxReachability (1.2.1):
+    - ReachabilitySwift (< 6.0, >= 5.0)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+  - WPMediaPicker (1.8.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8)
+  - DropDown
+  - GoogleMaps
+  - GooglePlaces
+  - KKPinCodeTextField
+  - NVActivityIndicatorView
+  - PKHUD
+  - RxCocoa
+  - RxKeyboard
+  - RxReachability
+  - RxSwift
+  - WPMediaPicker
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DropDown
+    - GoogleMaps
+    - GooglePlaces
+    - KKPinCodeTextField
+    - NVActivityIndicatorView
+    - PKHUD
+    - ReachabilitySwift
+    - RxCocoa
+    - RxKeyboard
+    - RxReachability
+    - RxRelay
+    - RxSwift
+    - WPMediaPicker
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  GoogleMaps: c213fc2334b7374144cede914da779b99be0ab74
+  GooglePlaces: c97d96ae68594acb64035c9ca9f26fbfc1d23af1
+  KKPinCodeTextField: 63a1fb841fd6a412cf664ef64dc065fc6767bd3c
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
+  RxReachability: bfd13548bf1dac7a877082d13918a9f39bdb5c18
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  WPMediaPicker: 9011a0ec1f468c039af7485c244576b4c9889a0f
+
+PODFILE CHECKSUM: 1851e33d6d554ed512fc84f9601b98310f33b5e5
+
+COCOAPODS: 1.8.4
