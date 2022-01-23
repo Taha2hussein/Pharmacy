@@ -8,6 +8,8 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (6.0.0)
   - KKPinCodeTextField (1.0.0)
+  - Koyomi (1.2.7)
+  - LinearProgressBar (1.0.2)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
@@ -26,6 +28,7 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - TabPageViewController (0.2.8)
   - WPMediaPicker (1.8.1)
 
 DEPENDENCIES:
@@ -34,12 +37,15 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - KKPinCodeTextField
+  - Koyomi
+  - LinearProgressBar
   - NVActivityIndicatorView
   - PKHUD
   - RxCocoa
   - RxKeyboard
   - RxReachability
   - RxSwift
+  - TabPageViewController
   - WPMediaPicker
 
 SPEC REPOS:
@@ -49,6 +55,8 @@ SPEC REPOS:
     - GoogleMaps
     - GooglePlaces
     - KKPinCodeTextField
+    - Koyomi
+    - LinearProgressBar
     - NVActivityIndicatorView
     - PKHUD
     - ReachabilitySwift
@@ -57,6 +65,7 @@ SPEC REPOS:
     - RxReachability
     - RxRelay
     - RxSwift
+    - TabPageViewController
     - WPMediaPicker
 
 SPEC CHECKSUMS:
@@ -65,6 +74,8 @@ SPEC CHECKSUMS:
   GoogleMaps: c213fc2334b7374144cede914da779b99be0ab74
   GooglePlaces: c97d96ae68594acb64035c9ca9f26fbfc1d23af1
   KKPinCodeTextField: 63a1fb841fd6a412cf664ef64dc065fc6767bd3c
+  Koyomi: f03615b8d2bb5a5a4752c6404a9794ed7ef7b327
+  LinearProgressBar: 619d6f286b608e501f39406557f60cdab3faf910
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -73,8 +84,9 @@ SPEC CHECKSUMS:
   RxReachability: bfd13548bf1dac7a877082d13918a9f39bdb5c18
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  TabPageViewController: 8bd4104909754416b35a98f3b72a5b674ab20dd5
   WPMediaPicker: 9011a0ec1f468c039af7485c244576b4c9889a0f
 
-PODFILE CHECKSUM: 1851e33d6d554ed512fc84f9601b98310f33b5e5
+PODFILE CHECKSUM: 893148a608eb404b6b4732cce8e027879ec7b3d3
 
 COCOAPODS: 1.8.4

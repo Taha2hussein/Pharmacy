@@ -14,10 +14,12 @@ target 'Pharmacy' do
      pod 'NVActivityIndicatorView'
      pod 'PKHUD'
      pod 'KKPinCodeTextField'
-     pod'DropDown'
+     pod 'DropDown'
      pod 'GoogleMaps'
      pod 'GooglePlaces'
-     pod "WPMediaPicker"
-    
-  
+     pod 'WPMediaPicker'
+     pod 'TabPageViewController'
+     pod 'Koyomi'
+     pod 'LinearProgressBar'
+
 end
