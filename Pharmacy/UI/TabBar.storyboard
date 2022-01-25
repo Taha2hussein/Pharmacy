@@ -1411,7 +1411,7 @@
                                                 <color key="textColor" name="blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="All Branches" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BXA-Zn-Dy5">
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="All Branches" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BXA-Zn-Dy5">
                                                 <rect key="frame" x="20" y="42" width="334" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="f00-KA-yGd"/>
@@ -1478,7 +1478,7 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKy-JM-gjN" customClass="BasicBarChart" customModule="Pharmacy" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKy-JM-gjN" customClass="BarChartView" customModule="Pharmacy" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="110.5" width="334" height="279.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -1545,6 +1545,7 @@
                     </view>
                     <connections>
                         <outlet property="basicBarChart" destination="dKy-JM-gjN" id="7Jx-bE-hdp"/>
+                        <outlet property="dailyTotalOrders" destination="BXA-Zn-Dy5" id="Koc-xf-0bx"/>
                         <outlet property="koyomi" destination="W27-Xt-rKD" id="iKk-2c-C0f"/>
                         <outlet property="ownerImage" destination="ZEP-jf-AaX" id="IBR-it-IDE"/>
                         <outlet property="ownerName" destination="rYf-jj-KJU" id="RsG-81-NP0"/>

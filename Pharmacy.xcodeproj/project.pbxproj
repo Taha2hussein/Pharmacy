@@ -102,6 +102,7 @@
 		00CAFD55279FE89A0087F164 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD54279FE89A0087F164 /* MapView.storyboard */; };
 		00CAFD57279FE8AB0087F164 /* ConfirmAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */; };
 		00CAFD59279FE8BF0087F164 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD58279FE8BF0087F164 /* TabBar.storyboard */; };
+		00CAFD6C27A02DCF0087F164 /* BarChartClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAFD6B27A02DCE0087F164 /* BarChartClass.swift */; };
 		00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D681AF278A2A32008AF970 /* RegisterParameters.swift */; };
 		00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8B527999587006BEA8F /* ContainerView.swift */; };
 		00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8BA2799966F006BEA8F /* EmptySegue.swift */; };
@@ -117,14 +118,6 @@
 		00E6B8D12799F2C6006BEA8F /* NSCalendar+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CD2799F2C5006BEA8F /* NSCalendar+Timepiece.swift */; };
 		00E6B8D22799F2C6006BEA8F /* NSDateComponents+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CE2799F2C6006BEA8F /* NSDateComponents+Timepiece.swift */; };
 		00E6B8D32799F2C6006BEA8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CF2799F2C6006BEA8F /* Duration.swift */; };
-		00E6B8D8279A0045006BEA8F /* BasicBarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8D5279A0043006BEA8F /* BasicBarChartPresenter.swift */; };
-		00E6B8D9279A0045006BEA8F /* BasicBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8D6279A0044006BEA8F /* BasicBarChart.swift */; };
-		00E6B8DA279A0045006BEA8F /* BasicBarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8D7279A0045006BEA8F /* BasicBarEntry.swift */; };
-		00E6B8E0279A0120006BEA8F /* DataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8DB279A011E006BEA8F /* DataEntry.swift */; };
-		00E6B8E1279A0120006BEA8F /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8DC279A011F006BEA8F /* UIBezierPathExtension.swift */; };
-		00E6B8E2279A0120006BEA8F /* CustomSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8DD279A011F006BEA8F /* CustomSegments.swift */; };
-		00E6B8E3279A0120006BEA8F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8DE279A0120006BEA8F /* ArrayExtension.swift */; };
-		00E6B8E4279A0120006BEA8F /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8DF279A0120006BEA8F /* CALayerExtension.swift */; };
 		5AA89F0E1DC819F64698070B /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */; };
 /* End PBXBuildFile section */
 
@@ -221,6 +214,7 @@
 		00CAFD54279FE89A0087F164 /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmAccount.storyboard; sourceTree = "<group>"; };
 		00CAFD58279FE8BF0087F164 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		00CAFD6B27A02DCE0087F164 /* BarChartClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartClass.swift; sourceTree = "<group>"; };
 		00D681AF278A2A32008AF970 /* RegisterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParameters.swift; sourceTree = "<group>"; };
 		00E6B8B527999587006BEA8F /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		00E6B8BA2799966F006BEA8F /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
@@ -236,14 +230,6 @@
 		00E6B8CD2799F2C5006BEA8F /* NSCalendar+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+Timepiece.swift"; sourceTree = "<group>"; };
 		00E6B8CE2799F2C6006BEA8F /* NSDateComponents+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+Timepiece.swift"; sourceTree = "<group>"; };
 		00E6B8CF2799F2C6006BEA8F /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
-		00E6B8D5279A0043006BEA8F /* BasicBarChartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarChartPresenter.swift; sourceTree = "<group>"; };
-		00E6B8D6279A0044006BEA8F /* BasicBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarChart.swift; sourceTree = "<group>"; };
-		00E6B8D7279A0045006BEA8F /* BasicBarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarEntry.swift; sourceTree = "<group>"; };
-		00E6B8DB279A011E006BEA8F /* DataEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEntry.swift; sourceTree = "<group>"; };
-		00E6B8DC279A011F006BEA8F /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
-		00E6B8DD279A011F006BEA8F /* CustomSegments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegments.swift; sourceTree = "<group>"; };
-		00E6B8DE279A0120006BEA8F /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
-		00E6B8DF279A0120006BEA8F /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		64CB81DD57033C820B0614BC /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
 		791346F2406F6046065E3BD2 /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 		BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,10 +280,10 @@
 				00C97E352797472800A072FC /* GoogleService-Info.plist */,
 				0044ED7D2788976100598D8D /* Fonts */,
 				0044ED6B27888FF300598D8D /* Extensions */,
-				00E6B8D4279A000E006BEA8F /* Chart */,
 				00516ACB2792991100A4CCFD /* Network Manger */,
 				0044ED3D2788883D00598D8D /* ApplicationServices */,
 				0044ED402788883D00598D8D /* Use Case */,
+				00CAFD6A27A02DBC0087F164 /* Chart */,
 				0044ED422788883D00598D8D /* Utils */,
 				0044ED3B278887DE00598D8D /* Resources */,
 				0044ED3A278887CA00598D8D /* App Delegation */,
@@ -582,6 +568,14 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
+		00CAFD6A27A02DBC0087F164 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				00CAFD6B27A02DCE0087F164 /* BarChartClass.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		00E6B8B42799956A006BEA8F /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,21 +615,6 @@
 				00E6B8C82799A48C006BEA8F /* WalletsViewController.swift */,
 			);
 			path = Wallets;
-			sourceTree = "<group>";
-		};
-		00E6B8D4279A000E006BEA8F /* Chart */ = {
-			isa = PBXGroup;
-			children = (
-				00E6B8D6279A0044006BEA8F /* BasicBarChart.swift */,
-				00E6B8DE279A0120006BEA8F /* ArrayExtension.swift */,
-				00E6B8DF279A0120006BEA8F /* CALayerExtension.swift */,
-				00E6B8DD279A011F006BEA8F /* CustomSegments.swift */,
-				00E6B8DB279A011E006BEA8F /* DataEntry.swift */,
-				00E6B8DC279A011F006BEA8F /* UIBezierPathExtension.swift */,
-				00E6B8D5279A0043006BEA8F /* BasicBarChartPresenter.swift */,
-				00E6B8D7279A0045006BEA8F /* BasicBarEntry.swift */,
-			);
-			path = Chart;
 			sourceTree = "<group>";
 		};
 		1A557AD7873C52A7BDC43E26 /* Pods */ = {
@@ -819,7 +798,6 @@
 				008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */,
 				0077042927898FC40055CABC /* CompleteRegisterViewModel.swift in Sources */,
 				000A1F762794EAFE00508D3C /* UIImageConverted.swift in Sources */,
-				00E6B8E2279A0120006BEA8F /* CustomSegments.swift in Sources */,
 				0053564B278B093600A4DDA4 /* Keys.swift in Sources */,
 				00E6B8BD27999774006BEA8F /* HomeViewController.swift in Sources */,
 				0044ED4B2788883D00598D8D /* ApplicationService.swift in Sources */,
@@ -842,13 +820,11 @@
 				0044ED6D2788900900598D8D /* EkadTextField.swift in Sources */,
 				0077044F278998150055CABC /* ConfirmAccountviewModel.swift in Sources */,
 				0044ED4C2788883D00598D8D /* ApplicationDelegate.swift in Sources */,
-				00E6B8E0279A0120006BEA8F /* DataEntry.swift in Sources */,
 				0077041B27898BBA0055CABC /* LoginViewModel.swift in Sources */,
 				007704482789974D0055CABC /* MapViewController.swift in Sources */,
 				00E6B8C92799A48C006BEA8F /* WalletsViewController.swift in Sources */,
 				0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */,
 				0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */,
-				00E6B8DA279A0045006BEA8F /* BasicBarEntry.swift in Sources */,
 				00C97E342797458A00A072FC /* LoginModel.swift in Sources */,
 				00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */,
 				00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */,
@@ -859,7 +835,6 @@
 				0044ED512788883D00598D8D /* UIApplication+ScreenShot.swift in Sources */,
 				0044ED8B2788A8F700598D8D /* ForgetViewController.swift in Sources */,
 				006D4931279EB61A0079F01E /* DashboardModel.swift in Sources */,
-				00E6B8E3279A0120006BEA8F /* ArrayExtension.swift in Sources */,
 				0077043A278993C90055CABC /* ConfirmMobileViewModel.swift in Sources */,
 				0044ED502788883D00598D8D /* BaseViewController.swift in Sources */,
 				0044ED2E2788871800598D8D /* Pharmacy.xcdatamodeld in Sources */,
@@ -869,7 +844,6 @@
 				0077042E278991570055CABC /* ForgetViewModel.swift in Sources */,
 				006621CA2788DC11001596A7 /* RegisterViewController.swift in Sources */,
 				00535649278AF14E00A4DDA4 /* Router.swift in Sources */,
-				00E6B8E1279A0120006BEA8F /* UIBezierPathExtension.swift in Sources */,
 				0077044C278997790055CABC /* MapRouter.swift in Sources */,
 				0044ED4F2788883D00598D8D /* Alert.swift in Sources */,
 				005E1C44279D8CF400E70C5F /* WalletsDetailsRouter.swift in Sources */,
@@ -885,12 +859,10 @@
 				00E6B8C52799A476006BEA8F /* WalletsViewModel.swift in Sources */,
 				00E6B8D32799F2C6006BEA8F /* Duration.swift in Sources */,
 				0044ED732788906D00598D8D /* EkadUIViewShadow.swift in Sources */,
+				00CAFD6C27A02DCF0087F164 /* BarChartClass.swift in Sources */,
 				00E6B8C12799A459006BEA8F /* DashboardViewController.swift in Sources */,
 				0077044A2789976A0055CABC /* MapViewModel.swift in Sources */,
-				00E6B8E4279A0120006BEA8F /* CALayerExtension.swift in Sources */,
-				00E6B8D8279A0045006BEA8F /* BasicBarChartPresenter.swift in Sources */,
 				006621CC2788DC25001596A7 /* CompleteRegisterViewController.swift in Sources */,
-				00E6B8D9279A0045006BEA8F /* BasicBarChart.swift in Sources */,
 				0044ED6F2788901300598D8D /* EkadLabel.swift in Sources */,
 				00516ACA279297F000A4CCFD /* AllCountryLists.swift in Sources */,
 				006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */,

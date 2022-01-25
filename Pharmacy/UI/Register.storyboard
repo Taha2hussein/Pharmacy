@@ -520,7 +520,7 @@
                                                                         <color key="textColor" name="blue"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIT-P1-iop">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIT-P1-iop">
                                                                         <rect key="frame" x="0.0" y="22.5" width="332" height="35"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="35" id="nq8-2e-kpG"/>
@@ -557,7 +557,7 @@
                                                                         <color key="textColor" name="blue"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RMm-7A-1vR">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RMm-7A-1vR">
                                                                         <rect key="frame" x="0.0" y="22.5" width="161" height="35"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="35" id="h5m-K9-UOo"/>
@@ -583,7 +583,7 @@
                                                                         <color key="textColor" name="blue"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Area" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vk9-Mz-a38">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Area" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vk9-Mz-a38">
                                                                         <rect key="frame" x="0.0" y="22.5" width="161" height="35"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="35" id="IOV-ud-kd0"/>

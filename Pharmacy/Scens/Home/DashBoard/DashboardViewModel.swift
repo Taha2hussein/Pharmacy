@@ -16,6 +16,8 @@ class DashboardViewModel{
     private weak var view: DashboardViewController?
     private var router: DashboardRouter?
     var dashBoard = PublishSubject<DashboardModel>()
+    var dailyTotalOrders = PublishSubject<[TotalDailyOrdersBranch]>()
+    var branchesObject = PublishSubject<[Branch]>()
     var state = State()
 
     func bind(view: DashboardViewController, router: DashboardRouter) {
@@ -40,6 +42,8 @@ class DashboardViewModel{
                  DashboardElement = try decoder.decode(DashboardModel.self, from: data)
                 if DashboardElement.successtate == 200 {
                     self.dashBoard.onNext(DashboardElement)
+                    self.dailyTotalOrders.onNext(DashboardElement.message?.totalDailyOrdersBranches ?? [])
+                    self.branchesObject.onNext(DashboardElement.message?.branches ?? [])
                     }
 //                
             } catch let err {
