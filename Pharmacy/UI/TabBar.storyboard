@@ -504,7 +504,7 @@
                                             <constraint firstAttribute="height" constant="438" id="slJ-2E-DU3"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="165" id="AZD-xI-jSF">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BranchTableViewCell" rowHeight="165" id="AZD-xI-jSF" customClass="BranchTableViewCell" customModule="Pharmacy" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="374" height="165"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AZD-xI-jSF" id="5rr-d2-kN1">
@@ -651,6 +651,13 @@
                                                         <constraint firstItem="3hr-jU-y6g" firstAttribute="leading" secondItem="5rr-d2-kN1" secondAttribute="leadingMargin" id="fg6-hv-O2N"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="expnseLabel" destination="SGf-x8-E89" id="run-Wa-WlX"/>
+                                                    <outlet property="incomeLabel" destination="Iup-zg-H0S" id="2GU-zP-V1Y"/>
+                                                    <outlet property="ownerImage" destination="DUo-Zv-Hf6" id="D8z-1X-8jN"/>
+                                                    <outlet property="pharmacyName" destination="Cy7-ab-WVZ" id="o0C-t5-fkS"/>
+                                                    <outlet property="totalBalance" destination="JuQ-cZ-WXb" id="snP-7S-GT1"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -686,6 +693,8 @@
                     </view>
                     <connections>
                         <outlet property="LinearIncome" destination="4T7-ie-D9u" id="yhJ-t7-QaJ"/>
+                        <outlet property="branchListTableView" destination="zJc-JY-27M" id="tbD-Cf-ysE"/>
+                        <outlet property="goButton" destination="XF3-ZE-OVm" id="WSv-72-Jbn"/>
                         <outlet property="linearExpnse" destination="357-K3-dRI" id="8aB-Xh-aAj"/>
                         <outlet property="linearProgressBar" destination="Fo1-13-UrU" id="XZs-h8-8Ll"/>
                         <outlet property="totalBalance" destination="QQ6-M2-eFb" id="Z5Z-nO-Ny6"/>
@@ -1466,12 +1475,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Ts7-49-w1l">
                                                 <rect key="frame" x="222" y="56.5" width="132" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2022" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3M-ua-1AI">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2022" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3M-ua-1AI">
                                                         <rect key="frame" x="0.0" y="0.0" width="62" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Jan" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLX-XL-f7h">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Jan" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLX-XL-f7h">
                                                         <rect key="frame" x="81" y="0.0" width="51" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1547,9 +1556,11 @@
                         <outlet property="basicBarChart" destination="dKy-JM-gjN" id="7Jx-bE-hdp"/>
                         <outlet property="dailyTotalOrders" destination="BXA-Zn-Dy5" id="Koc-xf-0bx"/>
                         <outlet property="koyomi" destination="W27-Xt-rKD" id="iKk-2c-C0f"/>
+                        <outlet property="monthSelected" destination="JLX-XL-f7h" id="2DE-sO-PkU"/>
                         <outlet property="ownerImage" destination="ZEP-jf-AaX" id="IBR-it-IDE"/>
                         <outlet property="ownerName" destination="rYf-jj-KJU" id="RsG-81-NP0"/>
                         <outlet property="segmentView" destination="JZ8-2d-ua5" id="SGj-wL-tbO"/>
+                        <outlet property="yearSelected" destination="r3M-ua-1AI" id="jg6-f8-rUY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEh-ed-FX8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

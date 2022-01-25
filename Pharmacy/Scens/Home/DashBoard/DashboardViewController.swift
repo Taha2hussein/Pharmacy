@@ -11,6 +11,8 @@ import DropDown
 
 class DashboardViewController: BaseViewController, KoyomiDelegate {
     
+    @IBOutlet weak var monthSelected: UITextField!
+    @IBOutlet weak var yearSelected: UITextField!
     @IBOutlet weak var basicBarChart: BarChartView!
     @IBOutlet weak var ownerImage: UIImageView!
     @IBOutlet weak var ownerName: UILabel!
@@ -53,7 +55,9 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         return self.selectCityFromDropDown
     }()
     
-   
+   let year = ["2022","2023","2024","2025","2026","2027","2028","2029","2030"]
+   let month = ["jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+
     let selectCityFromDropDown = DropDown()
     fileprivate let invalidPeriodLength = 90
     fileprivate var singleDate: Date = Date()
@@ -75,6 +79,8 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         setGesturesForBrnachecs()
         subscribeToDailyOrderBranches()
         subscribeToBranches()
+        setGesturesForYear()
+        setGesturesForMonth()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +99,17 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         dailyTotalOrders.addGestureRecognizer(country)
     }
     
+    func setGesturesForYear() {
+        let country = UITapGestureRecognizer(target: self, action: #selector(self.tapYear))
+        yearSelected.isUserInteractionEnabled = true
+        yearSelected.addGestureRecognizer(country)
+    }
+    
+    func setGesturesForMonth() {
+        let country = UITapGestureRecognizer(target: self, action: #selector(self.tapMonth))
+        monthSelected.isUserInteractionEnabled = true
+        monthSelected.addGestureRecognizer(country)
+    }
     func subscribeToDailyOrderBranches() {
         articleDetailsViewModel.dailyTotalOrders.subscribe {[weak self] dailyOrders in
             self?.dailyOrdersBranches = dailyOrders.element!
@@ -103,9 +120,8 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         articleDetailsViewModel.branchesObject.subscribe {[weak self] branchs in
             DispatchQueue.main.async{
             self?.brnaches = branchs.element!
-                let values = [Double(self?.brnaches[0].branchID ?? 0)]
-            
-                self?.basicBarChart.drawChart(values)
+                let totalVlaue = self?.brnaches.map({(Double($0.branchID ?? 0)) })
+                self?.basicBarChart.drawChart(totalVlaue ?? [])
       
             }
         }.disposed(by: self.disposeBag)
@@ -205,6 +221,45 @@ extension DashboardViewController {
             
             self?.dailyTotalOrders.text = item
             self?.dailyOderSelectedIndex = countryIds[index]
+            
+        }
+        
+    }
+    
+    @objc
+    func tapYear(sender:UITapGestureRecognizer) {
+        
+        selectCityFromDropDown.anchorView = yearSelected
+        selectCityFromDropDown.direction = .any
+        selectCityFromDropDown.backgroundColor = UIColor.white
+        selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
+
+        self.selectCityFromDropDown.dataSource = year
+        selectCityFromDropDown.show()
+        // Action triggered on selection
+        
+        selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+            
+            self?.yearSelected.text = item
+            
+        }
+        
+    }
+    
+    @objc
+    func tapMonth(sender:UITapGestureRecognizer) {
+        
+        selectCityFromDropDown.anchorView = monthSelected
+        selectCityFromDropDown.direction = .any
+        selectCityFromDropDown.backgroundColor = UIColor.white
+        selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
+        self.selectCityFromDropDown.dataSource = month
+        selectCityFromDropDown.show()
+        // Action triggered on selection
+        
+        selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+            
+            self?.monthSelected.text = item
             
         }
         

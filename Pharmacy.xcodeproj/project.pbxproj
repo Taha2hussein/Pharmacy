@@ -103,6 +103,9 @@
 		00CAFD57279FE8AB0087F164 /* ConfirmAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */; };
 		00CAFD59279FE8BF0087F164 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD58279FE8BF0087F164 /* TabBar.storyboard */; };
 		00CAFD6C27A02DCF0087F164 /* BarChartClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAFD6B27A02DCE0087F164 /* BarChartClass.swift */; };
+		00CAFD7027A049F00087F164 /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAFD6F27A049F00087F164 /* WalletModel.swift */; };
+		00CAFD7227A053D70087F164 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAFD7127A053D70087F164 /* BranchTableViewCell.swift */; };
+		00CAFD7427A054FF0087F164 /* BracnhListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAFD7327A054FF0087F164 /* BracnhListModel.swift */; };
 		00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D681AF278A2A32008AF970 /* RegisterParameters.swift */; };
 		00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8B527999587006BEA8F /* ContainerView.swift */; };
 		00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8BA2799966F006BEA8F /* EmptySegue.swift */; };
@@ -215,6 +218,9 @@
 		00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmAccount.storyboard; sourceTree = "<group>"; };
 		00CAFD58279FE8BF0087F164 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		00CAFD6B27A02DCE0087F164 /* BarChartClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartClass.swift; sourceTree = "<group>"; };
+		00CAFD6F27A049F00087F164 /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
+		00CAFD7127A053D70087F164 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
+		00CAFD7327A054FF0087F164 /* BracnhListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracnhListModel.swift; sourceTree = "<group>"; };
 		00D681AF278A2A32008AF970 /* RegisterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParameters.swift; sourceTree = "<group>"; };
 		00E6B8B527999587006BEA8F /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		00E6B8BA2799966F006BEA8F /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
@@ -545,6 +551,8 @@
 				00BD52D227969F13008C72CC /* ActivationCode.swift */,
 				00C97E332797458A00A072FC /* LoginModel.swift */,
 				006D4930279EB61A0079F01E /* DashboardModel.swift */,
+				00CAFD6F27A049F00087F164 /* WalletModel.swift */,
+				00CAFD7327A054FF0087F164 /* BracnhListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -613,6 +621,7 @@
 				00E6B8C42799A476006BEA8F /* WalletsViewModel.swift */,
 				00E6B8C62799A482006BEA8F /* WalletsRouter.swift */,
 				00E6B8C82799A48C006BEA8F /* WalletsViewController.swift */,
+				00CAFD7127A053D70087F164 /* BranchTableViewCell.swift */,
 			);
 			path = Wallets;
 			sourceTree = "<group>";
@@ -810,6 +819,7 @@
 				00770433278992F40055CABC /* VerificationViewModel.swift in Sources */,
 				00535651278B0AFB00A4DDA4 /* BaseViewModelController.swift in Sources */,
 				0044ED532788883D00598D8D /* CheckInternet.swift in Sources */,
+				00CAFD7427A054FF0087F164 /* BracnhListModel.swift in Sources */,
 				00E6B8D22799F2C6006BEA8F /* NSDateComponents+Timepiece.swift in Sources */,
 				0044ED7C2788960D00598D8D /* LoginViewController.swift in Sources */,
 				0077045727899EF20055CABC /* IntroRouter.swift in Sources */,
@@ -845,6 +855,7 @@
 				006621CA2788DC11001596A7 /* RegisterViewController.swift in Sources */,
 				00535649278AF14E00A4DDA4 /* Router.swift in Sources */,
 				0077044C278997790055CABC /* MapRouter.swift in Sources */,
+				00CAFD7227A053D70087F164 /* BranchTableViewCell.swift in Sources */,
 				0044ED4F2788883D00598D8D /* Alert.swift in Sources */,
 				005E1C44279D8CF400E70C5F /* WalletsDetailsRouter.swift in Sources */,
 				00535645278AEC1000A4DDA4 /* LocalDataProtocol.swift in Sources */,
@@ -871,6 +882,7 @@
 				00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */,
 				00770445278994B90055CABC /* ResetPasswordRouter.swift in Sources */,
 				00E6B8CB2799F0EB006BEA8F /* NSDate+Timepiece.swift in Sources */,
+				00CAFD7027A049F00087F164 /* WalletModel.swift in Sources */,
 				00801F31278A096700A2E358 /* RegisterModel.swift in Sources */,
 				0077042B27898FCF0055CABC /* CompleteRegisterRouter.swift in Sources */,
 				00770441278994A60055CABC /* ResetPasswordViewController.swift in Sources */,
