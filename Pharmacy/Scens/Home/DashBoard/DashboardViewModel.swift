@@ -33,7 +33,6 @@ class DashboardViewModel{
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
-            print(response, "data" , key)
             self.state.isLoading.accept(false)
             do {
                 let decoder = JSONDecoder()

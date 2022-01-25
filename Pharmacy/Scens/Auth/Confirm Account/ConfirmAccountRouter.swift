@@ -16,7 +16,7 @@ class ConfirmAccountRouter {
     
     private func createViewController() -> UIViewController {
       
-        let view = UIStoryboard.init(name: Storyboards.main.rawValue, bundle: nil)
+        let view = UIStoryboard.init(name: Storyboards.confirmaccount.rawValue, bundle: nil)
         
         let viewController = view.instantiateViewController(withIdentifier: ViewController.confirmAccount.rawValue)
         

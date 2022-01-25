@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let logedBefore =  LocalStorage().getLogedBefore()
             
             if logedBefore {
-                let tabBarView = UIStoryboard.init(name: "Main", bundle: nil)
+                let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
                 let tabBar = tabBarView.instantiateViewController(withIdentifier: "TabBarViewController")as? TabBarViewController
                 window.rootViewController = UINavigationController(rootViewController: tabBar!)
             }

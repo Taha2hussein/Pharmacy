@@ -17,7 +17,7 @@ class MapRouter {
     
     private func createViewController() -> UIViewController {
       
-        let view = UIStoryboard.init(name: Storyboards.main.rawValue, bundle: nil)
+        let view = UIStoryboard.init(name: Storyboards.mapView.rawValue, bundle: nil)
         
         let viewController = view.instantiateViewController(withIdentifier: ViewController.location.rawValue)
         

@@ -94,6 +94,14 @@
 		00C97E4327974CDB00A072FC /* FirebaseRemoteConfigSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 00C97E4227974CDB00A072FC /* FirebaseRemoteConfigSwift-Beta */; };
 		00C97E462797504F00A072FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C97E452797504F00A072FC /* MapKit.framework */; };
 		00C97E49279764C800A072FC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C97E48279764C800A072FC /* TabBarViewController.swift */; };
+		00CAFD4B279FE83F0087F164 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD4A279FE83F0087F164 /* Register.storyboard */; };
+		00CAFD4D279FE8650087F164 /* ForgetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD4C279FE8650087F164 /* ForgetPassword.storyboard */; };
+		00CAFD4F279FE8710087F164 /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD4E279FE8710087F164 /* Verification.storyboard */; };
+		00CAFD51279FE8800087F164 /* ConfirmMobile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD50279FE8800087F164 /* ConfirmMobile.storyboard */; };
+		00CAFD53279FE8900087F164 /* ResetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD52279FE8900087F164 /* ResetPassword.storyboard */; };
+		00CAFD55279FE89A0087F164 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD54279FE89A0087F164 /* MapView.storyboard */; };
+		00CAFD57279FE8AB0087F164 /* ConfirmAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */; };
+		00CAFD59279FE8BF0087F164 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CAFD58279FE8BF0087F164 /* TabBar.storyboard */; };
 		00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D681AF278A2A32008AF970 /* RegisterParameters.swift */; };
 		00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8B527999587006BEA8F /* ContainerView.swift */; };
 		00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8BA2799966F006BEA8F /* EmptySegue.swift */; };
@@ -205,6 +213,14 @@
 		00C97E442797503B00A072FC /* Pharmacy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pharmacy.entitlements; sourceTree = "<group>"; };
 		00C97E452797504F00A072FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		00C97E48279764C800A072FC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		00CAFD4A279FE83F0087F164 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		00CAFD4C279FE8650087F164 /* ForgetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgetPassword.storyboard; sourceTree = "<group>"; };
+		00CAFD4E279FE8710087F164 /* Verification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Verification.storyboard; sourceTree = "<group>"; };
+		00CAFD50279FE8800087F164 /* ConfirmMobile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmMobile.storyboard; sourceTree = "<group>"; };
+		00CAFD52279FE8900087F164 /* ResetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPassword.storyboard; sourceTree = "<group>"; };
+		00CAFD54279FE89A0087F164 /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
+		00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmAccount.storyboard; sourceTree = "<group>"; };
+		00CAFD58279FE8BF0087F164 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		00D681AF278A2A32008AF970 /* RegisterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParameters.swift; sourceTree = "<group>"; };
 		00E6B8B527999587006BEA8F /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		00E6B8BA2799966F006BEA8F /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
@@ -356,6 +372,14 @@
 			isa = PBXGroup;
 			children = (
 				0044ED292788871800598D8D /* Main.storyboard */,
+				00CAFD4A279FE83F0087F164 /* Register.storyboard */,
+				00CAFD4C279FE8650087F164 /* ForgetPassword.storyboard */,
+				00CAFD4E279FE8710087F164 /* Verification.storyboard */,
+				00CAFD50279FE8800087F164 /* ConfirmMobile.storyboard */,
+				00CAFD52279FE8900087F164 /* ResetPassword.storyboard */,
+				00CAFD54279FE89A0087F164 /* MapView.storyboard */,
+				00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */,
+				00CAFD58279FE8BF0087F164 /* TabBar.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -704,12 +728,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CAFD4F279FE8710087F164 /* Verification.storyboard in Resources */,
 				0044ED332788871C00598D8D /* LaunchScreen.storyboard in Resources */,
+				00CAFD53279FE8900087F164 /* ResetPassword.storyboard in Resources */,
 				00C97E362797472800A072FC /* GoogleService-Info.plist in Resources */,
+				00CAFD59279FE8BF0087F164 /* TabBar.storyboard in Resources */,
+				00CAFD4D279FE8650087F164 /* ForgetPassword.storyboard in Resources */,
 				0044ED8427889A1B00598D8D /* Segoe UI.ttf in Resources */,
 				0044ED8627889A1B00598D8D /* Segoe UI Italic.ttf in Resources */,
 				0044ED302788871C00598D8D /* Assets.xcassets in Resources */,
+				00CAFD55279FE89A0087F164 /* MapView.storyboard in Resources */,
+				00CAFD4B279FE83F0087F164 /* Register.storyboard in Resources */,
+				00CAFD57279FE8AB0087F164 /* ConfirmAccount.storyboard in Resources */,
 				0044ED8727889A1B00598D8D /* Segoe UI Bold.ttf in Resources */,
+				00CAFD51279FE8800087F164 /* ConfirmMobile.storyboard in Resources */,
 				0044ED2B2788871800598D8D /* Main.storyboard in Resources */,
 				0044ED8527889A1B00598D8D /* Segoe UI Bold Italic.ttf in Resources */,
 			);

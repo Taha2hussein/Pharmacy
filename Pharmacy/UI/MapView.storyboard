@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Segoe UI.ttf">
+            <string>SegoeUI</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="1GR-wb-KdB">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iBy-IU-8yi" customClass="MapViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kHy-Fk-sqv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phU-uo-CJ2" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="113" width="414" height="749"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9J2-JX-bwQ">
+                                <rect key="frame" x="127" y="777" width="160" height="35"/>
+                                <color key="backgroundColor" name="blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Eyg-Fw-P04"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="W2k-On-0C9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done">
+                                    <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pvh-H2-hkv">
+                                <rect key="frame" x="40" y="194" width="334" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ohC-TX-s9K">
+                                        <rect key="frame" x="48" y="5" width="271" height="30"/>
+                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLocation" translatesAutoresizingMaskIntoConstraints="NO" id="x1p-8F-HUa">
+                                        <rect key="frame" x="20" y="10.5" width="13" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="WQ7-Ah-Ldr"/>
+                                            <constraint firstAttribute="width" constant="13" id="btT-UB-NPd"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ohC-TX-s9K" firstAttribute="top" secondItem="Pvh-H2-hkv" secondAttribute="top" constant="5" id="Pqc-Iy-V4P"/>
+                                    <constraint firstAttribute="trailing" secondItem="ohC-TX-s9K" secondAttribute="trailing" constant="15" id="TWb-4W-H1c"/>
+                                    <constraint firstItem="x1p-8F-HUa" firstAttribute="leading" secondItem="Pvh-H2-hkv" secondAttribute="leading" constant="20" id="XXa-T0-O1z"/>
+                                    <constraint firstItem="ohC-TX-s9K" firstAttribute="leading" secondItem="x1p-8F-HUa" secondAttribute="trailing" constant="15" id="XXb-lP-B2G"/>
+                                    <constraint firstItem="x1p-8F-HUa" firstAttribute="centerY" secondItem="Pvh-H2-hkv" secondAttribute="centerY" id="Yx2-a0-7Sv"/>
+                                    <constraint firstAttribute="bottom" secondItem="ohC-TX-s9K" secondAttribute="bottom" constant="5" id="aMM-rM-7ew"/>
+                                    <constraint firstAttribute="height" constant="40" id="miT-q0-UqV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLa-7B-MSK">
+                                <rect key="frame" x="63" y="69" width="295" height="24"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhd-FQ-Og2">
+                                <rect key="frame" x="23" y="71" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="YWz-84-MZh"/>
+                                    <constraint firstAttribute="width" constant="20" id="cw2-Y4-Cm2"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backBlue"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aSh-hO-jyJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aSh-hO-jyJ" firstAttribute="trailing" secondItem="Pvh-H2-hkv" secondAttribute="trailing" constant="40" id="4xq-SF-bHK"/>
+                            <constraint firstItem="zhd-FQ-Og2" firstAttribute="centerY" secondItem="sLa-7B-MSK" secondAttribute="centerY" id="9Rl-nU-YM1"/>
+                            <constraint firstItem="Pvh-H2-hkv" firstAttribute="centerX" secondItem="kHy-Fk-sqv" secondAttribute="centerX" id="CFV-9j-iEo"/>
+                            <constraint firstItem="zhd-FQ-Og2" firstAttribute="leading" secondItem="aSh-hO-jyJ" secondAttribute="leading" constant="23" id="DgZ-xZ-wBq"/>
+                            <constraint firstItem="phU-uo-CJ2" firstAttribute="top" secondItem="sLa-7B-MSK" secondAttribute="bottom" constant="20" id="ECw-OF-TNL"/>
+                            <constraint firstItem="aSh-hO-jyJ" firstAttribute="bottom" secondItem="phU-uo-CJ2" secondAttribute="bottom" id="Ecp-lw-5uw"/>
+                            <constraint firstItem="9J2-JX-bwQ" firstAttribute="centerX" secondItem="kHy-Fk-sqv" secondAttribute="centerX" id="FDR-tk-bvb"/>
+                            <constraint firstItem="sLa-7B-MSK" firstAttribute="leading" secondItem="zhd-FQ-Og2" secondAttribute="trailing" constant="20" id="HcA-kO-9sM"/>
+                            <constraint firstItem="sLa-7B-MSK" firstAttribute="top" secondItem="aSh-hO-jyJ" secondAttribute="top" constant="25" id="K7S-tX-VuU"/>
+                            <constraint firstItem="Pvh-H2-hkv" firstAttribute="leading" secondItem="aSh-hO-jyJ" secondAttribute="leading" constant="40" id="fiN-Fb-3cV"/>
+                            <constraint firstItem="aSh-hO-jyJ" firstAttribute="trailing" secondItem="phU-uo-CJ2" secondAttribute="trailing" id="h8D-cQ-vzj"/>
+                            <constraint firstItem="aSh-hO-jyJ" firstAttribute="trailing" secondItem="sLa-7B-MSK" secondAttribute="trailing" constant="56" id="rhQ-Lg-Kww"/>
+                            <constraint firstItem="aSh-hO-jyJ" firstAttribute="bottom" secondItem="9J2-JX-bwQ" secondAttribute="bottom" constant="50" id="ro3-eY-jX4"/>
+                            <constraint firstItem="Pvh-H2-hkv" firstAttribute="top" secondItem="aSh-hO-jyJ" secondAttribute="top" constant="150" id="zYc-kL-sXj"/>
+                            <constraint firstItem="phU-uo-CJ2" firstAttribute="leading" secondItem="aSh-hO-jyJ" secondAttribute="leading" id="zhA-7n-LxT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="zhd-FQ-Og2" id="xLU-3D-5Ul"/>
+                        <outlet property="doneButton" destination="9J2-JX-bwQ" id="bf5-Gw-7ec"/>
+                        <outlet property="mapView" destination="phU-uo-CJ2" id="OwB-KV-Gb0"/>
+                        <outlet property="yourLocationField" destination="ohC-TX-s9K" id="mFf-x4-kWZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vak-bd-e6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5932" y="56"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backBlue" width="16.815999984741211" height="18.764999389648438"/>
+        <image name="icLocation" width="9.5" height="13.5"/>
+        <namedColor name="blue">
+            <color red="0.071000002324581146" green="0.46700000762939453" blue="0.81999999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
