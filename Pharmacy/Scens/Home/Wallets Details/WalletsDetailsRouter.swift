@@ -1,13 +1,14 @@
 //
-//  WalletsRouter.swift
+//  WalletsDetailsRouter.swift
 //  Pharmacy
 //
-//  Created by A on 20/01/2022.
+//  Created by A on 23/01/2022.
 //
 
+import Foundation
 import UIKit
 
-class WalletsRouter {
+class WalletsDetailsRouter {
     var viewController: UIViewController {
         return createViewController()
     }
@@ -18,7 +19,7 @@ class WalletsRouter {
       
         let view = UIStoryboard.init(name: Storyboards.main.rawValue, bundle: nil)
         
-        let viewController = view.instantiateViewController(withIdentifier: ViewController.myWallets.rawValue)
+        let viewController = view.instantiateViewController(withIdentifier: ViewController.walletDetails.rawValue)
         
         return viewController
     }

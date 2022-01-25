@@ -18,17 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-//            let logedBefore =  LocalStorage().getLogedBefore()
-//            
-//            if logedBefore {
-//                let tabBarView = UIStoryboard.init(name: "Main", bundle: nil)
-//                let tabBar = tabBarView.instantiateViewController(withIdentifier: "TabBarViewController")as? TabBarViewController
-//                window.rootViewController = UINavigationController(rootViewController: tabBar!)
-//            }
-//            else {
-//                window.rootViewController = UINavigationController(rootViewController: LoginRouter().viewController)
-//            }
-//            self.window = window
+            let logedBefore =  LocalStorage().getLogedBefore()
+            
+            if logedBefore {
+                let tabBarView = UIStoryboard.init(name: "Main", bundle: nil)
+                let tabBar = tabBarView.instantiateViewController(withIdentifier: "TabBarViewController")as? TabBarViewController
+                window.rootViewController = UINavigationController(rootViewController: tabBar!)
+            }
+            else {
+                window.rootViewController = UINavigationController(rootViewController: LoginRouter().viewController)
+            }
+            self.window = window
             window.makeKeyAndVisible()
         }
     }

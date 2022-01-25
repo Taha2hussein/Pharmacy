@@ -21,7 +21,6 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
                 koyomi.circularViewDiameter = 0.6
             case .pad:
                 koyomi.circularViewDiameter = 0.2
-                
             case .tv:
                 print("tv")
             case .carPlay:
@@ -57,8 +56,10 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        articleDetailsViewModel.sdf()
         bindViewControllerRouter()
+        requestDashboard()
+        subscribeToLoader()
+        articleDetailsViewModel.getDashboard()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,6 +95,34 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
             result.append(DataEntry(color: colors[i % colors.count], height: height, textValue: "\(value)", title: formatter.string(from: date)))
         }
         return result
+    }
+    
+    func subscribeToLoader() {
+        articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
+            DispatchQueue.main.async {
+                if isLoading {
+                    
+                    self?.showLoading()
+                    
+                } else {
+                    self?.hideLoading()
+                }
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func requestDashboard() {
+        articleDetailsViewModel.dashBoard.subscribe {[weak self] dashboard in
+            DispatchQueue.main.async{
+            let element = dashboard.element?.message
+            if let url = URL(string: baseURLImage + (element?.profileImage ?? "")) {
+                self?.ownerImage.load(url: url)
+            }
+            self?.ownerName.text = element?.employeeName
+            }
+        }.disposed(by: self.disposeBag)
+
+
     }
     
     @IBAction func segmentAction(_ sender: UISegmentedControl) {

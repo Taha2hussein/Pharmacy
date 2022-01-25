@@ -46,9 +46,14 @@
 		00535649278AF14E00A4DDA4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00535648278AF14E00A4DDA4 /* Router.swift */; };
 		0053564B278B093600A4DDA4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053564A278B093600A4DDA4 /* Keys.swift */; };
 		00535651278B0AFB00A4DDA4 /* BaseViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00535650278B0AFB00A4DDA4 /* BaseViewModelController.swift */; };
+		005E1C44279D8CF400E70C5F /* WalletsDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E1C43279D8CF400E70C5F /* WalletsDetailsRouter.swift */; };
+		005E1C46279D8D0000E70C5F /* WalletsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E1C45279D8D0000E70C5F /* WalletsDetailsViewModel.swift */; };
 		006621CA2788DC11001596A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006621C92788DC11001596A7 /* RegisterViewController.swift */; };
 		006621CC2788DC25001596A7 /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006621CB2788DC25001596A7 /* CompleteRegisterViewController.swift */; };
 		006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006621CD2788DC51001596A7 /* IntroViewController.swift */; };
+		006D492F279EA7470079F01E /* walletContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D492E279EA7470079F01E /* walletContainerViewController.swift */; };
+		006D4931279EB61A0079F01E /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D4930279EB61A0079F01E /* DashboardModel.swift */; };
+		006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D4932279EB79D0079F01E /* UIImage+Exetnsion.swift */; };
 		0077041B27898BBA0055CABC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077041A27898BBA0055CABC /* LoginViewModel.swift */; };
 		0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077041C27898BCC0055CABC /* LoginRouter.swift */; };
 		0077041F27898C1E0055CABC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077041E27898C1E0055CABC /* Constants.swift */; };
@@ -157,9 +162,14 @@
 		00535648278AF14E00A4DDA4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0053564A278B093600A4DDA4 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		00535650278B0AFB00A4DDA4 /* BaseViewModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModelController.swift; sourceTree = "<group>"; };
+		005E1C43279D8CF400E70C5F /* WalletsDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsDetailsRouter.swift; sourceTree = "<group>"; };
+		005E1C45279D8D0000E70C5F /* WalletsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsDetailsViewModel.swift; sourceTree = "<group>"; };
 		006621C92788DC11001596A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		006621CB2788DC25001596A7 /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
 		006621CD2788DC51001596A7 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		006D492E279EA7470079F01E /* walletContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletContainerViewController.swift; sourceTree = "<group>"; };
+		006D4930279EB61A0079F01E /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		006D4932279EB79D0079F01E /* UIImage+Exetnsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Exetnsion.swift"; sourceTree = "<group>"; };
 		0077041A27898BBA0055CABC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0077041C27898BCC0055CABC /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		0077041E27898C1E0055CABC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../RxSwift/RawajTest/RawajTest/Utils/Constants.swift; sourceTree = "<group>"; };
@@ -353,6 +363,7 @@
 		0044ED6B27888FF300598D8D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				006D4932279EB79D0079F01E /* UIImage+Exetnsion.swift */,
 				0044ED6C2788900900598D8D /* EkadTextField.swift */,
 				0044ED6E2788901300598D8D /* EkadLabel.swift */,
 				00365CFF279589F800647C90 /* Media.swift */,
@@ -523,6 +534,7 @@
 				00516AC9279297F000A4CCFD /* AllCountryLists.swift */,
 				00BD52D227969F13008C72CC /* ActivationCode.swift */,
 				00C97E332797458A00A072FC /* LoginModel.swift */,
+				006D4930279EB61A0079F01E /* DashboardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -531,6 +543,9 @@
 			isa = PBXGroup;
 			children = (
 				008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */,
+				005E1C43279D8CF400E70C5F /* WalletsDetailsRouter.swift */,
+				005E1C45279D8D0000E70C5F /* WalletsDetailsViewModel.swift */,
+				006D492E279EA7470079F01E /* walletContainerViewController.swift */,
 			);
 			path = "Wallets Details";
 			sourceTree = "<group>";
@@ -767,6 +782,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0044ED77278891FA00598D8D /* Asset.swift in Sources */,
+				006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */,
 				0044ED752788917800598D8D /* UIView.swift in Sources */,
 				008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */,
 				0077042927898FC40055CABC /* CompleteRegisterViewModel.swift in Sources */,
@@ -810,6 +826,7 @@
 				00516AD127929D0900A4CCFD /* State.swift in Sources */,
 				0044ED512788883D00598D8D /* UIApplication+ScreenShot.swift in Sources */,
 				0044ED8B2788A8F700598D8D /* ForgetViewController.swift in Sources */,
+				006D4931279EB61A0079F01E /* DashboardModel.swift in Sources */,
 				00E6B8E3279A0120006BEA8F /* ArrayExtension.swift in Sources */,
 				0077043A278993C90055CABC /* ConfirmMobileViewModel.swift in Sources */,
 				0044ED502788883D00598D8D /* BaseViewController.swift in Sources */,
@@ -823,6 +840,7 @@
 				00E6B8E1279A0120006BEA8F /* UIBezierPathExtension.swift in Sources */,
 				0077044C278997790055CABC /* MapRouter.swift in Sources */,
 				0044ED4F2788883D00598D8D /* Alert.swift in Sources */,
+				005E1C44279D8CF400E70C5F /* WalletsDetailsRouter.swift in Sources */,
 				00535645278AEC1000A4DDA4 /* LocalDataProtocol.swift in Sources */,
 				00535647278AEC3200A4DDA4 /* LocalStorage.swift in Sources */,
 				0044ED79278892A600598D8D /* UITextView.swift in Sources */,
@@ -831,6 +849,7 @@
 				0044ED262788871800598D8D /* SceneDelegate.swift in Sources */,
 				00770430278991660055CABC /* ForgetPasswordRouter.swift in Sources */,
 				009541342788F5FB005C3D18 /* RadioButton.swift in Sources */,
+				006D492F279EA7470079F01E /* walletContainerViewController.swift in Sources */,
 				00E6B8C52799A476006BEA8F /* WalletsViewModel.swift in Sources */,
 				00E6B8D32799F2C6006BEA8F /* Duration.swift in Sources */,
 				0044ED732788906D00598D8D /* EkadUIViewShadow.swift in Sources */,
@@ -851,6 +870,7 @@
 				00801F31278A096700A2E358 /* RegisterModel.swift in Sources */,
 				0077042B27898FCF0055CABC /* CompleteRegisterRouter.swift in Sources */,
 				00770441278994A60055CABC /* ResetPasswordViewController.swift in Sources */,
+				005E1C46279D8D0000E70C5F /* WalletsDetailsViewModel.swift in Sources */,
 				00C97E49279764C800A072FC /* TabBarViewController.swift in Sources */,
 				00516ACF2792991100A4CCFD /* Network.swift in Sources */,
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
@@ -932,7 +952,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -987,7 +1007,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
