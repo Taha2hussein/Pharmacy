@@ -504,7 +504,7 @@
                                             <constraint firstAttribute="height" constant="438" id="slJ-2E-DU3"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BranchTableViewCell" rowHeight="165" id="AZD-xI-jSF" customClass="BranchTableViewCell" customModule="Pharmacy" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BranchTableViewCell" rowHeight="165" id="AZD-xI-jSF" customClass="BranchTableViewCell" customModule="Pharmacy" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="374" height="165"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AZD-xI-jSF" id="5rr-d2-kN1">
@@ -610,6 +610,7 @@
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="HXI-Vl-Tdk" firstAttribute="leading" secondItem="DUo-Zv-Hf6" secondAttribute="trailing" constant="20" id="5rC-Ii-gZL"/>
+                                                                <constraint firstAttribute="height" constant="143" id="My1-uQ-2vc"/>
                                                                 <constraint firstItem="DUo-Zv-Hf6" firstAttribute="centerY" secondItem="3hr-jU-y6g" secondAttribute="centerY" id="Wut-O3-bVR"/>
                                                                 <constraint firstItem="HXI-Vl-Tdk" firstAttribute="top" secondItem="3hr-jU-y6g" secondAttribute="top" constant="20" id="ZQ1-uT-UJZ"/>
                                                                 <constraint firstItem="mfn-Mr-tGj" firstAttribute="leading" secondItem="BNm-RB-pAR" secondAttribute="leading" id="fGQ-KP-dKa"/>
@@ -633,6 +634,7 @@
                                                                 <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                                                     <size key="value" width="0.0" height="3"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234 EGP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuQ-cZ-WXb">
@@ -694,6 +696,8 @@
                     <connections>
                         <outlet property="LinearIncome" destination="4T7-ie-D9u" id="yhJ-t7-QaJ"/>
                         <outlet property="branchListTableView" destination="zJc-JY-27M" id="tbD-Cf-ysE"/>
+                        <outlet property="endDate" destination="rWf-4b-3xO" id="N4x-x3-CFe"/>
+                        <outlet property="fromDate" destination="Qlk-g5-SXZ" id="qKB-OR-WPR"/>
                         <outlet property="goButton" destination="XF3-ZE-OVm" id="WSv-72-Jbn"/>
                         <outlet property="linearExpnse" destination="357-K3-dRI" id="8aB-Xh-aAj"/>
                         <outlet property="linearProgressBar" destination="Fo1-13-UrU" id="XZs-h8-8Ll"/>
@@ -1343,10 +1347,10 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dwd-gM-dpg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="53.428571428571431" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53.428571428571431" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </view>
                                                             </collectionViewCell>

@@ -10,9 +10,12 @@ import RxRelay
 import RxSwift
 import RxCocoa
 import LinearProgressBar
+import DateTimePicker
 
 class WalletsViewController: BaseViewController {
     
+    @IBOutlet weak var endDate: UIButton!
+    @IBOutlet weak var fromDate: UIButton!
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var branchListTableView: UITableView!
     @IBOutlet weak var linearExpnse: UILabel!
@@ -24,6 +27,7 @@ class WalletsViewController: BaseViewController {
     
     var articleDetailsViewModel = WalletsViewModel()
     private var router = WalletsRouter()
+    private var DatePickers = DatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,9 @@ class WalletsViewController: BaseViewController {
         articleDetailsViewModel.getWallet()
         subsribeToWallet()
         requestListBrhaches()
+        subsribetoBranchList()
+        showFromDateAction()
+        showEndDateAction()
         linearProgressBar.barColorForValue = { value in
             switch value {
             case 0..<20:
@@ -80,17 +87,34 @@ class WalletsViewController: BaseViewController {
                 self?.totalExpnseLabel.text = "\(Int(walletElement?.message?.totalExpense ?? 0))"
                 self?.LinearIncome.text = "\(Int(walletElement?.message?.totalIncome ?? 0))"
                 self?.linearExpnse.text = "\(Int(walletElement?.message?.totalExpense ?? 0))"
-
+                
             }
         }.disposed(by: self.disposeBag)
-
+        
     }
     
+    func showFromDateAction() {
+        fromDate.rx.tap.subscribe {[weak self] _ in
+            self?.DatePickers.ShowPickerView(pickerView: self!, completionHandler: { date in
+                self?.fromDate.setTitle(date, for: .normal)
+            })
+        } .disposed(by: self.disposeBag)
+    }
+    
+    func showEndDateAction() {
+        endDate.rx.tap.subscribe {[weak self] _ in
+            self?.DatePickers.ShowPickerView(pickerView: self!, completionHandler: { date in
+                self?.endDate.setTitle(date, for: .normal)
+            })
+        } .disposed(by: self.disposeBag)
+        
+    }
+
     func requestListBrhaches(){
         goButton.rx.tap.subscribe {[weak self] _ in
-            self?.articleDetailsViewModel.getWalletBranches()
+            self?.articleDetailsViewModel.getWalletBranches(fromDate: (self?.fromDate.currentTitle ?? "") , endDate: (self?.endDate.currentTitle ?? ""))
         } .disposed(by: self.disposeBag)
-
+        
     }
 }
 extension WalletsViewController {
@@ -98,3 +122,9 @@ extension WalletsViewController {
         articleDetailsViewModel.bind(view: self, router: router)
     }
 }
+
+//extension WalletsViewController: DateTimePickerDelegate{
+//    func dateTimePicker(_ picker: DateTimePicker, didSelectDate: Date) {
+//        title = picker.selectedDateString
+//    }
+//}

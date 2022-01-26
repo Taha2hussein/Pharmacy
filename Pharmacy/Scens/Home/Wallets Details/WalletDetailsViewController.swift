@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxRelay
 import RxCocoa
+
 class WalletDetailsViewController: BaseViewController {
     
     @IBOutlet weak var egmentedBar: UISegmentedControl!

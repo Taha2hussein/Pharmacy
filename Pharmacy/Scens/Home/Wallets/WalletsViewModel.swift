@@ -46,15 +46,14 @@ class WalletsViewModel{
         }.resume()
     }
     
-    func getWalletBranches() {
+    func getWalletBranches(fromDate: String , endDate: String) {
         
-     
         state.isLoading.accept(true)
         var request = URLRequest(url: URL(string:walletBrnach)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        let parameters = ["datefrom":"2022-01-01T10:12:41",
-                          "dateto":"2022-01-31T10:12:41"]
+        let parameters = ["datefrom":fromDate,
+                          "dateto":endDate]
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMDEwMTQ3ODUyMzYiLCJqdGkiOiIyYTk4NTVjNy1hMDQ4LTQzYjYtOTlhMy05OTkzM2NhZTVlYTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiUGF0aWVudCIsIlBoYXJtYWNpc3QiLCJQaGFybWFjeUFkbWluIl0sImV4cCI6MTY3MTc5MDA5NiwiaXNzIjoid3d3LmNsaW5pYy5jb20iLCJhdWQiOiJ3d3cuY2xpbmljLmNvbSJ9.VQGRr-YR9MzwHzEF7AQaQgbCLuDpN-G1AzGMKyJxjFY"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
@@ -70,6 +69,7 @@ class WalletsViewModel{
                 let decoder = JSONDecoder()
                 var walletBranch = BrnachListModel()
                 walletBranch = try decoder.decode(BrnachListModel.self, from: data)
+                print(walletBranch)
                 if walletBranch.successtate == 200 {
                     DispatchQueue.main.async {
                         self.walletBrhacnList.onNext(walletBranch.message ?? [])
@@ -83,3 +83,4 @@ class WalletsViewModel{
        
     }
 }
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMDEwMTQ3ODUyMzYiLCJqdGkiOiIyYTk4NTVjNy1hMDQ4LTQzYjYtOTlhMy05OTkzM2NhZTVlYTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiUGF0aWVudCIsIlBoYXJtYWNpc3QiLCJQaGFybWFjeUFkbWluIl0sImV4cCI6MTY3MTc5MDA5NiwiaXNzIjoid3d3LmNsaW5pYy5jb20iLCJhdWQiOiJ3d3cuY2xpbmljLmNvbSJ9.VQGRr-YR9MzwHzEF7AQaQgbCLuDpN-G1AzGMKyJxjFY

@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Pharmacy/Pods-Pharmacy-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
 ${BUILT_PRODUCTS_DIR}/KKPinCodeTextField/KKPinCodeTextField.framework
 ${BUILT_PRODUCTS_DIR}/Koyomi/Koyomi.framework

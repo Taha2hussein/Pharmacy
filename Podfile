@@ -21,5 +21,5 @@ target 'Pharmacy' do
      pod 'TabPageViewController'
      pod 'Koyomi'
      pod 'LinearProgressBar'
-
+     pod 'DateTimePicker'
 end
