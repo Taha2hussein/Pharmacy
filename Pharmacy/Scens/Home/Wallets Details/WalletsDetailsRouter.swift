@@ -15,21 +15,33 @@ class WalletsDetailsRouter {
     
     private var sourceView: UIViewController?
     private var source: BrahcnListMessage?
-
+    private var Balance: WalletModel?
+    private var previosView: previosView?
     private func createViewController() -> UIViewController {
       
         let view = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
         
         let viewController = view.instantiateViewController(withIdentifier: ViewController.walletDetails.rawValue) as? WalletDetailsViewController
+        viewController?.previosView = previosView
         viewController?.articleDetailsViewModel.articles = source
+        viewController?.articleDetailsViewModel.Balance = Balance
+
         return viewController!
     }
+    
     init() {
         
     }
     
-    init<T>(source: T?) {
+    init<T>(source: T?, previosView: previosView) {
         self.source = source as? BrahcnListMessage
+        self.previosView = previosView
+    }
+    
+    init<T>(balance: T?, previosView: previosView) {
+        print(balance)
+        self.Balance = balance as? WalletModel
+        self.previosView = previosView
     }
     
     func setSourceView(_ sourceView: UIViewController?) {
@@ -37,4 +49,9 @@ class WalletsDetailsRouter {
         self.sourceView = view
     }
 
+}
+
+enum previosView{
+    case balance
+    case pharmacy
 }

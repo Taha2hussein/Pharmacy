@@ -24,11 +24,12 @@ class WalletsViewController: BaseViewController {
     @IBOutlet weak var totalincomeLabel: UILabel!
     @IBOutlet weak var totalBalance: UILabel!
     @IBOutlet weak var linearProgressBar: LinearProgressBar!
+    @IBOutlet weak var balanceView: UIView!
     
     var articleDetailsViewModel = WalletsViewModel()
     private var router = WalletsRouter()
     private var DatePickers = DatePicker()
-    
+    private var WalletElement: WalletModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewControllerRouter()
@@ -40,7 +41,7 @@ class WalletsViewController: BaseViewController {
         showEndDateAction()
         selectBranch()
         articleDetailsViewModel.getWallet()
-        
+        setGesturesForBalanceView()
         linearProgressBar.barColorForValue = { value in
             switch value {
             case 0..<20:
@@ -54,6 +55,13 @@ class WalletsViewController: BaseViewController {
             }
         }
     }
+    
+    func setGesturesForBalanceView() {
+        let balanceView = UITapGestureRecognizer(target: self, action: #selector(self.tabBalnce))
+        self.balanceView.isUserInteractionEnabled = true
+        self.balanceView.addGestureRecognizer(balanceView)
+    }
+    
     
     func subscribeToLoader() {
         articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
@@ -84,6 +92,7 @@ class WalletsViewController: BaseViewController {
         articleDetailsViewModel.wallet.subscribe {[weak self] wallet in
             DispatchQueue.main.async {
                 let walletElement = wallet.element
+                self?.WalletElement = walletElement
                 self?.totalBalance.text = "\(Int(walletElement?.message?.totalBalance ?? 0))"
                 self?.totalincomeLabel.text = "\(Int(walletElement?.message?.totalIncome ?? 0))"
                 self?.totalExpnseLabel.text = "\(Int(walletElement?.message?.totalExpense ?? 0))"
@@ -124,7 +133,7 @@ class WalletsViewController: BaseViewController {
                         .rx
                         .itemSelected,branchListTableView.rx.modelSelected(BrahcnListMessage.self)).bind { [weak self] selectedIndex, product in
             
-            self?.articleDetailsViewModel.showDetailsForBrahnch(source: product)
+            self?.articleDetailsViewModel.showDetailsBranch(source: product , previosView: .pharmacy)
         }.disposed(by: self.disposeBag)
     }
 }
@@ -133,4 +142,12 @@ extension WalletsViewController {
     func bindViewControllerRouter() {
         articleDetailsViewModel.bind(view: self, router: router)
     }
+}
+
+extension WalletsViewController {
+    @objc
+    func tabBalnce(sender:UITapGestureRecognizer) {
+        articleDetailsViewModel.showDetailsBranch_Balance(source: WalletElement , previosView: .balance)
+    }
+        
 }

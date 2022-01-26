@@ -701,6 +701,7 @@
                     </view>
                     <connections>
                         <outlet property="LinearIncome" destination="4T7-ie-D9u" id="yhJ-t7-QaJ"/>
+                        <outlet property="balanceView" destination="cWh-VE-Mq1" id="SH8-U7-z5k"/>
                         <outlet property="branchListTableView" destination="zJc-JY-27M" id="tbD-Cf-ysE"/>
                         <outlet property="endDate" destination="rWf-4b-3xO" id="N4x-x3-CFe"/>
                         <outlet property="fromDate" destination="Qlk-g5-SXZ" id="qKB-OR-WPR"/>
@@ -742,7 +743,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfh-ea-4lC">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8G-Lo-WRw">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8G-Lo-WRw">
                                         <rect key="frame" x="20" y="20" width="374" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdB-XS-Beo">
@@ -974,7 +975,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mP2-EZ-vtV">
                                                         <rect key="frame" x="0.0" y="0.0" width="120.5" height="50"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="2022-2-1">
+                                                        <buttonConfiguration key="configuration" style="plain" title="2022-02-01">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -1011,7 +1012,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1m-QG-wGh">
                                                         <rect key="frame" x="0.0" y="0.0" width="120.5" height="50"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="2022-4-2">
+                                                        <buttonConfiguration key="configuration" style="plain" title="2022-04-02">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -1238,17 +1239,22 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="balnceView" destination="X8G-Lo-WRw" id="58f-Lc-Qq2"/>
                         <outlet property="customContainer" destination="YDq-tR-4IB" id="COj-Ns-gPp"/>
                         <outlet property="egmentedBar" destination="fbU-rv-HRu" id="XQ9-NE-W27"/>
                         <outlet property="endDateButton" destination="y1m-QG-wGh" id="TYa-IE-9xe"/>
-                        <outlet property="expnseLabel" destination="xcq-DI-TzC" id="fj0-x2-fvx"/>
+                        <outlet property="expnseLabel" destination="xcq-DI-TzC" id="tSV-Du-huz"/>
+                        <outlet property="expnseLabel_Balance" destination="Z6p-IF-Jpj" id="ocC-yE-N86"/>
                         <outlet property="fromDateButton" destination="mP2-EZ-vtV" id="hnX-jP-6Wl"/>
                         <outlet property="goButton" destination="Aqu-fw-yhq" id="Xjh-Jm-hAo"/>
-                        <outlet property="incomeLabel" destination="Ixc-s2-nrk" id="8Jh-QC-pY0"/>
+                        <outlet property="incomeLabel" destination="Ixc-s2-nrk" id="dji-Ll-QoO"/>
+                        <outlet property="incomeLabel_Blance" destination="xLA-xD-QEE" id="EZ7-V5-oRn"/>
                         <outlet property="ownerImage" destination="Asq-kI-q6l" id="qF7-f0-K8G"/>
                         <outlet property="pharmacyLocation" destination="Qm7-L7-NPV" id="yZS-SG-x8W"/>
                         <outlet property="pharmacyName" destination="gFR-54-ILh" id="vuJ-1j-hke"/>
+                        <outlet property="pharmacyView" destination="Jxc-0h-7Rx" id="a1i-Xv-U7K"/>
                         <outlet property="rechargeButton" destination="rs8-PT-Ibi" id="NOM-hV-fBz"/>
+                        <outlet property="totalBalance" destination="Qb9-el-cuK" id="U2q-jD-UED"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evS-L6-z5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -28,9 +28,14 @@ class WalletsRouter {
         self.sourceView = view
     }
     
-    func navigateToDetailsView<T>(source: T?) {
-        let detailsView = WalletsDetailsRouter(source: source).viewController
-        
+    func navigateToDetailsView<T>(source: T? , previosView: previosView) {
+        let detailsView = WalletsDetailsRouter(source: source, previosView: previosView).viewController
+        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
+    }
+    
+    func navigateToDetailsView_Balance<T>(source: T? , previosView: previosView) {
+        print(source)
+        let detailsView = WalletsDetailsRouter(balance: source, previosView: previosView).viewController
         sourceView?.navigationController?.pushViewController(detailsView, animated: true)
     }
 }

@@ -23,61 +23,83 @@ class WalletDetailsViewController: BaseViewController {
     @IBOutlet weak var customContainer: UIView!
     @IBOutlet weak var expnseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
+    @IBOutlet weak var pharmacyView: UIView!
     
+    //
+    
+    @IBOutlet weak var balnceView: UIView!
+    @IBOutlet weak var totalBalance: UILabel!
+    @IBOutlet weak var expnseLabel_Balance: UILabel!
+    @IBOutlet weak var incomeLabel_Blance: UILabel!
     // MARK: - Variables
     var container: walletContainerViewController!
     var articleDetailsViewModel = WalletsDetailsViewModel()
     private var router = WalletsDetailsRouter()
     private var DatePickers = DatePicker()
-
+    var previosView: previosView?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         container!.segueIdentifierReceivedFromParent("next")
         bindViewControllerRouter()
-        setup()
         segmentAction()
-        bindToPharmacyLabel()
-        bindToPharmacyLocationLabel()
-        bindToIncomeLabel()
-        bindToExpnseLabel()
-        bindToPharmacyImage()
         showFromDateAction()
         showEndDateAction()
         requestListBrhaches()
+        checkView()
     }
     
-    func setup() {
-        articleDetailsViewModel.intializeData()
+    func checkView() {
+        if previosView == .pharmacy {
+            balnceView.isHidden = true
+            bindToPharmacyLabel()
+            bindToPharmacyLocationLabel()
+            bindToIncomeLabel()
+            bindToExpnseLabel()
+            bindToPharmacyImage()
+            articleDetailsViewModel.intializeData()
+        }
+        
+        else {
+            pharmacyView.isHidden = true
+            articleDetailsViewModel.intializeDataForBalance()
+            bindToTotalBalance()
+            bindToTotalInce()
+            bindToITotalExpnse()
+            bindToIncome()
+            bindToExpnse()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "container"{
-          container = segue.destination as? walletContainerViewController
-          container.animationDurationWithOptions = (0.5, .transitionCrossDissolve)
-          }
-      }
+        if segue.identifier == "container"{
+            container = segue.destination as? walletContainerViewController
+            container.animationDurationWithOptions = (0.5, .transitionCrossDissolve)
+        }
+    }
     
     
     func segmentAction() {
         egmentedBar.rx.selectedSegmentIndex.subscribe { [weak self] index in
             if index.element == 0 {
-  // handle DAta
+                // handle DAta
                 print("all")
             } else if index.element == 1 {
                 // handle DAta
                 print("received")
-
-              
+                
+                
             }
             
             else {
                 // handle DAta
                 print("used")
-
+                
             }
             
         }.disposed(by: self.disposeBag)
-
+        
     }
     
     func showFromDateAction() {
@@ -99,7 +121,7 @@ class WalletDetailsViewController: BaseViewController {
     
     func requestListBrhaches(){
         goButton.rx.tap.subscribe {[weak self] _ in
-//            self?.articleDetailsViewModel.getWalletBranches(fromDate: (self?.fromDateButton.currentTitle ?? "") , endDate: (self?.endDateButton.currentTitle ?? ""))
+            //            self?.articleDetailsViewModel.getWalletBranches(fromDate: (self?.fromDateButton.currentTitle ?? "") , endDate: (self?.endDateButton.currentTitle ?? ""))
         } .disposed(by: self.disposeBag)
         
     }
@@ -114,40 +136,75 @@ extension WalletDetailsViewController {
     func bindToPharmacyLabel() {
         articleDetailsViewModel.pharmacyName
             .bind(to: pharmacyName.rx.text)
-        .disposed(by: self.disposeBag)
-
+            .disposed(by: self.disposeBag)
+        
     }
     
     func bindToPharmacyLocationLabel() {
         articleDetailsViewModel.pharmacyLocation
             .bind(to: pharmacyLocation.rx.text)
-        .disposed(by: self.disposeBag)
+            .disposed(by: self.disposeBag)
     }
     
     func bindToIncomeLabel() {
         articleDetailsViewModel.pharmacyIncome
             .bind(to: incomeLabel.rx.text)
-        .disposed(by: self.disposeBag)
-
+            .disposed(by: self.disposeBag)
+        
     }
     
     func bindToExpnseLabel() {
         articleDetailsViewModel.pharmacyExpense
             .bind(to: expnseLabel.rx.text)
-        .disposed(by: self.disposeBag)
+            .disposed(by: self.disposeBag)
     }
     
     func bindToPharmacyImage() {
         articleDetailsViewModel.pahrmacyImage.subscribe {[weak self] imageURL in
             self?.setImage(image: imageURL.element ?? "")
         }.disposed(by: self.disposeBag)
-
+        
     }
     
     func setImage(image: String) {
-        let imageURL =  baseURLImage + image
-        if let url = URL(string: baseURLImage + (element?.profileImage ?? "")) {
-            self?.ownerImage.load(url: url)
+        if let url = URL(string: baseURLImage + (image ?? "")) {
+            self.ownerImage.load(url: url)
         }
+    }
+}
+
+// for Balance
+extension WalletDetailsViewController {
+    
+    func bindToTotalBalance() {
+        articleDetailsViewModel.totalBalance
+            .bind(to: totalBalance.rx.text)
+            .disposed(by: self.disposeBag)
+        
+    }
+    
+    func bindToTotalInce() {
+        articleDetailsViewModel.totalIncome
+            .bind(to: incomeLabel_Blance.rx.text)
+            .disposed(by: self.disposeBag)
+    }
+    
+    func bindToITotalExpnse() {
+        articleDetailsViewModel.totalExpnse
+            .bind(to: expnseLabel_Balance.rx.text)
+            .disposed(by: self.disposeBag)
+        
+    }
+    
+    func bindToIncome() {
+        articleDetailsViewModel.pharmacyIncome
+            .bind(to: incomeLabel.rx.text)
+            .disposed(by: self.disposeBag)
+    }
+    
+    func bindToExpnse() {
+        articleDetailsViewModel.pharmacyExpense
+            .bind(to: expnseLabel.rx.text)
+            .disposed(by: self.disposeBag)
     }
 }

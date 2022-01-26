@@ -83,7 +83,12 @@ class WalletsViewModel{
        
     }
     
-    func showDetailsForBrahnch<T>(source: T ){
-        router?.navigateToDetailsView(source: source)
+    func showDetailsBranch<T>(source:T , previosView: previosView) {
+        router?.navigateToDetailsView(source: source, previosView: previosView)
+    }
+    
+    func showDetailsBranch_Balance<T>(source: T  , previosView: previosView){
+        router?.navigateToDetailsView_Balance(source: source, previosView: previosView)
     }
 }
+
