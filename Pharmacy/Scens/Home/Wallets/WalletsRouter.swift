@@ -13,7 +13,7 @@ class WalletsRouter {
     }
     
     private var sourceView: UIViewController?
-    
+
     private func createViewController() -> UIViewController {
       
         let view = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
@@ -28,8 +28,10 @@ class WalletsRouter {
         self.sourceView = view
     }
     
-//    func navigateToDetailsView<T>(source: T?) {
-//        let detailsView = DetailsConfiguration(source: source).viewController
-//        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
-//    }
+    func navigateToDetailsView<T>(source: T?) {
+        let detailsView = WalletsDetailsRouter(source: source).viewController
+        
+        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
+    }
 }
+//BrahcnListMessage

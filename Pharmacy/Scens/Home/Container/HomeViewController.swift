@@ -12,16 +12,18 @@ import RxSwift
 
 class HomeViewController: BaseViewController {
 
+    @IBOutlet weak var uperView: UIView!
     @IBOutlet weak var segmentController: UISegmentedControl!
     
     var container: ContainerViewController!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentAction()
         container!.segueIdentifierReceivedFromParent("previous")
+//        embedUperView()
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "container"{
@@ -39,11 +41,14 @@ class HomeViewController: BaseViewController {
             } else {
 
                 self?.container!.segueIdentifierReceivedFromParent("next")
-//                let controller = container.currentViewController as? childViewController
-//                controller?.delegate = self as NextViewDelegate
+
             }
         }.disposed(by: self.disposeBag)
 
     }
 
+    func embedUperView() {
+        let vc = UperRouter().viewController
+        self.embedd(into: self, childController: vc, containerView: uperView)
+    }
 }

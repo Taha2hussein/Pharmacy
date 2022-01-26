@@ -33,12 +33,14 @@ class WalletsViewController: BaseViewController {
         super.viewDidLoad()
         bindViewControllerRouter()
         subscribeToLoader()
-        articleDetailsViewModel.getWallet()
         subsribeToWallet()
         requestListBrhaches()
         subsribetoBranchList()
         showFromDateAction()
         showEndDateAction()
+        selectBranch()
+        articleDetailsViewModel.getWallet()
+        
         linearProgressBar.barColorForValue = { value in
             switch value {
             case 0..<20:
@@ -109,22 +111,26 @@ class WalletsViewController: BaseViewController {
         } .disposed(by: self.disposeBag)
         
     }
-
+    
     func requestListBrhaches(){
         goButton.rx.tap.subscribe {[weak self] _ in
             self?.articleDetailsViewModel.getWalletBranches(fromDate: (self?.fromDate.currentTitle ?? "") , endDate: (self?.endDate.currentTitle ?? ""))
         } .disposed(by: self.disposeBag)
         
     }
+    
+    func selectBranch() {
+        Observable.zip(branchListTableView
+                        .rx
+                        .itemSelected,branchListTableView.rx.modelSelected(BrahcnListMessage.self)).bind { [weak self] selectedIndex, product in
+            
+            self?.articleDetailsViewModel.showDetailsForBrahnch(source: product)
+        }.disposed(by: self.disposeBag)
+    }
 }
+
 extension WalletsViewController {
     func bindViewControllerRouter() {
         articleDetailsViewModel.bind(view: self, router: router)
     }
 }
-
-//extension WalletsViewController: DateTimePickerDelegate{
-//    func dateTimePicker(_ picker: DateTimePicker, didSelectDate: Date) {
-//        title = picker.selectedDateString
-//    }
-//}

@@ -53,9 +53,6 @@ open class walletContainerViewController: UIViewController {
         
     }
     
-    
-    
-    
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier{
             //Remove Container View
@@ -86,8 +83,7 @@ open class walletContainerViewController: UIViewController {
                 self.viewController.didMove(toParent: self)
             })
            
-           
-            
+        
         }
         
     }

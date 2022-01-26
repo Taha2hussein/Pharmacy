@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -85,6 +85,12 @@
 		008C492E27A14B9800363DE6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 008C492D27A14B9800363DE6 /* FirebaseDatabase */; };
 		008C493027A14B9800363DE6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 008C492F27A14B9800363DE6 /* FirebaseMessaging */; };
 		008C493327A14C9400363DE6 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493227A14C9400363DE6 /* DatePicker.swift */; };
+		008C493627A16B9500363DE6 /* UperSection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008C493527A16B9500363DE6 /* UperSection.storyboard */; };
+		008C493827A16BAC00363DE6 /* UperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493727A16BAC00363DE6 /* UperViewController.swift */; };
+		008C493A27A16BB700363DE6 /* UperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493927A16BB700363DE6 /* UperViewModel.swift */; };
+		008C493C27A16BC000363DE6 /* UperRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493B27A16BC000363DE6 /* UperRouter.swift */; };
+		008C493E27A16D7000363DE6 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493D27A16D7000363DE6 /* UIViewController + Extension.swift */; };
+		008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493F27A195F200363DE6 /* DashboardBranchesList.swift */; };
 		008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */; };
 		009541342788F5FB005C3D18 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009541332788F5FB005C3D18 /* RadioButton.swift */; };
 		00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD52D227969F13008C72CC /* ActivationCode.swift */; };
@@ -200,6 +206,12 @@
 		0077045627899EF20055CABC /* IntroRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroRouter.swift; sourceTree = "<group>"; };
 		00801F30278A096700A2E358 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		008C493227A14C9400363DE6 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		008C493527A16B9500363DE6 /* UperSection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UperSection.storyboard; sourceTree = "<group>"; };
+		008C493727A16BAC00363DE6 /* UperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UperViewController.swift; sourceTree = "<group>"; };
+		008C493927A16BB700363DE6 /* UperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UperViewModel.swift; sourceTree = "<group>"; };
+		008C493B27A16BC000363DE6 /* UperRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UperRouter.swift; sourceTree = "<group>"; };
+		008C493D27A16D7000363DE6 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		008C493F27A195F200363DE6 /* DashboardBranchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBranchesList.swift; sourceTree = "<group>"; };
 		008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsViewController.swift; sourceTree = "<group>"; };
 		009541332788F5FB005C3D18 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		00BD52D227969F13008C72CC /* ActivationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCode.swift; sourceTree = "<group>"; };
@@ -360,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				0044ED292788871800598D8D /* Main.storyboard */,
+				008C493527A16B9500363DE6 /* UperSection.storyboard */,
 				00CAFD4A279FE83F0087F164 /* Register.storyboard */,
 				00CAFD4C279FE8650087F164 /* ForgetPassword.storyboard */,
 				00CAFD4E279FE8710087F164 /* Verification.storyboard */,
@@ -386,6 +399,7 @@
 				0044ED78278892A500598D8D /* UITextView.swift */,
 				009541332788F5FB005C3D18 /* RadioButton.swift */,
 				000A1F752794EAFE00508D3C /* UIImageConverted.swift */,
+				008C493D27A16D7000363DE6 /* UIViewController + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				008C493127A14C8000363DE6 /* Picker View */,
+				008C493427A16B7E00363DE6 /* Uper Section */,
 				00E6B8B42799956A006BEA8F /* Home */,
 				00C97E472797649700A072FC /* Tab Bar */,
 				0077042727898F920055CABC /* Auth */,
@@ -550,6 +565,7 @@
 				006D4930279EB61A0079F01E /* DashboardModel.swift */,
 				00CAFD6F27A049F00087F164 /* WalletModel.swift */,
 				00CAFD7327A054FF0087F164 /* BracnhListModel.swift */,
+				008C493F27A195F200363DE6 /* DashboardBranchesList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -560,6 +576,16 @@
 				008C493227A14C9400363DE6 /* DatePicker.swift */,
 			);
 			path = "Picker View";
+			sourceTree = "<group>";
+		};
+		008C493427A16B7E00363DE6 /* Uper Section */ = {
+			isa = PBXGroup;
+			children = (
+				008C493727A16BAC00363DE6 /* UperViewController.swift */,
+				008C493927A16BB700363DE6 /* UperViewModel.swift */,
+				008C493B27A16BC000363DE6 /* UperRouter.swift */,
+			);
+			path = "Uper Section";
 			sourceTree = "<group>";
 		};
 		008D886D279AB53900BAF8DC /* Wallets Details */ = {
@@ -693,7 +719,7 @@
 				};
 			};
 			buildConfigurationList = 0044ED1B2788871800598D8D /* Build configuration list for PBXProject "Pharmacy" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -726,6 +752,7 @@
 				00CAFD4D279FE8650087F164 /* ForgetPassword.storyboard in Resources */,
 				0044ED8427889A1B00598D8D /* Segoe UI.ttf in Resources */,
 				0044ED8627889A1B00598D8D /* Segoe UI Italic.ttf in Resources */,
+				008C493627A16B9500363DE6 /* UperSection.storyboard in Resources */,
 				0044ED302788871C00598D8D /* Assets.xcassets in Resources */,
 				00CAFD55279FE89A0087F164 /* MapView.storyboard in Resources */,
 				00CAFD4B279FE83F0087F164 /* Register.storyboard in Resources */,
@@ -806,12 +833,14 @@
 				0044ED77278891FA00598D8D /* Asset.swift in Sources */,
 				006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */,
 				0044ED752788917800598D8D /* UIView.swift in Sources */,
+				008C493827A16BAC00363DE6 /* UperViewController.swift in Sources */,
 				008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */,
 				0077042927898FC40055CABC /* CompleteRegisterViewModel.swift in Sources */,
 				000A1F762794EAFE00508D3C /* UIImageConverted.swift in Sources */,
 				0053564B278B093600A4DDA4 /* Keys.swift in Sources */,
 				00E6B8BD27999774006BEA8F /* HomeViewController.swift in Sources */,
 				0044ED4B2788883D00598D8D /* ApplicationService.swift in Sources */,
+				008C493E27A16D7000363DE6 /* UIViewController + Extension.swift in Sources */,
 				00365D00279589F800647C90 /* Media.swift in Sources */,
 				00770443278994B00055CABC /* ResetPasswordViewModel.swift in Sources */,
 				0077043C278993DA0055CABC /* ConfirmMobileRouter.swift in Sources */,
@@ -850,6 +879,7 @@
 				0077043A278993C90055CABC /* ConfirmMobileViewModel.swift in Sources */,
 				0044ED502788883D00598D8D /* BaseViewController.swift in Sources */,
 				0044ED2E2788871800598D8D /* Pharmacy.xcdatamodeld in Sources */,
+				008C493A27A16BB700363DE6 /* UperViewModel.swift in Sources */,
 				00770453278998260055CABC /* ConfirmAccountViewController.swift in Sources */,
 				0077045527899EE40055CABC /* IntroVideModel.swift in Sources */,
 				00770435278993000055CABC /* VerificationViewController.swift in Sources */,
@@ -879,11 +909,13 @@
 				0044ED6F2788901300598D8D /* EkadLabel.swift in Sources */,
 				00516ACA279297F000A4CCFD /* AllCountryLists.swift in Sources */,
 				006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */,
+				008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */,
 				00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */,
 				0077041F27898C1E0055CABC /* Constants.swift in Sources */,
 				00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */,
 				00770445278994B90055CABC /* ResetPasswordRouter.swift in Sources */,
 				00E6B8CB2799F0EB006BEA8F /* NSDate+Timepiece.swift in Sources */,
+				008C493C27A16BC000363DE6 /* UperRouter.swift in Sources */,
 				00CAFD7027A049F00087F164 /* WalletModel.swift in Sources */,
 				00801F31278A096700A2E358 /* RegisterModel.swift in Sources */,
 				0077042B27898FCF0055CABC /* CompleteRegisterRouter.swift in Sources */,

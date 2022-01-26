@@ -18,6 +18,7 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
     @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var segmentView: UISegmentedControl!
     @IBOutlet weak var dailyTotalOrders: UITextField!
+    @IBOutlet weak var goButton: UIButton!
     
     @IBOutlet fileprivate weak var koyomi: Koyomi! {
         didSet {
@@ -56,7 +57,7 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
     }()
     
    let year = ["2022","2023","2024","2025","2026","2027","2028","2029","2030"]
-   let month = ["jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+   let month = ["1","2","3","4","5","6","7","8","9","10","11","12"]
 
     let selectCityFromDropDown = DropDown()
     fileprivate let invalidPeriodLength = 90
@@ -81,6 +82,7 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         subscribeToBranches()
         setGesturesForYear()
         setGesturesForMonth()
+        requestListBrhaches()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -120,7 +122,7 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         articleDetailsViewModel.branchesObject.subscribe {[weak self] branchs in
             DispatchQueue.main.async{
             self?.brnaches = branchs.element!
-                let totalVlaue = self?.brnaches.map({(Double($0.branchID ?? 0)) })
+                let totalVlaue = self?.brnaches.map({(Double($0.ordersCount ?? 0)) })
                 self?.basicBarChart.drawChart(totalVlaue ?? [])
       
             }
@@ -151,8 +153,15 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
             self?.ownerName.text = element?.employeeName
             }
         }.disposed(by: self.disposeBag)
-
-
+    }
+    
+    func requestListBrhaches(){
+        goButton.rx.tap.subscribe {[weak self] _ in
+            let month = Int( self?.monthSelected.text ?? "1")
+            let year = Int( self?.yearSelected.text ?? "2022")
+            self?.articleDetailsViewModel.getBranchList(month: month ?? 1, year: year ?? 2022)
+        } .disposed(by: self.disposeBag)
+        
     }
     
     @IBAction func segmentAction(_ sender: UISegmentedControl) {

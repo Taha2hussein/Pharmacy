@@ -237,3 +237,11 @@ extension UIBezierPath {
         cgPath = path
     }
 }
+
+extension UIView {
+    /// Remove allSubView in view
+    func removeAllSubViews() {
+        self.subviews.forEach({ $0.removeFromSuperview() })
+    }
+
+}
