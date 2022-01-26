@@ -37,7 +37,7 @@ class WalletDetailsViewController: BaseViewController {
     private var router = WalletsDetailsRouter()
     private var DatePickers = DatePicker()
     var previosView: previosView?
-    
+    private var branchIDForPharmacy = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,7 @@ class WalletDetailsViewController: BaseViewController {
         showEndDateAction()
         requestListBrhaches()
         checkView()
+        subscribeToLoader()
         rechargeAction()
     }
     
@@ -59,6 +60,7 @@ class WalletDetailsViewController: BaseViewController {
             bindToIncomeLabel()
             bindToExpnseLabel()
             bindToPharmacyImage()
+            subsribeToBranch()
             articleDetailsViewModel.intializeData()
         }
         
@@ -79,7 +81,6 @@ class WalletDetailsViewController: BaseViewController {
             container.animationDurationWithOptions = (0.5, .transitionCrossDissolve)
         }
     }
-    
     
     func segmentAction() {
         egmentedBar.rx.selectedSegmentIndex.subscribe { [weak self] index in
@@ -120,9 +121,23 @@ class WalletDetailsViewController: BaseViewController {
         
     }
     
+    func subscribeToLoader() {
+        articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
+            DispatchQueue.main.async {
+                if isLoading {
+                    
+                    self?.showLoading()
+                    
+                } else {
+                    self?.hideLoading()
+                }
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
     func requestListBrhaches(){
         goButton.rx.tap.subscribe {[weak self] _ in
-            //            self?.articleDetailsViewModel.getWalletBranches(fromDate: (self?.fromDateButton.currentTitle ?? "") , endDate: (self?.endDateButton.currentTitle ?? ""))
+            self?.articleDetailsViewModel.getWalletTransactionList(branchId: self?.branchIDForPharmacy ?? "", fromDate: (self?.fromDateButton.currentTitle ?? ""), endDate: (self?.endDateButton.currentTitle ?? ""))
         } .disposed(by: self.disposeBag)
         
     }
@@ -173,6 +188,13 @@ extension WalletDetailsViewController {
         articleDetailsViewModel.pharmacyExpense
             .bind(to: expnseLabel.rx.text)
             .disposed(by: self.disposeBag)
+    }
+    
+    func subsribeToBranch() {
+        articleDetailsViewModel.branchId.subscribe { [weak self] branchId in
+            self?.branchIDForPharmacy = branchId
+        } .disposed(by: self.disposeBag)
+
     }
     
     func bindToPharmacyImage() {

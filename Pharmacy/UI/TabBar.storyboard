@@ -1373,10 +1373,10 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dwd-gM-dpg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="53.428571428571431" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53.428571428571431" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </view>
                                                             </collectionViewCell>
@@ -1637,10 +1637,10 @@
             </objects>
             <point key="canvasLocation" x="7501" y="667"/>
         </scene>
-        <!--View Controller-->
+        <!--Wallet Tranaction View Controller-->
         <scene sceneID="Gim-gg-6hH">
             <objects>
-                <viewController id="gjp-x0-GYp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalletTranactionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gjp-x0-GYp" customClass="WalletTranactionViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vGg-tx-54Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1675,7 +1675,7 @@
                                         <rect key="frame" x="0.0" y="49" width="414" height="351"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="263" id="nDk-Sz-dVl">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WalletTransactionTableViewCell" rowHeight="263" id="nDk-Sz-dVl" customClass="WalletTransactionTableViewCell" customModule="Pharmacy" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="414" height="263"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nDk-Sz-dVl" id="ztL-iK-1tj">
@@ -1749,6 +1749,11 @@
                                                         <constraint firstAttribute="trailingMargin" secondItem="qmC-89-r2R" secondAttribute="trailing" constant="10" id="sa6-Se-rIM"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="balanceLabel" destination="YJo-2T-rmG" id="vJo-0D-QhA"/>
+                                                    <outlet property="chargeDate" destination="Jho-Wf-qzL" id="jx0-wE-jwv"/>
+                                                    <outlet property="valueLabel" destination="gN4-kk-SDo" id="5Ev-uZ-Jms"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -1792,6 +1797,9 @@
                             <constraint firstItem="he6-rX-FqB" firstAttribute="top" secondItem="eYP-zY-50L" secondAttribute="top" constant="10" id="ijH-DT-tgt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="walletTransactionTableView" destination="1Wz-ro-Y10" id="n3e-d7-GdW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFG-Jt-ODf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
