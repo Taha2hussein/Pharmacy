@@ -48,6 +48,7 @@ class WalletDetailsViewController: BaseViewController {
         showEndDateAction()
         requestListBrhaches()
         checkView()
+        rechargeAction()
     }
     
     func checkView() {
@@ -124,6 +125,21 @@ class WalletDetailsViewController: BaseViewController {
             //            self?.articleDetailsViewModel.getWalletBranches(fromDate: (self?.fromDateButton.currentTitle ?? "") , endDate: (self?.endDateButton.currentTitle ?? ""))
         } .disposed(by: self.disposeBag)
         
+    }
+    
+    func rechargeAction() {
+        rechargeButton.rx.tap.subscribe {[weak self] _ in
+            self?.showRechargeSubView()
+        } .disposed(by: self.disposeBag)
+    }
+    
+    func showRechargeSubView() {
+        let view = UIStoryboard.init(name: Storyboards.Recharge.rawValue, bundle: nil)
+        let viewController = view.instantiateViewController(withIdentifier: ViewController.RechageView.rawValue)
+        viewController.view.frame = self.view.bounds
+        self.view.addSubview(viewController.view)
+        self.addChild(viewController)
+        viewController.didMove(toParent: self)
     }
 }
 extension WalletDetailsViewController {

@@ -91,6 +91,9 @@
 		008C493C27A16BC000363DE6 /* UperRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493B27A16BC000363DE6 /* UperRouter.swift */; };
 		008C493E27A16D7000363DE6 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493D27A16D7000363DE6 /* UIViewController + Extension.swift */; };
 		008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C493F27A195F200363DE6 /* DashboardBranchesList.swift */; };
+		008C494227A1BAF400363DE6 /* Recharge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008C494127A1BAF400363DE6 /* Recharge.storyboard */; };
+		008C494427A1BE3900363DE6 /* RechargeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C494327A1BE3900363DE6 /* RechargeModel.swift */; };
+		008C494727A1BEC800363DE6 /* RechageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C494627A1BEC800363DE6 /* RechageViewController.swift */; };
 		008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */; };
 		009541342788F5FB005C3D18 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009541332788F5FB005C3D18 /* RadioButton.swift */; };
 		00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD52D227969F13008C72CC /* ActivationCode.swift */; };
@@ -212,6 +215,9 @@
 		008C493B27A16BC000363DE6 /* UperRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UperRouter.swift; sourceTree = "<group>"; };
 		008C493D27A16D7000363DE6 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		008C493F27A195F200363DE6 /* DashboardBranchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBranchesList.swift; sourceTree = "<group>"; };
+		008C494127A1BAF400363DE6 /* Recharge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recharge.storyboard; sourceTree = "<group>"; };
+		008C494327A1BE3900363DE6 /* RechargeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RechargeModel.swift; sourceTree = "<group>"; };
+		008C494627A1BEC800363DE6 /* RechageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RechageViewController.swift; sourceTree = "<group>"; };
 		008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsViewController.swift; sourceTree = "<group>"; };
 		009541332788F5FB005C3D18 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		00BD52D227969F13008C72CC /* ActivationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCode.swift; sourceTree = "<group>"; };
@@ -381,6 +387,7 @@
 				00CAFD54279FE89A0087F164 /* MapView.storyboard */,
 				00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */,
 				00CAFD58279FE8BF0087F164 /* TabBar.storyboard */,
+				008C494127A1BAF400363DE6 /* Recharge.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -566,6 +573,7 @@
 				00CAFD6F27A049F00087F164 /* WalletModel.swift */,
 				00CAFD7327A054FF0087F164 /* BracnhListModel.swift */,
 				008C493F27A195F200363DE6 /* DashboardBranchesList.swift */,
+				008C494327A1BE3900363DE6 /* RechargeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -586,6 +594,14 @@
 				008C493B27A16BC000363DE6 /* UperRouter.swift */,
 			);
 			path = "Uper Section";
+			sourceTree = "<group>";
+		};
+		008C494527A1BEB500363DE6 /* Recharge */ = {
+			isa = PBXGroup;
+			children = (
+				008C494627A1BEC800363DE6 /* RechageViewController.swift */,
+			);
+			path = Recharge;
 			sourceTree = "<group>";
 		};
 		008D886D279AB53900BAF8DC /* Wallets Details */ = {
@@ -618,6 +634,7 @@
 		00E6B8B42799956A006BEA8F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				008C494527A1BEB500363DE6 /* Recharge */,
 				008D886D279AB53900BAF8DC /* Wallets Details */,
 				00E6B8B9279995C7006BEA8F /* Wallets */,
 				00E6B8B8279995BA006BEA8F /* DashBoard */,
@@ -747,6 +764,7 @@
 				00CAFD4F279FE8710087F164 /* Verification.storyboard in Resources */,
 				0044ED332788871C00598D8D /* LaunchScreen.storyboard in Resources */,
 				00CAFD53279FE8900087F164 /* ResetPassword.storyboard in Resources */,
+				008C494227A1BAF400363DE6 /* Recharge.storyboard in Resources */,
 				00C97E362797472800A072FC /* GoogleService-Info.plist in Resources */,
 				00CAFD59279FE8BF0087F164 /* TabBar.storyboard in Resources */,
 				00CAFD4D279FE8650087F164 /* ForgetPassword.storyboard in Resources */,
@@ -866,6 +884,7 @@
 				00E6B8C92799A48C006BEA8F /* WalletsViewController.swift in Sources */,
 				0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */,
 				0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */,
+				008C494427A1BE3900363DE6 /* RechargeModel.swift in Sources */,
 				00C97E342797458A00A072FC /* LoginModel.swift in Sources */,
 				00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */,
 				00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */,
@@ -922,6 +941,7 @@
 				00770441278994A60055CABC /* ResetPasswordViewController.swift in Sources */,
 				005E1C46279D8D0000E70C5F /* WalletsDetailsViewModel.swift in Sources */,
 				00C97E49279764C800A072FC /* TabBarViewController.swift in Sources */,
+				008C494727A1BEC800363DE6 /* RechageViewController.swift in Sources */,
 				008C493327A14C9400363DE6 /* DatePicker.swift in Sources */,
 				00516ACF2792991100A4CCFD /* Network.swift in Sources */,
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
