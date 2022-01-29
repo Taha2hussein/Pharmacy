@@ -51,7 +51,6 @@
 		006621CA2788DC11001596A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006621C92788DC11001596A7 /* RegisterViewController.swift */; };
 		006621CC2788DC25001596A7 /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006621CB2788DC25001596A7 /* CompleteRegisterViewController.swift */; };
 		006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006621CD2788DC51001596A7 /* IntroViewController.swift */; };
-		006D492F279EA7470079F01E /* walletContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D492E279EA7470079F01E /* walletContainerViewController.swift */; };
 		006D4931279EB61A0079F01E /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D4930279EB61A0079F01E /* DashboardModel.swift */; };
 		006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D4932279EB79D0079F01E /* UIImage+Exetnsion.swift */; };
 		0077041B27898BBA0055CABC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077041A27898BBA0055CABC /* LoginViewModel.swift */; };
@@ -67,7 +66,6 @@
 		00770435278993000055CABC /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00770434278993000055CABC /* VerificationViewController.swift */; };
 		00770437278993080055CABC /* VerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00770436278993080055CABC /* VerificationRouter.swift */; };
 		0077043A278993C90055CABC /* ConfirmMobileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00770439278993C90055CABC /* ConfirmMobileViewModel.swift */; };
-		0077043C278993DA0055CABC /* ConfirmMobileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077043B278993DA0055CABC /* ConfirmMobileRouter.swift */; };
 		0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077043D278993E60055CABC /* ConfirmMobileViewController.swift */; };
 		00770441278994A60055CABC /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00770440278994A60055CABC /* ResetPasswordViewController.swift */; };
 		00770443278994B00055CABC /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00770442278994B00055CABC /* ResetPasswordViewModel.swift */; };
@@ -96,6 +94,7 @@
 		008C494727A1BEC800363DE6 /* RechageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C494627A1BEC800363DE6 /* RechageViewController.swift */; };
 		008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */; };
 		009541342788F5FB005C3D18 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009541332788F5FB005C3D18 /* RadioButton.swift */; };
+		00971EAD27A548EE009A9909 /* ConfirmMobileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00971EAC27A548EE009A9909 /* ConfirmMobileRouter.swift */; };
 		00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD52D227969F13008C72CC /* ActivationCode.swift */; };
 		00C97E342797458A00A072FC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C97E332797458A00A072FC /* LoginModel.swift */; };
 		00C97E362797472800A072FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C97E352797472800A072FC /* GoogleService-Info.plist */; };
@@ -129,7 +128,6 @@
 		00E6B8D22799F2C6006BEA8F /* NSDateComponents+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CE2799F2C6006BEA8F /* NSDateComponents+Timepiece.swift */; };
 		00E6B8D32799F2C6006BEA8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CF2799F2C6006BEA8F /* Duration.swift */; };
 		00F5812527A1DE3C00997DA1 /* WalletTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */; };
-		00F5812727A1DE9600997DA1 /* WalletTranactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812627A1DE9600997DA1 /* WalletTranactionViewController.swift */; };
 		00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */; };
 		5AA89F0E1DC819F64698070B /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */; };
 /* End PBXBuildFile section */
@@ -181,7 +179,6 @@
 		006621C92788DC11001596A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		006621CB2788DC25001596A7 /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
 		006621CD2788DC51001596A7 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
-		006D492E279EA7470079F01E /* walletContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletContainerViewController.swift; sourceTree = "<group>"; };
 		006D4930279EB61A0079F01E /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		006D4932279EB79D0079F01E /* UIImage+Exetnsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Exetnsion.swift"; sourceTree = "<group>"; };
 		0077041A27898BBA0055CABC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -197,7 +194,6 @@
 		00770434278993000055CABC /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		00770436278993080055CABC /* VerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationRouter.swift; sourceTree = "<group>"; };
 		00770439278993C90055CABC /* ConfirmMobileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMobileViewModel.swift; sourceTree = "<group>"; };
-		0077043B278993DA0055CABC /* ConfirmMobileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfirmMobileRouter.swift; path = ../../../../../../Documents/ConfirmMobileRouter.swift; sourceTree = "<group>"; };
 		0077043D278993E60055CABC /* ConfirmMobileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMobileViewController.swift; sourceTree = "<group>"; };
 		00770440278994A60055CABC /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		00770442278994B00055CABC /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -223,6 +219,7 @@
 		008C494627A1BEC800363DE6 /* RechageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RechageViewController.swift; sourceTree = "<group>"; };
 		008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsViewController.swift; sourceTree = "<group>"; };
 		009541332788F5FB005C3D18 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		00971EAC27A548EE009A9909 /* ConfirmMobileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMobileRouter.swift; sourceTree = "<group>"; };
 		00BD52D227969F13008C72CC /* ActivationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCode.swift; sourceTree = "<group>"; };
 		00C97E332797458A00A072FC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		00C97E352797472800A072FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -257,7 +254,6 @@
 		00E6B8CE2799F2C6006BEA8F /* NSDateComponents+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+Timepiece.swift"; sourceTree = "<group>"; };
 		00E6B8CF2799F2C6006BEA8F /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionList.swift; sourceTree = "<group>"; };
-		00F5812627A1DE9600997DA1 /* WalletTranactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTranactionViewController.swift; sourceTree = "<group>"; };
 		00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		64CB81DD57033C820B0614BC /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
 		791346F2406F6046065E3BD2 /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -531,8 +527,8 @@
 			isa = PBXGroup;
 			children = (
 				00770439278993C90055CABC /* ConfirmMobileViewModel.swift */,
-				0077043B278993DA0055CABC /* ConfirmMobileRouter.swift */,
 				0077043D278993E60055CABC /* ConfirmMobileViewController.swift */,
+				00971EAC27A548EE009A9909 /* ConfirmMobileRouter.swift */,
 			);
 			path = "Confirm Mobile";
 			sourceTree = "<group>";
@@ -617,8 +613,6 @@
 				008D886E279AB55700BAF8DC /* WalletDetailsViewController.swift */,
 				005E1C43279D8CF400E70C5F /* WalletsDetailsRouter.swift */,
 				005E1C45279D8D0000E70C5F /* WalletsDetailsViewModel.swift */,
-				006D492E279EA7470079F01E /* walletContainerViewController.swift */,
-				00F5812627A1DE9600997DA1 /* WalletTranactionViewController.swift */,
 				00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */,
 			);
 			path = "Wallets Details";
@@ -871,8 +865,6 @@
 				008C493E27A16D7000363DE6 /* UIViewController + Extension.swift in Sources */,
 				00365D00279589F800647C90 /* Media.swift in Sources */,
 				00770443278994B00055CABC /* ResetPasswordViewModel.swift in Sources */,
-				0077043C278993DA0055CABC /* ConfirmMobileRouter.swift in Sources */,
-				00F5812727A1DE9600997DA1 /* WalletTranactionViewController.swift in Sources */,
 				00E6B8C32799A468006BEA8F /* DashboardViewModel.swift in Sources */,
 				00E6B8D12799F2C6006BEA8F /* NSCalendar+Timepiece.swift in Sources */,
 				0077042527898E0B0055CABC /* FirstRegisterRouter.swift in Sources */,
@@ -928,7 +920,6 @@
 				0044ED262788871800598D8D /* SceneDelegate.swift in Sources */,
 				00770430278991660055CABC /* ForgetPasswordRouter.swift in Sources */,
 				009541342788F5FB005C3D18 /* RadioButton.swift in Sources */,
-				006D492F279EA7470079F01E /* walletContainerViewController.swift in Sources */,
 				00E6B8C52799A476006BEA8F /* WalletsViewModel.swift in Sources */,
 				00E6B8D32799F2C6006BEA8F /* Duration.swift in Sources */,
 				0044ED732788906D00598D8D /* EkadUIViewShadow.swift in Sources */,
@@ -952,6 +943,7 @@
 				00770441278994A60055CABC /* ResetPasswordViewController.swift in Sources */,
 				005E1C46279D8D0000E70C5F /* WalletsDetailsViewModel.swift in Sources */,
 				00C97E49279764C800A072FC /* TabBarViewController.swift in Sources */,
+				00971EAD27A548EE009A9909 /* ConfirmMobileRouter.swift in Sources */,
 				008C494727A1BEC800363DE6 /* RechageViewController.swift in Sources */,
 				008C493327A14C9400363DE6 /* DatePicker.swift in Sources */,
 				00516ACF2792991100A4CCFD /* Network.swift in Sources */,

@@ -45,7 +45,8 @@ class WalletsDetailsViewModel {
                           "datefrom":fromDate,
                           "dateto":endDate]
         let key = LocalStorage().getLoginToken()
-        let authValue: String? = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMDEwMTQ3ODUyMzYiLCJqdGkiOiIyYTk4NTVjNy1hMDQ4LTQzYjYtOTlhMy05OTkzM2NhZTVlYTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiUGF0aWVudCIsIlBoYXJtYWNpc3QiLCJQaGFybWFjeUFkbWluIl0sImV4cCI6MTY3MTc5MDA5NiwiaXNzIjoid3d3LmNsaW5pYy5jb20iLCJhdWQiOiJ3d3cuY2xpbmljLmNvbSJ9.VQGRr-YR9MzwHzEF7AQaQgbCLuDpN-G1AzGMKyJxjFY"
+        print("parameters",parameters)
+        let authValue: String? = "Bearer \(key)"
         
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -60,12 +61,9 @@ class WalletsDetailsViewModel {
                 let decoder = JSONDecoder()
                 var walletTranscation = WalletTransactionList()
                 walletTranscation = try decoder.decode(WalletTransactionList.self, from: data)
-                print("walletTranscation" , walletTranscation)
                 if walletTranscation.successtate == 200 {
-
                     self.walletTransaction.onNext(walletTranscation.message ?? [])
                 }
-                
             } catch let err {
                 print("Err", err)
             }
@@ -76,7 +74,7 @@ class WalletsDetailsViewModel {
 extension WalletsDetailsViewModel {
     
     func intializeData() {
-        if let article = articles as? BrahcnListMessage {
+        if let article = articles {
             self.pharmacyName.accept(article.entityNameLocalized ?? "")
             self.pharmacyLocation.accept(article.branchAddressLocalized ?? "")
             self.pharmacyIncome.accept("\(Int(article.totalIncome ?? 0))")
@@ -87,17 +85,22 @@ extension WalletsDetailsViewModel {
     }
 }
 
-
 extension WalletsDetailsViewModel {
     
     func intializeDataForBalance() {
-        if let article = Balance as? WalletModel {
+        if let article = Balance  {
             self.totalBalance.accept("\(Int(article.message?.totalBalance ?? 0))")
             self.totalIncome.accept("\(Int(article.message?.totalIncome ?? 0))")
             self.totalExpnse.accept("\(Int(article.message?.totalExpense ?? 0))")
             self.pharmacyIncome.accept("\(Int(article.message?.totalIncome  ?? 0))")
             self.pharmacyExpense.accept("\(Int(article.message?.totalExpense ?? 0))")
-
+            
         }
+    }
+}
+
+extension WalletsDetailsViewModel: backView {
+    func backNavigationview() {
+        router?.back()
     }
 }

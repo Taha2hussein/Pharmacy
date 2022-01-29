@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RxRelay
+import WPMediaPicker
+import UIKit
 
 class FirstRegisterViewModel {
     
@@ -23,7 +25,8 @@ class FirstRegisterViewModel {
     var phone = BehaviorRelay<String>(value:"")
     var password = BehaviorRelay<String>(value:"")
     var registerData = LocalStorage()
-    
+    let selectedImageOwner = PublishSubject<UIImage>()
+
     func bind(view: RegisterViewController, router: FirstRegisterRouter) {
         self.view = view
         self.router = router
@@ -31,7 +34,13 @@ class FirstRegisterViewModel {
     }
     
     init() {
-        isValid = Observable.combineLatest(self.firstName.asObservable(), self.lastName.asObservable() , self.email.asObservable() , self.phone.asObservable() , self.password.asObservable())
+        isValid = Observable.combineLatest(
+            self.firstName.asObservable(),
+            self.lastName.asObservable() ,
+            self.email.asObservable() ,
+            self.phone.asObservable() ,
+            self.password.asObservable()
+        )
         { (firstName, lastName , email , password , phone) in
             return firstName.count > 0
             && lastName.count > 0
@@ -47,7 +56,6 @@ class FirstRegisterViewModel {
         registerData.saveEmail(using: email.value)
         registerData.saveOwnerPhone(using: phone.value)
         registerData.saveOwnerPassword(using: password.value)
-    
     }
 }
 

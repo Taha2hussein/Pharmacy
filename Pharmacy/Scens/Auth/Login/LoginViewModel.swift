@@ -79,8 +79,14 @@ class LoginViewModel{
     }
 }
 
-extension LoginViewModel: pushView{
+extension LoginViewModel: pushView {
     func pushNextView() {
         router?.navigateToDetailsView()
+    }
+}
+
+extension LoginViewModel{
+    func showCreateAccount() {
+        router?.createAccount()
     }
 }

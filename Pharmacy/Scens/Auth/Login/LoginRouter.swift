@@ -28,10 +28,14 @@ class LoginRouter {
         guard let view = sourceView else {fatalError("Error Desconocido")}
         self.sourceView = view
     }
+    func createAccount() {
+        let createAccount = UIStoryboard.init(name: "Register", bundle: nil).instantiateViewController(withIdentifier: "PageViewController")
+        sourceView?.navigationController?.pushViewController(createAccount, animated: true)
+    }
     
     func navigateToDetailsView() {
-        let tabBarView = UIStoryboard.init(name: "Main", bundle: nil)
-        let tabBar = tabBarView.instantiateViewController(withIdentifier: "TabBarViewController")as? TabBarViewController
-        sourceView?.navigationController?.pushViewController(tabBar!, animated: true)
+        let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
+        let tabBar = tabBarView.instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)
+        sourceView?.navigationController?.pushViewController(tabBar, animated: true)
     }
 }

@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         segmentAction()
         container!.segueIdentifierReceivedFromParent("previous")
-//        embedUperView()
+        embedUperView()
     }
 
     
@@ -49,6 +49,7 @@ class HomeViewController: BaseViewController {
 
     func embedUperView() {
         let vc = UperRouter().viewController
-        self.embedd(into: self, childController: vc, containerView: uperView)
+        self.embed(vc, inParent: self, inView: uperView)
+//        self.embedd(into: self, childController: vc, containerView: uperView)
     }
 }

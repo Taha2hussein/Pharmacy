@@ -12,6 +12,7 @@ import RxCocoa
 
 class WalletDetailsViewController: BaseViewController {
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var pharmacyName: UILabel!
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var endDateButton: UIButton!
@@ -24,30 +25,33 @@ class WalletDetailsViewController: BaseViewController {
     @IBOutlet weak var expnseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var pharmacyView: UIView!
-    
+    @IBOutlet weak var walletTransactionTableView: UITableView!
     //
-    
     @IBOutlet weak var balnceView: UIView!
     @IBOutlet weak var totalBalance: UILabel!
     @IBOutlet weak var expnseLabel_Balance: UILabel!
     @IBOutlet weak var incomeLabel_Blance: UILabel!
+    
     // MARK: - Variables
-    var container: walletContainerViewController!
+    
     var articleDetailsViewModel = WalletsDetailsViewModel()
     private var router = WalletsDetailsRouter()
     private var DatePickers = DatePicker()
     var previosView: previosView?
     private var branchIDForPharmacy = String()
+    private var transactionSelected: transactionSegmentSelected = .all
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        container!.segueIdentifierReceivedFromParent("next")
+        bindWalletTransactionToTableView()
+        setUP()
         bindViewControllerRouter()
         segmentAction()
         showFromDateAction()
         showEndDateAction()
         requestListBrhaches()
         checkView()
+        backButtonAction()
         subscribeToLoader()
         rechargeAction()
     }
@@ -74,34 +78,48 @@ class WalletDetailsViewController: BaseViewController {
             bindToExpnse()
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "container"{
-            container = segue.destination as? walletContainerViewController
-            container.animationDurationWithOptions = (0.5, .transitionCrossDissolve)
-        }
+ 
+    func setUP() {
+        
+        fromDateButton.setTitle("2022-01-01", for: .normal)
+        endDateButton.setTitle("2022-01-29", for: .normal)
+        walletTransactionTableView.rowHeight = 100
+        walletTransactionTableView.tableFooterView = UIView()
+
     }
     
     func segmentAction() {
         egmentedBar.rx.selectedSegmentIndex.subscribe { [weak self] index in
             if index.element == 0 {
-                // handle DAta
-                print("all")
+                self?.transactionSelected = .all
+                
             } else if index.element == 1 {
-                // handle DAta
-                print("received")
+                self?.transactionSelected = .received
                 
-                
-            }
-            
-            else {
-                // handle DAta
-                print("used")
+            } else {
+                self?.transactionSelected = .used
                 
             }
-            
+            self?.walletTransactionTableView.reloadData()
         }.disposed(by: self.disposeBag)
-        
+    }
+    
+    func bindWalletTransactionToTableView() {
+        self.articleDetailsViewModel.walletTransaction
+            .bind(to: self.walletTransactionTableView
+                    .rx
+                    .items(cellIdentifier: String(describing:  WalletTransactionTableViewCell.self),
+                           cellType: WalletTransactionTableViewCell.self)) { row, model, cell in
+                
+                cell.setData( product: model, selected: self.transactionSelected)
+            }.disposed(by: self.disposeBag)
+    }
+    
+    func backButtonAction() {
+        backButton.rx.tap.subscribe { [weak self] _ in
+            self?.articleDetailsViewModel.backNavigationview()
+        }.disposed(by: self.disposeBag)
+
     }
     
     func showFromDateAction() {
@@ -120,6 +138,7 @@ class WalletDetailsViewController: BaseViewController {
         } .disposed(by: self.disposeBag)
         
     }
+    
     
     func subscribeToLoader() {
         articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
@@ -157,6 +176,7 @@ class WalletDetailsViewController: BaseViewController {
         viewController.didMove(toParent: self)
     }
 }
+
 extension WalletDetailsViewController {
     func bindViewControllerRouter() {
         articleDetailsViewModel.bind(view: self, router: router)
@@ -194,7 +214,7 @@ extension WalletDetailsViewController {
         articleDetailsViewModel.branchId.subscribe { [weak self] branchId in
             self?.branchIDForPharmacy = branchId
         } .disposed(by: self.disposeBag)
-
+        
     }
     
     func bindToPharmacyImage() {

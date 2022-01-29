@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct LocalStorage:LocalDataProtocol {
     
@@ -13,6 +14,7 @@ struct LocalStorage:LocalDataProtocol {
     private let lastName = "ownerLastName"
     private let email = "ownerEmail"
     private let Phone = "ownerPhone"
+    private let ownerImage = "ownerImage"
     private let password = "ownerPassword"
     private let locationName = "LocationName"
     private let locationLatitude = "locationLatitude"
@@ -23,6 +25,7 @@ struct LocalStorage:LocalDataProtocol {
     private let deviceID = "deviceID"
     private let loginToken = "loginToken"
     private let logedBefore =  "logedBefore"
+    
     func saveFirstName(using ownerFirstName: String) {
         UserDefaults.standard.set(ownerFirstName, forKey: self.firstName)
     }
@@ -37,6 +40,16 @@ struct LocalStorage:LocalDataProtocol {
     
     func getownerLastName() -> String {
         return UserDefaults.standard.object(forKey: self.lastName) as? String ?? ""
+    }
+    
+    func saveOwnerImage(using image: UIImage) {
+        UserDefaults.standard.set(image, forKey: self.ownerImage)
+
+    }
+   
+    func getOwnerImage()-> UIImage {
+        return UserDefaults.standard.object(forKey: self.ownerImage) as! UIImage
+
     }
     
     func saveEmail(using ownerEmail: String) {

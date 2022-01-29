@@ -65,7 +65,7 @@ class LoginViewController: BaseViewController {
     
     func createAccountAction() {
         createAccountBtn.rx.tap.subscribe { [weak self]_ in
-            self?.articleDetailsViewModel.pushNextView()
+            self?.articleDetailsViewModel.showCreateAccount()
         } .disposed(by: self.disposeBag)
 
     }

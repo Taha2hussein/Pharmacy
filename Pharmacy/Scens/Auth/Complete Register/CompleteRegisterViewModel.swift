@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import RxRelay
 import WPMediaPicker
+
 typealias Parameters = [String: String]
 
 class CompleteRegisterViewModel {
@@ -18,9 +19,7 @@ class CompleteRegisterViewModel {
     private var router: CompleteRegisterRouter?
     let selectedImages =  PublishSubject<[ZTAssetWrapper?]>()
     let selectedImagePharmacy = PublishSubject<ZTAssetWrapper>()
-    
     private let disposeBag = DisposeBag()
-    
     var state = State()
     var registerParamerters : RegisterParameters!
     var countrySubject =  PublishSubject<[CountryMessage]>()
@@ -51,7 +50,6 @@ extension CompleteRegisterViewModel: pushView {
     func pushNextView() {
         self.router?.showMapview()
     }
-    
 }
 
 extension CompleteRegisterViewModel: getAllCountries{
@@ -133,50 +131,4 @@ extension CompleteRegisterViewModel {
             }
         }.resume()
     }
-    
-    
-    //  we use Base64 to convert image to string to upload to server
-    
-    
-    
-    //    func generateBoundary() -> String {
-    //        return "Boundary-\(NSUUID().uuidString)"
-    //    }
-    //
-    //    func createDataBody(withParameters params: Parameters?, media: [Media]?, boundary: String) -> Data {
-    //
-    //        let lineBreak = "\r\n"
-    //        var body = Data()
-    //
-    //        if let parameters = params {
-    //            for (key, value) in parameters {
-    //                body.append("--\(boundary + lineBreak)")
-    //                body.append("Content-Disposition: form-data; name=\"\(key)\"\(lineBreak + lineBreak)")
-    //                body.append("\(value + lineBreak)")
-    //            }
-    //        }
-    //
-    //        if let media = media {
-    //            for photo in media {
-    //                body.append("--\(boundary + lineBreak)")
-    //                body.append("Content-Disposition: form-data; name=\"\(photo.key)\"; filename=\"\(photo.filename)\"\(lineBreak)")
-    //                body.append("Content-Type: \(photo.mimeType + lineBreak + lineBreak)")
-    //                body.append(photo.data)
-    //                body.append(lineBreak)
-    //            }
-    //        }
-    //
-    //        body.append("--\(boundary)--\(lineBreak)")
-    //
-    //        return body
-    //    }
-    
 }
-//extension Data {
-//    mutating func append(_ string: String) {
-//        if let data = string.data(using: .utf8) {
-//            append(data)
-//        }
-//    }
-//}
-//

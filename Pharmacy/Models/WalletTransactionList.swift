@@ -17,10 +17,10 @@ struct WalletTransactionList: Codable {
 struct walletTransactionMessage: Codable {
     var pharmacyWaletID, pharmacyFk, pharmacyBranchFk: Int?
     var balanceBefore: Double?
-    var amount: Int?
+    var amount: Double?
     var balanceAfter: Double?
     var factor, transactionType, paymentType: Int?
-    var orderFk: JSONNull?
+    var orderFk: Int?
     var orderNum, transactionDate: String?
     var currencyFk: Int?
     var createDate, patientName, pharmacyName, transactionTypeName: String?

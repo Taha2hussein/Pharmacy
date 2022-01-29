@@ -17,10 +17,10 @@ class WalletsDetailsRouter {
     private var source: BrahcnListMessage?
     private var Balance: WalletModel?
     private var previosView: previosView?
+    
     private func createViewController() -> UIViewController {
       
         let view = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
-        
         let viewController = view.instantiateViewController(withIdentifier: ViewController.walletDetails.rawValue) as? WalletDetailsViewController
         viewController?.previosView = previosView
         viewController?.articleDetailsViewModel.articles = source
@@ -49,6 +49,9 @@ class WalletsDetailsRouter {
         self.sourceView = view
     }
 
+    func back() {
+        self.sourceView?.navigationController?.popViewController(animated: true)
+    }
 }
 
 enum previosView{

@@ -6,6 +6,7 @@ target 'Pharmacy' do
   use_frameworks!
 
   # Pods for Pharmacy
+  
      pod 'RxSwift'
      pod 'RxCocoa'
      pod 'Alamofire', '~> 4.8'

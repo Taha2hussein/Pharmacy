@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol LocalDataProtocol {
     
@@ -21,6 +22,9 @@ protocol LocalDataProtocol {
     
     func saveOwnerPhone(using ownerPhone:String)
     func getownerPhone()-> String
+    
+    func saveOwnerImage(using image: UIImage)
+    func getOwnerImage()-> UIImage
     
     func saveOwnerPassword(using ownerPassword:String)
     func getOwnerPassword()-> String
@@ -51,4 +55,5 @@ protocol LocalDataProtocol {
     
     func savelogedBefore(using logedBefore:Bool)
     func getLogedBefore()-> Bool
+   
 }

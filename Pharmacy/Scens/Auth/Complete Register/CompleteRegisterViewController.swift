@@ -38,7 +38,7 @@ class CompleteRegisterViewController: BaseViewController {
     private var citySelected = 0
     private var areaSelected = 0
     private var hasDelivery = false
-    
+
     let radioController: RadioButtonController = RadioButtonController()
     private var countryList = [CountryMessage]()
     var articleDetailsViewModel = CompleteRegisterViewModel()
@@ -134,11 +134,39 @@ class CompleteRegisterViewController: BaseViewController {
         var parameters = [String]()
         
         parameters.append("test.png")
+        let pharmacyimage = getPharmacyImage()
         
-        let register = RegisterParameters(firstName: LocalStorage.getownerFirstName(), lastName: LocalStorage.getownerLastName(), email: LocalStorage.getownerEmail(), password: LocalStorage.getOwnerPassword(), countryCode: "02", phoneNumber: LocalStorage.getownerPhone(), ownerImage: "test.png", pharmacyImage: "test.png", pharmacyName: self.pharmacyName.text ?? "", country: self.countrySelected , adress:self.pharmacyStreetName.text ?? "" , branch: self.pharmacyBranch.text ?? "", city: self.citySelected , area: self.areaSelected , streetName: self.pharmacyStreetName.text ?? "", locationName: LocalStorage.getLocationName(), locationLatitude: LocalStorage.getlocationLatitude(), locationLongitude: LocalStorage.getLocationLongituded(), licens: parameters, hasDelivery: self.hasDelivery )
+        let register = RegisterParameters(
+            firstName: LocalStorage.getownerFirstName(),
+            lastName: LocalStorage.getownerLastName(),
+            email: LocalStorage.getownerEmail(),
+            password: LocalStorage.getOwnerPassword(),
+            countryCode: "02",
+            phoneNumber: LocalStorage.getownerPhone(),
+            ownerImage: "test.png",
+            pharmacyImage: pharmacyimage,
+            pharmacyName: self.pharmacyName.text ?? "",
+            country: self.countrySelected ,
+            adress: self.pharmacyStreetName.text ?? "" ,
+            branch: self.pharmacyBranch.text ?? "",
+            city: self.citySelected ,
+            area: self.areaSelected ,
+            streetName: self.pharmacyStreetName.text ?? "",
+            locationName: LocalStorage.getLocationName(),
+            locationLatitude: LocalStorage.getlocationLatitude(),
+            locationLongitude: LocalStorage.getLocationLongituded(),
+            licens: parameters,
+            hasDelivery: self.hasDelivery
+        )
         
         self.articleDetailsViewModel.registerParamerters = register
         
+    }
+    
+    func getPharmacyImage() -> String {
+        let image = pharmacyImage.currentImage
+        let pharmacyImage = ImageConvert().convertImageToBase64(image: (image  ?? UIImage(named: "Avatar"))!)
+        return pharmacyImage
     }
     
     func subscribeToLoader() {
@@ -309,6 +337,7 @@ extension CompleteRegisterViewController: WPMediaPickerViewControllerDelegate {
                     if self.chooseImaageSelection {
                         self.articleDetailsViewModel.selectedImagePharmacy.onNext(selectedImage)
                     }
+                    
                     else{
                         self.Images.append(selectedImage)
                         self.articleDetailsViewModel.selectedImages.onNext(self.Images)

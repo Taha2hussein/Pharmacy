@@ -9,15 +9,12 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func embedd(into controller:UIViewController, childController:UIViewController, containerView: UIView) {
-        controller.children.forEach{$0.removeFromParent()}
-        containerView.subviews.forEach{$0.removeFromSuperview()}
-        
-        controller.addChild(childController)
-        childController.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: containerView.frame.size.height)
-        containerView.addSubview(childController.view)
-        childController.didMove(toParent: controller)
-//        childController.didMove(toParent: controller)
+    func embed(_ viewController:UIViewController, inParent controller:UIViewController, inView view:UIView){
+       viewController.willMove(toParent: controller)
+       viewController.view.frame = view.bounds
+       view.addSubview(viewController.view)
+       controller.addChild(viewController)
+       viewController.didMove(toParent: controller)
     }
     
       func removeChild() {

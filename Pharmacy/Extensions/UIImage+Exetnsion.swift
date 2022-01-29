@@ -19,3 +19,12 @@ extension UIImageView {
         }
     }
 }
+
+class ImageConvert {
+    func convertImageToBase64(image: UIImage) -> String {
+        
+         let jpegCompressionQuality: CGFloat = 0.9
+        let ownerImage = image.jpegData(compressionQuality: jpegCompressionQuality)?.base64EncodedString() ?? "test.png"
+        return ownerImage
+    }
+}
