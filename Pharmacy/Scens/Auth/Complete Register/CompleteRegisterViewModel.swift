@@ -28,7 +28,7 @@ class CompleteRegisterViewModel {
         return countrySubject
     }
     
-    var citySubject =  PublishSubject<[CountryMessage]>()
+    var citySubject = PublishSubject<[CountryMessage]>()
     var citySubjectObservable: Observable<[CountryMessage]> {
         return citySubject
     }
@@ -52,7 +52,7 @@ extension CompleteRegisterViewModel: pushView {
     }
 }
 
-extension CompleteRegisterViewModel: getAllCountries{
+extension CompleteRegisterViewModel: getAllCountries {
     func getAllCountry() {
         state.isLoading.accept(true)
         NetWorkManager.instance.API(method: .get, url: countrys) { [weak self](err, status, response:CountryLists?) in
@@ -125,7 +125,9 @@ extension CompleteRegisterViewModel {
                         LocalStorage().saveActiveLink(using: self.completeRegisterInstance.message?.activateLink ?? "")
                     }
                 }
-                
+                else {
+                    Alert().displayError(text: self.completeRegisterInstance.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                }
             } catch let err {
                 print("Err", err)
             }

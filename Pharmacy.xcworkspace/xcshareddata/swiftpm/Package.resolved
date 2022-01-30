@@ -101,6 +101,42 @@
         }
       },
       {
+        "package": "Reachability",
+        "repositoryURL": "https://github.com/ashleymills/Reachability.swift",
+        "state": {
+          "branch": null,
+          "revision": "c01bbdf2d633cf049ae1ed1a68a2020a8bda32e2",
+          "version": "5.1.0"
+        }
+      },
+      {
+        "package": "RxKeyboard",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxKeyboard",
+        "state": {
+          "branch": null,
+          "revision": "085fd99d7bb4f98e671904fcfe7ff561e66574ad",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "RxReachability",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxReachability",
+        "state": {
+          "branch": null,
+          "revision": "8087d7154796406c8981961858b31324743311cf",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": "main",
+          "revision": "7741a11cb4252c379c8e034508cb1b92b8b40427",
+          "version": null
+        }
+      },
+      {
         "package": "SwiftProtobuf",
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {

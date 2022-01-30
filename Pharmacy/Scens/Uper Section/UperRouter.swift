@@ -30,8 +30,11 @@ class UperRouter {
         self.sourceView = view
     }
     
-//    func navigateToDetailsView<T>(source: T?) {
-//        let detailsView = DetailsConfiguration(source: source).viewController
-//        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
-//    }
+    func showTabBar() {
+        let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
+        let tabBar = tabBarView.instantiateViewController(withIdentifier: "TabBarViewController")as? TabBarViewController
+        UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: tabBar!)
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        
+    }
 }

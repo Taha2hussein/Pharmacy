@@ -24,3 +24,7 @@ protocol getAllCountries {
 protocol validateTokenCode {
     func validateTokenCode()
 }
+
+protocol uperSection {
+    func embedUperView(uperView: UIView)
+}

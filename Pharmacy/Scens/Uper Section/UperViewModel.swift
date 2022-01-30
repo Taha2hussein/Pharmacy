@@ -21,4 +21,9 @@ class UperViewModel{
         self.router = router
         self.router?.setSourceView(view)
     }
+    
+    func rootViewtoTabBar() {
+        router?.showTabBar()
+    }
+    
 }

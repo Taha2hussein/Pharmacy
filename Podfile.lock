@@ -15,20 +15,6 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PKHUD (5.3.0)
-  - ReachabilitySwift (5.0.0)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
-  - RxKeyboard (2.0.0):
-    - RxCocoa (~> 6.0)
-    - RxSwift (~> 6.0)
-  - RxReachability (1.2.1):
-    - ReachabilitySwift (< 6.0, >= 5.0)
-    - RxCocoa (~> 6)
-    - RxSwift (~> 6)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
   - TabPageViewController (0.2.8)
   - WPMediaPicker (1.8.1)
 
@@ -43,10 +29,6 @@ DEPENDENCIES:
   - LinearProgressBar
   - NVActivityIndicatorView
   - PKHUD
-  - RxCocoa
-  - RxKeyboard
-  - RxReachability
-  - RxSwift
   - TabPageViewController
   - WPMediaPicker
 
@@ -62,12 +44,6 @@ SPEC REPOS:
     - LinearProgressBar
     - NVActivityIndicatorView
     - PKHUD
-    - ReachabilitySwift
-    - RxCocoa
-    - RxKeyboard
-    - RxReachability
-    - RxRelay
-    - RxSwift
     - TabPageViewController
     - WPMediaPicker
 
@@ -82,15 +58,9 @@ SPEC CHECKSUMS:
   LinearProgressBar: 619d6f286b608e501f39406557f60cdab3faf910
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
-  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
-  RxReachability: bfd13548bf1dac7a877082d13918a9f39bdb5c18
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   TabPageViewController: 8bd4104909754416b35a98f3b72a5b674ab20dd5
   WPMediaPicker: 9011a0ec1f468c039af7485c244576b4c9889a0f
 
-PODFILE CHECKSUM: 95520d88b45394cc04eed962a1efac5a338edd60
+PODFILE CHECKSUM: a081472966dd29433e7d5b07cbb4501cd1d97fed
 
 COCOAPODS: 1.8.4

@@ -20,6 +20,8 @@ protocol LocalDataProtocol {
     func saveEmail(using ownerEmail:String)
     func getownerEmail()-> String
     
+    func savePharmacyProviderFk(using pharmacyProviderFk: Int)
+    func getPharmacyProviderFk()-> Int
     func saveOwnerPhone(using ownerPhone:String)
     func getownerPhone()-> String
     

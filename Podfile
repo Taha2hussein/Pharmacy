@@ -7,11 +7,11 @@ target 'Pharmacy' do
 
   # Pods for Pharmacy
   
-     pod 'RxSwift'
-     pod 'RxCocoa'
+#     pod 'RxSwift'
+#     pod 'RxCocoa'
      pod 'Alamofire', '~> 4.8'
-     pod 'RxReachability'
-     pod 'RxKeyboard'
+#     pod 'RxReachability'
+#     pod 'RxKeyboard'
      pod 'NVActivityIndicatorView'
      pod 'PKHUD'
      pod 'KKPinCodeTextField'

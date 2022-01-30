@@ -80,9 +80,7 @@ class WalletDetailsViewController: BaseViewController {
     }
  
     func setUP() {
-        
-        fromDateButton.setTitle("2022-01-01", for: .normal)
-        endDateButton.setTitle("2022-01-29", for: .normal)
+      
         walletTransactionTableView.rowHeight = 100
         walletTransactionTableView.tableFooterView = UIView()
 

@@ -6,26 +6,28 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
 import RxRelay
+import RxCocoa
+import DropDown
 import WPMediaPicker
 
 class RegisterViewController: BaseViewController {
     
+    @IBOutlet weak var ownerImageButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var phoneCode: UITextField!
     @IBOutlet weak var ownerEmail: UITextField!
     @IBOutlet weak var ownertLastName: UITextField!
     @IBOutlet weak var ownertFirstName: UITextField!
-    @IBOutlet weak var ownerImage: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
     var articleDetailsViewModel = FirstRegisterViewModel()
     private var router = FirstRegisterRouter()
     private var Images = [ZTAssetWrapper]()
-
+    private var selectedImageCheckOnce = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewControllerRouter()
@@ -53,19 +55,23 @@ class RegisterViewController: BaseViewController {
         options.allowMultipleSelection = true
         options.showMostRecentFirst = true
         options.allowCaptureOfMedia = false
-        let picker = WPNavigationMediaPickerViewController(options: options )
+        let picker = WPNavigationMediaPickerViewController(options: options)
         picker.modalPresentationStyle = .fullScreen
         picker.delegate = self
         self.present(picker, animated: true)
     }
     
     func bindImageToOwnerImage() {
-        self.articleDetailsViewModel.selectedImageOwner.subscribe {[weak self] image in
-            self?.ownerImage.setImage(image, for: .normal)
-            LocalStorage().saveOwnerImage(using: image)
-        } .disposed(by: self.disposeBag)
+        articleDetailsViewModel.selectedImageOwner.subscribe {[weak self] image in
+            if let image = image.element {
+                DispatchQueue.main.async {
+                self?.ownerImageButton.setImage(image.image, for: .normal)
+                LocalStorage().saveOwnerImage(using: image.image ?? UIImage(named:"Avatar")!)
+                }
+            }
+        }.disposed(by: self.disposeBag)
+        
     }
-    
     
     func pushCompleteRegisterView() {
         defer{
@@ -84,7 +90,7 @@ class RegisterViewController: BaseViewController {
     
     func selectImageTappedForOwner() {
         
-        ownerImage.rx.tap.subscribe { [weak self] _ in
+        ownerImageButton.rx.tap.subscribe { [weak self] _ in
             self?.useWPmediaPicker()
         }.disposed(by: self.disposeBag)
         
@@ -152,14 +158,13 @@ extension RegisterViewController: WPMediaPickerViewControllerDelegate {
                 element.image(with: CGSize(width: 100, height: 100), completionHandler: { image, err in
                     
                     let selectedImage = ZTAssetWrapper(url: nil, type: .image, avAssetUrl: nil, image: image)
-                   
-                    self.articleDetailsViewModel.selectedImageOwner.onNext((selectedImage.image ?? UIImage(named: "Avatar"))!)
-                    
+                    if self.selectedImageCheckOnce {
+                        self.articleDetailsViewModel.selectedImageOwner.onNext(selectedImage)
+                        self.selectedImageCheckOnce = false
+                    }
                    }
                 )
-                
             }
         }
     }
-    
 }

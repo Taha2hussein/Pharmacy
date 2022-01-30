@@ -67,6 +67,7 @@ class LoginViewModel{
                         defer {
                             self.router?.navigateToDetailsView()
                         }
+                        LocalStorage().savePharmacyProviderFk(using: self.loginResponse.apiresponseresult?.message?.pharmacistID ?? 0)
                         LocalStorage().savelogedBefore(using: true)
                         LocalStorage().saveLoginToken(using: self.loginResponse.token ?? "")
                     }

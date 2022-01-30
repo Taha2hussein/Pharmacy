@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
 import RxRelay
+import RxCocoa
 import DropDown
 import WPMediaPicker
 
@@ -69,9 +69,19 @@ class CompleteRegisterViewController: BaseViewController {
         subscribeToCreateAccount()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setLocationName()
+    }
+    
     func setUP() {
         radioController.buttonsArray = [noButton,yesButton]
         radioController.defaultButton = noButton
+    }
+    
+    func setLocationName() {
+        guard let location = LocalStorage().getLocationName()  as? String , !location.isEmpty else {return}
+        locationButton.setTitle(location, for: .normal)
     }
     
     func selectImageTappedForLicesne() {
@@ -92,7 +102,7 @@ class CompleteRegisterViewController: BaseViewController {
         
     }
     
-    func bindImageToPharmcyImage(){
+    func bindImageToPharmcyImage() {
         self.articleDetailsViewModel.selectedImagePharmacy.subscribe {[weak self] assets in
             self?.pharmacyImage.setImage(assets.image, for: .normal)
         } .disposed(by: self.disposeBag)
@@ -135,7 +145,7 @@ class CompleteRegisterViewController: BaseViewController {
         
         parameters.append("test.png")
         let pharmacyimage = getPharmacyImage()
-        
+//        let ownerImage = getOwnerImage()
         let register = RegisterParameters(
             firstName: LocalStorage.getownerFirstName(),
             lastName: LocalStorage.getownerLastName(),
@@ -143,7 +153,7 @@ class CompleteRegisterViewController: BaseViewController {
             password: LocalStorage.getOwnerPassword(),
             countryCode: "02",
             phoneNumber: LocalStorage.getownerPhone(),
-            ownerImage: "test.png",
+            ownerImage: pharmacyimage,
             pharmacyImage: pharmacyimage,
             pharmacyName: self.pharmacyName.text ?? "",
             country: self.countrySelected ,
@@ -167,6 +177,12 @@ class CompleteRegisterViewController: BaseViewController {
         let image = pharmacyImage.currentImage
         let pharmacyImage = ImageConvert().convertImageToBase64(image: (image  ?? UIImage(named: "Avatar"))!)
         return pharmacyImage
+    }
+    
+    func getOwnerImage() -> String {
+        let image = LocalStorage().getOwnerImage()
+        let ownerImage = ImageConvert().convertImageToBase64(image: image)
+        return ownerImage
     }
     
     func subscribeToLoader() {
@@ -308,12 +324,10 @@ extension CompleteRegisterViewController {
             
             self?.pharmacyArea.text = item
             self?.areaSelected = areaIds[index]
-            //            self?.citySelected = index
         }
         
     }
 }
-
 
 extension CompleteRegisterViewController: WPMediaPickerViewControllerDelegate {
     private func mediaPickerController(_ picker: WPMediaPickerViewController?, previewViewControllerForAssets assets: [WPMediaAsset?]?, selectedIndex selected: Int) {
@@ -332,7 +346,6 @@ extension CompleteRegisterViewController: WPMediaPickerViewControllerDelegate {
                     if self.Images.count > 1 {
                         self.Images.removeFirst()
                     }
-                    //
                     
                     if self.chooseImaageSelection {
                         self.articleDetailsViewModel.selectedImagePharmacy.onNext(selectedImage)
@@ -341,15 +354,15 @@ extension CompleteRegisterViewController: WPMediaPickerViewControllerDelegate {
                     else{
                         self.Images.append(selectedImage)
                         self.articleDetailsViewModel.selectedImages.onNext(self.Images)
-                    }
-                }
+                      }
+                   }
                 )
-                
             }
         }
     }
     
 }
+
 struct ZTAssetWrapper {
     var url : URL?
     var type : ZTMediaType

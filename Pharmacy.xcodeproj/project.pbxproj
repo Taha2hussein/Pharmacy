@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		000A1F732794CD1900508D3C /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A1F722794CD1900508D3C /* ImagesCollectionViewCell.swift */; };
 		000A1F762794EAFE00508D3C /* UIImageConverted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A1F752794EAFE00508D3C /* UIImageConverted.swift */; };
+		000FCD3B27A662DF00E12E11 /* RxReachability in Frameworks */ = {isa = PBXBuildFile; productRef = 000FCD3A27A662DF00E12E11 /* RxReachability */; };
+		000FCD3E27A6633100E12E11 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 000FCD3D27A6633100E12E11 /* RxKeyboard */; };
+		000FCD4127A665C500E12E11 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 000FCD4027A665C500E12E11 /* RxCocoa */; };
+		000FCD4327A665C500E12E11 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 000FCD4227A665C500E12E11 /* RxRelay */; };
+		000FCD4527A665C500E12E11 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 000FCD4427A665C500E12E11 /* RxSwift */; };
+		000FCD4927A6AED700E12E11 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD4827A6AED700E12E11 /* MoreViewController.swift */; };
+		000FCD4B27A6AEE300E12E11 /* MoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD4A27A6AEE300E12E11 /* MoreRouter.swift */; };
+		000FCD4D27A6AEEE00E12E11 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD4C27A6AEEE00E12E11 /* MoreViewModel.swift */; };
+		000FCD4F27A6C98500E12E11 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 000FCD4E27A6C98500E12E11 /* EditProfile.storyboard */; };
+		000FCD5227A6C9AE00E12E11 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5127A6C9AE00E12E11 /* EditProfileViewController.swift */; };
+		000FCD5427A6C9C000E12E11 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5327A6C9C000E12E11 /* EditProfileViewModel.swift */; };
+		000FCD5627A6C9C900E12E11 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5527A6C9C900E12E11 /* EditProfileRouter.swift */; };
 		00365D00279589F800647C90 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00365CFF279589F800647C90 /* Media.swift */; };
 		0044ED242788871800598D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044ED232788871800598D8D /* AppDelegate.swift */; };
 		0044ED262788871800598D8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044ED252788871800598D8D /* SceneDelegate.swift */; };
@@ -113,6 +125,8 @@
 		00CAFD7227A053D70087F164 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAFD7127A053D70087F164 /* BranchTableViewCell.swift */; };
 		00CAFD7427A054FF0087F164 /* BracnhListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAFD7327A054FF0087F164 /* BracnhListModel.swift */; };
 		00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D681AF278A2A32008AF970 /* RegisterParameters.swift */; };
+		00DE499827A6D47500DEBE96 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE499727A6D47500DEBE96 /* EditProfileTableViewCell.swift */; };
+		00DE499A27A6D61B00DEBE96 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE499927A6D61B00DEBE96 /* ProfileModel.swift */; };
 		00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8B527999587006BEA8F /* ContainerView.swift */; };
 		00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8BA2799966F006BEA8F /* EmptySegue.swift */; };
 		00E6B8BD27999774006BEA8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8BC27999774006BEA8F /* HomeViewController.swift */; };
@@ -135,6 +149,13 @@
 /* Begin PBXFileReference section */
 		000A1F722794CD1900508D3C /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		000A1F752794EAFE00508D3C /* UIImageConverted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageConverted.swift; sourceTree = "<group>"; };
+		000FCD4827A6AED700E12E11 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		000FCD4A27A6AEE300E12E11 /* MoreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRouter.swift; sourceTree = "<group>"; };
+		000FCD4C27A6AEEE00E12E11 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
+		000FCD4E27A6C98500E12E11 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		000FCD5127A6C9AE00E12E11 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		000FCD5327A6C9C000E12E11 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		000FCD5527A6C9C900E12E11 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
 		00365CFF279589F800647C90 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		0044ED202788871800598D8D /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0044ED232788871800598D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -239,6 +260,8 @@
 		00CAFD7127A053D70087F164 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
 		00CAFD7327A054FF0087F164 /* BracnhListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracnhListModel.swift; sourceTree = "<group>"; };
 		00D681AF278A2A32008AF970 /* RegisterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParameters.swift; sourceTree = "<group>"; };
+		00DE499727A6D47500DEBE96 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
+		00DE499927A6D61B00DEBE96 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		00E6B8B527999587006BEA8F /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		00E6B8BA2799966F006BEA8F /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
 		00E6B8BC27999774006BEA8F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -265,10 +288,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000FCD4327A665C500E12E11 /* RxRelay in Frameworks */,
+				000FCD3E27A6633100E12E11 /* RxKeyboard in Frameworks */,
+				000FCD4527A665C500E12E11 /* RxSwift in Frameworks */,
 				5AA89F0E1DC819F64698070B /* Pods_Pharmacy.framework in Frameworks */,
+				000FCD3B27A662DF00E12E11 /* RxReachability in Frameworks */,
 				008C492C27A14B9800363DE6 /* FirebaseAuth in Frameworks */,
 				008C493027A14B9800363DE6 /* FirebaseMessaging in Frameworks */,
 				008C492E27A14B9800363DE6 /* FirebaseDatabase in Frameworks */,
+				000FCD4127A665C500E12E11 /* RxCocoa in Frameworks */,
 				00C97E462797504F00A072FC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +304,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000FCD4727A6AEBF00E12E11 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				000FCD4827A6AED700E12E11 /* MoreViewController.swift */,
+				000FCD4A27A6AEE300E12E11 /* MoreRouter.swift */,
+				000FCD4C27A6AEEE00E12E11 /* MoreViewModel.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		000FCD5027A6C99A00E12E11 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				000FCD5127A6C9AE00E12E11 /* EditProfileViewController.swift */,
+				000FCD5327A6C9C000E12E11 /* EditProfileViewModel.swift */,
+				000FCD5527A6C9C900E12E11 /* EditProfileRouter.swift */,
+				00DE499727A6D47500DEBE96 /* EditProfileTableViewCell.swift */,
+			);
+			path = "Edit Profile";
+			sourceTree = "<group>";
+		};
 		0044ED172788871800598D8D = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +439,7 @@
 				00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */,
 				00CAFD58279FE8BF0087F164 /* TabBar.storyboard */,
 				008C494127A1BAF400363DE6 /* Recharge.storyboard */,
+				000FCD4E27A6C98500E12E11 /* EditProfile.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -418,8 +468,10 @@
 			children = (
 				008C493127A14C8000363DE6 /* Picker View */,
 				008C493427A16B7E00363DE6 /* Uper Section */,
-				00E6B8B42799956A006BEA8F /* Home */,
 				00C97E472797649700A072FC /* Tab Bar */,
+				000FCD5027A6C99A00E12E11 /* Edit Profile */,
+				000FCD4727A6AEBF00E12E11 /* More */,
+				00E6B8B42799956A006BEA8F /* Home */,
 				0077042727898F920055CABC /* Auth */,
 			);
 			path = Scens;
@@ -577,6 +629,7 @@
 				008C493F27A195F200363DE6 /* DashboardBranchesList.swift */,
 				008C494327A1BE3900363DE6 /* RechargeModel.swift */,
 				00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */,
+				00DE499927A6D61B00DEBE96 /* ProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -706,8 +759,8 @@
 				0044ED1C2788871800598D8D /* Sources */,
 				0044ED1D2788871800598D8D /* Frameworks */,
 				0044ED1E2788871800598D8D /* Resources */,
-				0931E9A4DB7B7677965D10B5 /* [CP] Embed Pods Frameworks */,
-				C30250749A63432016D45578 /* [CP] Copy Pods Resources */,
+				BBC26C11644F9570BB2DD789 /* [CP] Embed Pods Frameworks */,
+				C25D91B1D3BE7F888CC613C9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -718,6 +771,11 @@
 				008C492B27A14B9800363DE6 /* FirebaseAuth */,
 				008C492D27A14B9800363DE6 /* FirebaseDatabase */,
 				008C492F27A14B9800363DE6 /* FirebaseMessaging */,
+				000FCD3A27A662DF00E12E11 /* RxReachability */,
+				000FCD3D27A6633100E12E11 /* RxKeyboard */,
+				000FCD4027A665C500E12E11 /* RxCocoa */,
+				000FCD4227A665C500E12E11 /* RxRelay */,
+				000FCD4427A665C500E12E11 /* RxSwift */,
 			);
 			productName = Pharmacy;
 			productReference = 0044ED202788871800598D8D /* Pharmacy.app */;
@@ -749,6 +807,9 @@
 			mainGroup = 0044ED172788871800598D8D;
 			packageReferences = (
 				008C492A27A14B9800363DE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				000FCD3927A662DE00E12E11 /* XCRemoteSwiftPackageReference "RxReachability" */,
+				000FCD3C27A6633100E12E11 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
+				000FCD3F27A665C500E12E11 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 0044ED212788871800598D8D /* Products */;
 			projectDirPath = "";
@@ -772,6 +833,7 @@
 				00CAFD59279FE8BF0087F164 /* TabBar.storyboard in Resources */,
 				00CAFD4D279FE8650087F164 /* ForgetPassword.storyboard in Resources */,
 				0044ED8427889A1B00598D8D /* Segoe UI.ttf in Resources */,
+				000FCD4F27A6C98500E12E11 /* EditProfile.storyboard in Resources */,
 				0044ED8627889A1B00598D8D /* Segoe UI Italic.ttf in Resources */,
 				008C493627A16B9500363DE6 /* UperSection.storyboard in Resources */,
 				0044ED302788871C00598D8D /* Assets.xcassets in Resources */,
@@ -788,23 +850,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0931E9A4DB7B7677965D10B5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pharmacy/Pods-Pharmacy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pharmacy/Pods-Pharmacy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pharmacy/Pods-Pharmacy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1DD899CF30F23CD79831CA58 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -827,7 +872,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C30250749A63432016D45578 /* [CP] Copy Pods Resources */ = {
+		BBC26C11644F9570BB2DD789 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pharmacy/Pods-Pharmacy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pharmacy/Pods-Pharmacy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pharmacy/Pods-Pharmacy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C25D91B1D3BE7F888CC613C9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -851,6 +913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000FCD5227A6C9AE00E12E11 /* EditProfileViewController.swift in Sources */,
 				0044ED77278891FA00598D8D /* Asset.swift in Sources */,
 				006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */,
 				0044ED752788917800598D8D /* UIView.swift in Sources */,
@@ -860,6 +923,7 @@
 				0077042927898FC40055CABC /* CompleteRegisterViewModel.swift in Sources */,
 				000A1F762794EAFE00508D3C /* UIImageConverted.swift in Sources */,
 				0053564B278B093600A4DDA4 /* Keys.swift in Sources */,
+				000FCD5627A6C9C900E12E11 /* EditProfileRouter.swift in Sources */,
 				00E6B8BD27999774006BEA8F /* HomeViewController.swift in Sources */,
 				0044ED4B2788883D00598D8D /* ApplicationService.swift in Sources */,
 				008C493E27A16D7000363DE6 /* UIViewController + Extension.swift in Sources */,
@@ -868,6 +932,7 @@
 				00E6B8C32799A468006BEA8F /* DashboardViewModel.swift in Sources */,
 				00E6B8D12799F2C6006BEA8F /* NSCalendar+Timepiece.swift in Sources */,
 				0077042527898E0B0055CABC /* FirstRegisterRouter.swift in Sources */,
+				00DE499827A6D47500DEBE96 /* EditProfileTableViewCell.swift in Sources */,
 				00770433278992F40055CABC /* VerificationViewModel.swift in Sources */,
 				00535651278B0AFB00A4DDA4 /* BaseViewModelController.swift in Sources */,
 				0044ED532788883D00598D8D /* CheckInternet.swift in Sources */,
@@ -885,6 +950,7 @@
 				0077041B27898BBA0055CABC /* LoginViewModel.swift in Sources */,
 				007704482789974D0055CABC /* MapViewController.swift in Sources */,
 				00E6B8C92799A48C006BEA8F /* WalletsViewController.swift in Sources */,
+				000FCD4927A6AED700E12E11 /* MoreViewController.swift in Sources */,
 				0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */,
 				0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */,
 				008C494427A1BE3900363DE6 /* RechargeModel.swift in Sources */,
@@ -910,7 +976,10 @@
 				00535649278AF14E00A4DDA4 /* Router.swift in Sources */,
 				0077044C278997790055CABC /* MapRouter.swift in Sources */,
 				00CAFD7227A053D70087F164 /* BranchTableViewCell.swift in Sources */,
+				00DE499A27A6D61B00DEBE96 /* ProfileModel.swift in Sources */,
 				0044ED4F2788883D00598D8D /* Alert.swift in Sources */,
+				000FCD4B27A6AEE300E12E11 /* MoreRouter.swift in Sources */,
+				000FCD4D27A6AEEE00E12E11 /* MoreViewModel.swift in Sources */,
 				005E1C44279D8CF400E70C5F /* WalletsDetailsRouter.swift in Sources */,
 				00535645278AEC1000A4DDA4 /* LocalDataProtocol.swift in Sources */,
 				00535647278AEC3200A4DDA4 /* LocalStorage.swift in Sources */,
@@ -949,6 +1018,7 @@
 				00516ACF2792991100A4CCFD /* Network.swift in Sources */,
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
 				00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */,
+				000FCD5427A6C9C000E12E11 /* EditProfileViewModel.swift in Sources */,
 				000A1F732794CD1900508D3C /* ImagesCollectionViewCell.swift in Sources */,
 				00E6B8C72799A482006BEA8F /* WalletsRouter.swift in Sources */,
 			);
@@ -1188,6 +1258,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		000FCD3927A662DE00E12E11 /* XCRemoteSwiftPackageReference "RxReachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxReachability";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		000FCD3C27A6633100E12E11 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		000FCD3F27A665C500E12E11 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		008C492A27A14B9800363DE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1199,6 +1293,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		000FCD3A27A662DF00E12E11 /* RxReachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000FCD3927A662DE00E12E11 /* XCRemoteSwiftPackageReference "RxReachability" */;
+			productName = RxReachability;
+		};
+		000FCD3D27A6633100E12E11 /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000FCD3C27A6633100E12E11 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
+		};
+		000FCD4027A665C500E12E11 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000FCD3F27A665C500E12E11 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		000FCD4227A665C500E12E11 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000FCD3F27A665C500E12E11 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		000FCD4427A665C500E12E11 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000FCD3F27A665C500E12E11 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		008C492B27A14B9800363DE6 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 008C492A27A14B9800363DE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

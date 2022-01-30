@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import RxCocoa
+import RxRelay
+import RxSwift
 
-class UperViewController: UIViewController {
+class UperViewController: BaseViewController {
+    
+    @IBOutlet weak var homebutton: UIButton!
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var notificationButton: UIButton!
     
     var articleDetailsViewModel = UperViewModel()
     private var router = UperRouter()
@@ -15,8 +22,15 @@ class UperViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewControllerRouter()
+        showHomeView()
     }
     
+    func showHomeView() {
+        homebutton.rx.tap.subscribe { [weak self] _ in
+            self?.articleDetailsViewModel.rootViewtoTabBar()
+        } .disposed(by: self.disposeBag)
+
+    }
 
 }
 extension UperViewController {

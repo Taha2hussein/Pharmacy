@@ -25,7 +25,7 @@ struct LocalStorage:LocalDataProtocol {
     private let deviceID = "deviceID"
     private let loginToken = "loginToken"
     private let logedBefore =  "logedBefore"
-    
+    private let pharmacyProvider = "pharmacyProvider"
     func saveFirstName(using ownerFirstName: String) {
         UserDefaults.standard.set(ownerFirstName, forKey: self.firstName)
     }
@@ -46,7 +46,18 @@ struct LocalStorage:LocalDataProtocol {
         UserDefaults.standard.set(image, forKey: self.ownerImage)
 
     }
-   
+    
+    func savePharmacyProviderFk(using pharmacyProviderFk: Int) {
+        UserDefaults.standard.set(pharmacyProviderFk, forKey: self.pharmacyProvider)
+
+    }
+    
+    func getPharmacyProviderFk()-> Int {
+        //pharmacyProvider
+        return UserDefaults.standard.object(forKey: self.pharmacyProvider) as? Int ?? 0
+
+    }
+    
     func getOwnerImage()-> UIImage {
         return UserDefaults.standard.object(forKey: self.ownerImage) as! UIImage
 

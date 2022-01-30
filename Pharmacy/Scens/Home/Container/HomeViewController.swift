@@ -24,7 +24,6 @@ class HomeViewController: BaseViewController {
         embedUperView()
     }
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "container"{
               container = segue.destination as? ContainerViewController
@@ -50,6 +49,5 @@ class HomeViewController: BaseViewController {
     func embedUperView() {
         let vc = UperRouter().viewController
         self.embed(vc, inParent: self, inView: uperView)
-//        self.embedd(into: self, childController: vc, containerView: uperView)
     }
 }

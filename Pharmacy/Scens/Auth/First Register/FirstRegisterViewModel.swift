@@ -5,13 +5,11 @@
 //  Created by A on 08/01/2022.
 //
 
-
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 import RxRelay
 import WPMediaPicker
-import UIKit
 
 class FirstRegisterViewModel {
     
@@ -25,8 +23,8 @@ class FirstRegisterViewModel {
     var phone = BehaviorRelay<String>(value:"")
     var password = BehaviorRelay<String>(value:"")
     var registerData = LocalStorage()
-    let selectedImageOwner = PublishSubject<UIImage>()
-
+    let selectedImageOwner = PublishSubject<ZTAssetWrapper>()
+    
     func bind(view: RegisterViewController, router: FirstRegisterRouter) {
         self.view = view
         self.router = router
