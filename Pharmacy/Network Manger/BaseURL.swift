@@ -20,3 +20,5 @@ let PharmacyDashboardBranchesApi = baseUrl + "/Pharmacy/PharmacyDashboardBranche
 let rechargePharmacy = baseUrl + "/Pharmacy/chargePharmacyWalet"
 let walletTransactionList = baseUrl + "/Pharmacy/GetWaletTransactionList"
 let profileApi = baseUrl + "/Pharmacy/PharmacistProfile?PharmacyProviderEmployeeID="
+let editProfileApi = baseUrl + "/Pharmacy/SavePharmacyProviderEmployee"
+let bligsListApi = baseUrl + "/Common/GetBlogList"

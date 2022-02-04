@@ -57,5 +57,7 @@ protocol LocalDataProtocol {
     
     func savelogedBefore(using logedBefore:Bool)
     func getLogedBefore()-> Bool
-   
-}
+    
+    func savePharmacistID(using  pharmacistId: Int)
+    func getPharmacsitID() -> Int
+ }

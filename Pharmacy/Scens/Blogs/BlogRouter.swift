@@ -1,26 +1,25 @@
 //
-//  ResetPasswordRouter.swift
+//  BlogRouter.swift
 //  Pharmacy
 //
-//  Created by A on 08/01/2022.
+//  Created by A on 03/02/2022.
 //
-
 
 import Foundation
 import UIKit
 
-class ResetPasswordRouter {
+class BlogRouter {
     var viewController: UIViewController {
         return createViewController()
     }
     
     private var sourceView: UIViewController?
-    LocalStorage().getPharmacsitID()
+    
     private func createViewController() -> UIViewController {
       
-        let view = UIStoryboard.init(name: Storyboards.resetPassword.rawValue, bundle: nil)
+        let view = UIStoryboard.init(name: Storyboards.blog.rawValue, bundle: nil)
         
-        let viewController = view.instantiateViewController(withIdentifier: ViewController.resetPassword.rawValue)
+        let viewController = view.instantiateViewController(withIdentifier: ViewController.blogViewController.rawValue)
         
         return viewController
     }

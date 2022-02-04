@@ -26,6 +26,8 @@ struct LocalStorage:LocalDataProtocol {
     private let loginToken = "loginToken"
     private let logedBefore =  "logedBefore"
     private let pharmacyProvider = "pharmacyProvider"
+    private let pharmcistId = "PharmcistID"
+    
     func saveFirstName(using ownerFirstName: String) {
         UserDefaults.standard.set(ownerFirstName, forKey: self.firstName)
     }
@@ -169,6 +171,15 @@ struct LocalStorage:LocalDataProtocol {
 
     }
    
+    func savePharmacistID(using  pharmacistId: Int) {
+        UserDefaults.standard.set(pharmacistId, forKey: self.pharmcistId)
+
+    }
+    
+    func getPharmacsitID() -> Int {
+        return UserDefaults.standard.object(forKey: self.pharmcistId)as? Int ?? 0
+
+    }
 }
 
 enum UserCurrentState:String {

@@ -354,6 +354,8 @@ extension CompleteRegisterViewController: WPMediaPickerViewControllerDelegate {
                     else{
                         self.Images.append(selectedImage)
                         self.articleDetailsViewModel.selectedImages.onNext(self.Images)
+                       
+
                       }
                    }
                 )

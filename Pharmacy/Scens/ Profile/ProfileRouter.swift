@@ -2,37 +2,27 @@
 //  EditProfileRouter.swift
 //  Pharmacy
 //
-//  Created by A on 31/01/2022.
+//  Created by A on 30/01/2022.
 //
+
 
 import Foundation
 import UIKit
 
-class EditProfileRouter {
+class ProfileRouter {
     var viewController: UIViewController {
         return createViewController()
     }
     
     private var sourceView: UIViewController?
-    private var source: ProfileModel?
-
+    
     private func createViewController() -> UIViewController {
       
-        let view = UIStoryboard.init(name: Storyboards.editProfile.rawValue, bundle: nil)
+        let view = UIStoryboard.init(name: Storyboards.Profile.rawValue, bundle: nil)
         
-        let viewController = view.instantiateViewController(withIdentifier: ViewController.editProfile.rawValue)as? EditProfileViewController
+        let viewController = view.instantiateViewController(withIdentifier: ViewController.Profile.rawValue)
         
-        viewController!.articleDetailsViewModel.ProfileModel = source
-
-        return viewController!
-    }
-    
-    init() {
-        
-    }
-    
-    init<T>(source: T?) {
-        self.source = source as? ProfileModel
+        return viewController
     }
     
     func setSourceView(_ sourceView: UIViewController?) {
@@ -40,7 +30,12 @@ class EditProfileRouter {
         self.sourceView = view
     }
 
-    func backView() {
+    func goToEditProfile(ProfileModel: ProfileModel) {
+        let editProfile = EditProfileRouter(source: ProfileModel).viewController
+        self.sourceView?.navigationController?.pushViewController(editProfile, animated: true)
+    }
+    
+    func back() {
         self.sourceView?.navigationController?.popViewController(animated: true)
     }
 }

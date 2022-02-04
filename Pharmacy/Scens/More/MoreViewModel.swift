@@ -30,4 +30,8 @@ extension MoreViewModel: uperSection {
     func embedUperView(uperView: UIView) {
         router?.embedUperView(uperView: uperView)
     }
+    
+    func showBlogs() {
+        router?.showBlogs()
+    }
 }

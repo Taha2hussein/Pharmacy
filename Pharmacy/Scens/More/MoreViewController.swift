@@ -79,12 +79,13 @@ extension MoreViewController {
 }
 
 extension MoreViewController {
+    
     @objc func editProfile() {
         articleDetailsViewModel.showProfile()
     }
     
     @objc func editBlog() {
-        
+        articleDetailsViewModel.showBlogs()
     }
     
     @objc func editChangePassword() {

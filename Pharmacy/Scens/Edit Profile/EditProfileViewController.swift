@@ -2,44 +2,78 @@
 //  EditProfileViewController.swift
 //  Pharmacy
 //
-//  Created by A on 30/01/2022.
+//  Created by A on 31/01/2022.
 //
 
+
 import UIKit
+import RxSwift
 import RxCocoa
 import RxRelay
-import RxSwift
+import DropDown
 
 class EditProfileViewController: BaseViewController {
-    
-    @IBOutlet weak var editProfileButton: UIButton!
-    @IBOutlet weak var backbutton: UIButton!
-    @IBOutlet weak var ownerPhone: UILabel!
-    @IBOutlet weak var ownerEmail: UILabel!
-    @IBOutlet weak var ownerGender: UILabel!
-    @IBOutlet weak var ownerJob: UILabel!
-    @IBOutlet weak var ownerName: UILabel!
-    @IBOutlet weak var ownerImage: UIImageView!
-    @IBOutlet weak var branchTableView: UITableView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var firstNameAR: UITextField!
+    @IBOutlet weak var savebutton: UIButton!
+    @IBOutlet weak var role: UILabel!
+    @IBOutlet weak var gender: UITextField!
+    @IBOutlet weak var daet_Birth: UITextField!
+    @IBOutlet weak var mobile: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var lastNameAR: UITextField!
+    @IBOutlet weak var lastNameEN: UITextField!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var changeProfileButton: UIButton!
+    @IBOutlet weak var ownerImage: UIButton!
     
     var articleDetailsViewModel = EditProfileViewModel()
     private var router = EditProfileRouter()
+    private var genderId = Int()
+    let selectCityFromDropDown = DropDown()
+
+    lazy var dropDowns: DropDown = {
+        return self.selectCityFromDropDown
+    }()
+    
+   let genderDropDown = ["Male","Female"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewControllerRouter()
-        setUP()
-        articleDetailsViewModel.getPhofile()
-        bindBranchToTableView()
-        subsribeToProfile()
+        setup()
+        bindFirstNameEN()
+        bindLastNameEN()
+        bindFirstNameAR()
+        bindLastNameAR()
+        bindEmail()
+        bindMobile()
+        bindGender()
+        bindDate_Birth()
+        backView()
+        setGesturesForGender()
         subscribeToLoader()
-        back()
+//        validateData()
+        saveAction()
     }
     
-    func setUP() {
-        self.branchTableView.estimatedRowHeight = 100
-        self.branchTableView.rowHeight = UITableView.automaticDimension
+    func setup() {
+        articleDetailsViewModel.setup()
     }
+    
+    func setGesturesForGender() {
+        let gender = UITapGestureRecognizer(target: self, action: #selector(self.tapGender))
+        self.gender.isUserInteractionEnabled = true
+        self.gender.addGestureRecognizer(gender)
+    }
+    
+    func validateData() {
+        articleDetailsViewModel.isValid.subscribe(onNext: {[weak self] (isEnabled) in
+            isEnabled ? (self?.savebutton.isEnabled = true) : (self?.savebutton.isEnabled = false)
+        }).disposed(by: self.disposeBag)
+
+    }
+
     
     func subscribeToLoader() {
         articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
@@ -55,54 +89,97 @@ class EditProfileViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
     }
     
-    func bindBranchToTableView() {
-        articleDetailsViewModel.ProfileBranch
-            .bind(to: self.branchTableView
-                    .rx
-                    .items(cellIdentifier: String(describing:  EditProfileTableViewCell.self),
-                           cellType: EditProfileTableViewCell.self)) { row, model, cell in
-                cell.setData( product:model)
-                
-            }.disposed(by: self.disposeBag)
-    }
-    
-    func subsribeToProfile() {
-        articleDetailsViewModel.ProfileObject.subscribe { [weak self] profile in
-            DispatchQueue.main.async {
-            self?.setData(profile: profile)
-            }
-        } .disposed(by: self.disposeBag)
-
-    }
-    
-    func back() {
-        backbutton.rx.tap.subscribe { [weak self] _ in
-            self?.articleDetailsViewModel.backNavigationview()
+    func saveAction() {
+        savebutton.rx.tap.subscribe { [weak self] _ in
+            (self?.gender.text == "Male") ? (self?.genderId = 1) : (self?.genderId = 2)
+            self?.articleDetailsViewModel.editProfile(gender: self?.genderId ?? 1)
         }.disposed(by: self.disposeBag)
 
     }
     
-    func setData(profile: ProfileModel) {
-        self.ownerName.text = profile.message?.nameLocalized
-        self.ownerJob.text = profile.message?.typeLocalized
-        self.ownerEmail.text = profile.message?.email
-        self.ownerPhone.text = profile.message?.mobileNumber
-        let gender = profile.message?.gender
-    
-        (gender == 1) ? (self.ownerGender.text = "Female") : (self.ownerGender.text = "Male")
-        setImage(image: profile.message?.image ?? "")
-      
+    func backView() {
+        backButton.rx.tap.subscribe { [weak self] _ in
+            self?.articleDetailsViewModel.backNavigationview()
+        }.disposed(by: self.disposeBag)
+
     }
-    
-    func setImage(image: String) {
-        if let url = URL(string: baseURLImage + (image)) {
-            self.ownerImage.load(url: url)
+}
+
+extension EditProfileViewController {
+    @objc
+    func tapGender(sender:UITapGestureRecognizer) {
+        
+        selectCityFromDropDown.anchorView = gender
+        selectCityFromDropDown.direction = .any
+        selectCityFromDropDown.backgroundColor = UIColor.white
+        selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
+
+        self.selectCityFromDropDown.dataSource = genderDropDown
+        selectCityFromDropDown.show()
+        // Action triggered on selection
+        
+        selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+            
+            self?.gender.text = item
+            
         }
+        
     }
 }
 
 extension EditProfileViewController {
     func bindViewControllerRouter() {
         articleDetailsViewModel.bind(view: self, router: router)
+    }
+}
+
+extension EditProfileViewController {
+    
+    func bindFirstNameEN() {
+        firstName.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.firstNameEN).disposed(by: self.disposeBag)
+    }
+    
+    func bindLastNameEN() {
+        lastNameEN.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.lastNameEN).disposed(by: self.disposeBag)
+    }
+    
+    func bindFirstNameAR() {
+        firstNameAR.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.firstNameAR).disposed(by: self.disposeBag)
+    }
+    
+    func bindLastNameAR() {
+        lastNameAR.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.lastNameAR).disposed(by: self.disposeBag)
+    }
+    
+    func bindEmail() {
+        email.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.email).disposed(by: self.disposeBag)
+    }
+    
+    func bindMobile() {
+        mobile.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.phone).disposed(by: self.disposeBag)
+    }
+    
+    func bindGender() {
+        gender.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.gender).disposed(by: self.disposeBag)
+    }
+    
+    func bindDate_Birth() {
+        daet_Birth.rx.text
+            .orEmpty
+            .bind(to: articleDetailsViewModel.date_Birth).disposed(by: self.disposeBag)
     }
 }

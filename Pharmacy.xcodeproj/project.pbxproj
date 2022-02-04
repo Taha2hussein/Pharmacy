@@ -17,10 +17,10 @@
 		000FCD4927A6AED700E12E11 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD4827A6AED700E12E11 /* MoreViewController.swift */; };
 		000FCD4B27A6AEE300E12E11 /* MoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD4A27A6AEE300E12E11 /* MoreRouter.swift */; };
 		000FCD4D27A6AEEE00E12E11 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD4C27A6AEEE00E12E11 /* MoreViewModel.swift */; };
-		000FCD4F27A6C98500E12E11 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 000FCD4E27A6C98500E12E11 /* EditProfile.storyboard */; };
-		000FCD5227A6C9AE00E12E11 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5127A6C9AE00E12E11 /* EditProfileViewController.swift */; };
-		000FCD5427A6C9C000E12E11 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5327A6C9C000E12E11 /* EditProfileViewModel.swift */; };
-		000FCD5627A6C9C900E12E11 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5527A6C9C900E12E11 /* EditProfileRouter.swift */; };
+		000FCD4F27A6C98500E12E11 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 000FCD4E27A6C98500E12E11 /* Profile.storyboard */; };
+		000FCD5227A6C9AE00E12E11 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5127A6C9AE00E12E11 /* ProfileViewController.swift */; };
+		000FCD5427A6C9C000E12E11 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5327A6C9C000E12E11 /* ProfileViewModel.swift */; };
+		000FCD5627A6C9C900E12E11 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5527A6C9C900E12E11 /* ProfileRouter.swift */; };
 		00365D00279589F800647C90 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00365CFF279589F800647C90 /* Media.swift */; };
 		0044ED242788871800598D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044ED232788871800598D8D /* AppDelegate.swift */; };
 		0044ED262788871800598D8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044ED252788871800598D8D /* SceneDelegate.swift */; };
@@ -58,6 +58,12 @@
 		00535649278AF14E00A4DDA4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00535648278AF14E00A4DDA4 /* Router.swift */; };
 		0053564B278B093600A4DDA4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053564A278B093600A4DDA4 /* Keys.swift */; };
 		00535651278B0AFB00A4DDA4 /* BaseViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00535650278B0AFB00A4DDA4 /* BaseViewModelController.swift */; };
+		0058D01027ABF7D900B70A85 /* BlogsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058D00F27ABF7D900B70A85 /* BlogsList.swift */; };
+		0058D01227ABF87F00B70A85 /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0058D01127ABF87F00B70A85 /* Blog.storyboard */; };
+		0058D01527ABF8A200B70A85 /* BlosgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058D01427ABF8A200B70A85 /* BlosgViewController.swift */; };
+		0058D01727ABF8B300B70A85 /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058D01627ABF8B300B70A85 /* BlogViewModel.swift */; };
+		0058D01927ABF8BE00B70A85 /* BlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058D01827ABF8BE00B70A85 /* BlogRouter.swift */; };
+		0058D01B27ABF8CF00B70A85 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058D01A27ABF8CF00B70A85 /* BlogTableViewCell.swift */; };
 		005E1C44279D8CF400E70C5F /* WalletsDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E1C43279D8CF400E70C5F /* WalletsDetailsRouter.swift */; };
 		005E1C46279D8D0000E70C5F /* WalletsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E1C45279D8D0000E70C5F /* WalletsDetailsViewModel.swift */; };
 		006621CA2788DC11001596A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006621C92788DC11001596A7 /* RegisterViewController.swift */; };
@@ -141,6 +147,11 @@
 		00E6B8D12799F2C6006BEA8F /* NSCalendar+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CD2799F2C5006BEA8F /* NSCalendar+Timepiece.swift */; };
 		00E6B8D22799F2C6006BEA8F /* NSDateComponents+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CE2799F2C6006BEA8F /* NSDateComponents+Timepiece.swift */; };
 		00E6B8D32799F2C6006BEA8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E6B8CF2799F2C6006BEA8F /* Duration.swift */; };
+		00E8353F27A7DCB7009E98A3 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E8353E27A7DCB7009E98A3 /* EditProfileModel.swift */; };
+		00E8354127A7DD0D009E98A3 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E8354027A7DD0D009E98A3 /* EditProfile.storyboard */; };
+		00E8354427A7E08C009E98A3 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E8354327A7E08C009E98A3 /* EditProfileViewController.swift */; };
+		00E8354627A7E0A1009E98A3 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E8354527A7E0A1009E98A3 /* EditProfileViewModel.swift */; };
+		00E8354827A7E0B4009E98A3 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E8354727A7E0B4009E98A3 /* EditProfileRouter.swift */; };
 		00F5812527A1DE3C00997DA1 /* WalletTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */; };
 		00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */; };
 		5AA89F0E1DC819F64698070B /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */; };
@@ -152,10 +163,10 @@
 		000FCD4827A6AED700E12E11 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		000FCD4A27A6AEE300E12E11 /* MoreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRouter.swift; sourceTree = "<group>"; };
 		000FCD4C27A6AEEE00E12E11 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
-		000FCD4E27A6C98500E12E11 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
-		000FCD5127A6C9AE00E12E11 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		000FCD5327A6C9C000E12E11 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
-		000FCD5527A6C9C900E12E11 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
+		000FCD4E27A6C98500E12E11 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		000FCD5127A6C9AE00E12E11 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		000FCD5327A6C9C000E12E11 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		000FCD5527A6C9C900E12E11 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		00365CFF279589F800647C90 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		0044ED202788871800598D8D /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0044ED232788871800598D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +206,12 @@
 		00535648278AF14E00A4DDA4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0053564A278B093600A4DDA4 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		00535650278B0AFB00A4DDA4 /* BaseViewModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModelController.swift; sourceTree = "<group>"; };
+		0058D00F27ABF7D900B70A85 /* BlogsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsList.swift; sourceTree = "<group>"; };
+		0058D01127ABF87F00B70A85 /* Blog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
+		0058D01427ABF8A200B70A85 /* BlosgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlosgViewController.swift; sourceTree = "<group>"; };
+		0058D01627ABF8B300B70A85 /* BlogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
+		0058D01827ABF8BE00B70A85 /* BlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogRouter.swift; sourceTree = "<group>"; };
+		0058D01A27ABF8CF00B70A85 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		005E1C43279D8CF400E70C5F /* WalletsDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsDetailsRouter.swift; sourceTree = "<group>"; };
 		005E1C45279D8D0000E70C5F /* WalletsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsDetailsViewModel.swift; sourceTree = "<group>"; };
 		006621C92788DC11001596A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +293,11 @@
 		00E6B8CD2799F2C5006BEA8F /* NSCalendar+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+Timepiece.swift"; sourceTree = "<group>"; };
 		00E6B8CE2799F2C6006BEA8F /* NSDateComponents+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+Timepiece.swift"; sourceTree = "<group>"; };
 		00E6B8CF2799F2C6006BEA8F /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		00E8353E27A7DCB7009E98A3 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
+		00E8354027A7DD0D009E98A3 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		00E8354327A7E08C009E98A3 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		00E8354527A7E0A1009E98A3 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		00E8354727A7E0B4009E98A3 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
 		00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionList.swift; sourceTree = "<group>"; };
 		00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		64CB81DD57033C820B0614BC /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,15 +336,15 @@
 			path = More;
 			sourceTree = "<group>";
 		};
-		000FCD5027A6C99A00E12E11 /* Edit Profile */ = {
+		000FCD5027A6C99A00E12E11 /*  Profile */ = {
 			isa = PBXGroup;
 			children = (
-				000FCD5127A6C9AE00E12E11 /* EditProfileViewController.swift */,
-				000FCD5327A6C9C000E12E11 /* EditProfileViewModel.swift */,
-				000FCD5527A6C9C900E12E11 /* EditProfileRouter.swift */,
+				000FCD5127A6C9AE00E12E11 /* ProfileViewController.swift */,
+				000FCD5327A6C9C000E12E11 /* ProfileViewModel.swift */,
+				000FCD5527A6C9C900E12E11 /* ProfileRouter.swift */,
 				00DE499727A6D47500DEBE96 /* EditProfileTableViewCell.swift */,
 			);
-			path = "Edit Profile";
+			path = " Profile";
 			sourceTree = "<group>";
 		};
 		0044ED172788871800598D8D = {
@@ -439,7 +461,9 @@
 				00CAFD56279FE8AB0087F164 /* ConfirmAccount.storyboard */,
 				00CAFD58279FE8BF0087F164 /* TabBar.storyboard */,
 				008C494127A1BAF400363DE6 /* Recharge.storyboard */,
-				000FCD4E27A6C98500E12E11 /* EditProfile.storyboard */,
+				000FCD4E27A6C98500E12E11 /* Profile.storyboard */,
+				00E8354027A7DD0D009E98A3 /* EditProfile.storyboard */,
+				0058D01127ABF87F00B70A85 /* Blog.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -469,7 +493,9 @@
 				008C493127A14C8000363DE6 /* Picker View */,
 				008C493427A16B7E00363DE6 /* Uper Section */,
 				00C97E472797649700A072FC /* Tab Bar */,
-				000FCD5027A6C99A00E12E11 /* Edit Profile */,
+				0058D01327ABF88F00B70A85 /* Blogs */,
+				00E8354227A7E05B009E98A3 /* Edit Profile */,
+				000FCD5027A6C99A00E12E11 /*  Profile */,
 				000FCD4727A6AEBF00E12E11 /* More */,
 				00E6B8B42799956A006BEA8F /* Home */,
 				0077042727898F920055CABC /* Auth */,
@@ -495,6 +521,17 @@
 				00516ACD2792991100A4CCFD /* Network.swift */,
 			);
 			path = "Network Manger";
+			sourceTree = "<group>";
+		};
+		0058D01327ABF88F00B70A85 /* Blogs */ = {
+			isa = PBXGroup;
+			children = (
+				0058D01427ABF8A200B70A85 /* BlosgViewController.swift */,
+				0058D01627ABF8B300B70A85 /* BlogViewModel.swift */,
+				0058D01827ABF8BE00B70A85 /* BlogRouter.swift */,
+				0058D01A27ABF8CF00B70A85 /* BlogTableViewCell.swift */,
+			);
+			path = Blogs;
 			sourceTree = "<group>";
 		};
 		0077041927898BA30055CABC /* Login */ = {
@@ -630,6 +667,8 @@
 				008C494327A1BE3900363DE6 /* RechargeModel.swift */,
 				00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */,
 				00DE499927A6D61B00DEBE96 /* ProfileModel.swift */,
+				00E8353E27A7DCB7009E98A3 /* EditProfileModel.swift */,
+				0058D00F27ABF7D900B70A85 /* BlogsList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -728,6 +767,16 @@
 				00CAFD7127A053D70087F164 /* BranchTableViewCell.swift */,
 			);
 			path = Wallets;
+			sourceTree = "<group>";
+		};
+		00E8354227A7E05B009E98A3 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				00E8354327A7E08C009E98A3 /* EditProfileViewController.swift */,
+				00E8354527A7E0A1009E98A3 /* EditProfileViewModel.swift */,
+				00E8354727A7E0B4009E98A3 /* EditProfileRouter.swift */,
+			);
+			path = "Edit Profile";
 			sourceTree = "<group>";
 		};
 		1A557AD7873C52A7BDC43E26 /* Pods */ = {
@@ -833,7 +882,7 @@
 				00CAFD59279FE8BF0087F164 /* TabBar.storyboard in Resources */,
 				00CAFD4D279FE8650087F164 /* ForgetPassword.storyboard in Resources */,
 				0044ED8427889A1B00598D8D /* Segoe UI.ttf in Resources */,
-				000FCD4F27A6C98500E12E11 /* EditProfile.storyboard in Resources */,
+				000FCD4F27A6C98500E12E11 /* Profile.storyboard in Resources */,
 				0044ED8627889A1B00598D8D /* Segoe UI Italic.ttf in Resources */,
 				008C493627A16B9500363DE6 /* UperSection.storyboard in Resources */,
 				0044ED302788871C00598D8D /* Assets.xcassets in Resources */,
@@ -841,9 +890,11 @@
 				00CAFD4B279FE83F0087F164 /* Register.storyboard in Resources */,
 				00CAFD57279FE8AB0087F164 /* ConfirmAccount.storyboard in Resources */,
 				0044ED8727889A1B00598D8D /* Segoe UI Bold.ttf in Resources */,
+				00E8354127A7DD0D009E98A3 /* EditProfile.storyboard in Resources */,
 				00CAFD51279FE8800087F164 /* ConfirmMobile.storyboard in Resources */,
 				0044ED2B2788871800598D8D /* Main.storyboard in Resources */,
 				0044ED8527889A1B00598D8D /* Segoe UI Bold Italic.ttf in Resources */,
+				0058D01227ABF87F00B70A85 /* Blog.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,20 +964,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				000FCD5227A6C9AE00E12E11 /* EditProfileViewController.swift in Sources */,
+				000FCD5227A6C9AE00E12E11 /* ProfileViewController.swift in Sources */,
 				0044ED77278891FA00598D8D /* Asset.swift in Sources */,
 				006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */,
 				0044ED752788917800598D8D /* UIView.swift in Sources */,
 				008C493827A16BAC00363DE6 /* UperViewController.swift in Sources */,
 				008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */,
+				0058D01527ABF8A200B70A85 /* BlosgViewController.swift in Sources */,
+				0058D01727ABF8B300B70A85 /* BlogViewModel.swift in Sources */,
 				00F5812527A1DE3C00997DA1 /* WalletTransactionList.swift in Sources */,
 				0077042927898FC40055CABC /* CompleteRegisterViewModel.swift in Sources */,
 				000A1F762794EAFE00508D3C /* UIImageConverted.swift in Sources */,
 				0053564B278B093600A4DDA4 /* Keys.swift in Sources */,
-				000FCD5627A6C9C900E12E11 /* EditProfileRouter.swift in Sources */,
+				0058D01927ABF8BE00B70A85 /* BlogRouter.swift in Sources */,
+				000FCD5627A6C9C900E12E11 /* ProfileRouter.swift in Sources */,
 				00E6B8BD27999774006BEA8F /* HomeViewController.swift in Sources */,
 				0044ED4B2788883D00598D8D /* ApplicationService.swift in Sources */,
 				008C493E27A16D7000363DE6 /* UIViewController + Extension.swift in Sources */,
+				0058D01027ABF7D900B70A85 /* BlogsList.swift in Sources */,
 				00365D00279589F800647C90 /* Media.swift in Sources */,
 				00770443278994B00055CABC /* ResetPasswordViewModel.swift in Sources */,
 				00E6B8C32799A468006BEA8F /* DashboardViewModel.swift in Sources */,
@@ -945,6 +1000,8 @@
 				0044ED712788905100598D8D /* EkadButton.swift in Sources */,
 				0044ED242788871800598D8D /* AppDelegate.swift in Sources */,
 				0044ED6D2788900900598D8D /* EkadTextField.swift in Sources */,
+				00E8353F27A7DCB7009E98A3 /* EditProfileModel.swift in Sources */,
+				0058D01B27ABF8CF00B70A85 /* BlogTableViewCell.swift in Sources */,
 				0077044F278998150055CABC /* ConfirmAccountviewModel.swift in Sources */,
 				0044ED4C2788883D00598D8D /* ApplicationDelegate.swift in Sources */,
 				0077041B27898BBA0055CABC /* LoginViewModel.swift in Sources */,
@@ -954,6 +1011,7 @@
 				0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */,
 				0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */,
 				008C494427A1BE3900363DE6 /* RechargeModel.swift in Sources */,
+				00E8354827A7E0B4009E98A3 /* EditProfileRouter.swift in Sources */,
 				00C97E342797458A00A072FC /* LoginModel.swift in Sources */,
 				00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */,
 				00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */,
@@ -1000,6 +1058,7 @@
 				00516ACA279297F000A4CCFD /* AllCountryLists.swift in Sources */,
 				006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */,
 				008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */,
+				00E8354427A7E08C009E98A3 /* EditProfileViewController.swift in Sources */,
 				00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */,
 				0077041F27898C1E0055CABC /* Constants.swift in Sources */,
 				00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */,
@@ -1007,6 +1066,7 @@
 				00E6B8CB2799F0EB006BEA8F /* NSDate+Timepiece.swift in Sources */,
 				008C493C27A16BC000363DE6 /* UperRouter.swift in Sources */,
 				00CAFD7027A049F00087F164 /* WalletModel.swift in Sources */,
+				00E8354627A7E0A1009E98A3 /* EditProfileViewModel.swift in Sources */,
 				00801F31278A096700A2E358 /* RegisterModel.swift in Sources */,
 				0077042B27898FCF0055CABC /* CompleteRegisterRouter.swift in Sources */,
 				00770441278994A60055CABC /* ResetPasswordViewController.swift in Sources */,
@@ -1018,7 +1078,7 @@
 				00516ACF2792991100A4CCFD /* Network.swift in Sources */,
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
 				00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */,
-				000FCD5427A6C9C000E12E11 /* EditProfileViewModel.swift in Sources */,
+				000FCD5427A6C9C000E12E11 /* ProfileViewModel.swift in Sources */,
 				000A1F732794CD1900508D3C /* ImagesCollectionViewCell.swift in Sources */,
 				00E6B8C72799A482006BEA8F /* WalletsRouter.swift in Sources */,
 			);

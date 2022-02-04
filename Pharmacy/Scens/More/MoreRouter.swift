@@ -35,7 +35,12 @@ class MoreRouter {
     }
     
     func showProfile() {
-        let profile = EditProfileRouter().viewController
+        let profile = ProfileRouter().viewController
         self.sourceView?.navigationController?.pushViewController(profile, animated: true)
+    }
+    
+    func showBlogs() {
+        let blogView = BlogRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(blogView, animated: true)
     }
 }
