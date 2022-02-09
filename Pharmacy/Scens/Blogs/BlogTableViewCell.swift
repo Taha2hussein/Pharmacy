@@ -33,8 +33,15 @@ class BlogTableViewCell: UITableViewCell {
         self.ownerName.text = "Dr. " + pwnerName
         self.blogDescrbtion.text = product.blogTitle
         self.blogDate.text = product.createDate
+        if (product.amILiked ?? true) {
+            self.likeButton.setImage(UIImage(named:"avatar"), for: .normal)
+        } else {
+            self.likeButton.setImage(UIImage(named:"like"), for: .normal)
+        }
+
         if let url = URL(string: baseURLImage + (product.blogFilePath ?? "")) {
             self.blogImageView.load(url: url)
         }
     }
+    
 }

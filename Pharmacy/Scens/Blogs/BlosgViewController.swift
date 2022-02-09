@@ -16,17 +16,19 @@ class BlosgViewController: BaseViewController {
     
     var articleDetailsViewModel = BlogViewModel()
     private var router = BlogRouter()
-    
+    private weak var cell : BlogTableViewCell?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         embedUperView()
         bindViewControllerRouter()
         subscribeToLoader()
-        addSearchBarObserver()
+        subscribeToToogleLike()
         bindBlogsToTableView()
         articleDetailsViewModel.getBlogs(blogCountPerPage: 10)
     }
     
+   
     func bindBlogsToTableView() {
         self.articleDetailsViewModel.Blogs
             .bind(to: self.bligsTableView
@@ -35,8 +37,37 @@ class BlosgViewController: BaseViewController {
                            cellType: BlogTableViewCell.self)) { row, model, cell in
                 
                 cell.setData( product:model)
-
+                
+                // like button
+                cell.likeButton.rx.tap.subscribe { [weak self] _ in
+                    self?.cell = cell
+                    if (model.amILiked!) {
+                        self?.articleDetailsViewModel.unlikeBlog(blogID: model.blogID ?? 0)
+                   }
+                    else {
+                        self?.articleDetailsViewModel.likeBlog(blogID: model.blogID ?? 0)
+                    }
+                } .disposed(by: self.disposeBag)
+                
+                // share
+                cell.likeButton.rx.tap.subscribe { [weak self] _ in
+                    
+                } .disposed(by: self.disposeBag)
+                
             }.disposed(by: self.disposeBag)
+    }
+    
+    func subscribeToToogleLike() {
+        // correct but need to bind to cell
+        articleDetailsViewModel.toogleLikeIcon.subscribe(onNext: {[weak self] (toogle) in
+            DispatchQueue.main.async {
+                if toogle {
+                    self?.cell?.likeButton.setImage(UIImage(named:"avatar"), for: .normal)
+                } else {
+                    self?.cell?.likeButton.setImage(UIImage(named:"like"), for: .normal)
+                }
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     func subscribeToLoader() {
@@ -53,21 +84,6 @@ class BlosgViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
     }
     
-    private func addSearchBarObserver() {
-            searchTextField
-                .rx
-                .text
-                .orEmpty
-                .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
-                .distinctUntilChanged()
-                .subscribe { [weak self] query in
-                    guard
-                        let query = query.element else { return }
-                    print(query, "queryquery")
-//                    self?.searchText.accept(query)
-                }
-                .disposed(by: disposeBag)
-        }
     
     func embedUperView() {
         let vc = UperRouter().viewController

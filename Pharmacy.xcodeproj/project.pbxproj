@@ -21,6 +21,7 @@
 		000FCD5227A6C9AE00E12E11 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5127A6C9AE00E12E11 /* ProfileViewController.swift */; };
 		000FCD5427A6C9C000E12E11 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5327A6C9C000E12E11 /* ProfileViewModel.swift */; };
 		000FCD5627A6C9C900E12E11 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FCD5527A6C9C900E12E11 /* ProfileRouter.swift */; };
+		00218AEB27AD763500BA7135 /* LikeBlogsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00218AEA27AD763500BA7135 /* LikeBlogsModel.swift */; };
 		00365D00279589F800647C90 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00365CFF279589F800647C90 /* Media.swift */; };
 		0044ED242788871800598D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044ED232788871800598D8D /* AppDelegate.swift */; };
 		0044ED262788871800598D8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044ED252788871800598D8D /* SceneDelegate.swift */; };
@@ -114,6 +115,9 @@
 		009541342788F5FB005C3D18 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009541332788F5FB005C3D18 /* RadioButton.swift */; };
 		00971EAD27A548EE009A9909 /* ConfirmMobileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00971EAC27A548EE009A9909 /* ConfirmMobileRouter.swift */; };
 		00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD52D227969F13008C72CC /* ActivationCode.swift */; };
+		00C560B127B279B7003F8963 /* PharmacyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C560B027B279B7003F8963 /* PharmacyProfileViewController.swift */; };
+		00C560B327B279C3003F8963 /* PharmacyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C560B227B279C3003F8963 /* PharmacyProfileViewModel.swift */; };
+		00C560B527B279CF003F8963 /* PharmacyProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C560B427B279CF003F8963 /* PharmacyProfileRouter.swift */; };
 		00C97E342797458A00A072FC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C97E332797458A00A072FC /* LoginModel.swift */; };
 		00C97E362797472800A072FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C97E352797472800A072FC /* GoogleService-Info.plist */; };
 		00C97E462797504F00A072FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C97E452797504F00A072FC /* MapKit.framework */; };
@@ -167,6 +171,7 @@
 		000FCD5127A6C9AE00E12E11 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		000FCD5327A6C9C000E12E11 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		000FCD5527A6C9C900E12E11 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		00218AEA27AD763500BA7135 /* LikeBlogsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBlogsModel.swift; sourceTree = "<group>"; };
 		00365CFF279589F800647C90 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		0044ED202788871800598D8D /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0044ED232788871800598D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +264,9 @@
 		009541332788F5FB005C3D18 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		00971EAC27A548EE009A9909 /* ConfirmMobileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMobileRouter.swift; sourceTree = "<group>"; };
 		00BD52D227969F13008C72CC /* ActivationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCode.swift; sourceTree = "<group>"; };
+		00C560B027B279B7003F8963 /* PharmacyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileViewController.swift; sourceTree = "<group>"; };
+		00C560B227B279C3003F8963 /* PharmacyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileViewModel.swift; sourceTree = "<group>"; };
+		00C560B427B279CF003F8963 /* PharmacyProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileRouter.swift; sourceTree = "<group>"; };
 		00C97E332797458A00A072FC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		00C97E352797472800A072FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00C97E442797503B00A072FC /* Pharmacy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pharmacy.entitlements; sourceTree = "<group>"; };
@@ -490,6 +498,7 @@
 		0044ED7A278895C600598D8D /* Scens */ = {
 			isa = PBXGroup;
 			children = (
+				00C560AE27B2799A003F8963 /* Pharmacy */,
 				008C493127A14C8000363DE6 /* Picker View */,
 				008C493427A16B7E00363DE6 /* Uper Section */,
 				00C97E472797649700A072FC /* Tab Bar */,
@@ -669,6 +678,7 @@
 				00DE499927A6D61B00DEBE96 /* ProfileModel.swift */,
 				00E8353E27A7DCB7009E98A3 /* EditProfileModel.swift */,
 				0058D00F27ABF7D900B70A85 /* BlogsList.swift */,
+				00218AEA27AD763500BA7135 /* LikeBlogsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -708,6 +718,24 @@
 				00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */,
 			);
 			path = "Wallets Details";
+			sourceTree = "<group>";
+		};
+		00C560AE27B2799A003F8963 /* Pharmacy */ = {
+			isa = PBXGroup;
+			children = (
+				00C560AF27B279A5003F8963 /* Profile */,
+			);
+			path = Pharmacy;
+			sourceTree = "<group>";
+		};
+		00C560AF27B279A5003F8963 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				00C560B027B279B7003F8963 /* PharmacyProfileViewController.swift */,
+				00C560B227B279C3003F8963 /* PharmacyProfileViewModel.swift */,
+				00C560B427B279CF003F8963 /* PharmacyProfileRouter.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		00C97E472797649700A072FC /* Tab Bar */ = {
@@ -1003,11 +1031,13 @@
 				00E8353F27A7DCB7009E98A3 /* EditProfileModel.swift in Sources */,
 				0058D01B27ABF8CF00B70A85 /* BlogTableViewCell.swift in Sources */,
 				0077044F278998150055CABC /* ConfirmAccountviewModel.swift in Sources */,
+				00C560B527B279CF003F8963 /* PharmacyProfileRouter.swift in Sources */,
 				0044ED4C2788883D00598D8D /* ApplicationDelegate.swift in Sources */,
 				0077041B27898BBA0055CABC /* LoginViewModel.swift in Sources */,
 				007704482789974D0055CABC /* MapViewController.swift in Sources */,
 				00E6B8C92799A48C006BEA8F /* WalletsViewController.swift in Sources */,
 				000FCD4927A6AED700E12E11 /* MoreViewController.swift in Sources */,
+				00218AEB27AD763500BA7135 /* LikeBlogsModel.swift in Sources */,
 				0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */,
 				0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */,
 				008C494427A1BE3900363DE6 /* RechargeModel.swift in Sources */,
@@ -1037,6 +1067,7 @@
 				00DE499A27A6D61B00DEBE96 /* ProfileModel.swift in Sources */,
 				0044ED4F2788883D00598D8D /* Alert.swift in Sources */,
 				000FCD4B27A6AEE300E12E11 /* MoreRouter.swift in Sources */,
+				00C560B127B279B7003F8963 /* PharmacyProfileViewController.swift in Sources */,
 				000FCD4D27A6AEEE00E12E11 /* MoreViewModel.swift in Sources */,
 				005E1C44279D8CF400E70C5F /* WalletsDetailsRouter.swift in Sources */,
 				00535645278AEC1000A4DDA4 /* LocalDataProtocol.swift in Sources */,
@@ -1061,6 +1092,7 @@
 				00E8354427A7E08C009E98A3 /* EditProfileViewController.swift in Sources */,
 				00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */,
 				0077041F27898C1E0055CABC /* Constants.swift in Sources */,
+				00C560B327B279C3003F8963 /* PharmacyProfileViewModel.swift in Sources */,
 				00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */,
 				00770445278994B90055CABC /* ResetPasswordRouter.swift in Sources */,
 				00E6B8CB2799F0EB006BEA8F /* NSDate+Timepiece.swift in Sources */,
