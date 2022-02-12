@@ -74,7 +74,6 @@
 		006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D4932279EB79D0079F01E /* UIImage+Exetnsion.swift */; };
 		0077041B27898BBA0055CABC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077041A27898BBA0055CABC /* LoginViewModel.swift */; };
 		0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077041C27898BCC0055CABC /* LoginRouter.swift */; };
-		0077041F27898C1E0055CABC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077041E27898C1E0055CABC /* Constants.swift */; };
 		0077042327898DFF0055CABC /* FirstRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077042227898DFF0055CABC /* FirstRegisterViewModel.swift */; };
 		0077042527898E0B0055CABC /* FirstRegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077042427898E0B0055CABC /* FirstRegisterRouter.swift */; };
 		0077042927898FC40055CABC /* CompleteRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077042827898FC40055CABC /* CompleteRegisterViewModel.swift */; };
@@ -159,6 +158,9 @@
 		00F5812527A1DE3C00997DA1 /* WalletTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */; };
 		00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */; };
 		5AA89F0E1DC819F64698070B /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */; };
+		72543BC827B3BFB300E29E8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BC727B3BFB300E29E8E /* Constants.swift */; };
+		72543BCD27B3FED300E29E8E /* PharmcyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */; };
+		72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,7 +228,6 @@
 		006D4932279EB79D0079F01E /* UIImage+Exetnsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Exetnsion.swift"; sourceTree = "<group>"; };
 		0077041A27898BBA0055CABC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0077041C27898BCC0055CABC /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
-		0077041E27898C1E0055CABC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../RxSwift/RawajTest/RawajTest/Utils/Constants.swift; sourceTree = "<group>"; };
 		0077042227898DFF0055CABC /* FirstRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRegisterViewModel.swift; sourceTree = "<group>"; };
 		0077042427898E0B0055CABC /* FirstRegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRegisterRouter.swift; sourceTree = "<group>"; };
 		0077042827898FC40055CABC /* CompleteRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewModel.swift; sourceTree = "<group>"; };
@@ -309,6 +310,9 @@
 		00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionList.swift; sourceTree = "<group>"; };
 		00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		64CB81DD57033C820B0614BC /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
+		72543BC727B3BFB300E29E8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmcyProfileModel.swift; sourceTree = "<group>"; };
+		72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileTableViewCell.swift; sourceTree = "<group>"; };
 		791346F2406F6046065E3BD2 /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 		BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -435,7 +439,6 @@
 		0044ED422788883D00598D8D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0077041E27898C1E0055CABC /* Constants.swift */,
 				0044ED442788883D00598D8D /* Alert.swift */,
 				0044ED452788883D00598D8D /* BaseViewController.swift */,
 				0044ED462788883D00598D8D /* UIApplication+ScreenShot.swift */,
@@ -451,6 +454,7 @@
 				00535646278AEC3200A4DDA4 /* LocalStorage.swift */,
 				00535648278AF14E00A4DDA4 /* Router.swift */,
 				0053564A278B093600A4DDA4 /* Keys.swift */,
+				72543BC727B3BFB300E29E8E /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -679,6 +683,7 @@
 				00E8353E27A7DCB7009E98A3 /* EditProfileModel.swift */,
 				0058D00F27ABF7D900B70A85 /* BlogsList.swift */,
 				00218AEA27AD763500BA7135 /* LikeBlogsModel.swift */,
+				72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -734,6 +739,7 @@
 				00C560B027B279B7003F8963 /* PharmacyProfileViewController.swift */,
 				00C560B227B279C3003F8963 /* PharmacyProfileViewModel.swift */,
 				00C560B427B279CF003F8963 /* PharmacyProfileRouter.swift */,
+				72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1047,6 +1053,7 @@
 				00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */,
 				0044ED4D2788883D00598D8D /* UseCase.swift in Sources */,
 				00770437278993080055CABC /* VerificationRouter.swift in Sources */,
+				72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */,
 				0077042327898DFF0055CABC /* FirstRegisterViewModel.swift in Sources */,
 				00516AD127929D0900A4CCFD /* State.swift in Sources */,
 				0044ED512788883D00598D8D /* UIApplication+ScreenShot.swift in Sources */,
@@ -1091,13 +1098,14 @@
 				008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */,
 				00E8354427A7E08C009E98A3 /* EditProfileViewController.swift in Sources */,
 				00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */,
-				0077041F27898C1E0055CABC /* Constants.swift in Sources */,
 				00C560B327B279C3003F8963 /* PharmacyProfileViewModel.swift in Sources */,
 				00E6B8B627999587006BEA8F /* ContainerView.swift in Sources */,
 				00770445278994B90055CABC /* ResetPasswordRouter.swift in Sources */,
+				72543BC827B3BFB300E29E8E /* Constants.swift in Sources */,
 				00E6B8CB2799F0EB006BEA8F /* NSDate+Timepiece.swift in Sources */,
 				008C493C27A16BC000363DE6 /* UperRouter.swift in Sources */,
 				00CAFD7027A049F00087F164 /* WalletModel.swift in Sources */,
+				72543BCD27B3FED300E29E8E /* PharmcyProfileModel.swift in Sources */,
 				00E8354627A7E0A1009E98A3 /* EditProfileViewModel.swift in Sources */,
 				00801F31278A096700A2E358 /* RegisterModel.swift in Sources */,
 				0077042B27898FCF0055CABC /* CompleteRegisterRouter.swift in Sources */,
