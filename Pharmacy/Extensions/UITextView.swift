@@ -78,3 +78,10 @@ extension UITextView: UITextViewDelegate
         self.delegate = self
     }
 }
+extension UITextView {
+    func adjustUITextViewHeight() {
+        self.translatesAutoresizingMaskIntoConstraints = true
+        self.sizeToFit()
+        self.isScrollEnabled = false
+    }
+}

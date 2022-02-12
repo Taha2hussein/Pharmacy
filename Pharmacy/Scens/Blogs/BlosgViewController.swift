@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 class BlosgViewController: BaseViewController {
-
+    
     @IBOutlet weak var uperView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var bligsTableView: UITableView!
@@ -17,44 +17,46 @@ class BlosgViewController: BaseViewController {
     var articleDetailsViewModel = BlogViewModel()
     private var router = BlogRouter()
     private weak var cell : BlogTableViewCell?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         embedUperView()
         bindViewControllerRouter()
         subscribeToLoader()
         subscribeToToogleLike()
+        selectBlog()
         bindBlogsToTableView()
         articleDetailsViewModel.getBlogs(blogCountPerPage: 10)
     }
     
-   
+    
     func bindBlogsToTableView() {
         self.articleDetailsViewModel.Blogs
             .bind(to: self.bligsTableView
                     .rx
                     .items(cellIdentifier: String(describing:  BlogTableViewCell.self),
                            cellType: BlogTableViewCell.self)) { row, model, cell in
-                
-                cell.setData( product:model)
-                
-                // like button
-                cell.likeButton.rx.tap.subscribe { [weak self] _ in
-                    self?.cell = cell
-                    if (model.amILiked!) {
-                        self?.articleDetailsViewModel.unlikeBlog(blogID: model.blogID ?? 0)
-                   }
-                    else {
-                        self?.articleDetailsViewModel.likeBlog(blogID: model.blogID ?? 0)
-                    }
-                } .disposed(by: self.disposeBag)
-                
-                // share
-                cell.likeButton.rx.tap.subscribe { [weak self] _ in
+                    cell.setData( product:model)
+                    // like button
+                    cell.likeButton.rx.tap.subscribe { [weak self] _ in
+                        DispatchQueue.main.async {
+                        self?.cell = cell
+                        if (model.amILiked!) {
+                            self?.articleDetailsViewModel.unlikeBlog(blogID: model.blogID ?? 0)
+                        }
+                        else {
+                            self?.articleDetailsViewModel.likeBlog(blogID: model.blogID ?? 0)
+                            }
+                        }
+                    } .disposed(by: self.disposeBag)
                     
-                } .disposed(by: self.disposeBag)
-                
-            }.disposed(by: self.disposeBag)
+                    // share
+                    cell.likeButton.rx.tap.subscribe { [weak self] _ in
+                        
+                    } .disposed(by: self.disposeBag)
+                    
+                }.disposed(by: self.disposeBag)
+            
     }
     
     func subscribeToToogleLike() {
@@ -84,12 +86,19 @@ class BlosgViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
     }
     
+    func selectBlog() {
+        Observable.zip(bligsTableView
+                        .rx
+                        .itemSelected,bligsTableView.rx.modelSelected(BlogMessage.self)).bind { [weak self] selectedIndex, product in
+            self?.articleDetailsViewModel.showBlogsDetails(blogDetailId: product.blogID ?? 0)
+        }.disposed(by: self.disposeBag)
+    }
     
     func embedUperView() {
         let vc = UperRouter().viewController
         self.embed(vc, inParent: self, inView: uperView)
     }
-
+    
 }
 
 extension BlosgViewController {

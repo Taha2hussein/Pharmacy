@@ -21,7 +21,13 @@ class BlogTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
 
+        //set cell to initial state here
+        //set like button to initial state - title, font, color, etc.
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -472,7 +472,7 @@
                                         </prototypes>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u6-My-1ND">
-                                        <rect key="frame" x="314" y="620" width="60" height="60"/>
+                                        <rect key="frame" x="314" y="600" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Tuo-ct-dh2"/>
                                             <constraint firstAttribute="height" constant="60" id="vye-24-2Xo"/>
@@ -484,7 +484,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="byj-YV-wFY" secondAttribute="trailing" constant="20" id="15P-ck-0ly"/>
                                     <constraint firstItem="F5f-lC-riy" firstAttribute="top" secondItem="byj-YV-wFY" secondAttribute="bottom" constant="10" id="1Jp-aW-4Vy"/>
-                                    <constraint firstAttribute="bottom" secondItem="2u6-My-1ND" secondAttribute="bottom" constant="20" id="6o8-Rw-Egx"/>
+                                    <constraint firstAttribute="bottom" secondItem="2u6-My-1ND" secondAttribute="bottom" constant="40" id="6o8-Rw-Egx"/>
                                     <constraint firstItem="F5f-lC-riy" firstAttribute="leading" secondItem="eTn-Lg-0rA" secondAttribute="leading" constant="20" id="8hU-bC-10l"/>
                                     <constraint firstItem="byj-YV-wFY" firstAttribute="leading" secondItem="eTn-Lg-0rA" secondAttribute="leading" constant="20" id="LDf-mi-E1s"/>
                                     <constraint firstAttribute="trailing" secondItem="Txe-9s-sEL" secondAttribute="trailing" constant="20" id="LM3-sT-r78"/>

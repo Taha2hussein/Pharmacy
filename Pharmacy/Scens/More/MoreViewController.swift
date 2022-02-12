@@ -33,6 +33,7 @@ class MoreViewController: BaseViewController {
         setGesturesForHelp()
         setGesturesForLanguage()
         setGesturesForLogout()
+        subscribeToLoader()
     }
    
     func setGesturesForProfile() {
@@ -70,6 +71,22 @@ class MoreViewController: BaseViewController {
         logoutView.isUserInteractionEnabled = true
         logoutView.addGestureRecognizer(logout)
     }
+    
+    func subscribeToLoader() {
+        articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
+            DispatchQueue.main.async {
+                if isLoading {
+                    
+                    self?.showLoading()
+                    
+                } else {
+                    self?.hideLoading()
+                }
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    
 }
 
 extension MoreViewController {
@@ -101,6 +118,6 @@ extension MoreViewController {
     }
     
     @objc func editLogout() {
-        
+        articleDetailsViewModel.logout()
     }
 }

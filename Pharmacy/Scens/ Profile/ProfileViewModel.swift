@@ -51,7 +51,9 @@ class ProfileViewModel{
                 }
                 
                 else {
+                    DispatchQueue.main.async {
                     Alert().displayError(text: profile.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                    }
                 }
             } catch let err {
                 print("Err", err)

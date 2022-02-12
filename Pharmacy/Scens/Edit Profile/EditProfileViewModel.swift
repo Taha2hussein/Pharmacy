@@ -104,6 +104,7 @@ class EditProfileViewModel {
                     }
                 }
                 else {
+                    
                     DispatchQueue.main.async {
                     Alert().displayError(text: self.editOrofile?.errormessage ?? "An error occured , please try again", viewController: self.view!)
                     }

@@ -52,7 +52,10 @@ extension PharmacyProfileViewModel {
                 }
                 
                 else {
+                    DispatchQueue.main.async {
                     Alert().displayError(text: pharmcy?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+    
+                    }
                 }
             } catch let err {
                 print("Err", err)

@@ -161,6 +161,11 @@
 		72543BC827B3BFB300E29E8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BC727B3BFB300E29E8E /* Constants.swift */; };
 		72543BCD27B3FED300E29E8E /* PharmcyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */; };
 		72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */; };
+		72FE350927B8505900DAF700 /* BlogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350827B8505900DAF700 /* BlogDetailsViewController.swift */; };
+		72FE350B27B8506000DAF700 /* BlogDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350A27B8506000DAF700 /* BlogDetailsRouter.swift */; };
+		72FE350D27B8506600DAF700 /* BlogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350C27B8506600DAF700 /* BlogDetailsViewModel.swift */; };
+		72FE350F27B8557300DAF700 /* BlogDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350E27B8557300DAF700 /* BlogDetails.swift */; };
+		72FE351127B85D9900DAF700 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE351027B85D9900DAF700 /* LogoutModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -313,6 +318,11 @@
 		72543BC727B3BFB300E29E8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmcyProfileModel.swift; sourceTree = "<group>"; };
 		72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileTableViewCell.swift; sourceTree = "<group>"; };
+		72FE350827B8505900DAF700 /* BlogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsViewController.swift; sourceTree = "<group>"; };
+		72FE350A27B8506000DAF700 /* BlogDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsRouter.swift; sourceTree = "<group>"; };
+		72FE350C27B8506600DAF700 /* BlogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsViewModel.swift; sourceTree = "<group>"; };
+		72FE350E27B8557300DAF700 /* BlogDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetails.swift; sourceTree = "<group>"; };
+		72FE351027B85D9900DAF700 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
 		791346F2406F6046065E3BD2 /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 		BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -506,6 +516,7 @@
 				008C493127A14C8000363DE6 /* Picker View */,
 				008C493427A16B7E00363DE6 /* Uper Section */,
 				00C97E472797649700A072FC /* Tab Bar */,
+				72FE350727B8503D00DAF700 /* Blogs Details */,
 				0058D01327ABF88F00B70A85 /* Blogs */,
 				00E8354227A7E05B009E98A3 /* Edit Profile */,
 				000FCD5027A6C99A00E12E11 /*  Profile */,
@@ -684,6 +695,8 @@
 				0058D00F27ABF7D900B70A85 /* BlogsList.swift */,
 				00218AEA27AD763500BA7135 /* LikeBlogsModel.swift */,
 				72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */,
+				72FE350E27B8557300DAF700 /* BlogDetails.swift */,
+				72FE351027B85D9900DAF700 /* LogoutModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -820,6 +833,16 @@
 				64CB81DD57033C820B0614BC /* Pods-Pharmacy.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		72FE350727B8503D00DAF700 /* Blogs Details */ = {
+			isa = PBXGroup;
+			children = (
+				72FE350827B8505900DAF700 /* BlogDetailsViewController.swift */,
+				72FE350A27B8506000DAF700 /* BlogDetailsRouter.swift */,
+				72FE350C27B8506600DAF700 /* BlogDetailsViewModel.swift */,
+			);
+			path = "Blogs Details";
 			sourceTree = "<group>";
 		};
 		F75A4C7DDC87ED83A58376DD /* Frameworks */ = {
@@ -1029,6 +1052,7 @@
 				00E6B8D22799F2C6006BEA8F /* NSDateComponents+Timepiece.swift in Sources */,
 				0044ED7C2788960D00598D8D /* LoginViewController.swift in Sources */,
 				0077045727899EF20055CABC /* IntroRouter.swift in Sources */,
+				72FE350927B8505900DAF700 /* BlogDetailsViewController.swift in Sources */,
 				00E6B8D02799F2C6006BEA8F /* Int+Timepiece.swift in Sources */,
 				00516ACE2792991100A4CCFD /* BaseURL.swift in Sources */,
 				0044ED712788905100598D8D /* EkadButton.swift in Sources */,
@@ -1052,6 +1076,7 @@
 				00BD52D327969F14008C72CC /* ActivationCode.swift in Sources */,
 				00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */,
 				0044ED4D2788883D00598D8D /* UseCase.swift in Sources */,
+				72FE350F27B8557300DAF700 /* BlogDetails.swift in Sources */,
 				00770437278993080055CABC /* VerificationRouter.swift in Sources */,
 				72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */,
 				0077042327898DFF0055CABC /* FirstRegisterViewModel.swift in Sources */,
@@ -1083,6 +1108,7 @@
 				0044ED552788883D00598D8D /* KeyBoard.swift in Sources */,
 				007704512789981D0055CABC /* ConfirmAccountRouter.swift in Sources */,
 				0044ED262788871800598D8D /* SceneDelegate.swift in Sources */,
+				72FE351127B85D9900DAF700 /* LogoutModel.swift in Sources */,
 				00770430278991660055CABC /* ForgetPasswordRouter.swift in Sources */,
 				009541342788F5FB005C3D18 /* RadioButton.swift in Sources */,
 				00E6B8C52799A476006BEA8F /* WalletsViewModel.swift in Sources */,
@@ -1094,6 +1120,7 @@
 				006621CC2788DC25001596A7 /* CompleteRegisterViewController.swift in Sources */,
 				0044ED6F2788901300598D8D /* EkadLabel.swift in Sources */,
 				00516ACA279297F000A4CCFD /* AllCountryLists.swift in Sources */,
+				72FE350D27B8506600DAF700 /* BlogDetailsViewModel.swift in Sources */,
 				006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */,
 				008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */,
 				00E8354427A7E08C009E98A3 /* EditProfileViewController.swift in Sources */,
@@ -1119,6 +1146,7 @@
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
 				00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */,
 				000FCD5427A6C9C000E12E11 /* ProfileViewModel.swift in Sources */,
+				72FE350B27B8506000DAF700 /* BlogDetailsRouter.swift in Sources */,
 				000A1F732794CD1900508D3C /* ImagesCollectionViewCell.swift in Sources */,
 				00E6B8C72799A482006BEA8F /* WalletsRouter.swift in Sources */,
 			);

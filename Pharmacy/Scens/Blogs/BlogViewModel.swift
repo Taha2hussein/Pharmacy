@@ -55,7 +55,9 @@ class BlogViewModel{
                 }
                 
                 else {
+                    DispatchQueue.main.async {
                     Alert().displayError(text: blog.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                    }
                 }
             } catch let err {
                 print("Err", err)
@@ -87,7 +89,9 @@ class BlogViewModel{
                 }
                 
                 else {
+                    DispatchQueue.main.async {
                     Alert().displayError(text: blog.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                    }
                 }
             } catch let err {
                 print("Err", err)
@@ -117,11 +121,19 @@ class BlogViewModel{
                 }
                 
                 else {
+                    DispatchQueue.main.async {
                     Alert().displayError(text: blog.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                    }
                 }
             } catch let err {
                 print("Err", err)
             }
         }.resume()
+    }
+}
+
+extension BlogViewModel {
+    func showBlogsDetails(blogDetailId: Int) {
+        self.router?.showBlogDetails(blogDrtails: blogDetailId)
     }
 }

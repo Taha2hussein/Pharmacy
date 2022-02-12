@@ -126,7 +126,9 @@ extension CompleteRegisterViewModel {
                     }
                 }
                 else {
+                    DispatchQueue.main.async {
                     Alert().displayError(text: self.completeRegisterInstance.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                    }
                 }
             } catch let err {
                 print("Err", err)

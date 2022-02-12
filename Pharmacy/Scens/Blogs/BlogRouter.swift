@@ -29,8 +29,8 @@ class BlogRouter {
         self.sourceView = view
     }
     
-//    func navigateToDetailsView<T>(source: T?) {
-//        let detailsView = DetailsConfiguration(source: source).viewController
-//        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
-//    }
+    func showBlogDetails(blogDrtails: Int) {
+        let source = BlogDetailsRouter(source: blogDrtails).viewController
+        self.sourceView?.navigationController?.pushViewController(source, animated: true)
+    }
 }

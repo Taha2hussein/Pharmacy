@@ -48,6 +48,7 @@ enum ViewController: String {
     case editProfile = "EditProfileViewController"
     case blogViewController = "BlosgViewController"
     case pharmacyPtofileViewController  = "PharmacyProfileViewController"
+    case blogDetails = "BlogDetailsViewController"
 
 }
 
