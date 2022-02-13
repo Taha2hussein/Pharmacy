@@ -30,9 +30,9 @@ class ConfirmMobileRouter {
         guard let view = sourceView else {fatalError("Error Desconocido")}
         self.sourceView = view
     }
-    
-//    func navigateToDetailsView<T>(source: T?) {
-//        let detailsView = DetailsConfiguration(source: source).viewController
-//        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
-//    }
+
+    func showResetPassword() {
+        let resetPassword = ResetPasswordRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(resetPassword, animated: true)
+    }
 }

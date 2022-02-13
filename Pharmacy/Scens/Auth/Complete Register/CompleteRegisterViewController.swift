@@ -144,7 +144,7 @@ class CompleteRegisterViewController: BaseViewController {
         var parameters = [String]()
         
         parameters.append("test.png")
-        let pharmacyimage = getPharmacyImage()
+        let pharmacyimage = "test.png"
 //        let ownerImage = getOwnerImage()
         let register = RegisterParameters(
             firstName: LocalStorage.getownerFirstName(),
@@ -175,7 +175,7 @@ class CompleteRegisterViewController: BaseViewController {
     
     func getPharmacyImage() -> String {
         let image = pharmacyImage.currentImage
-        let pharmacyImage = ImageConvert().convertImageToBase64(image: (image  ?? UIImage(named: "Avatar"))!)
+        let pharmacyImage = ImageConvert().convertImageToBase64(image: (image  ?? UIImage(named: "avatar"))!)
         return pharmacyImage
     }
     

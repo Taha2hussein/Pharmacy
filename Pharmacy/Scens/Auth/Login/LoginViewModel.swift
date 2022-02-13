@@ -44,6 +44,7 @@ class LoginViewModel{
                           "Decvice_id":deviceId,
                           "Device_token":deviceToken,
                           "PatientMobileCode":"+2",
+                          "Device_type":1,
                           "UserType":4] as [String : Any]
         
         state.isLoading.accept(true)
@@ -73,7 +74,11 @@ class LoginViewModel{
                         LocalStorage().saveLoginToken(using: self.loginResponse.token ?? "")
                     }
                 }
-              
+                else {
+                    DispatchQueue.main.async {
+                        Alert().displayError(text: self.loginResponse.apiresponseresult?.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                    }
+                }
             } catch let err {
                 print("Err", err)
             }
@@ -90,5 +95,11 @@ extension LoginViewModel: pushView {
 extension LoginViewModel{
     func showCreateAccount() {
         router?.createAccount()
+    }
+}
+
+extension LoginViewModel{
+    func showForgetPasswordView() {
+        router?.showForgetPasswordView()
     }
 }

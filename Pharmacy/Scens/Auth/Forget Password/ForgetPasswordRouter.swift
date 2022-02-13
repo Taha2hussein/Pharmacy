@@ -29,8 +29,8 @@ class ForgetPasswordRouter {
         self.sourceView = view
     }
     
-//    func navigateToDetailsView<T>(source: T?) {
-//        let detailsView = DetailsConfiguration(source: source).viewController
-//        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
-//    }
+    func showVerificationView() {
+        let verificationView = VerificationRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(verificationView, animated: true)
+    }
 }

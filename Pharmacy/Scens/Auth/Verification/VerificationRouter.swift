@@ -29,8 +29,8 @@ class VerificationRouter {
         self.sourceView = view
     }
     
-//    func navigateToDetailsView<T>(source: T?) {
-//        let detailsView = DetailsConfiguration(source: source).viewController
-//        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
-//    }
+    func showVerificationMobile() {
+        let verificationMobile = ConfirmMobileRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(verificationMobile, animated: true)
+    }
 }

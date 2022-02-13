@@ -21,16 +21,21 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         bindViewControllerRouter()
         createAccountAction()
         loginAction()
         bindMobile()
         bindPassword()
         subscribeToLoader()
+        forgetPassword()
         validateData()
+    }
+
+    func setup() {
         self.navigationController?.navigationBar.isHidden = true
     }
-   
+    
     func validateData() {
         articleDetailsViewModel.isValid.subscribe(onNext: {[weak self] (isEnabled) in
             isEnabled ? (self?.loginBtn.isEnabled = true) : (self?.loginBtn.isEnabled = false)
@@ -49,6 +54,13 @@ class LoginViewController: BaseViewController {
                 }
             }
         }).disposed(by: self.disposeBag)
+    }
+    
+    func forgetPassword() {
+        forgetPasswordBtn.rx.tap.subscribe { [weak self] _  in
+            self?.articleDetailsViewModel.showForgetPasswordView()
+        }.disposed(by: self.disposeBag)
+
     }
     
     func bindMobile() {

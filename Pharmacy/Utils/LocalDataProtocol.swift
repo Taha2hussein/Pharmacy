@@ -60,4 +60,7 @@ protocol LocalDataProtocol {
     
     func savePharmacistID(using  pharmacistId: Int)
     func getPharmacsitID() -> Int
+    
+    func saveForgetPasswordId(using id: String)
+    func getForgetPasswordId()-> String
  }

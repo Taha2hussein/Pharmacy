@@ -33,6 +33,11 @@ class LoginRouter {
         sourceView?.navigationController?.pushViewController(createAccount, animated: true)
     }
     
+    func showForgetPasswordView()  {
+        let verificationview = ForgetPasswordRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(verificationview, animated: true)
+    }
+    
     func navigateToDetailsView() {
         let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
         let tabBar = tabBarView.instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)

@@ -29,8 +29,8 @@ class ConfirmAccountRouter {
     }
     
     func navigateToMainview() {
-        let tabBarView = UIStoryboard.init(name: "Main", bundle: nil)
-        let tabBar = tabBarView.instantiateViewController(withIdentifier: "TabBarViewController")as? TabBarViewController
-        sourceView?.navigationController?.pushViewController(tabBar!, animated: true)
+        let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
+        let tabBar = tabBarView.instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)
+        sourceView?.navigationController?.pushViewController(tabBar, animated: true)
     }
 }

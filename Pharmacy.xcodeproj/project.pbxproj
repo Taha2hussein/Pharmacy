@@ -161,6 +161,9 @@
 		72543BC827B3BFB300E29E8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BC727B3BFB300E29E8E /* Constants.swift */; };
 		72543BCD27B3FED300E29E8E /* PharmcyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */; };
 		72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */; };
+		72DD34A227B917D900D915CB /* ForgetPasswordFilrst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD34A127B917D900D915CB /* ForgetPasswordFilrst.swift */; };
+		72DD34A427B919AF00D915CB /* ForgetPasswordSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD34A327B919AF00D915CB /* ForgetPasswordSecond.swift */; };
+		72DD34A627B9236F00D915CB /* ForgetPasswordThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD34A527B9236F00D915CB /* ForgetPasswordThird.swift */; };
 		72FE350927B8505900DAF700 /* BlogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350827B8505900DAF700 /* BlogDetailsViewController.swift */; };
 		72FE350B27B8506000DAF700 /* BlogDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350A27B8506000DAF700 /* BlogDetailsRouter.swift */; };
 		72FE350D27B8506600DAF700 /* BlogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350C27B8506600DAF700 /* BlogDetailsViewModel.swift */; };
@@ -318,6 +321,9 @@
 		72543BC727B3BFB300E29E8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmcyProfileModel.swift; sourceTree = "<group>"; };
 		72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileTableViewCell.swift; sourceTree = "<group>"; };
+		72DD34A127B917D900D915CB /* ForgetPasswordFilrst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordFilrst.swift; sourceTree = "<group>"; };
+		72DD34A327B919AF00D915CB /* ForgetPasswordSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordSecond.swift; sourceTree = "<group>"; };
+		72DD34A527B9236F00D915CB /* ForgetPasswordThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordThird.swift; sourceTree = "<group>"; };
 		72FE350827B8505900DAF700 /* BlogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsViewController.swift; sourceTree = "<group>"; };
 		72FE350A27B8506000DAF700 /* BlogDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsRouter.swift; sourceTree = "<group>"; };
 		72FE350C27B8506600DAF700 /* BlogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -697,6 +703,9 @@
 				72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */,
 				72FE350E27B8557300DAF700 /* BlogDetails.swift */,
 				72FE351027B85D9900DAF700 /* LogoutModel.swift */,
+				72DD34A127B917D900D915CB /* ForgetPasswordFilrst.swift */,
+				72DD34A327B919AF00D915CB /* ForgetPasswordSecond.swift */,
+				72DD34A527B9236F00D915CB /* ForgetPasswordThird.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1050,7 +1059,9 @@
 				0044ED532788883D00598D8D /* CheckInternet.swift in Sources */,
 				00CAFD7427A054FF0087F164 /* BracnhListModel.swift in Sources */,
 				00E6B8D22799F2C6006BEA8F /* NSDateComponents+Timepiece.swift in Sources */,
+				72DD34A427B919AF00D915CB /* ForgetPasswordSecond.swift in Sources */,
 				0044ED7C2788960D00598D8D /* LoginViewController.swift in Sources */,
+				72DD34A627B9236F00D915CB /* ForgetPasswordThird.swift in Sources */,
 				0077045727899EF20055CABC /* IntroRouter.swift in Sources */,
 				72FE350927B8505900DAF700 /* BlogDetailsViewController.swift in Sources */,
 				00E6B8D02799F2C6006BEA8F /* Int+Timepiece.swift in Sources */,
@@ -1077,6 +1088,7 @@
 				00D681B0278A2A32008AF970 /* RegisterParameters.swift in Sources */,
 				0044ED4D2788883D00598D8D /* UseCase.swift in Sources */,
 				72FE350F27B8557300DAF700 /* BlogDetails.swift in Sources */,
+				72DD34A227B917D900D915CB /* ForgetPasswordFilrst.swift in Sources */,
 				00770437278993080055CABC /* VerificationRouter.swift in Sources */,
 				72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */,
 				0077042327898DFF0055CABC /* FirstRegisterViewModel.swift in Sources */,

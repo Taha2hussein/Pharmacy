@@ -10,6 +10,7 @@ import UIKit
 
 struct LocalStorage:LocalDataProtocol {
     
+    
     private let firstName = "ownerFirstName"
     private let lastName = "ownerLastName"
     private let email = "ownerEmail"
@@ -27,6 +28,7 @@ struct LocalStorage:LocalDataProtocol {
     private let logedBefore =  "logedBefore"
     private let pharmacyProvider = "pharmacyProvider"
     private let pharmcistId = "PharmcistID"
+    private let forgetPasswordId = "forgetPasswordId"
     
     func saveFirstName(using ownerFirstName: String) {
         UserDefaults.standard.set(ownerFirstName, forKey: self.firstName)
@@ -180,6 +182,17 @@ struct LocalStorage:LocalDataProtocol {
         return UserDefaults.standard.object(forKey: self.pharmcistId)as? Int ?? 0
 
     }
+    
+    func saveForgetPasswordId(using id: String) {
+        UserDefaults.standard.set(id, forKey: self.forgetPasswordId)
+
+    }
+    
+    func getForgetPasswordId() -> String {
+        return UserDefaults.standard.object(forKey: self.forgetPasswordId)as? String ?? ""
+
+    }
+    
 }
 
 enum UserCurrentState:String {
