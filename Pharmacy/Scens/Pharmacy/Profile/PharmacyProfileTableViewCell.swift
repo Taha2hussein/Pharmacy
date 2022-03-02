@@ -39,7 +39,7 @@ class PharmacyProfileTableViewCell: UITableViewCell {
         self.pharmcistJob.text = pharmacist.employeeType
         self.phrmacistEmail.text = pharmacist.employeeEmail
         self.pharmacistPhone.text = pharmacist.mobileNumber
-        if let url = URL(string: baseURLImage + (pharmacist.image)) {
+        if let url = URL(string: baseURLImage + (pharmacist.image ?? "")) {
             self.phramcistImaeg.load(url: url)
         }
     }

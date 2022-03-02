@@ -135,10 +135,10 @@ extension PharmacyProfileViewController {
         articleDetailsViewModel.pharmacyObject.subscribe {[weak self] pharmacy in
             DispatchQueue.main.async {
                 if let pahrmacy = pharmacy.element {
-                    self?.pharmacyBrnachNo.text = "\(pahrmacy.message.branchesCount)" + " Branch "
-                    self?.pharmacyName.text = pahrmacy.message.pharmacyName
-                    self?.reviewsNo.text = "\(Int(pahrmacy.message.reviews))"
-                    self?.setImage(image: pahrmacy.message.image)
+                    self?.pharmacyBrnachNo.text = "\(pahrmacy.message?.branchesCount)" + " Branch "
+                    self?.pharmacyName.text = pahrmacy.message?.pharmacyName
+                    self?.reviewsNo.text = "\(Int(pahrmacy.message?.reviews ?? 0.0))"
+                    self?.setImage(image: pahrmacy.message?.image ?? "")
                 }
             }
         } .disposed(by: self.disposeBag)

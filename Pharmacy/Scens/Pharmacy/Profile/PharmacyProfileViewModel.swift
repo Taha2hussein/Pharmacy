@@ -47,8 +47,8 @@ extension PharmacyProfileViewModel {
                 pharmcy = try decoder.decode(PharmacyProfileModel.self, from: data)
                 if pharmcy?.successtate == 200 {
                     self.pharmacyObject.onNext(pharmcy!)
-                    self.brnachesProfile.onNext(pharmcy?.message.branchesList ?? [])
-                    self.brahcnhPharmacist.onNext(pharmcy?.message.employeesList ?? [])
+                    self.brnachesProfile.onNext(pharmcy?.message?.branchesList ?? [])
+                    self.brahcnhPharmacist.onNext(pharmcy?.message?.employeesList ?? [])
                 }
                 
                 else {
