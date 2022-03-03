@@ -41,6 +41,8 @@ class PharmacyProfileViewController: BaseViewController {
         bindBranchToTableView()
         assignParmacyProfile()
         subsribeToSegmentSelected()
+        editPharmacyAction()
+        addPharmacyAction()
     }
     
     func setup(){
@@ -59,6 +61,19 @@ class PharmacyProfileViewController: BaseViewController {
                 }
             }
         }).disposed(by: self.disposeBag)
+    }
+    
+    func addPharmacyAction() {
+        addBewPharmacyButton.rx.tap.subscribe { [weak self] _ in
+            self?.articleDetailsViewModel.pushNextView()
+        } .disposed(by: self.disposeBag)
+
+    }
+    
+    func editPharmacyAction() {
+        editPharmacyButton.rx.tap.subscribe { [weak self]  _ in
+            self?.articleDetailsViewModel.pushNextView()
+        } .disposed(by: self.disposeBag)
     }
     
     func bindPharmacistToTableView() {

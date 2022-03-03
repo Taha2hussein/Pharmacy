@@ -30,4 +30,4 @@ let logoutApi = baseUrl + "/Common/Logout"
 let forgetPasswordFirstApi = baseUrl + "/Common/ForgetPassword"
 let forgetPasswordSecondApi = baseUrl + "/Common/ValidateForgetToken"
 let forgetPasswordthirdApi = baseUrl + "/Common/ChangePasswordAfterForget"
-
+let addOrEditPharmacy = baseUrl + "/Pharmacy/SavePharmacyBranch"

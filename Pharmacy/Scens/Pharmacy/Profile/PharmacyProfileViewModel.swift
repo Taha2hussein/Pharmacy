@@ -63,3 +63,11 @@ extension PharmacyProfileViewModel {
         }.resume()
     }
 }
+
+extension PharmacyProfileViewModel : pushView {
+    func pushNextView() {
+        router?.navigateToADdEditPharmacy()
+    }
+    
+    
+}

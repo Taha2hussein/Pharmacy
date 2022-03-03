@@ -24,6 +24,7 @@ enum Storyboards: String {
     case editProfile = "EditProfile"
     case blog = "Blog"
     case pharmacyPtofile = "PharmacyProfile"
+    case AddPharmacy = "AddPharmacy"
 }
 
 enum ViewController: String {
@@ -49,7 +50,8 @@ enum ViewController: String {
     case blogViewController = "BlosgViewController"
     case pharmacyPtofileViewController  = "PharmacyProfileViewController"
     case blogDetails = "BlogDetailsViewController"
-
+    case AddPharmacyView = "AddPharmacyViewController"
+    
 }
 
 enum TableView: String {

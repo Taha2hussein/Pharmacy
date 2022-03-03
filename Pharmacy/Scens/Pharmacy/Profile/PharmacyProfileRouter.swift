@@ -34,4 +34,8 @@ class PharmacyProfileRouter {
 //        let detailsView = DetailsConfiguration(source: source).viewController
 //        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
 //    }
+    func navigateToADdEditPharmacy() {
+        let addEditPharmacyView = AddPharmacyRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(addEditPharmacyView, animated: true)
+    }
 }
