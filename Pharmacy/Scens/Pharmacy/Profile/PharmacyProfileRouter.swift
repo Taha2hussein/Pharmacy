@@ -5,7 +5,6 @@
 //  Created by A on 08/02/2022.
 //
 
-import Foundation
 
 import Foundation
 import UIKit
@@ -34,8 +33,23 @@ class PharmacyProfileRouter {
 //        let detailsView = DetailsConfiguration(source: source).viewController
 //        sourceView?.navigationController?.pushViewController(detailsView, animated: true)
 //    }
+    func seeAllReviews(review:[ReviewsDetail]) {
+        let review = ReviewsRouter(source: review).viewController
+        self.sourceView?.navigationController?.pushViewController(review, animated: true)
+    }
+    
+    func addPharmacist() {
+        let addEditPharmacistiew = AddPharmacistRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(addEditPharmacistiew, animated: true)
+    }
+    
     func navigateToADdEditPharmacy() {
         let addEditPharmacyView = AddPharmacyRouter().viewController
         self.sourceView?.navigationController?.pushViewController(addEditPharmacyView, animated: true)
+    }
+    
+    func embedUperView(uperView: UIView) {
+        let vc = UperRouter().viewController
+        self.sourceView?.embed(vc, inParent: self.sourceView!, inView: uperView)
     }
 }

@@ -12,6 +12,7 @@ import RxSwift
 import DropDown
 class AddPharmacyViewController: BaseViewController {
     
+    @IBOutlet weak var backButtonAction: UIButton!
     @IBOutlet weak var markLocationButton: UIButton!
     @IBOutlet weak var kilometerField: UITextField!
     @IBOutlet weak var openingCustomTime: UIButton!
@@ -44,6 +45,7 @@ class AddPharmacyViewController: BaseViewController {
     private var DatePickers = DatePicker()
     private var hasDelivery = false
     private var deliveryFees = false
+    private var openingTime = false
     private var paymentWay: Int = 1
     private var countrySelectedIndex = 0
     private var citySelectedIndex = 0
@@ -54,6 +56,7 @@ class AddPharmacyViewController: BaseViewController {
     let radioController: RadioButtonController = RadioButtonController()
     let radioControlleDeliveryFees: RadioButtonController = RadioButtonController()
     let radioControllerPayment: RadioButtonController = RadioButtonController()
+    let radioControllerOpeningtime: RadioButtonController = RadioButtonController()
     private var countryList = [CountryMessage]()
     lazy var dropDowns: DropDown = {
         return self.selectCityFromDropDown
@@ -81,7 +84,6 @@ class AddPharmacyViewController: BaseViewController {
         bindlandmarkAr()
         bindhowFarService()
         showFromDateAction()
-        showFromDateAction()
         subscribeToLoader()
         NoActionForDelivery()
         yesActionForDelivery()
@@ -95,6 +97,29 @@ class AddPharmacyViewController: BaseViewController {
         setGesturesForCountry()
         setGesturesForCity()
         setGesturesForArea()
+        setUPForOpeingTime()
+        ActionForOpeningFullTime()
+        ActionForOpeningCustomtime()
+        showEndDateAction()
+        saveTapped()
+        backTapped()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setLocationName()
+    }
+    
+    func setLocationName() {
+        guard let location = LocalStorage().getLocationName()  as? String , !location.isEmpty else {return}
+        markLocationButton.setTitle(location, for: .normal)
+    }
+    
+    func backTapped() {
+        backButtonAction.rx.tap.subscribe { [weak self] _ in
+            self?.router.backView()
+        } .disposed(by: self.disposeBag)
+
     }
     
     func setUPForDelivery() {
@@ -115,6 +140,11 @@ class AddPharmacyViewController: BaseViewController {
 
     }
     
+    func setUPForOpeingTime() {
+        radioControllerOpeningtime.buttonsArray = [openingfullTime,openingCustomTime]
+        radioControllerOpeningtime.defaultButton = openingfullTime
+
+    }
     func setGesturesForCountry() {
         let country = UITapGestureRecognizer(target: self, action: #selector(CompleteRegisterViewController.tapCountry))
         countryField.isUserInteractionEnabled = true
@@ -139,6 +169,23 @@ class AddPharmacyViewController: BaseViewController {
             isEnabled ? (self?.saveAction.isEnabled = true) : (self?.saveAction.isEnabled = false)
         }).disposed(by: self.disposeBag)
 
+    }
+    
+    func ActionForOpeningFullTime() {
+        openingfullTime.rx.tap.subscribe {[weak self] _ in
+            self?.radioControllerOpeningtime.buttonArrayUpdated(buttonSelected: (self?.openingfullTime)!)
+            self?.openingTime = true
+            self?.chooseDateStackView.isHidden = true
+        }.disposed(by: self.disposeBag)
+        
+    }
+    
+    func ActionForOpeningCustomtime() {
+        openingCustomTime.rx.tap.subscribe {[weak self] _ in
+            self?.radioControllerOpeningtime.buttonArrayUpdated(buttonSelected: (self?.openingCustomTime)!)
+            self?.hasDelivery = false
+            self?.chooseDateStackView.isHidden = false
+        }.disposed(by: self.disposeBag)
     }
 
     func NoActionForDelivery() {
@@ -226,6 +273,13 @@ class AddPharmacyViewController: BaseViewController {
             })
         } .disposed(by: self.disposeBag)
         
+    }
+    
+    func saveTapped() {
+        saveAction.rx.tap.subscribe { [weak self] _ in
+            self?.articleDetailsViewModel.saveEditPharmacy(HasDelivery: self?.hasDelivery ?? true, TwintyFourHoursService: self?.openingTime ?? true, paymentType: self?.paymentWay ?? 0, selectedCountry: self?.countrySelected ?? 0, selectedCity: self?.citySelected ?? 0, selectedArea: self?.areaSelected ?? 0)
+        } .disposed(by: self.disposeBag)
+
     }
 }
 

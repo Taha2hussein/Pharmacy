@@ -77,38 +77,44 @@ class AddPharmacyViewModel {
 }
 
 extension AddPharmacyViewModel {
-    func saveEditPharmacy(HasDelivery: Bool , TwintyFourHoursService: Bool){
-        
-        let parameter = ["Address": self.location,
-                         "AreaID": self.area,
-                         "BranchLang": 0.0,
-                         "MobileNumber": self.mobile,
-                         "BranchLat": 0.0,
-                         "BranchNameAr": self.brnachNameAr,
-                         "BranchNameEn": self.brnachNameEn,
-                         "CityID": self.city,
-                         "CountryID": self.country,
+    func saveEditPharmacy(HasDelivery: Bool , TwintyFourHoursService: Bool , paymentType : Int , selectedCountry: Int ,selectedCity: Int ,selectedArea: Int  ){
+        let storge = LocalStorage()
+        state.isLoading.accept(true)
+        let parameter = ["Address": storge.getLocationName(),
+                         "AreaID": selectedArea,
+                         "BranchLang": storge.getLocationLongituded(),
+                         "MobileNumber": self.mobile.value,
+                         "BranchLat": storge.getlocationLatitude(),
+                         "BranchNameAr": self.brnachNameAr.value,
+                         "BranchNameEn": self.brnachNameEn.value,
+                         "CityID": selectedCity,
+                         "CountryID": selectedCountry,
                          "HasDelivery": HasDelivery,
-                         "LandMarkAr": self.landmarkAr,
-                         "LandMarkEn": self.landmarkeEn,
+                         "LandMarkAr": self.landmarkAr.value,
+                         "LandMarkEn": self.landmarkeEn.value,
                          "MobileCode": "+2",
-                         "PaymentType": 2,
-                         "PharmacyProviderBranchId": "",
-                         "PharmacyProviderFk": "",
-                         "ProvideServiceInKm": self.howFarService,
+                         "PaymentType": paymentType,
+                         "PharmacyProviderBranchId":storge.getPharmacyProviderFk(),
+                         "PharmacyProviderFk":  storge.getPharmacyProviderFk(),
+                         "ProvideServiceInKm": self.howFarService.value,
                          "TwintyFourHoursService": TwintyFourHoursService,
                          
         ] as [String : Any]
         print(parameter)
         state.isLoading.accept(true)
-        var request = URLRequest(url: URL(string:registerApi)!)
+        var request = URLRequest(url: URL(string:addOrEditPharmacy)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let jsonData = try? JSONSerialization.data(withJSONObject: parameter, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        print(request)
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            self.state.isLoading.accept(false)
             guard let data = data else { return }
             self.state.isLoading.accept(false)
             do {
@@ -118,7 +124,7 @@ extension AddPharmacyViewModel {
                 print( self.SavePharmacyInstance)
                 if  self.SavePharmacyInstance?.successtate == 200 {
                     DispatchQueue.main.async {
-                      
+                        self.router?.backView()
                     }
                 }
                 else {

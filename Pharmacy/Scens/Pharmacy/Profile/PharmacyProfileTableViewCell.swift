@@ -9,16 +9,19 @@ import UIKit
 
 class PharmacyProfileTableViewCell: UITableViewCell {
 
+
+    @IBOutlet weak var branchActiveButton: UIButton!
     @IBOutlet weak var branchView: UIView!
-    @IBOutlet weak var pharmaycMenu: UIButton!
+    @IBOutlet weak var branhcMenu: UIButton!
     @IBOutlet weak var pharmacyDetails: UILabel!
     @IBOutlet weak var pharmacyLocation: UILabel!
     @IBOutlet weak var pharmacyName: UILabel!
     
+    
+    @IBOutlet weak var pharmacistMenu: UIButton!
     @IBOutlet weak var pharmacistPhone: UILabel!
     @IBOutlet weak var phrmacistEmail: UILabel!
     @IBOutlet weak var pharmcistJob: UILabel!
-    @IBOutlet weak var pharmacistMenu: UIButton!
     @IBOutlet weak var pharmacistName: UILabel!
     @IBOutlet weak var phramcistImaeg: UIImageView!
     @IBOutlet weak var pharmcistView: UIView!
@@ -44,9 +47,19 @@ class PharmacyProfileTableViewCell: UITableViewCell {
         }
     }
     
+
     func setData( product:BranchesList) {
         self.pharmacyName.text = product.branchName
-        self.pharmacyLocation.text = "( \(product.cityName) )"
+        self.pharmacyLocation.text = "( \(product.cityName ?? "") )"
         self.pharmacyDetails.text = product.address
+        if product.isActive == false {
+            self.branchView.backgroundColor = .gray
+            branchActiveButton.isHidden = false
+        }
+        else{
+            branchActiveButton.isHidden = true
+            self.branchView.backgroundColor = .white
+
+        }
     }
 }

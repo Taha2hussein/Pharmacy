@@ -33,6 +33,10 @@ class AddPharmacyRouter {
         let mapView = MapRouter().viewController
         sourceView?.navigationController?.pushViewController(mapView, animated: true)
     }
+    
+    func backView(){
+        sourceView?.navigationController?.popViewController(animated: true)
+    }
 //    func navigateToMainview() {
 //        let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
 //        let tabBar = tabBarView.instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)

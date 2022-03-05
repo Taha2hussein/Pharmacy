@@ -5,7 +5,7 @@
 //  Created by A on 08/02/2022.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 import RxRelay
@@ -19,6 +19,7 @@ class PharmacyProfileViewModel {
     var brahcnhPharmacist = PublishSubject<[EmployeesList]>()
     var pharmacyObject = PublishSubject<PharmacyProfileModel>()
     var segmentSelected = BehaviorRelay<segmet>(value: .brahnch)
+    var activatonInstance: ActivePharmacyBranch?
     func bind(view: PharmacyProfileViewController, router: PharmacyProfileRouter) {
         self.view = view
         self.router = router
@@ -62,6 +63,47 @@ extension PharmacyProfileViewModel {
             }
         }.resume()
     }
+    
+    func seAllReviews(review:[ReviewsDetail]) {
+        router?.seeAllReviews(review: review)
+    }
+}
+
+extension PharmacyProfileViewModel {
+    func activeBranch(branchId:Int, activation: Bool) {
+       
+        
+        state.isLoading.accept(true)
+        var request = URLRequest(url: URL(string: activeBranchApi + "ID=\(branchId)&&Status=\(activation)")!)
+
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+       
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            self.state.isLoading.accept(false)
+            do {
+                
+                let decoder = JSONDecoder()
+                self.activatonInstance = try decoder.decode(ActivePharmacyBranch.self, from: data)
+                if self.activatonInstance?.successtate == 200 {
+                    DispatchQueue.main.async {
+                        Alert().displayError(text: self.activatonInstance?.message ?? "sucess", viewController: self.view!)
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        Alert().displayError(text: self.activatonInstance?.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                    }
+                }
+            } catch let err {
+                print("Err", err)
+            }
+        }.resume()
+    }
 }
 
 extension PharmacyProfileViewModel : pushView {
@@ -69,5 +111,7 @@ extension PharmacyProfileViewModel : pushView {
         router?.navigateToADdEditPharmacy()
     }
     
-    
+    func embedUperView(uperView: UIView) {
+        router?.embedUperView(uperView: uperView)
+    }
 }

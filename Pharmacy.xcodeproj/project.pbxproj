@@ -158,6 +158,11 @@
 		00F5812527A1DE3C00997DA1 /* WalletTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */; };
 		00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */; };
 		5AA89F0E1DC819F64698070B /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1A4FA0419194D74889C60C /* Pods_Pharmacy.framework */; };
+		722DA0AB27D1587A00580E0F /* Reviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722DA0AA27D1587A00580E0F /* Reviews.storyboard */; };
+		722DA0AE27D15A2900580E0F /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0AD27D15A2900580E0F /* ReviewsViewController.swift */; };
+		722DA0B027D15A3300580E0F /* ReviewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0AF27D15A3300580E0F /* ReviewsRouter.swift */; };
+		722DA0B227D15A3C00580E0F /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0B127D15A3C00580E0F /* ReviewsViewModel.swift */; };
+		722DA0B427D15E3400580E0F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0B327D15E3400580E0F /* ReviewTableViewCell.swift */; };
 		72543BC827B3BFB300E29E8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BC727B3BFB300E29E8E /* Constants.swift */; };
 		72543BCD27B3FED300E29E8E /* PharmcyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */; };
 		72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */; };
@@ -169,6 +174,16 @@
 		72DD34A227B917D900D915CB /* ForgetPasswordFilrst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD34A127B917D900D915CB /* ForgetPasswordFilrst.swift */; };
 		72DD34A427B919AF00D915CB /* ForgetPasswordSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD34A327B919AF00D915CB /* ForgetPasswordSecond.swift */; };
 		72DD34A627B9236F00D915CB /* ForgetPasswordThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD34A527B9236F00D915CB /* ForgetPasswordThird.swift */; };
+		72F9249527D35399009BB650 /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F9249127D35399009BB650 /* StarRatingStackView.swift */; };
+		72F9249627D35399009BB650 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F9249227D35399009BB650 /* StarRatingView.swift */; };
+		72F9249827D35399009BB650 /* starRatingViewInIntefaceBuilder.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F9249427D35399009BB650 /* starRatingViewInIntefaceBuilder.png */; };
+		72F9249A27D353CD009BB650 /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F9249927D353CD009BB650 /* StarRatingStackView.xib */; };
+		72F9249D27D357FB009BB650 /* AddPharmacistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F9249C27D357FB009BB650 /* AddPharmacistViewModel.swift */; };
+		72F9249F27D35803009BB650 /* AddPharmacistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F9249E27D35803009BB650 /* AddPharmacistRouter.swift */; };
+		72F924A127D35812009BB650 /* AddPharmacistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F924A027D35812009BB650 /* AddPharmacistViewController.swift */; };
+		72F924A327D35B18009BB650 /* AddPharmacist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F924A227D35B18009BB650 /* AddPharmacist.swift */; };
+		72F924A527D3A7D7009BB650 /* ActivePharmacyBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F924A427D3A7D7009BB650 /* ActivePharmacyBranch.swift */; };
+		72F924A727D3BDBE009BB650 /* PreviousOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F924A627D3BDBE009BB650 /* PreviousOrderList.swift */; };
 		72FE350927B8505900DAF700 /* BlogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350827B8505900DAF700 /* BlogDetailsViewController.swift */; };
 		72FE350B27B8506000DAF700 /* BlogDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350A27B8506000DAF700 /* BlogDetailsRouter.swift */; };
 		72FE350D27B8506600DAF700 /* BlogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE350C27B8506600DAF700 /* BlogDetailsViewModel.swift */; };
@@ -323,6 +338,11 @@
 		00F5812427A1DE3C00997DA1 /* WalletTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionList.swift; sourceTree = "<group>"; };
 		00F5812827A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		64CB81DD57033C820B0614BC /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
+		722DA0AA27D1587A00580E0F /* Reviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reviews.storyboard; sourceTree = "<group>"; };
+		722DA0AD27D15A2900580E0F /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
+		722DA0AF27D15A3300580E0F /* ReviewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsRouter.swift; sourceTree = "<group>"; };
+		722DA0B127D15A3C00580E0F /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
+		722DA0B327D15E3400580E0F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		72543BC727B3BFB300E29E8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmcyProfileModel.swift; sourceTree = "<group>"; };
 		72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -334,6 +354,16 @@
 		72DD34A127B917D900D915CB /* ForgetPasswordFilrst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordFilrst.swift; sourceTree = "<group>"; };
 		72DD34A327B919AF00D915CB /* ForgetPasswordSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordSecond.swift; sourceTree = "<group>"; };
 		72DD34A527B9236F00D915CB /* ForgetPasswordThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordThird.swift; sourceTree = "<group>"; };
+		72F9249127D35399009BB650 /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
+		72F9249227D35399009BB650 /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
+		72F9249427D35399009BB650 /* starRatingViewInIntefaceBuilder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starRatingViewInIntefaceBuilder.png; sourceTree = "<group>"; };
+		72F9249927D353CD009BB650 /* StarRatingStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
+		72F9249C27D357FB009BB650 /* AddPharmacistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPharmacistViewModel.swift; sourceTree = "<group>"; };
+		72F9249E27D35803009BB650 /* AddPharmacistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPharmacistRouter.swift; sourceTree = "<group>"; };
+		72F924A027D35812009BB650 /* AddPharmacistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPharmacistViewController.swift; sourceTree = "<group>"; };
+		72F924A227D35B18009BB650 /* AddPharmacist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPharmacist.swift; sourceTree = "<group>"; };
+		72F924A427D3A7D7009BB650 /* ActivePharmacyBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePharmacyBranch.swift; sourceTree = "<group>"; };
+		72F924A627D3BDBE009BB650 /* PreviousOrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousOrderList.swift; sourceTree = "<group>"; };
 		72FE350827B8505900DAF700 /* BlogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsViewController.swift; sourceTree = "<group>"; };
 		72FE350A27B8506000DAF700 /* BlogDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsRouter.swift; sourceTree = "<group>"; };
 		72FE350C27B8506600DAF700 /* BlogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -410,6 +440,7 @@
 				0044ED342788871C00598D8D /* Info.plist */,
 				00C97E352797472800A072FC /* GoogleService-Info.plist */,
 				0044ED7D2788976100598D8D /* Fonts */,
+				72F9249027D35387009BB650 /* Cosmos */,
 				0044ED6B27888FF300598D8D /* Extensions */,
 				00516ACB2792991100A4CCFD /* Network Manger */,
 				0044ED3D2788883D00598D8D /* ApplicationServices */,
@@ -503,6 +534,7 @@
 				00E8354027A7DD0D009E98A3 /* EditProfile.storyboard */,
 				0058D01127ABF87F00B70A85 /* Blog.storyboard */,
 				729FE1CF27D09207008688C6 /* AddPharmacy.storyboard */,
+				722DA0AA27D1587A00580E0F /* Reviews.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -718,6 +750,9 @@
 				72DD34A327B919AF00D915CB /* ForgetPasswordSecond.swift */,
 				72DD34A527B9236F00D915CB /* ForgetPasswordThird.swift */,
 				72DA75D627D0AE6B006EAE0E /* SaveEditPharmacy.swift */,
+				72F924A227D35B18009BB650 /* AddPharmacist.swift */,
+				72F924A427D3A7D7009BB650 /* ActivePharmacyBranch.swift */,
+				72F924A627D3BDBE009BB650 /* PreviousOrderList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -762,6 +797,8 @@
 		00C560AE27B2799A003F8963 /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
+				72F9249B27D357E8009BB650 /* Add Pharmacist */,
+				722DA0AC27D1599600580E0F /* Reviews */,
 				729FE1D127D09217008688C6 /* AddEditPharmacy */,
 				00C560AF27B279A5003F8963 /* Profile */,
 			);
@@ -857,6 +894,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		722DA0AC27D1599600580E0F /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				722DA0AD27D15A2900580E0F /* ReviewsViewController.swift */,
+				722DA0AF27D15A3300580E0F /* ReviewsRouter.swift */,
+				722DA0B127D15A3C00580E0F /* ReviewsViewModel.swift */,
+				722DA0B327D15E3400580E0F /* ReviewTableViewCell.swift */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
 		729FE1D127D09217008688C6 /* AddEditPharmacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -865,6 +913,27 @@
 				729FE1D627D09241008688C6 /* AddPharmacyViewController.swift */,
 			);
 			path = AddEditPharmacy;
+			sourceTree = "<group>";
+		};
+		72F9249027D35387009BB650 /* Cosmos */ = {
+			isa = PBXGroup;
+			children = (
+				72F9249127D35399009BB650 /* StarRatingStackView.swift */,
+				72F9249227D35399009BB650 /* StarRatingView.swift */,
+				72F9249927D353CD009BB650 /* StarRatingStackView.xib */,
+				72F9249427D35399009BB650 /* starRatingViewInIntefaceBuilder.png */,
+			);
+			path = Cosmos;
+			sourceTree = "<group>";
+		};
+		72F9249B27D357E8009BB650 /* Add Pharmacist */ = {
+			isa = PBXGroup;
+			children = (
+				72F9249C27D357FB009BB650 /* AddPharmacistViewModel.swift */,
+				72F9249E27D35803009BB650 /* AddPharmacistRouter.swift */,
+				72F924A027D35812009BB650 /* AddPharmacistViewController.swift */,
+			);
+			path = "Add Pharmacist";
 			sourceTree = "<group>";
 		};
 		72FE350727B8503D00DAF700 /* Blogs Details */ = {
@@ -979,7 +1048,10 @@
 				00CAFD4B279FE83F0087F164 /* Register.storyboard in Resources */,
 				00CAFD57279FE8AB0087F164 /* ConfirmAccount.storyboard in Resources */,
 				0044ED8727889A1B00598D8D /* Segoe UI Bold.ttf in Resources */,
+				72F9249827D35399009BB650 /* starRatingViewInIntefaceBuilder.png in Resources */,
 				00E8354127A7DD0D009E98A3 /* EditProfile.storyboard in Resources */,
+				72F9249A27D353CD009BB650 /* StarRatingStackView.xib in Resources */,
+				722DA0AB27D1587A00580E0F /* Reviews.storyboard in Resources */,
 				729FE1D027D09207008688C6 /* AddPharmacy.storyboard in Resources */,
 				00CAFD51279FE8800087F164 /* ConfirmMobile.storyboard in Resources */,
 				0044ED2B2788871800598D8D /* Main.storyboard in Resources */,
@@ -1058,6 +1130,7 @@
 				0044ED77278891FA00598D8D /* Asset.swift in Sources */,
 				006D4933279EB79D0079F01E /* UIImage+Exetnsion.swift in Sources */,
 				0044ED752788917800598D8D /* UIView.swift in Sources */,
+				72F9249D27D357FB009BB650 /* AddPharmacistViewModel.swift in Sources */,
 				008C493827A16BAC00363DE6 /* UperViewController.swift in Sources */,
 				729FE1D727D09241008688C6 /* AddPharmacyViewController.swift in Sources */,
 				008D886F279AB55800BAF8DC /* WalletDetailsViewController.swift in Sources */,
@@ -1085,9 +1158,11 @@
 				0044ED532788883D00598D8D /* CheckInternet.swift in Sources */,
 				00CAFD7427A054FF0087F164 /* BracnhListModel.swift in Sources */,
 				00E6B8D22799F2C6006BEA8F /* NSDateComponents+Timepiece.swift in Sources */,
+				72F924A127D35812009BB650 /* AddPharmacistViewController.swift in Sources */,
 				72DD34A427B919AF00D915CB /* ForgetPasswordSecond.swift in Sources */,
 				0044ED7C2788960D00598D8D /* LoginViewController.swift in Sources */,
 				72DD34A627B9236F00D915CB /* ForgetPasswordThird.swift in Sources */,
+				722DA0B427D15E3400580E0F /* ReviewTableViewCell.swift in Sources */,
 				0077045727899EF20055CABC /* IntroRouter.swift in Sources */,
 				72FE350927B8505900DAF700 /* BlogDetailsViewController.swift in Sources */,
 				00E6B8D02799F2C6006BEA8F /* Int+Timepiece.swift in Sources */,
@@ -1104,6 +1179,7 @@
 				007704482789974D0055CABC /* MapViewController.swift in Sources */,
 				00E6B8C92799A48C006BEA8F /* WalletsViewController.swift in Sources */,
 				000FCD4927A6AED700E12E11 /* MoreViewController.swift in Sources */,
+				72F924A327D35B18009BB650 /* AddPharmacist.swift in Sources */,
 				00218AEB27AD763500BA7135 /* LikeBlogsModel.swift in Sources */,
 				0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */,
 				0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */,
@@ -1116,10 +1192,13 @@
 				72FE350F27B8557300DAF700 /* BlogDetails.swift in Sources */,
 				72DD34A227B917D900D915CB /* ForgetPasswordFilrst.swift in Sources */,
 				00770437278993080055CABC /* VerificationRouter.swift in Sources */,
+				722DA0B027D15A3300580E0F /* ReviewsRouter.swift in Sources */,
 				72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */,
+				72F9249627D35399009BB650 /* StarRatingView.swift in Sources */,
 				0077042327898DFF0055CABC /* FirstRegisterViewModel.swift in Sources */,
 				00516AD127929D0900A4CCFD /* State.swift in Sources */,
 				0044ED512788883D00598D8D /* UIApplication+ScreenShot.swift in Sources */,
+				722DA0AE27D15A2900580E0F /* ReviewsViewController.swift in Sources */,
 				0044ED8B2788A8F700598D8D /* ForgetViewController.swift in Sources */,
 				006D4931279EB61A0079F01E /* DashboardModel.swift in Sources */,
 				0077043A278993C90055CABC /* ConfirmMobileViewModel.swift in Sources */,
@@ -1147,6 +1226,8 @@
 				0044ED79278892A600598D8D /* UITextView.swift in Sources */,
 				0044ED552788883D00598D8D /* KeyBoard.swift in Sources */,
 				007704512789981D0055CABC /* ConfirmAccountRouter.swift in Sources */,
+				72F924A527D3A7D7009BB650 /* ActivePharmacyBranch.swift in Sources */,
+				72F9249F27D35803009BB650 /* AddPharmacistRouter.swift in Sources */,
 				0044ED262788871800598D8D /* SceneDelegate.swift in Sources */,
 				72FE351127B85D9900DAF700 /* LogoutModel.swift in Sources */,
 				00770430278991660055CABC /* ForgetPasswordRouter.swift in Sources */,
@@ -1163,6 +1244,7 @@
 				72FE350D27B8506600DAF700 /* BlogDetailsViewModel.swift in Sources */,
 				006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */,
 				008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */,
+				72F924A727D3BDBE009BB650 /* PreviousOrderList.swift in Sources */,
 				00E8354427A7E08C009E98A3 /* EditProfileViewController.swift in Sources */,
 				00E6B8BB27999670006BEA8F /* EmptySegue.swift in Sources */,
 				00C560B327B279C3003F8963 /* PharmacyProfileViewModel.swift in Sources */,
@@ -1183,9 +1265,11 @@
 				008C494727A1BEC800363DE6 /* RechageViewController.swift in Sources */,
 				008C493327A14C9400363DE6 /* DatePicker.swift in Sources */,
 				00516ACF2792991100A4CCFD /* Network.swift in Sources */,
+				72F9249527D35399009BB650 /* StarRatingStackView.swift in Sources */,
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
 				00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */,
 				000FCD5427A6C9C000E12E11 /* ProfileViewModel.swift in Sources */,
+				722DA0B227D15A3C00580E0F /* ReviewsViewModel.swift in Sources */,
 				72FE350B27B8506000DAF700 /* BlogDetailsRouter.swift in Sources */,
 				000A1F732794CD1900508D3C /* ImagesCollectionViewCell.swift in Sources */,
 				00E6B8C72799A482006BEA8F /* WalletsRouter.swift in Sources */,

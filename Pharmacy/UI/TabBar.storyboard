@@ -272,13 +272,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCA-TB-BIA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="149"/>
+                                                            <rect key="frame" x="5" y="5" width="364" height="139"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="haq-zH-7aa">
-                                                                    <rect key="frame" x="15" y="15" width="315" height="24"/>
+                                                                    <rect key="frame" x="15" y="15" width="305" height="24"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="smD-oi-IJE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="24"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Elazby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCd-ee-hoi">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="54" height="24"/>
@@ -287,7 +287,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Nasr City)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKI-BI-IPm">
-                                                                                    <rect key="frame" x="59" y="0.0" width="256" height="24"/>
+                                                                                    <rect key="frame" x="59" y="0.0" width="246" height="24"/>
                                                                                     <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="18"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -304,13 +304,30 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt,Tanta,dfgggggggggEgypt,Tanta,dfgggggggggEgypt,Tanta,dfgggggggggEgypt,Tanta,dfggggggggg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuD-fn-HM1">
-                                                                    <rect key="frame" x="45" y="54" width="314" height="35"/>
+                                                                    <rect key="frame" x="45" y="54" width="304" height="35"/>
                                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M9-Mi-6Cp">
+                                                                    <rect key="frame" x="299.5" y="84" width="59.5" height="50"/>
+                                                                    <color key="backgroundColor" name="blue"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="XNU-kJ-x3O"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Active">
+                                                                        <fontDescription key="titleFontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="12"/>
+                                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </buttonConfiguration>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxt-Mu-6V6">
-                                                                    <rect key="frame" x="350" y="17" width="4" height="20"/>
+                                                                    <rect key="frame" x="340" y="17" width="4" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="4" id="PEl-ZA-iS7"/>
                                                                         <constraint firstAttribute="height" constant="20" id="r3I-u6-gB1"/>
@@ -328,6 +345,8 @@
                                                                 <constraint firstItem="oxt-Mu-6V6" firstAttribute="centerY" secondItem="smD-oi-IJE" secondAttribute="centerY" id="QVs-3J-Gfx"/>
                                                                 <constraint firstItem="haq-zH-7aa" firstAttribute="top" secondItem="ZCA-TB-BIA" secondAttribute="top" constant="15" id="Qa7-U4-pHZ"/>
                                                                 <constraint firstItem="exx-nJ-3Lw" firstAttribute="top" secondItem="SuD-fn-HM1" secondAttribute="top" id="Vcf-hL-8dU"/>
+                                                                <constraint firstAttribute="bottom" secondItem="4M9-Mi-6Cp" secondAttribute="bottom" constant="5" id="VmH-aw-eJV"/>
+                                                                <constraint firstAttribute="trailing" secondItem="4M9-Mi-6Cp" secondAttribute="trailing" constant="5" id="Ym3-Jl-dHD"/>
                                                                 <constraint firstItem="exx-nJ-3Lw" firstAttribute="leading" secondItem="ZCA-TB-BIA" secondAttribute="leading" constant="15" id="hrE-if-MuU"/>
                                                                 <constraint firstAttribute="trailing" secondItem="SuD-fn-HM1" secondAttribute="trailing" constant="15" id="im4-Q5-2bs"/>
                                                                 <constraint firstItem="haq-zH-7aa" firstAttribute="leading" secondItem="ZCA-TB-BIA" secondAttribute="leading" constant="15" id="n8T-4c-NpI"/>
@@ -348,10 +367,11 @@
                                                                 <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                                                     <size key="value" width="0.0" height="3"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwr-KC-6FF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="149"/>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwr-KC-6FF">
+                                                            <rect key="frame" x="5" y="5" width="364" height="139"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="OT5-Mw-KBV">
                                                                     <rect key="frame" x="20" y="20" width="50" height="50"/>
@@ -366,28 +386,28 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Ahmed Karim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKI-aH-inR">
-                                                                    <rect key="frame" x="90" y="20" width="224" height="42"/>
+                                                                    <rect key="frame" x="90" y="20" width="214" height="32"/>
                                                                     <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="18"/>
                                                                     <color key="textColor" name="blue"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UiI-5o-huV">
-                                                                    <rect key="frame" x="90" y="72" width="264" height="67"/>
+                                                                    <rect key="frame" x="90" y="62" width="254" height="67"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pharmacist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sR-9d-F5u">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="264" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="254" height="19"/>
                                                                             <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
                                                                             <color key="textColor" name="blue"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ahmed.karim@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-y9-TZA">
-                                                                            <rect key="frame" x="0.0" y="24" width="264" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="24" width="254" height="19"/>
                                                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="002-100 300 5689" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmz-yV-xKM">
-                                                                            <rect key="frame" x="0.0" y="48" width="264" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="48" width="254" height="19"/>
                                                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -395,7 +415,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va3-fN-hUT">
-                                                                    <rect key="frame" x="334" y="20" width="20" height="20"/>
+                                                                    <rect key="frame" x="324" y="20" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="Ke7-FI-ZsI"/>
                                                                         <constraint firstAttribute="width" constant="20" id="NMO-ag-fcf"/>
@@ -444,25 +464,26 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="ZCA-TB-BIA" firstAttribute="leading" secondItem="vMi-05-Cr2" secondAttribute="leading" id="0DV-vG-iYX"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Hwr-KC-6FF" secondAttribute="trailing" id="4pL-W6-kbW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ZCA-TB-BIA" secondAttribute="trailing" id="Jtj-DS-tsq"/>
-                                                        <constraint firstItem="Hwr-KC-6FF" firstAttribute="top" secondItem="vMi-05-Cr2" secondAttribute="top" id="KJZ-GM-jDP"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ZCA-TB-BIA" secondAttribute="bottom" id="MZx-ag-uSM"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Hwr-KC-6FF" secondAttribute="bottom" id="NsD-Qr-v49"/>
-                                                        <constraint firstItem="Hwr-KC-6FF" firstAttribute="leading" secondItem="vMi-05-Cr2" secondAttribute="leading" id="kd4-iS-tXS"/>
-                                                        <constraint firstItem="ZCA-TB-BIA" firstAttribute="top" secondItem="vMi-05-Cr2" secondAttribute="top" id="yGL-2K-XgR"/>
+                                                        <constraint firstItem="ZCA-TB-BIA" firstAttribute="leading" secondItem="vMi-05-Cr2" secondAttribute="leading" constant="5" id="0DV-vG-iYX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Hwr-KC-6FF" secondAttribute="trailing" constant="5" id="4pL-W6-kbW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZCA-TB-BIA" secondAttribute="trailing" constant="5" id="Jtj-DS-tsq"/>
+                                                        <constraint firstItem="Hwr-KC-6FF" firstAttribute="top" secondItem="vMi-05-Cr2" secondAttribute="top" constant="5" id="KJZ-GM-jDP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZCA-TB-BIA" secondAttribute="bottom" constant="5" id="MZx-ag-uSM"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Hwr-KC-6FF" secondAttribute="bottom" constant="5" id="NsD-Qr-v49"/>
+                                                        <constraint firstItem="Hwr-KC-6FF" firstAttribute="leading" secondItem="vMi-05-Cr2" secondAttribute="leading" constant="5" id="kd4-iS-tXS"/>
+                                                        <constraint firstItem="ZCA-TB-BIA" firstAttribute="top" secondItem="vMi-05-Cr2" secondAttribute="top" constant="5" id="yGL-2K-XgR"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="branchActiveButton" destination="4M9-Mi-6Cp" id="JC6-gg-m5N"/>
                                                     <outlet property="branchView" destination="ZCA-TB-BIA" id="gTP-gU-UfU"/>
-                                                    <outlet property="pharmacistMenu" destination="Va3-fN-hUT" id="o07-fU-GAD"/>
+                                                    <outlet property="branhcMenu" destination="oxt-Mu-6V6" id="PNM-0M-3Mi"/>
+                                                    <outlet property="pharmacistMenu" destination="Va3-fN-hUT" id="rpQ-Sl-0fH"/>
                                                     <outlet property="pharmacistName" destination="hKI-aH-inR" id="WES-w4-mx9"/>
                                                     <outlet property="pharmacistPhone" destination="kmz-yV-xKM" id="lOj-ir-Fmp"/>
                                                     <outlet property="pharmacyDetails" destination="SuD-fn-HM1" id="rP0-b2-IXE"/>
                                                     <outlet property="pharmacyLocation" destination="kKI-BI-IPm" id="9Ey-bM-7Mo"/>
                                                     <outlet property="pharmacyName" destination="gCd-ee-hoi" id="GZy-UA-Byl"/>
-                                                    <outlet property="pharmaycMenu" destination="oxt-Mu-6V6" id="fDU-jX-fIq"/>
                                                     <outlet property="pharmcistJob" destination="7sR-9d-F5u" id="nMC-0h-XcG"/>
                                                     <outlet property="pharmcistView" destination="Hwr-KC-6FF" id="upQ-nF-crN"/>
                                                     <outlet property="phramcistImaeg" destination="OT5-Mw-KBV" id="lH5-us-nS9"/>
@@ -515,6 +536,7 @@
                         <outlet property="addBewPharmacyButton" destination="2u6-My-1ND" id="my3-lI-j37"/>
                         <outlet property="branchTableview" destination="F5f-lC-riy" id="Rit-iI-6xT"/>
                         <outlet property="editPharmacyButton" destination="L7V-Tg-N6p" id="ct1-j8-hlg"/>
+                        <outlet property="headerView" destination="xcr-uM-L9u" id="FuX-N5-CfL"/>
                         <outlet property="pharmacyBrnachNo" destination="0He-Mq-GG3" id="fuy-nL-ULD"/>
                         <outlet property="pharmacyImage" destination="P27-Vq-rjD" id="VDS-YC-pMg"/>
                         <outlet property="pharmacyName" destination="x99-HU-LSK" id="1qz-fw-hup"/>
