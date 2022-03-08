@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Segoe UI Bold.ttf">
+            <string>SegoeUI-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Uper View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="UperViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="UperViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5R-Aq-O5r">
+                                <rect key="frame" x="20" y="449.5" width="36" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="aWS-fx-7mA"/>
+                                    <constraint firstAttribute="width" constant="36" id="xnm-l0-Ru2"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="e4PharmacyAppIcon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njn-FR-LWO">
+                                <rect key="frame" x="374" y="458" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="2qn-Gg-asX"/>
+                                    <constraint firstAttribute="height" constant="20" id="hYX-ZH-s8X"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bell1"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4v-Y1-X8l">
+                                <rect key="frame" x="66" y="458.5" width="282" height="19"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                <color key="textColor" name="blue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C4v-Y1-X8l" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="20" id="LXN-RU-yKy"/>
+                            <constraint firstItem="C4v-Y1-X8l" firstAttribute="leading" secondItem="C5R-Aq-O5r" secondAttribute="trailing" constant="10" id="LqR-3q-5Kh"/>
+                            <constraint firstItem="C5R-Aq-O5r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="RFh-3d-CbC"/>
+                            <constraint firstItem="C5R-Aq-O5r" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="20" id="aij-fK-Nhe"/>
+                            <constraint firstItem="Njn-FR-LWO" firstAttribute="leading" secondItem="C4v-Y1-X8l" secondAttribute="trailing" constant="26" id="bhV-KU-cyn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Njn-FR-LWO" secondAttribute="trailing" constant="20" id="cJ2-Iu-R3o"/>
+                            <constraint firstItem="Njn-FR-LWO" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="20" id="pDi-Gz-CP9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lMY-Ir-r52"/>
+                    <connections>
+                        <outlet property="headerLabel" destination="C4v-Y1-X8l" id="5cy-82-REb"/>
+                        <outlet property="homebutton" destination="C5R-Aq-O5r" id="OAu-js-7BU"/>
+                        <outlet property="notificationButton" destination="Njn-FR-LWO" id="ZwA-A3-J8T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="66.964285714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pmL-5K-4mD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="she-4C-ohV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7sw-Lg-jc4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="oPf-oi-Yyq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mat-ke-ssH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.188405797101453" y="66.964285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bell1" width="18.5" height="18.5"/>
+        <image name="e4PharmacyAppIcon" width="48" height="48"/>
+        <namedColor name="blue">
+            <color red="0.071000002324581146" green="0.46700000762939453" blue="0.81999999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

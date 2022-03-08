@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Segoe UI.ttf">
+            <string>SegoeUI</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Pharmacy View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddPharmacyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AddPharmacyViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O30-nH-b3X">
+                                <rect key="frame" x="20" y="66" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="6xZ-h1-yTP"/>
+                                    <constraint firstAttribute="width" constant="20" id="hmY-hq-7CQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backBlue"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Branch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLU-P4-cOH">
+                                <rect key="frame" x="60" y="64" width="314" height="24"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTc-aj-NnA">
+                                <rect key="frame" x="20" y="108" width="374" height="771"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T89-Ys-x8b">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="771"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-Lv-FAG">
+                                                <rect key="frame" x="20" y="377.5" width="334" height="72.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HOp-g0-gJi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="72.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Landmark &quot;En&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7n-hJ-UBQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Landmark &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-ms-p7H">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="KLV-ix-1sH"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yNy-5l-trF">
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="72.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Landmark &quot;Ar&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msh-WN-Uzb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Landmark &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPL-fh-Rn1">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="L8g-Nl-3M5"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Igj-FT-8ox">
+                                                <rect key="frame" x="20" y="232.5" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a1w-FZ-fc9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street Name &quot;En&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwE-SE-fTZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRN-Zh-2zK">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="CRe-h9-s3X"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WpR-j0-aEC">
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street name &quot;Ar&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1X-WL-0tF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yir-mD-8do">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="zs2-jD-nte"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8TA-yS-tP6">
+                                                <rect key="frame" x="20" y="20" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="byF-KT-Kbt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branch Name &quot;En&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsW-4S-oIh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Branch Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDp-Kf-T9s">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="z2W-p6-pHJ"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xg2-9G-IJi">
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branch Name &quot;Ar&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5o-WP-fcE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Branch Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-Sp-G08">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="8bV-Ho-4iI"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-lz-CwT">
+                                                <rect key="frame" x="20" y="310" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-ta-tcQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building Name &quot;En&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygz-eu-WEH">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Building Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qNY-MI-wUb">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="utq-Tq-CF7"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="w5e-wU-0aB">
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building number &quot;Ar&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-RS-exJ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Building Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="As8-lD-PVm">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="SDM-1j-mv2"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CbA-ni-owc">
+                                                <rect key="frame" x="20" y="87.5" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lD8-ah-0TS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcZ-fz-pnE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+20" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ehu-HO-Q4B">
+                                                                <rect key="frame" x="0.0" y="22.5" width="46" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="HzX-8u-HEo"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="blue"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OAP-bN-S2t">
+                                                        <rect key="frame" x="51" y="22.5" width="283" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="9Jw-6H-ggs"/>
+                                                        </constraints>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                        <color key="textColor" name="dark"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WAI-4r-1gy">
+                                                <rect key="frame" x="20" y="155" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MtH-d4-78J">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8p-R6-uly">
+                                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vst-nX-Hau">
+                                                                <rect key="frame" x="0.0" y="22.5" width="104.5" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="anT-UB-naf"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xmd-tD-Tg4">
+                                                        <rect key="frame" x="114.5" y="0.0" width="105" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xee-le-ISX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jp7-s3-NWo">
+                                                                <rect key="frame" x="0.0" y="22.5" width="105" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="S7H-AT-jAO"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iSd-7G-oQl">
+                                                        <rect key="frame" x="229.5" y="0.0" width="104.5" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTu-PK-cAI">
+                                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Area" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-f8-WSL">
+                                                                <rect key="frame" x="0.0" y="22.5" width="104.5" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="3al-GV-YLn"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLocation" translatesAutoresizingMaskIntoConstraints="NO" id="pi8-ZV-zvI">
+                                                <rect key="frame" x="20" y="469" width="10" height="13"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="13" id="FGv-WV-1Tr"/>
+                                                    <constraint firstAttribute="width" constant="10" id="gjD-2Y-7oL"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYa-Kg-4ed">
+                                                <rect key="frame" x="70" y="460" width="115.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Mark Location">
+                                                    <color key="baseForegroundColor" name="blue"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWO-MV-IfT">
+                                                <rect key="frame" x="40" y="533.5" width="18.5" height="17.5"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5y-Sk-o1m">
+                                                <rect key="frame" x="141.5" y="533.5" width="17.5" height="17.5"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwO-7C-rdT">
+                                                <rect key="frame" x="121.5" y="537.5" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="0kE-4V-Lpx"/>
+                                                    <constraint firstAttribute="width" constant="10" id="kgE-Je-bfg"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ellipse138"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-IS-d3i">
+                                                <rect key="frame" x="20" y="537.5" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="JrV-bq-CAC"/>
+                                                    <constraint firstAttribute="width" constant="10" id="TBg-cK-Fz1"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ellipse138"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Does the pharmacy have a delivery service ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eir-B7-myB">
+                                                <rect key="frame" x="20" y="501" width="334" height="17.5"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Payment Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szX-56-pPF">
+                                                <rect key="frame" x="20" y="561" width="334" height="16"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="X72-YV-TJv">
+                                                <rect key="frame" x="20" y="587" width="58" height="30"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sL0-vU-JrU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="10"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mw-OF-Ddo">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="10" id="TYF-U7-gRT"/>
+                                                                    <constraint firstAttribute="width" constant="10" id="ezZ-G6-IDt"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="rectangle2123"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bix-Cb-y5Y">
+                                                                <rect key="frame" x="20" y="0.0" width="38" height="10"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vm3-NQ-40a">
+                                                        <rect key="frame" x="0.0" y="20" width="58" height="10"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmG-oS-HCm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="10" id="6JB-kZ-TOh"/>
+                                                                    <constraint firstAttribute="width" constant="10" id="7nJ-Pi-0kz"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="group3066"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lr7-1Z-fJj">
+                                                                <rect key="frame" x="20" y="0.0" width="38" height="10"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohg-ty-iPz">
+                                                <rect key="frame" x="20" y="627" width="334" height="32"/>
+                                                <string key="text">Do you want to add Static / Default delivery fess for 
+all patient?  if you have delivery.</string>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5XB-9q-0eZ">
+                                                <rect key="frame" x="20" y="669" width="38.5" height="30"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rbF-C7-S0d">
+                                                        <rect key="frame" x="0.0" y="0.0" width="38.5" height="10"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuV-k6-7bS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="10" id="Ocr-mS-qeG"/>
+                                                                    <constraint firstAttribute="width" constant="10" id="VfZ-yr-vCO"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="ellipse138"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opf-te-ubp">
+                                                                <rect key="frame" x="20" y="0.0" width="18.5" height="10"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ca2-bo-uda">
+                                                        <rect key="frame" x="0.0" y="20" width="38.5" height="10"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-TO-9Gz">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="10" id="P1D-Co-aRH"/>
+                                                                    <constraint firstAttribute="height" constant="10" id="xCe-kA-CtA"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="ellipse138"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xls-eS-flH">
+                                                                <rect key="frame" x="20" y="0.0" width="18.5" height="10"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How far will your service be ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzs-BV-bcz">
+                                                <rect key="frame" x="20" y="709" width="334" height="16"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10 kilometres" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYA-uW-f4v">
+                                                <rect key="frame" x="20" y="745" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="IqN-el-FMw"/>
+                                                    <constraint firstAttribute="width" constant="100" id="i5d-KL-QrY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kilometres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khc-fa-vfp">
+                                                <rect key="frame" x="130" y="752" width="224" height="16"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your opening hours ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWe-XX-Yrf">
+                                                <rect key="frame" x="20" y="785" width="334" height="16"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ooW-r1-Vu4">
+                                                <rect key="frame" x="20" y="811" width="66.5" height="10"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-rD-qsU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" id="VHa-5k-CYt"/>
+                                                            <constraint firstAttribute="width" constant="10" id="cZl-Sg-0wT"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="ellipse138"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGV-iS-6AE">
+                                                        <rect key="frame" x="20" y="0.0" width="46.5" height="10"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7ug-We-dHr">
+                                                <rect key="frame" x="20" y="831" width="47.5" height="10"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3D9-oQ-FeW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="10" id="d6U-kS-YBG"/>
+                                                            <constraint firstAttribute="height" constant="10" id="pIl-zt-HKH"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="ellipse138"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Boa-1Y-9gn">
+                                                        <rect key="frame" x="20" y="0.0" width="27.5" height="10"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="EB4-wb-sb9">
+                                                <rect key="frame" x="20" y="851" width="200" height="25"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yo1-1c-K4I">
+                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="25"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bj4-rI-JGK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="25"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="2022-02-01">
+                                                                    <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                </buttonConfiguration>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="bj4-rI-JGK" secondAttribute="trailing" id="0HP-A6-Ud8"/>
+                                                            <constraint firstAttribute="bottom" secondItem="bj4-rI-JGK" secondAttribute="bottom" id="UvK-ni-BXV"/>
+                                                            <constraint firstItem="bj4-rI-JGK" firstAttribute="top" secondItem="yo1-1c-K4I" secondAttribute="top" id="Wdj-eY-rVY"/>
+                                                            <constraint firstItem="bj4-rI-JGK" firstAttribute="leading" secondItem="yo1-1c-K4I" secondAttribute="leading" id="nG9-47-RT9"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="0.0" height="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5XC-WI-wbc">
+                                                        <rect key="frame" x="104.5" y="0.0" width="95.5" height="25"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-zI-8Ca">
+                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="25"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="2022-04-02">
+                                                                    <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                </buttonConfiguration>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="QJg-zI-8Ca" firstAttribute="top" secondItem="5XC-WI-wbc" secondAttribute="top" id="5zG-gG-fZf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="QJg-zI-8Ca" secondAttribute="trailing" id="Dvf-kQ-Otr"/>
+                                                            <constraint firstItem="QJg-zI-8Ca" firstAttribute="leading" secondItem="5XC-WI-wbc" secondAttribute="leading" id="Ltn-Mj-oZa"/>
+                                                            <constraint firstAttribute="bottom" secondItem="QJg-zI-8Ca" secondAttribute="bottom" id="hBu-5H-nav"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="0.0" height="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="BGD-DD-vXZ"/>
+                                                    <constraint firstAttribute="height" constant="25" id="ZfZ-nO-nVq"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di4-Rh-Lb3">
+                                                <rect key="frame" x="107" y="886" width="160" height="35"/>
+                                                <color key="backgroundColor" name="blue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="7eK-Bx-hDD"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="hmQ-YA-WZO"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                                    <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ooW-r1-Vu4" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="08L-Yh-hvr"/>
+                                            <constraint firstItem="zYa-Kg-4ed" firstAttribute="top" secondItem="8i1-Lv-FAG" secondAttribute="bottom" constant="10" id="0Z1-Ri-WPg"/>
+                                            <constraint firstItem="CbA-ni-owc" firstAttribute="top" secondItem="8TA-yS-tP6" secondAttribute="bottom" constant="10" id="6kk-YL-SwR"/>
+                                            <constraint firstItem="Di4-Rh-Lb3" firstAttribute="top" secondItem="EB4-wb-sb9" secondAttribute="bottom" constant="10" id="8H4-fN-iHX"/>
+                                            <constraint firstItem="Khc-fa-vfp" firstAttribute="leading" secondItem="PYA-uW-f4v" secondAttribute="trailing" constant="10" id="9l9-1F-5jM"/>
+                                            <constraint firstAttribute="trailing" secondItem="lzs-BV-bcz" secondAttribute="trailing" constant="20" id="A4K-Pg-6l3"/>
+                                            <constraint firstItem="szX-56-pPF" firstAttribute="top" secondItem="NWO-MV-IfT" secondAttribute="bottom" constant="10" id="Abn-Vc-IME"/>
+                                            <constraint firstAttribute="trailing" secondItem="szX-56-pPF" secondAttribute="trailing" constant="20" id="BB5-Cw-lR9"/>
+                                            <constraint firstItem="lzs-BV-bcz" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="Bae-c9-HOc"/>
+                                            <constraint firstAttribute="trailing" secondItem="Khc-fa-vfp" secondAttribute="trailing" constant="20" id="Cxt-xA-UCq"/>
+                                            <constraint firstItem="szX-56-pPF" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="D4o-2y-QjZ"/>
+                                            <constraint firstItem="WAI-4r-1gy" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="E3F-8c-iCC"/>
+                                            <constraint firstItem="m5y-Sk-o1m" firstAttribute="top" secondItem="Eir-B7-myB" secondAttribute="bottom" constant="15" id="Ef2-3e-BGE"/>
+                                            <constraint firstItem="7ug-We-dHr" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="FHV-Zi-LhS"/>
+                                            <constraint firstItem="7ug-We-dHr" firstAttribute="top" secondItem="ooW-r1-Vu4" secondAttribute="bottom" constant="10" id="FVr-70-u7T"/>
+                                            <constraint firstAttribute="trailing" secondItem="WAI-4r-1gy" secondAttribute="trailing" constant="20" id="FZQ-Dx-5Gz"/>
+                                            <constraint firstItem="8TA-yS-tP6" firstAttribute="centerX" secondItem="T89-Ys-x8b" secondAttribute="centerX" id="Fao-dE-f7e"/>
+                                            <constraint firstItem="PYA-uW-f4v" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="FbV-bP-pi2"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qda-lz-CwT" secondAttribute="trailing" constant="20" id="IpE-c5-ZnK"/>
+                                            <constraint firstItem="5XB-9q-0eZ" firstAttribute="top" secondItem="Ohg-ty-iPz" secondAttribute="bottom" constant="10" id="LxS-4C-uNh"/>
+                                            <constraint firstItem="ooW-r1-Vu4" firstAttribute="top" secondItem="cWe-XX-Yrf" secondAttribute="bottom" constant="10" id="M3s-kC-RNf"/>
+                                            <constraint firstItem="NWO-MV-IfT" firstAttribute="leading" secondItem="bxo-IS-d3i" secondAttribute="trailing" constant="10" id="Mms-cd-Lnk"/>
+                                            <constraint firstItem="Qda-lz-CwT" firstAttribute="top" secondItem="Igj-FT-8ox" secondAttribute="bottom" constant="20" id="NUD-Th-lC9"/>
+                                            <constraint firstItem="X72-YV-TJv" firstAttribute="top" secondItem="szX-56-pPF" secondAttribute="bottom" constant="10" id="Pkf-Tc-mhf"/>
+                                            <constraint firstItem="EB4-wb-sb9" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="Pvq-YQ-CGb"/>
+                                            <constraint firstItem="cWe-XX-Yrf" firstAttribute="top" secondItem="PYA-uW-f4v" secondAttribute="bottom" constant="10" id="Qes-RQ-mCf"/>
+                                            <constraint firstItem="Khc-fa-vfp" firstAttribute="centerY" secondItem="PYA-uW-f4v" secondAttribute="centerY" id="RFS-NQ-nOm"/>
+                                            <constraint firstItem="8i1-Lv-FAG" firstAttribute="top" secondItem="Qda-lz-CwT" secondAttribute="bottom" constant="10" id="RTb-Sw-nq4"/>
+                                            <constraint firstItem="EB4-wb-sb9" firstAttribute="top" secondItem="7ug-We-dHr" secondAttribute="bottom" constant="10" id="Uab-la-IXj"/>
+                                            <constraint firstItem="dwO-7C-rdT" firstAttribute="centerY" secondItem="m5y-Sk-o1m" secondAttribute="centerY" id="Uhp-Ow-QwE"/>
+                                            <constraint firstItem="CbA-ni-owc" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="VIs-3M-Avx"/>
+                                            <constraint firstItem="NWO-MV-IfT" firstAttribute="top" secondItem="Eir-B7-myB" secondAttribute="bottom" constant="15" id="WWM-2Q-g3u"/>
+                                            <constraint firstItem="Ohg-ty-iPz" firstAttribute="top" secondItem="X72-YV-TJv" secondAttribute="bottom" constant="10" id="X2X-ww-4sl"/>
+                                            <constraint firstItem="zYa-Kg-4ed" firstAttribute="leading" secondItem="pi8-ZV-zvI" secondAttribute="trailing" constant="40" id="XS8-Hc-eGx"/>
+                                            <constraint firstAttribute="bottom" secondItem="Di4-Rh-Lb3" secondAttribute="bottom" constant="10" id="Ynt-gJ-aP4"/>
+                                            <constraint firstItem="pi8-ZV-zvI" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="akW-Ri-Rkm"/>
+                                            <constraint firstItem="cWe-XX-Yrf" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="ax7-3y-KYQ"/>
+                                            <constraint firstItem="8i1-Lv-FAG" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="cEV-b9-Fgm"/>
+                                            <constraint firstAttribute="trailing" secondItem="Eir-B7-myB" secondAttribute="trailing" constant="20" id="cet-D2-UxN"/>
+                                            <constraint firstItem="8TA-yS-tP6" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="ddp-hp-4Bs"/>
+                                            <constraint firstAttribute="trailing" secondItem="8i1-Lv-FAG" secondAttribute="trailing" constant="20" id="de9-vf-h9q"/>
+                                            <constraint firstItem="5XB-9q-0eZ" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="dkC-aH-6V6"/>
+                                            <constraint firstItem="Igj-FT-8ox" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="dp9-u7-0zy"/>
+                                            <constraint firstItem="Eir-B7-myB" firstAttribute="top" secondItem="zYa-Kg-4ed" secondAttribute="bottom" constant="10" id="eEB-hd-aPW"/>
+                                            <constraint firstItem="lzs-BV-bcz" firstAttribute="top" secondItem="5XB-9q-0eZ" secondAttribute="bottom" constant="10" id="eWb-AO-Nsz"/>
+                                            <constraint firstAttribute="trailing" secondItem="Igj-FT-8ox" secondAttribute="trailing" constant="20" id="gOP-u8-yTf"/>
+                                            <constraint firstAttribute="trailing" secondItem="cWe-XX-Yrf" secondAttribute="trailing" constant="20" id="ivd-eU-Zkv"/>
+                                            <constraint firstItem="pi8-ZV-zvI" firstAttribute="centerY" secondItem="zYa-Kg-4ed" secondAttribute="centerY" id="jaL-1k-o74"/>
+                                            <constraint firstItem="Qda-lz-CwT" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="khJ-ry-ZAg"/>
+                                            <constraint firstItem="m5y-Sk-o1m" firstAttribute="leading" secondItem="dwO-7C-rdT" secondAttribute="trailing" constant="10" id="kzo-eK-m6U"/>
+                                            <constraint firstItem="Eir-B7-myB" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="l7S-M8-kgt"/>
+                                            <constraint firstItem="Di4-Rh-Lb3" firstAttribute="centerX" secondItem="T89-Ys-x8b" secondAttribute="centerX" id="l91-NI-45u"/>
+                                            <constraint firstItem="Ohg-ty-iPz" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="lEF-0P-2Zf"/>
+                                            <constraint firstItem="Igj-FT-8ox" firstAttribute="top" secondItem="WAI-4r-1gy" secondAttribute="bottom" constant="20" id="mg1-T6-s41"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ohg-ty-iPz" secondAttribute="trailing" constant="20" id="mvx-IP-Rq9"/>
+                                            <constraint firstItem="dwO-7C-rdT" firstAttribute="leading" secondItem="NWO-MV-IfT" secondAttribute="trailing" constant="63" id="qR2-nG-OcG"/>
+                                            <constraint firstItem="8TA-yS-tP6" firstAttribute="top" secondItem="T89-Ys-x8b" secondAttribute="top" constant="20" id="rz4-Gt-BKa"/>
+                                            <constraint firstItem="X72-YV-TJv" firstAttribute="leading" secondItem="T89-Ys-x8b" secondAttribute="leading" constant="20" id="sPb-QJ-gCJ"/>
+                                            <constraint firstItem="Igj-FT-8ox" firstAttribute="centerX" secondItem="T89-Ys-x8b" secondAttribute="centerX" id="sgt-mQ-hmO"/>
+                                            <constraint firstItem="bxo-IS-d3i" firstAttribute="centerY" secondItem="NWO-MV-IfT" secondAttribute="centerY" id="tgp-KB-7YB"/>
+                                            <constraint firstAttribute="trailing" secondItem="8TA-yS-tP6" secondAttribute="trailing" constant="20" id="ts8-Jw-VLn"/>
+                                            <constraint firstAttribute="trailing" secondItem="CbA-ni-owc" secondAttribute="trailing" constant="20" id="upl-SK-dbn"/>
+                                            <constraint firstItem="bxo-IS-d3i" firstAttribute="leading" secondItem="Eir-B7-myB" secondAttribute="leading" id="xvu-BG-skZ"/>
+                                            <constraint firstItem="WAI-4r-1gy" firstAttribute="top" secondItem="CbA-ni-owc" secondAttribute="bottom" constant="10" id="yNN-yy-8DC"/>
+                                            <constraint firstItem="PYA-uW-f4v" firstAttribute="top" secondItem="lzs-BV-bcz" secondAttribute="bottom" constant="20" id="zeL-tf-Eig"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="T89-Ys-x8b" firstAttribute="top" secondItem="DTc-aj-NnA" secondAttribute="top" id="OSz-pg-vTC"/>
+                                    <constraint firstItem="T89-Ys-x8b" firstAttribute="leading" secondItem="DTc-aj-NnA" secondAttribute="leading" id="QyR-jF-2gs"/>
+                                    <constraint firstItem="T89-Ys-x8b" firstAttribute="top" secondItem="DTc-aj-NnA" secondAttribute="top" id="Xwn-gc-P1H"/>
+                                    <constraint firstAttribute="bottom" secondItem="T89-Ys-x8b" secondAttribute="bottom" id="b8V-EB-p1t"/>
+                                    <constraint firstAttribute="bottom" secondItem="T89-Ys-x8b" secondAttribute="bottom" id="dLP-nf-jyd"/>
+                                    <constraint firstAttribute="trailing" secondItem="T89-Ys-x8b" secondAttribute="trailing" id="k78-iz-eio"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DTc-aj-NnA" secondAttribute="bottom" constant="17" id="4Hy-cA-YAM"/>
+                            <constraint firstItem="DTc-aj-NnA" firstAttribute="top" secondItem="VLU-P4-cOH" secondAttribute="bottom" constant="20" id="EUc-mj-Luh"/>
+                            <constraint firstItem="VLU-P4-cOH" firstAttribute="leading" secondItem="O30-nH-b3X" secondAttribute="trailing" constant="20" id="QhI-uI-ZIv"/>
+                            <constraint firstItem="DTc-aj-NnA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-20" id="RAU-lI-DTV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VLU-P4-cOH" secondAttribute="trailing" constant="40" id="TId-x6-MiR"/>
+                            <constraint firstItem="DTc-aj-NnA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dp2-GP-vlp"/>
+                            <constraint firstItem="VLU-P4-cOH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="gmH-0c-YNE"/>
+                            <constraint firstItem="O30-nH-b3X" firstAttribute="centerY" secondItem="VLU-P4-cOH" secondAttribute="centerY" id="gzv-OP-gtA"/>
+                            <constraint firstItem="O30-nH-b3X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="hrg-ND-0hl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="areaField" destination="VEc-f8-WSL" id="64F-FE-XVf"/>
+                        <outlet property="backButtonAction" destination="O30-nH-b3X" id="o14-ge-thA"/>
+                        <outlet property="branchNameAr" destination="Uxv-Sp-G08" id="kh8-jh-WXN"/>
+                        <outlet property="brnachNameEn" destination="nDp-Kf-T9s" id="F0C-7y-QvR"/>
+                        <outlet property="buildingNameAr" destination="As8-lD-PVm" id="BkR-O6-Lxa"/>
+                        <outlet property="buildingNameEn" destination="qNY-MI-wUb" id="1s2-MM-2ea"/>
+                        <outlet property="chooseDateStackView" destination="EB4-wb-sb9" id="FNN-7T-Epe"/>
+                        <outlet property="cityField" destination="Jp7-s3-NWo" id="yA0-ua-DJD"/>
+                        <outlet property="countryField" destination="vst-nX-Hau" id="rTG-nj-Wkc"/>
+                        <outlet property="deliveryFeesYes" destination="OuV-k6-7bS" id="dWL-mn-iIN"/>
+                        <outlet property="deliveryFessNo" destination="BCL-TO-9Gz" id="8fZ-Cm-IKy"/>
+                        <outlet property="endDateButton" destination="QJg-zI-8Ca" id="Ysh-3E-dfZ"/>
+                        <outlet property="fromDateButton" destination="bj4-rI-JGK" id="IE7-HF-V29"/>
+                        <outlet property="kilometerField" destination="PYA-uW-f4v" id="Lcp-AX-eqY"/>
+                        <outlet property="landmarkAr" destination="wPL-fh-Rn1" id="NQf-W7-hUN"/>
+                        <outlet property="landmarkEn" destination="h2W-ms-p7H" id="CaY-Xe-rUE"/>
+                        <outlet property="markLocationButton" destination="zYa-Kg-4ed" id="3QF-J3-KX7"/>
+                        <outlet property="mobileTextField" destination="OAP-bN-S2t" id="bPS-8S-1wE"/>
+                        <outlet property="openingCustomTime" destination="3D9-oQ-FeW" id="64F-aH-Et4"/>
+                        <outlet property="openingfullTime" destination="tXS-rD-qsU" id="HUu-jw-N7c"/>
+                        <outlet property="paymentCashButton" destination="6mw-OF-Ddo" id="bP3-ku-TQi"/>
+                        <outlet property="paymentOnline" destination="BmG-oS-HCm" id="LiH-ZV-MnC"/>
+                        <outlet property="pharmacyDeliveryNo" destination="dwO-7C-rdT" id="Yc3-ux-5Jv"/>
+                        <outlet property="pharmacyDeliveryYes" destination="bxo-IS-d3i" id="8Qn-Uz-yp8"/>
+                        <outlet property="saveAction" destination="Di4-Rh-Lb3" id="jlm-RS-JNO"/>
+                        <outlet property="streetNameAr" destination="Yir-mD-8do" id="Lir-yy-qXj"/>
+                        <outlet property="streetNameEn" destination="bRN-Zh-2zK" id="SS9-2o-dQ9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61" y="76"/>
+        </scene>
+        <!--Add Pharmacist View Controller-->
+        <scene sceneID="3ny-LN-Rat">
+            <objects>
+                <viewController storyboardIdentifier="AddPharmacistViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7kf-mU-gYc" customClass="AddPharmacistViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ph2-eQ-m5d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Pharmacist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9A-2b-MMa">
+                                <rect key="frame" x="60" y="64" width="314" height="24"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCw-ni-fZq">
+                                <rect key="frame" x="20" y="66" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="KTb-KE-i6o"/>
+                                    <constraint firstAttribute="width" constant="20" id="N9j-yT-CLR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backBlue"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZW-Xe-6VF">
+                                <rect key="frame" x="20" y="102" width="374" height="774"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAd-6V-mh6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="774"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WNe-Zv-XJd">
+                                                <rect key="frame" x="20" y="252.5" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5ap-Uu-BCg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name &quot;En&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djF-Wm-xap">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LT2-9A-Lv4">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="4Sc-Xm-6Zv"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="16k-mM-Hxs">
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name &quot;Ar&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKx-UF-vOu">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJK-ra-q7f">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="PuD-Ci-NNP"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jm0-G8-AgG">
+                                                <rect key="frame" x="20" y="455" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tNB-J2-Xag">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVK-ha-D6E">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0000-00-00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vNc-wb-Ico">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="dLi-NG-CtX"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="S8p-i8-dKs">
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnJ-Ej-X3Y">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-Zq-Z7h">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="VQa-u8-IHT"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yWg-oR-u7b">
+                                                <rect key="frame" x="20" y="387.5" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DB8-Db-sFK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KQ-yi-aGl">
+                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+20" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n40-cJ-4i0">
+                                                                <rect key="frame" x="0.0" y="22.5" width="46" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="l5S-hK-dJK"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="blue"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCf-QL-v5a">
+                                                        <rect key="frame" x="51" y="22.5" width="283" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="tXC-th-41G"/>
+                                                        </constraints>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                        <color key="textColor" name="dark"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QLy-Y8-b0l">
+                                                <rect key="frame" x="20" y="175" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="waw-3w-fy6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name &quot;En&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEX-0V-hFQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyp-uG-W8i">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="ZqE-9g-RgZ"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IIm-Rj-63l">
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="57.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name &quot;Ar&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30M-Uy-GVP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="STY-ci-rXK">
+                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="N5Y-SV-DhV"/>
+                                                                </constraints>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rqI-cp-dth">
+                                                <rect key="frame" x="20" y="320" width="334" height="57.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uq3-1A-kqd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="17.5"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                        <color key="textColor" name="blue"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kr9-rF-S6C">
+                                                        <rect key="frame" x="0.0" y="22.5" width="334" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="oUY-e7-SLL"/>
+                                                        </constraints>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                        <color key="textColor" name="dark"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6s-aj-T4o">
+                                                <rect key="frame" x="107" y="130" width="160" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="GB3-Wv-VXl"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="exh-NA-JMt"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Change Profile">
+                                                    <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                                    <color key="baseForegroundColor" name="blue"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="blue"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVw-iV-H2D">
+                                                <rect key="frame" x="147" y="30" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="bi9-mZ-ggp"/>
+                                                    <constraint firstAttribute="height" constant="80" id="yyZ-VO-dsI"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="avatar"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="dark"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATG-Ax-9qk">
+                                                <rect key="frame" x="20" y="522.5" width="334" height="16"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UUq-C2-qMY">
+                                                <rect key="frame" x="20" y="548.5" width="135.5" height="30"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fn2-C6-SYk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="10"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnV-He-Sux">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="10" id="7Yl-ro-cfg"/>
+                                                                    <constraint firstAttribute="width" constant="10" id="Pc2-ae-ZUS"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="rectangle2123"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner-Super admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-1n-Y3p">
+                                                                <rect key="frame" x="20" y="0.0" width="115.5" height="10"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B1k-so-dsY">
+                                                        <rect key="frame" x="0.0" y="20" width="135.5" height="10"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTk-3V-ECE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="10" id="jH0-LR-Ju0"/>
+                                                                    <constraint firstAttribute="height" constant="10" id="zI6-yi-j4a"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="group3066"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pharmacist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbQ-RG-zOu">
+                                                                <rect key="frame" x="20" y="0.0" width="115.5" height="10"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="All Branches" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnY-NG-8hn">
+                                                <rect key="frame" x="20" y="588.5" width="334" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="vlj-gu-Wh4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xja-Du-Uqd">
+                                                <rect key="frame" x="107" y="648.5" width="160" height="35"/>
+                                                <color key="backgroundColor" name="blue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="5lw-dp-bxH"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="KSc-hV-JrE"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                                    <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ATG-Ax-9qk" firstAttribute="top" secondItem="jm0-G8-AgG" secondAttribute="bottom" constant="10" id="0GI-tR-NOZ"/>
+                                            <constraint firstItem="wnY-NG-8hn" firstAttribute="top" secondItem="UUq-C2-qMY" secondAttribute="bottom" constant="10" id="0wv-Jb-Jg0"/>
+                                            <constraint firstItem="rqI-cp-dth" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="1a8-bh-KPG"/>
+                                            <constraint firstItem="MVw-iV-H2D" firstAttribute="top" secondItem="eAd-6V-mh6" secondAttribute="top" constant="30" id="5As-JT-jFD"/>
+                                            <constraint firstItem="QLy-Y8-b0l" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="5Hd-Td-6Q2"/>
+                                            <constraint firstItem="UUq-C2-qMY" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="6sg-9o-cxG"/>
+                                            <constraint firstItem="yWg-oR-u7b" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="A00-GV-ptM"/>
+                                            <constraint firstItem="rqI-cp-dth" firstAttribute="top" secondItem="WNe-Zv-XJd" secondAttribute="bottom" constant="10" id="E6I-O2-yRy"/>
+                                            <constraint firstItem="MVw-iV-H2D" firstAttribute="centerX" secondItem="eAd-6V-mh6" secondAttribute="centerX" id="FUM-dF-m7k"/>
+                                            <constraint firstItem="WNe-Zv-XJd" firstAttribute="top" secondItem="QLy-Y8-b0l" secondAttribute="bottom" constant="20" id="L7B-Q3-Ac6"/>
+                                            <constraint firstItem="WNe-Zv-XJd" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="LkJ-JM-aSI"/>
+                                            <constraint firstItem="xja-Du-Uqd" firstAttribute="centerX" secondItem="eAd-6V-mh6" secondAttribute="centerX" id="Lri-JY-7z2"/>
+                                            <constraint firstItem="F6s-aj-T4o" firstAttribute="top" secondItem="MVw-iV-H2D" secondAttribute="bottom" constant="20" id="PSi-gQ-XAZ"/>
+                                            <constraint firstItem="xja-Du-Uqd" firstAttribute="top" secondItem="wnY-NG-8hn" secondAttribute="bottom" constant="20" id="SCU-md-lDx"/>
+                                            <constraint firstItem="jm0-G8-AgG" firstAttribute="top" secondItem="yWg-oR-u7b" secondAttribute="bottom" constant="10" id="UUJ-Dr-1OO"/>
+                                            <constraint firstAttribute="trailing" secondItem="QLy-Y8-b0l" secondAttribute="trailing" constant="20" id="X5X-a9-QBF"/>
+                                            <constraint firstItem="QLy-Y8-b0l" firstAttribute="centerX" secondItem="eAd-6V-mh6" secondAttribute="centerX" id="YdQ-d1-xu6"/>
+                                            <constraint firstItem="wnY-NG-8hn" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="a1x-LG-jIW"/>
+                                            <constraint firstAttribute="trailing" secondItem="ATG-Ax-9qk" secondAttribute="trailing" constant="20" id="da0-26-1yc"/>
+                                            <constraint firstItem="UUq-C2-qMY" firstAttribute="top" secondItem="ATG-Ax-9qk" secondAttribute="bottom" constant="10" id="eQC-kr-XNX"/>
+                                            <constraint firstAttribute="trailing" secondItem="jm0-G8-AgG" secondAttribute="trailing" constant="20" id="fmb-NM-Wh6"/>
+                                            <constraint firstItem="UUq-C2-qMY" firstAttribute="top" secondItem="ATG-Ax-9qk" secondAttribute="bottom" constant="10" id="g35-9o-6UX"/>
+                                            <constraint firstAttribute="trailing" secondItem="wnY-NG-8hn" secondAttribute="trailing" constant="20" id="gvb-VY-R20"/>
+                                            <constraint firstItem="yWg-oR-u7b" firstAttribute="top" secondItem="rqI-cp-dth" secondAttribute="bottom" constant="10" id="hJW-VM-bHx"/>
+                                            <constraint firstItem="F6s-aj-T4o" firstAttribute="centerX" secondItem="eAd-6V-mh6" secondAttribute="centerX" id="hKO-Sm-G3F"/>
+                                            <constraint firstItem="ATG-Ax-9qk" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="iYw-F2-But"/>
+                                            <constraint firstItem="QLy-Y8-b0l" firstAttribute="top" secondItem="F6s-aj-T4o" secondAttribute="bottom" constant="10" id="inJ-EI-hXa"/>
+                                            <constraint firstAttribute="bottom" secondItem="xja-Du-Uqd" secondAttribute="bottom" constant="20" id="nWF-e7-heD"/>
+                                            <constraint firstAttribute="trailing" secondItem="WNe-Zv-XJd" secondAttribute="trailing" constant="20" id="pcD-mB-uHD"/>
+                                            <constraint firstAttribute="trailing" secondItem="rqI-cp-dth" secondAttribute="trailing" constant="20" id="pzu-8a-Koq"/>
+                                            <constraint firstItem="jm0-G8-AgG" firstAttribute="leading" secondItem="eAd-6V-mh6" secondAttribute="leading" constant="20" id="qvk-ZN-KhN"/>
+                                            <constraint firstAttribute="trailing" secondItem="yWg-oR-u7b" secondAttribute="trailing" constant="20" id="xQd-yb-g4V"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="eAd-6V-mh6" firstAttribute="leading" secondItem="0ZW-Xe-6VF" secondAttribute="leading" id="6oh-8W-yvM"/>
+                                    <constraint firstAttribute="bottom" secondItem="eAd-6V-mh6" secondAttribute="bottom" id="Hnk-wt-UE8"/>
+                                    <constraint firstAttribute="trailing" secondItem="eAd-6V-mh6" secondAttribute="trailing" id="IIN-81-LGY"/>
+                                    <constraint firstItem="eAd-6V-mh6" firstAttribute="top" secondItem="0ZW-Xe-6VF" secondAttribute="top" id="bag-GY-ZPr"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cQw-d9-32g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w9A-2b-MMa" firstAttribute="leading" secondItem="sCw-ni-fZq" secondAttribute="trailing" constant="20" id="0Q8-fg-Gg3"/>
+                            <constraint firstItem="sCw-ni-fZq" firstAttribute="centerY" secondItem="w9A-2b-MMa" secondAttribute="centerY" id="79K-5B-aL2"/>
+                            <constraint firstItem="0ZW-Xe-6VF" firstAttribute="leading" secondItem="cQw-d9-32g" secondAttribute="leading" constant="20" id="7bu-fW-7ma"/>
+                            <constraint firstAttribute="bottom" secondItem="0ZW-Xe-6VF" secondAttribute="bottom" constant="20" id="EXd-3K-ffm"/>
+                            <constraint firstItem="sCw-ni-fZq" firstAttribute="leading" secondItem="cQw-d9-32g" secondAttribute="leading" constant="20" id="Hpq-Jl-oSx"/>
+                            <constraint firstItem="0ZW-Xe-6VF" firstAttribute="top" secondItem="w9A-2b-MMa" secondAttribute="bottom" constant="14" id="M8F-Lu-RSS"/>
+                            <constraint firstItem="cQw-d9-32g" firstAttribute="trailing" secondItem="0ZW-Xe-6VF" secondAttribute="trailing" constant="20" id="PcL-qU-dnd"/>
+                            <constraint firstItem="w9A-2b-MMa" firstAttribute="top" secondItem="cQw-d9-32g" secondAttribute="top" constant="20" id="j34-88-NgJ"/>
+                            <constraint firstItem="cQw-d9-32g" firstAttribute="trailing" secondItem="w9A-2b-MMa" secondAttribute="trailing" constant="40" id="zQ8-Zk-MA4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allBranches" destination="wnY-NG-8hn" id="htZ-bs-BaA"/>
+                        <outlet property="backButton" destination="sCw-ni-fZq" id="aER-Px-IUP"/>
+                        <outlet property="changeImage" destination="F6s-aj-T4o" id="V9X-Ag-YIq"/>
+                        <outlet property="date_birth" destination="vNc-wb-Ico" id="7Un-Aw-eX0"/>
+                        <outlet property="emailField" destination="kr9-rF-S6C" id="oMG-u2-jSz"/>
+                        <outlet property="firstNameAr" destination="STY-ci-rXK" id="zuL-N1-o0h"/>
+                        <outlet property="firstNameEn" destination="Qyp-uG-W8i" id="9LO-Pt-7r7"/>
+                        <outlet property="gender" destination="Eqw-Zq-Z7h" id="D3P-Cd-FQ9"/>
+                        <outlet property="lastNameAr" destination="AJK-ra-q7f" id="zYj-co-rdd"/>
+                        <outlet property="lastNameEn" destination="LT2-9A-Lv4" id="6Sx-0W-gH2"/>
+                        <outlet property="mobileField" destination="JCf-QL-v5a" id="JSc-hj-ICc"/>
+                        <outlet property="ownerSuperAdminButton" destination="lnV-He-Sux" id="Wdb-Yr-QL5"/>
+                        <outlet property="pharmacistButton" destination="NTk-3V-ECE" id="RRM-q2-HOb"/>
+                        <outlet property="pharmacistImage" destination="MVw-iV-H2D" id="bex-5d-Pv8"/>
+                        <outlet property="saveButton" destination="xja-Du-Uqd" id="WG4-q6-xbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQu-cc-sxr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881" y="76"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="avatar" width="50" height="50"/>
+        <image name="backBlue" width="16.815999984741211" height="18.764999389648438"/>
+        <image name="ellipse138" width="10" height="10"/>
+        <image name="group3066" width="12" height="12"/>
+        <image name="icLocation" width="9.5" height="13.5"/>
+        <image name="rectangle2123" width="12" height="12"/>
+        <namedColor name="blue">
+            <color red="0.071000002324581146" green="0.46700000762939453" blue="0.81999999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="dark">
+            <color red="0.55299997329711914" green="0.54500001668930054" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
