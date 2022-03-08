@@ -32,10 +32,11 @@ class AddPharmacistViewController: BaseViewController {
     private var router = AddPharmacistRouter()
     
 //    private var dailyOrdersBranches = [TotalDailyOrdersBranch]()
-
+    private var allBranchesList = [AllBranchesBranch]()
     let genderDropDown = ["Male","Female"]
     let selectCityFromDropDown = DropDown()
     let radioController: RadioButtonController = RadioButtonController()
+    private var selectedBranch = [Int]()
     private var genderSelected =  1
     private var type: Int  = 1
     lazy var dropDowns: DropDown = {
@@ -61,6 +62,9 @@ class AddPharmacistViewController: BaseViewController {
         backButtonTapped()
         saveTapped()
         subscribeToLoader()
+        requestBranchesList()
+        subscribeToBranches()
+        setGesturesForBranches()
     }
     
     func validateData() {
@@ -69,7 +73,16 @@ class AddPharmacistViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
 
     }
-
+    func requestBranchesList() {
+        articleDetailsViewModel.getPharmacyBranches()
+    }
+    
+    func subscribeToBranches() {
+        articleDetailsViewModel.AllBranchesInstance.subscribe {[weak self] branches in
+            self?.allBranchesList = branches.element!
+        }.disposed(by: self.disposeBag)
+    }
+    
     func subscribeToLoader() {
         articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
             DispatchQueue.main.async {
@@ -98,6 +111,14 @@ class AddPharmacistViewController: BaseViewController {
         
     }
     
+    func setGesturesForBranches() {
+        let branches = UITapGestureRecognizer(target: self, action: #selector(self.tapBranches))
+        self.allBranches.isUserInteractionEnabled = true
+        self.allBranches.addGestureRecognizer(branches)
+        
+      
+    }
+    
     func ownerSuperAdminAction() {
         ownerSuperAdminButton.rx.tap.subscribe {[weak self] _ in
             self?.radioController.buttonArrayUpdated(buttonSelected: (self?.ownerSuperAdminButton)!)
@@ -114,7 +135,7 @@ class AddPharmacistViewController: BaseViewController {
     func saveTapped() {
         saveButton.rx.tap.subscribe { [weak self] _ in
             (self?.gender.text == "Male") ? (self?.genderSelected = 1) : (self?.genderSelected = 2)
-            self?.articleDetailsViewModel.addPharmacistAction(gender: self?.genderSelected ?? 1 , branches: [],role:self!.type , image: "test")
+            self?.articleDetailsViewModel.addPharmacistAction(gender: self?.genderSelected ?? 1 , branches: self?.selectedBranch ?? [],role:self!.type , image: "test")
         } .disposed(by: self.disposeBag)
 
     }
@@ -151,6 +172,25 @@ extension AddPharmacistViewController {
         }
         
     }
+    
+    @objc
+    func tapBranches(sender:UITapGestureRecognizer) {
+        
+        selectCityFromDropDown.anchorView = allBranches
+        selectCityFromDropDown.direction = .any
+        selectCityFromDropDown.backgroundColor = UIColor.white
+        selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
+        let branches = allBranchesList.map({($0.branchName ?? "") })
+        self.selectCityFromDropDown.dataSource = branches
+        selectCityFromDropDown.show()
+        // Action triggered on selection
+        
+        selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+            self?.selectedBranch.append(self?.allBranchesList[index].branchID ?? 0)
+            self?.allBranches.text = item
+        }
+            
+        }
 }
 
 extension AddPharmacistViewController {

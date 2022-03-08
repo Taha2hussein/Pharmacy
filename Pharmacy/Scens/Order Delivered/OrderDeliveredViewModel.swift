@@ -1,9 +1,10 @@
 //
-//  OrderCanceledViewModel.swift
+//  OrderDeliveredViewModel.swift
 //  Pharmacy
 //
 //  Created by taha hussein on 08/03/2022.
 //
+
 
 
 import Foundation
@@ -12,15 +13,15 @@ import RxCocoa
 import RxRelay
 import SwiftUI
 
-class OrderCanceledViewModel{
+class OrderDeliveredViewModel{
     
-    private weak var view: OrderCancelViewController?
-    private var router: OrderCancelRouter?
+    private weak var view: OrderDeliveredViewController?
+    private var router: OrderDeliveredRouter?
     var  state = State()
     var orderId = Int()
     var canceledOrdersInstance = PublishSubject<CanceledOrderMessage>()
     
-    func bind(view: OrderCancelViewController, router: OrderCancelRouter) {
+    func bind(view: OrderDeliveredViewController, router: OrderDeliveredRouter) {
         self.view = view
         self.router = router
         self.router?.setSourceView(view)

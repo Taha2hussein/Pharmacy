@@ -1,5 +1,5 @@
 //
-//  OrderCancelRouter.swift
+//  OrderDeliveredRouter.swift
 //  Pharmacy
 //
 //  Created by taha hussein on 08/03/2022.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class OrderCancelRouter {
+class OrderDeliveredRouter {
     var viewController: UIViewController {
         return createViewController()
     }
@@ -20,7 +20,7 @@ class OrderCancelRouter {
       
         let view = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil)
         
-        let viewController = view.instantiateViewController(withIdentifier: ViewController.orderedCanceled.rawValue)as? OrderCancelViewController
+        let viewController = view.instantiateViewController(withIdentifier: ViewController.deliveredOrder.rawValue)as? OrderCancelViewController
         viewController?.articleDetailsViewModel.orderId = orderId
         return viewController!
     }

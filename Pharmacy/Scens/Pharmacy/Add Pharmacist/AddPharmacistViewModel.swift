@@ -25,7 +25,7 @@ class AddPharmacistViewModel {
     var phone = BehaviorRelay<String>(value:"")
     var gender = BehaviorRelay<String>(value:"")
     var date_Birth = BehaviorRelay<String>(value:"")
-    
+    var AllBranchesInstance = PublishSubject<[AllBranchesBranch]>()
     init() {
         isValid = Observable.combineLatest(
             self.firstNameEN.asObservable(),
@@ -117,5 +117,42 @@ class AddPharmacistViewModel {
 extension AddPharmacistViewModel: backView {
     func backNavigationview() {
         router?.backView()
+    }
+}
+
+extension AddPharmacistViewModel {
+    func getPharmacyBranches() {
+      
+        var request = URLRequest(url: URL(string: AllBranchesApi)!)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
+  
+        state.isLoading.accept(true)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            self.state.isLoading.accept(false)
+            do {
+                
+                let decoder = JSONDecoder()
+                var AllBranches : AllBranchesModel?
+                AllBranches = try decoder.decode(AllBranchesModel.self, from: data)
+                if AllBranches?.successtate == 200 {
+                    self.AllBranchesInstance.onNext(AllBranches?.message?.branches ?? [])
+                    
+                }
+                
+                else {
+                    DispatchQueue.main.async {
+                    Alert().displayError(text: AllBranches?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+    
+                    }
+                }
+            } catch let err {
+                print("Err", err)
+            }
+        }.resume()
     }
 }

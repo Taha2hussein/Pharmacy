@@ -1368,7 +1368,7 @@ Sep 2007</string>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="backBlue"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Tracking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nw8-p7-iDy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nw8-p7-iDy">
                                 <rect key="frame" x="60" y="64" width="314" height="24"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="18"/>
                                 <color key="textColor" name="blue"/>
@@ -1378,7 +1378,7 @@ Sep 2007</string>
                                 <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sK-uX-RMP">
-                                        <rect key="frame" x="0.0" y="0.0" width="406" height="633"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="406" height="756"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qGC-eN-fVD">
                                                 <rect key="frame" x="20" y="14" width="366" height="599"/>
@@ -1507,7 +1507,7 @@ Sep 2007</string>
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-AO-2dh">
-                                                                <rect key="frame" x="23" y="67" width="323" height="51"/>
+                                                                <rect key="frame" x="23" y="67" width="323" height="67"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="6R8-R9-Lj2">
                                                                         <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
@@ -1525,9 +1525,15 @@ Sep 2007</string>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKN-ua-QGP">
-                                                                                <rect key="frame" x="105" y="0.0" width="218" height="16"/>
+                                                                                <rect key="frame" x="105" y="0.0" width="42.5" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
                                                                                 <color key="textColor" name="dark"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canceled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKF-ln-81x">
+                                                                                <rect key="frame" x="152.5" y="0.0" width="170.5" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                                                <color key="textColor" name="pinkyRed"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -1558,6 +1564,35 @@ Sep 2007</string>
                                                                         <color key="textColor" name="blue"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="79C-tr-bqM">
+                                                                        <rect key="frame" x="0.0" y="52" width="323" height="15"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EM2-1R-cCm">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="15"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5D-aU-Xe3">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYA-Ac-aTW">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix8-wT-Hwr">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Mo, Sep 11, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuS-9a-Dpg">
@@ -1569,29 +1604,16 @@ Sep 2007</string>
                                                                 <color key="textColor" name="dark"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="2x Vitamin C2x Vitamin C2x Vitamin C2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6u-mH-n4N">
-                                                                <rect key="frame" x="23" y="122" width="293" height="100"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="100" id="IjL-Z2-lWz"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
-                                                                <color key="textColor" name="dark"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="FuS-9a-Dpg" firstAttribute="top" secondItem="wVl-S4-YEz" secondAttribute="bottom" constant="2" id="1Eh-fX-qiZ"/>
                                                             <constraint firstAttribute="height" priority="250" constant="202" id="1XB-1t-beI"/>
-                                                            <constraint firstItem="m6u-mH-n4N" firstAttribute="top" secondItem="sBB-AO-2dh" secondAttribute="bottom" constant="4" id="1c6-uo-kJk"/>
                                                             <constraint firstItem="sBB-AO-2dh" firstAttribute="leading" secondItem="l0E-sd-o0w" secondAttribute="leading" constant="23" id="Cua-Tp-LOU"/>
                                                             <constraint firstItem="FuS-9a-Dpg" firstAttribute="centerX" secondItem="l0E-sd-o0w" secondAttribute="centerX" id="JWU-rw-07W"/>
                                                             <constraint firstItem="sBB-AO-2dh" firstAttribute="top" secondItem="FuS-9a-Dpg" secondAttribute="bottom" constant="10" id="O3e-yT-Vqv"/>
-                                                            <constraint firstAttribute="bottom" secondItem="m6u-mH-n4N" secondAttribute="bottom" constant="17" id="RKH-TL-gsJ"/>
                                                             <constraint firstItem="wVl-S4-YEz" firstAttribute="top" secondItem="l0E-sd-o0w" secondAttribute="top" constant="15" id="SEc-sX-HLz"/>
-                                                            <constraint firstItem="m6u-mH-n4N" firstAttribute="leading" secondItem="sBB-AO-2dh" secondAttribute="leading" id="bfH-eb-Hi5"/>
                                                             <constraint firstAttribute="trailing" secondItem="sBB-AO-2dh" secondAttribute="trailing" constant="20" id="rY7-Ry-875"/>
-                                                            <constraint firstAttribute="trailing" secondItem="m6u-mH-n4N" secondAttribute="trailing" constant="50" id="swx-fB-y2S"/>
                                                             <constraint firstItem="wVl-S4-YEz" firstAttribute="centerX" secondItem="l0E-sd-o0w" secondAttribute="centerX" id="tEZ-Iv-TQ9"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -1653,7 +1675,7 @@ Sep 2007</string>
                                                                                 <color key="textColor" name="blue"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc9-0G-FP8">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CanceledByCustomer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc9-0G-FP8">
                                                                                 <rect key="frame" x="125" y="0.0" width="198" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
                                                                                 <color key="textColor" name="dark"/>
@@ -1737,7 +1759,6 @@ Sep 2007</string>
                                             <constraint firstAttribute="height" priority="250" constant="756" id="21p-CP-3pp"/>
                                             <constraint firstAttribute="trailing" secondItem="qGC-eN-fVD" secondAttribute="trailing" constant="20" id="AG8-Gm-JyI"/>
                                             <constraint firstItem="qGC-eN-fVD" firstAttribute="top" secondItem="1sK-uX-RMP" secondAttribute="top" constant="14" id="YYa-Az-RuT"/>
-                                            <constraint firstAttribute="bottom" secondItem="qGC-eN-fVD" secondAttribute="bottom" constant="20" id="haK-WI-Sx1"/>
                                             <constraint firstItem="qGC-eN-fVD" firstAttribute="leading" secondItem="1sK-uX-RMP" secondAttribute="leading" constant="20" id="kWm-7z-Jdr"/>
                                         </constraints>
                                     </view>
@@ -1766,10 +1787,491 @@ Sep 2007</string>
                             <constraint firstItem="73V-xM-P5O" firstAttribute="trailing" secondItem="1Ty-ZL-jH0" secondAttribute="trailing" id="tWo-MS-WGI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="5yB-am-7kE" id="M5f-T8-DGY"/>
+                        <outlet property="canceledBy" destination="Hc9-0G-FP8" id="4Dh-ea-1Kf"/>
+                        <outlet property="orderDate" destination="FuS-9a-Dpg" id="HSn-tP-ab0"/>
+                        <outlet property="orderPayment" destination="WKN-ua-QGP" id="W1f-Kv-fq2"/>
+                        <outlet property="orderSummary1" destination="EM2-1R-cCm" id="Acf-gb-LNx"/>
+                        <outlet property="orderSummary2" destination="B5D-aU-Xe3" id="AIY-Iu-u5S"/>
+                        <outlet property="orderSummary3" destination="bYA-Ac-aTW" id="Vpb-qQ-TcJ"/>
+                        <outlet property="orderSummary4" destination="ix8-wT-Hwr" id="Jed-za-goh"/>
+                        <outlet property="orderType" destination="BS8-w3-Pjv" id="UwY-KF-cIj"/>
+                        <outlet property="patientCode" destination="We8-ei-HG1" id="NQ4-Fg-7Wx"/>
+                        <outlet property="patientGender" destination="vLo-GA-Jk9" id="plF-Vs-Kcw"/>
+                        <outlet property="patientImage" destination="8Iq-9x-rXF" id="Flu-Hu-gSU"/>
+                        <outlet property="patientName" destination="sW7-fF-QRn" id="3ZP-r8-EWX"/>
+                        <outlet property="patientNumber" destination="48c-ue-tRg" id="VdA-iR-fxa"/>
+                        <outlet property="patientPhone" destination="ERZ-wU-rrA" id="mGQ-hQ-r4s"/>
+                        <outlet property="patientWeight" destination="Ccb-f0-DZ3" id="lRQ-P0-Ghp"/>
+                        <outlet property="patitientEmail" destination="MBk-f0-8XM" id="zse-E5-5s1"/>
+                        <outlet property="reasonOfCancel" destination="9pg-TQ-ENV" id="3ib-td-L8m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GA6-BP-Pep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1545" y="62"/>
+        </scene>
+        <!--Order Delivered View Controller-->
+        <scene sceneID="VK1-H4-1hW">
+            <objects>
+                <viewController storyboardIdentifier="OrderDeliveredViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YOV-cx-nLi" customClass="OrderDeliveredViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wOA-OT-p9R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1I-BL-dZK">
+                                <rect key="frame" x="20" y="66" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="1nI-tk-xVR"/>
+                                    <constraint firstAttribute="width" constant="20" id="e87-Sm-ccD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backBlue"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZX-wq-Ef6">
+                                <rect key="frame" x="60" y="64" width="314" height="24"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="18"/>
+                                <color key="textColor" name="blue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-U3-Hta">
+                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KO8-xS-Eqf">
+                                        <rect key="frame" x="0.0" y="0.0" width="406" height="756"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OmD-Eq-azE">
+                                                <rect key="frame" x="20" y="14" width="366" height="599"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDl-Qk-6xf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="108"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="I4v-k0-gw8">
+                                                                <rect key="frame" x="20" y="14" width="50" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="9sd-Pd-f75"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="ggc-zN-ZLs"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Diena Hesham" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abj-Pc-Pjs">
+                                                                <rect key="frame" x="90" y="14" width="95" height="19"/>
+                                                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                                                <color key="textColor" name="blue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="x4d-Ax-boI">
+                                                                <rect key="frame" x="90" y="34" width="256" height="63"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female , 30 Years" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDo-mN-Sl6">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="256" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                        <color key="textColor" name="dark"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wt : 68 kg , Ht : 160 cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h41-hE-8sa">
+                                                                        <rect key="frame" x="0.0" y="16" width="256" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                        <color key="textColor" name="dark"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="diena.hesham@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOO-Y2-ybf">
+                                                                        <rect key="frame" x="0.0" y="32" width="256" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                        <color key="textColor" name="dark"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="002-100 300 5689" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="784-bL-bdJ">
+                                                                        <rect key="frame" x="0.0" y="48" width="256" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                        <color key="textColor" name="dark"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="he9-Zy-yeI">
+                                                                <rect key="frame" x="211.5" y="14" width="134.5" height="19"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Patient ID :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLn-Gt-zVY">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="73" height="19"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="1000111" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-hL-hxh">
+                                                                        <rect key="frame" x="78" y="0.0" width="56.5" height="19"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="108" id="1ZL-Rg-uwY"/>
+                                                            <constraint firstItem="x4d-Ax-boI" firstAttribute="top" secondItem="abj-Pc-Pjs" secondAttribute="bottom" constant="1" id="8RI-ok-Az5"/>
+                                                            <constraint firstItem="abj-Pc-Pjs" firstAttribute="top" secondItem="LDl-Qk-6xf" secondAttribute="top" constant="14" id="8yZ-Hw-Fjg"/>
+                                                            <constraint firstItem="x4d-Ax-boI" firstAttribute="leading" secondItem="I4v-k0-gw8" secondAttribute="trailing" constant="20" id="9ST-Co-rsj"/>
+                                                            <constraint firstAttribute="trailing" secondItem="he9-Zy-yeI" secondAttribute="trailing" constant="20" id="BQd-6K-xdh"/>
+                                                            <constraint firstAttribute="bottom" secondItem="x4d-Ax-boI" secondAttribute="bottom" constant="11" id="PhY-qd-Zc5"/>
+                                                            <constraint firstItem="abj-Pc-Pjs" firstAttribute="leading" secondItem="I4v-k0-gw8" secondAttribute="trailing" constant="20" id="QJt-DB-PpF"/>
+                                                            <constraint firstItem="he9-Zy-yeI" firstAttribute="centerY" secondItem="abj-Pc-Pjs" secondAttribute="centerY" id="bPB-lY-Oze"/>
+                                                            <constraint firstItem="I4v-k0-gw8" firstAttribute="top" secondItem="LDl-Qk-6xf" secondAttribute="top" constant="14" id="bfG-kL-Z7i"/>
+                                                            <constraint firstItem="I4v-k0-gw8" firstAttribute="leading" secondItem="LDl-Qk-6xf" secondAttribute="leading" constant="20" id="svX-9G-0Vh"/>
+                                                            <constraint firstAttribute="trailing" secondItem="x4d-Ax-boI" secondAttribute="trailing" constant="20" id="xDk-ic-oyP"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="0.0" height="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQd-AN-DU7">
+                                                        <rect key="frame" x="0.0" y="123" width="366" height="239"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qgp-7L-OfC">
+                                                                <rect key="frame" x="119" y="15" width="128" height="20"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Order Num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U46-hh-qbI">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="20"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="15"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="#2135" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVa-Bs-MwC">
+                                                                        <rect key="frame" x="84.5" y="0.0" width="43.5" height="20"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="15"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="gGn-RC-VXC"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rbr-5a-upl">
+                                                                <rect key="frame" x="23" y="67" width="323" height="67"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tlx-yw-TF7">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6Ll-R7-PZh">
+                                                                        <rect key="frame" x="0.0" y="1" width="323" height="16"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIu-FU-dev">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="16"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="100" id="wEj-Mk-eQx"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="12"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpd-fE-75x">
+                                                                                <rect key="frame" x="105" y="0.0" width="42.5" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="dark"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canceled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-Sd-evJ">
+                                                                                <rect key="frame" x="152.5" y="0.0" width="170.5" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                                                <color key="textColor" name="pinkyRed"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1bJ-wS-Wbz">
+                                                                        <rect key="frame" x="0.0" y="18" width="323" height="16"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Order Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbL-av-QKP">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="16"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="70" id="P2v-pi-2fm"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="12"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xb8-5D-kWB">
+                                                                                <rect key="frame" x="75" y="0.0" width="248" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="dark"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Summary " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m02-c2-khb">
+                                                                        <rect key="frame" x="0.0" y="35" width="323" height="16"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="12"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AWk-Zt-Ao9">
+                                                                        <rect key="frame" x="0.0" y="52" width="323" height="15"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qmf-ZJ-QZT">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="15"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6DI-mb-BUw">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfp-tQ-gLJ">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7P-Gs-PzD">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Mo, Sep 11, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uc7-EN-N0G">
+                                                                <rect key="frame" x="135.5" y="37" width="95" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="7AZ-H8-ZS5"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Rbr-5a-upl" firstAttribute="top" secondItem="Uc7-EN-N0G" secondAttribute="bottom" constant="10" id="5Ve-Sc-BDq"/>
+                                                            <constraint firstAttribute="height" priority="250" constant="202" id="Smk-2H-bWt"/>
+                                                            <constraint firstItem="qgp-7L-OfC" firstAttribute="top" secondItem="HQd-AN-DU7" secondAttribute="top" constant="15" id="V8T-UV-nsX"/>
+                                                            <constraint firstItem="Uc7-EN-N0G" firstAttribute="centerX" secondItem="HQd-AN-DU7" secondAttribute="centerX" id="fwZ-b9-oeK"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Rbr-5a-upl" secondAttribute="trailing" constant="20" id="mdX-NS-OVb"/>
+                                                            <constraint firstItem="Uc7-EN-N0G" firstAttribute="top" secondItem="qgp-7L-OfC" secondAttribute="bottom" constant="2" id="n2L-s9-qya"/>
+                                                            <constraint firstItem="qgp-7L-OfC" firstAttribute="centerX" secondItem="HQd-AN-DU7" secondAttribute="centerX" id="pNm-lI-l4H"/>
+                                                            <constraint firstItem="Rbr-5a-upl" firstAttribute="leading" secondItem="HQd-AN-DU7" secondAttribute="leading" constant="23" id="qew-mD-Zfg"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="0.0" height="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGm-yJ-tUa">
+                                                        <rect key="frame" x="0.0" y="377" width="366" height="222"/>
+                                                        <subviews>
+                                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vIn-ae-cpP">
+                                                                <rect key="frame" x="119" y="15" width="128" height="20"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Order Num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCU-Mb-TcC">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="20"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="15"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="#2135" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-7m-7WC">
+                                                                        <rect key="frame" x="84.5" y="0.0" width="43.5" height="20"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="15"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="MUH-wo-JDj"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vJL-6U-cir">
+                                                                <rect key="frame" x="23" y="67" width="323" height="34"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="3XV-Fg-joE">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="k5u-JF-oeX">
+                                                                        <rect key="frame" x="0.0" y="1" width="323" height="16"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Order Canceled by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGl-Gz-Ohs">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="16"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="120" id="qeQ-eA-jzL"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="12"/>
+                                                                                <color key="textColor" name="blue"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CanceledByCustomer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bug-RH-DZA">
+                                                                                <rect key="frame" x="125" y="0.0" width="198" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                <color key="textColor" name="dark"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason of Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upU-rS-nv6">
+                                                                        <rect key="frame" x="0.0" y="18" width="323" height="16"/>
+                                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="12"/>
+                                                                        <color key="textColor" name="blue"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Mo, Sep 11, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pd-Lc-yQV">
+                                                                <rect key="frame" x="135.5" y="37" width="95" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="VU2-Ji-TJl"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="2x Vitamin C2x Vitamin C2x Vitamin C2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1V-A4-Ufm">
+                                                                <rect key="frame" x="23" y="105" width="293" height="100"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="100" id="maP-M2-B0g"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="10"/>
+                                                                <color key="textColor" name="dark"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="blue"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="vIn-ae-cpP" firstAttribute="centerX" secondItem="gGm-yJ-tUa" secondAttribute="centerX" id="1tJ-QN-unD"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Z1V-A4-Ufm" secondAttribute="trailing" constant="50" id="3d9-z8-aaI"/>
+                                                            <constraint firstItem="Z1V-A4-Ufm" firstAttribute="top" secondItem="vJL-6U-cir" secondAttribute="bottom" constant="4" id="HyV-zj-e6n"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Z1V-A4-Ufm" secondAttribute="bottom" constant="17" id="Sau-ld-OFf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="vJL-6U-cir" secondAttribute="trailing" constant="20" id="Vnm-a9-qRm"/>
+                                                            <constraint firstItem="6Pd-Lc-yQV" firstAttribute="top" secondItem="vIn-ae-cpP" secondAttribute="bottom" constant="2" id="Zgx-5r-yRD"/>
+                                                            <constraint firstItem="vJL-6U-cir" firstAttribute="top" secondItem="6Pd-Lc-yQV" secondAttribute="bottom" constant="10" id="Zxv-LP-h8r"/>
+                                                            <constraint firstAttribute="height" priority="250" constant="202" id="a4i-Bn-60x"/>
+                                                            <constraint firstItem="6Pd-Lc-yQV" firstAttribute="centerX" secondItem="gGm-yJ-tUa" secondAttribute="centerX" id="dzn-P5-I41"/>
+                                                            <constraint firstItem="vIn-ae-cpP" firstAttribute="top" secondItem="gGm-yJ-tUa" secondAttribute="top" constant="15" id="inh-Y4-dis"/>
+                                                            <constraint firstItem="Z1V-A4-Ufm" firstAttribute="leading" secondItem="vJL-6U-cir" secondAttribute="leading" id="oIf-Ob-yvQ"/>
+                                                            <constraint firstItem="vJL-6U-cir" firstAttribute="leading" secondItem="gGm-yJ-tUa" secondAttribute="leading" constant="23" id="pNZ-Qa-oVD"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" white="0.0" alpha="0.16" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="0.0" height="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OmD-Eq-azE" secondAttribute="trailing" constant="20" id="aIT-Oy-i0q"/>
+                                            <constraint firstAttribute="height" priority="250" constant="756" id="afp-lA-dlA"/>
+                                            <constraint firstItem="OmD-Eq-azE" firstAttribute="leading" secondItem="KO8-xS-Eqf" secondAttribute="leading" constant="20" id="jRw-qM-9t8"/>
+                                            <constraint firstItem="OmD-Eq-azE" firstAttribute="top" secondItem="KO8-xS-Eqf" secondAttribute="top" constant="14" id="zrf-Iv-7Nd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KO8-xS-Eqf" firstAttribute="top" secondItem="Qoe-U3-Hta" secondAttribute="top" id="SPe-xy-TBM"/>
+                                    <constraint firstAttribute="bottom" secondItem="KO8-xS-Eqf" secondAttribute="bottom" id="byq-TZ-YVE"/>
+                                    <constraint firstItem="KO8-xS-Eqf" firstAttribute="leading" secondItem="Qoe-U3-Hta" secondAttribute="leading" id="mJG-Kf-40T"/>
+                                    <constraint firstAttribute="trailing" secondItem="KO8-xS-Eqf" secondAttribute="trailing" id="sfM-DU-5hE"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="frS-E2-Uf1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qoe-U3-Hta" firstAttribute="bottom" secondItem="frS-E2-Uf1" secondAttribute="bottom" id="12I-4x-cFq"/>
+                            <constraint firstItem="fZX-wq-Ef6" firstAttribute="top" secondItem="frS-E2-Uf1" secondAttribute="top" constant="20" id="FV7-k9-ve8"/>
+                            <constraint firstItem="KO8-xS-Eqf" firstAttribute="width" secondItem="wOA-OT-p9R" secondAttribute="width" multiplier="0.980676" id="LD3-mE-8ql"/>
+                            <constraint firstItem="Y1I-BL-dZK" firstAttribute="centerY" secondItem="fZX-wq-Ef6" secondAttribute="centerY" id="LHz-zJ-Q9A"/>
+                            <constraint firstItem="Qoe-U3-Hta" firstAttribute="leading" secondItem="frS-E2-Uf1" secondAttribute="leading" id="N1b-GG-fML"/>
+                            <constraint firstItem="frS-E2-Uf1" firstAttribute="trailing" secondItem="fZX-wq-Ef6" secondAttribute="trailing" constant="40" id="VfP-cb-Mqr"/>
+                            <constraint firstItem="Y1I-BL-dZK" firstAttribute="leading" secondItem="frS-E2-Uf1" secondAttribute="leading" constant="20" id="bVO-H5-u0P"/>
+                            <constraint firstItem="fZX-wq-Ef6" firstAttribute="leading" secondItem="Y1I-BL-dZK" secondAttribute="trailing" constant="20" id="dcb-R8-Yfk"/>
+                            <constraint firstItem="Qoe-U3-Hta" firstAttribute="width" secondItem="wOA-OT-p9R" secondAttribute="width" id="iOA-ht-gi6"/>
+                            <constraint firstItem="Qoe-U3-Hta" firstAttribute="top" secondItem="fZX-wq-Ef6" secondAttribute="bottom" constant="20" id="pzP-xg-AV8"/>
+                            <constraint firstItem="Qoe-U3-Hta" firstAttribute="trailing" secondItem="frS-E2-Uf1" secondAttribute="trailing" id="qO3-pd-YkQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Y1I-BL-dZK" id="omQ-jl-5EH"/>
+                        <outlet property="canceledBy" destination="Bug-RH-DZA" id="Jba-V2-PYt"/>
+                        <outlet property="orderDate" destination="Uc7-EN-N0G" id="hh0-1H-uig"/>
+                        <outlet property="orderPayment" destination="zpd-fE-75x" id="e3M-QE-633"/>
+                        <outlet property="orderSummary1" destination="Qmf-ZJ-QZT" id="SkL-ye-njy"/>
+                        <outlet property="orderSummary2" destination="6DI-mb-BUw" id="Dh6-hk-Wyx"/>
+                        <outlet property="orderSummary3" destination="bfp-tQ-gLJ" id="pE7-XS-Xnw"/>
+                        <outlet property="orderSummary4" destination="W7P-Gs-PzD" id="47k-uj-Gzh"/>
+                        <outlet property="orderType" destination="xb8-5D-kWB" id="c7R-gQ-4y9"/>
+                        <outlet property="patientCode" destination="CVa-Bs-MwC" id="Vmw-VW-u0j"/>
+                        <outlet property="patientGender" destination="pDo-mN-Sl6" id="c3M-sg-Q0d"/>
+                        <outlet property="patientImage" destination="I4v-k0-gw8" id="dz7-BC-Cgp"/>
+                        <outlet property="patientName" destination="abj-Pc-Pjs" id="qdZ-YK-b09"/>
+                        <outlet property="patientNumber" destination="e3x-hL-hxh" id="U0e-eg-ZAf"/>
+                        <outlet property="patientPhone" destination="784-bL-bdJ" id="zK9-Vw-Sx0"/>
+                        <outlet property="patientWeight" destination="h41-hE-8sa" id="Z6D-NB-9Ti"/>
+                        <outlet property="patitientEmail" destination="JOO-Y2-ybf" id="gVw-rb-eQ1"/>
+                        <outlet property="reasonOfCancel" destination="Z1V-A4-Ufm" id="xNW-ux-sfd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GLA-sz-fGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2194" y="65"/>
         </scene>
     </scenes>
     <resources>

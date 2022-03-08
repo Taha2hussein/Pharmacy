@@ -36,11 +36,12 @@ class OrderListViewController: BaseViewController {
         segmentAction()
         bindordersoTableView()
         subscribeToLoader()
-       
+        selectOrderAction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        orderSegment.selectedSegmentIndex = 0
         articleDetailsViewModel.getOrderList(segmentSelected: 1)
     }
     
@@ -72,6 +73,20 @@ class OrderListViewController: BaseViewController {
                 cell.setUPOrders(order: model)
 
             }.disposed(by: self.disposeBag)
+    }
+    
+    func selectOrderAction() {
+        
+        Observable.zip(tableView
+                        .rx
+                        .itemSelected,tableView.rx.modelSelected(OrderListMessage.self)).bind { [weak self] selectedIndex, product in
+            if product.singleOrderStatus == 11 {
+                print(product)
+                self?.router.showCanceledOrder(orderId: product.orderID ?? 0)
+            }
+            
+            
+        }.disposed(by: self.disposeBag)
     }
     
     func segmentAction() {
