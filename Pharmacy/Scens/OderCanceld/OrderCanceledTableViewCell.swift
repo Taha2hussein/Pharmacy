@@ -1,15 +1,15 @@
 //
-//  OrderTrackingTableViewCell.swift
+//  OrderCanceledTableViewCell.swift
 //  Pharmacy
 //
-//  Created by Amr on 04/03/2022.
+//  Created by taha hussein on 09/03/2022.
 //
 
 import UIKit
 
-class OrderTrackingTableViewCell: UITableViewCell {
+class OrderCanceledTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var orderCanceledLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +20,5 @@ class OrderTrackingTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

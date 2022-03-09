@@ -29,6 +29,11 @@ class OrderListRouter {
         self.sourceView = view
     }
  
+    func showOrderTracking(orderId: Int) {
+        let canceledOrder = OrderTrackingRouter(orderId: orderId).viewController
+        self.sourceView?.navigationController?.pushViewController(canceledOrder, animated: true)
+    }
+    
     func showCanceledOrder(orderId: Int) {
         let canceledOrder = OrderCancelRouter(orderId: orderId).viewController
         self.sourceView?.navigationController?.pushViewController(canceledOrder, animated: true)

@@ -1,36 +1,41 @@
 //
-//  OrderCanceledViewModel.swift
+//  OrderTrackingViewModel.swift
 //  Pharmacy
 //
-//  Created by taha hussein on 08/03/2022.
+//  Created by taha hussein on 09/03/2022.
 //
-
 
 import Foundation
 import RxSwift
 import RxCocoa
 import RxRelay
-import SwiftUI
 
-class OrderCanceledViewModel{
+class OrderTrackingViewModel{
     
-    private weak var view: OrderCancelViewController?
-    private var router: OrderCancelRouter?
+    private weak var view: OrderTrackingViewController?
+    private var router: OrderTrackingRouter?
     var  state = State()
     var orderId = Int()
-    var canceledOrdersInstance = PublishSubject<CanceledOrderMessage>()
-    var cancelOrderSummary = PublishSubject <[PharmacyOrderItem]>()
-    func bind(view: OrderCancelViewController, router: OrderCancelRouter) {
+
+    var orderTrackingInstance = PublishSubject<OrderTrackingMessage>()
+    var orderTrackingSummary = PublishSubject<[OrderTrackingPharmacyOrderItem]>()
+    
+    func bind(view: OrderTrackingViewController, router: OrderTrackingRouter) {
         self.view = view
         self.router = router
         self.router?.setSourceView(view)
     }
     
-    func getOrderDetails() {
+    
+    
+}
+
+extension OrderTrackingViewModel {
+    func getOrderTracking() {
         let parameters = ["OrderID": orderId
                           ,"PharmacyID": LocalStorage().getPharmacyProviderFk(),
                           "BranchID":0]
-        var request = URLRequest(url: URL(string: cancelOrderApi)!)
+        var request = URLRequest(url: URL(string: orderTrackingApi)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let key = LocalStorage().getLoginToken()
@@ -48,19 +53,19 @@ class OrderCanceledViewModel{
             do {
                 
                 let decoder = JSONDecoder()
-                var cancelOrder : CanceledOrder?
-                cancelOrder = try decoder.decode(CanceledOrder.self, from: data)
-                if cancelOrder?.successtate == 200 {
-                    if let cancelOrderMessaege = cancelOrder?.message {
-                    self.canceledOrdersInstance.onNext(cancelOrderMessaege)
-                        self.cancelOrderSummary.onNext(cancelOrderMessaege.pharmacyOrderItem ?? [])
+                var orderTracking : OrderTrackingModel?
+                orderTracking = try decoder.decode(OrderTrackingModel.self, from: data)
+                if orderTracking?.successtate == 200 {
+                    if let ordertracking = orderTracking?.message {
+                        self.orderTrackingInstance.onNext(ordertracking)
+                        self.orderTrackingSummary.onNext(orderTracking?.message?.pharmacyOrderItem ?? [])
                     }
                     
                 }
                 
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: cancelOrder?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                    Alert().displayError(text: orderTracking?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
     
                     }
                 }
@@ -69,5 +74,4 @@ class OrderCanceledViewModel{
             }
         }.resume()
     }
-    
 }

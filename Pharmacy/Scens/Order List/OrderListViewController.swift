@@ -80,8 +80,12 @@ class OrderListViewController: BaseViewController {
         Observable.zip(tableView
                         .rx
                         .itemSelected,tableView.rx.modelSelected(OrderListMessage.self)).bind { [weak self] selectedIndex, product in
-            if product.singleOrderStatus == 11 {
-                print(product)
+            
+            if product.singleOrderStatus == 0  {
+                self?.router.showOrderTracking(orderId: product.orderID ?? 0)
+            }
+            
+           else if product.singleOrderStatus == 11 {
                 self?.router.showCanceledOrder(orderId: product.orderID ?? 0)
             }
             

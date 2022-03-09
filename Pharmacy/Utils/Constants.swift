@@ -58,6 +58,7 @@ enum ViewController: String {
     case orderList = "OrderListViewController"
     case orderedCanceled = "OrderCancelViewController"
     case deliveredOrder = "OrderDeliveredViewController"
+    case orderTracking = "OrderTrackingViewController"
 }
 
 enum TableView: String {

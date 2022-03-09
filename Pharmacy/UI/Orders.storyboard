@@ -381,35 +381,42 @@ making it over 2000 years old</string>
                                                                                 <color key="textColor" name="blue"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="puL-aA-twf">
-                                                                                <rect key="frame" x="25" y="34" width="61" height="90"/>
-                                                                                <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QES-ZJ-6uM">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="61" height="15"/>
-                                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                        <color key="textColor" name="blue"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzu-MH-inm">
-                                                                                        <rect key="frame" x="0.0" y="25" width="61" height="15"/>
-                                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                        <color key="textColor" name="blue"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHW-fY-hm5">
-                                                                                        <rect key="frame" x="0.0" y="50" width="61" height="15"/>
-                                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                        <color key="textColor" name="blue"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEe-OZ-fxH">
-                                                                                        <rect key="frame" x="0.0" y="75" width="61" height="15"/>
-                                                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                        <color key="textColor" name="blue"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                </subviews>
-                                                                            </stackView>
+                                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bqa-7R-ZsV">
+                                                                                <rect key="frame" x="10" y="40" width="275.5" height="91"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <prototypes>
+                                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderTrackingTableViewCell" id="6sf-cf-DcU" customClass="OrderTrackingTableViewCell" customModule="Pharmacy" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="44.5" width="275.5" height="15.5"/>
+                                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6sf-cf-DcU" id="JkA-2U-fNL">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="275.5" height="15.5"/>
+                                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                                            <subviews>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="puL-aA-twf">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="275.5" height="15.5"/>
+                                                                                                    <subviews>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QES-ZJ-6uM">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="275.5" height="15.5"/>
+                                                                                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                                            <color key="textColor" name="blue"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                    </subviews>
+                                                                                                </stackView>
+                                                                                            </subviews>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="bottom" secondItem="puL-aA-twf" secondAttribute="bottom" id="F0w-jc-B86"/>
+                                                                                                <constraint firstItem="puL-aA-twf" firstAttribute="top" secondItem="JkA-2U-fNL" secondAttribute="top" id="O4G-73-R54"/>
+                                                                                                <constraint firstAttribute="trailing" secondItem="puL-aA-twf" secondAttribute="trailing" id="fUi-v4-GBk"/>
+                                                                                                <constraint firstItem="puL-aA-twf" firstAttribute="leading" secondItem="JkA-2U-fNL" secondAttribute="leading" id="ysp-so-eSb"/>
+                                                                                            </constraints>
+                                                                                        </tableViewCellContentView>
+                                                                                        <connections>
+                                                                                            <outlet property="summaryLabel" destination="QES-ZJ-6uM" id="Jts-tE-BaN"/>
+                                                                                        </connections>
+                                                                                    </tableViewCell>
+                                                                                </prototypes>
+                                                                            </tableView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CpK-25-lAM">
                                                                                 <rect key="frame" x="132.5" y="136" width="149" height="25"/>
                                                                                 <subviews>
@@ -437,13 +444,14 @@ making it over 2000 years old</string>
                                                                         <color key="backgroundColor" red="0.9843203425" green="0.98430186509999995" blue="0.9843143821" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="trailing" secondItem="CpK-25-lAM" secondAttribute="trailing" constant="14" id="0aC-8m-YJQ"/>
+                                                                            <constraint firstItem="CpK-25-lAM" firstAttribute="top" secondItem="Bqa-7R-ZsV" secondAttribute="bottom" constant="5" id="8Zg-Uu-WxU"/>
+                                                                            <constraint firstItem="Bqa-7R-ZsV" firstAttribute="top" secondItem="fYf-LB-XDX" secondAttribute="bottom" constant="5" id="8qy-x6-hCM"/>
                                                                             <constraint firstAttribute="height" priority="250" constant="150" id="Fom-kI-8JY"/>
-                                                                            <constraint firstItem="puL-aA-twf" firstAttribute="leading" secondItem="63v-Uz-qp2" secondAttribute="leading" constant="25" id="JMp-7L-GNU"/>
-                                                                            <constraint firstItem="puL-aA-twf" firstAttribute="top" secondItem="fYf-LB-XDX" secondAttribute="bottom" constant="-1" id="SVE-jM-zKS"/>
                                                                             <constraint firstItem="fYf-LB-XDX" firstAttribute="top" secondItem="63v-Uz-qp2" secondAttribute="top" constant="15" id="bMe-8t-wdD"/>
+                                                                            <constraint firstItem="Bqa-7R-ZsV" firstAttribute="leading" secondItem="63v-Uz-qp2" secondAttribute="leading" constant="10" id="ffp-Q1-TIk"/>
                                                                             <constraint firstAttribute="bottom" secondItem="CpK-25-lAM" secondAttribute="bottom" constant="12" id="iZj-Ev-twj"/>
                                                                             <constraint firstItem="fYf-LB-XDX" firstAttribute="leading" secondItem="63v-Uz-qp2" secondAttribute="leading" constant="19" id="pk2-0p-ZYw"/>
-                                                                            <constraint firstItem="CpK-25-lAM" firstAttribute="top" secondItem="puL-aA-twf" secondAttribute="bottom" constant="12" id="rI1-0p-3YP"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="Bqa-7R-ZsV" secondAttribute="trailing" constant="10" id="wDB-40-9Pa"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -684,6 +692,22 @@ making it over 2000 years old</string>
                             <constraint firstItem="WiQ-95-GNi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="vwq-AP-vhA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="WiQ-95-GNi" id="6jk-7G-j7r"/>
+                        <outlet property="orderDate" destination="vc2-bQ-C40" id="bIo-v0-Rco"/>
+                        <outlet property="orderNotes" destination="Pcm-vB-IRj" id="pHe-7v-fus"/>
+                        <outlet property="orderPayment" destination="wns-We-fQY" id="g5X-uz-s6B"/>
+                        <outlet property="orderType" destination="gZd-Fz-RTM" id="GDS-Cw-aeg"/>
+                        <outlet property="patientCode" destination="ZH7-9J-pyb" id="1Zw-L1-p8q"/>
+                        <outlet property="patientGender" destination="dmm-9f-Mdi" id="JV2-Qz-8d0"/>
+                        <outlet property="patientImage" destination="aiv-gt-R8v" id="xch-hn-qMY"/>
+                        <outlet property="patientName" destination="6Tw-2a-e2Y" id="dGn-77-IST"/>
+                        <outlet property="patientNumber" destination="edJ-wj-EPf" id="sMn-DB-qz3"/>
+                        <outlet property="patientPhone" destination="OIM-Xw-aBC" id="Az9-a8-JVQ"/>
+                        <outlet property="patientWeight" destination="9pE-xr-sUX" id="yZS-ff-anz"/>
+                        <outlet property="patitientEmail" destination="vSu-GN-2PV" id="HNh-YW-UxC"/>
+                        <outlet property="summaryTableView" destination="Bqa-7R-ZsV" id="Jif-F3-Ygs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1381,7 +1405,7 @@ Sep 2007</string>
                                         <rect key="frame" x="0.0" y="0.0" width="406" height="756"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qGC-eN-fVD">
-                                                <rect key="frame" x="20" y="14" width="366" height="599"/>
+                                                <rect key="frame" x="20" y="14" width="366" height="579"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkX-rz-wwd">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="108"/>
@@ -1484,7 +1508,7 @@ Sep 2007</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0E-sd-o0w">
-                                                        <rect key="frame" x="0.0" y="123" width="366" height="239"/>
+                                                        <rect key="frame" x="0.0" y="123" width="366" height="219"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-S4-YEz">
                                                                 <rect key="frame" x="119" y="15" width="128" height="20"/>
@@ -1507,7 +1531,7 @@ Sep 2007</string>
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-AO-2dh">
-                                                                <rect key="frame" x="23" y="67" width="323" height="67"/>
+                                                                <rect key="frame" x="23" y="67" width="323" height="51"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="6R8-R9-Lj2">
                                                                         <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
@@ -1564,37 +1588,44 @@ Sep 2007</string>
                                                                         <color key="textColor" name="blue"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="79C-tr-bqM">
-                                                                        <rect key="frame" x="0.0" y="52" width="323" height="15"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EM2-1R-cCm">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="15"/>
-                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                <color key="textColor" name="blue"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5D-aU-Xe3">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
-                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                <color key="textColor" name="blue"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYA-Ac-aTW">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
-                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                <color key="textColor" name="blue"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix8-wT-Hwr">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="0.0"/>
-                                                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
-                                                                                <color key="textColor" name="blue"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                        </subviews>
-                                                                    </stackView>
                                                                 </subviews>
                                                             </stackView>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vdI-wg-LhT">
+                                                                <rect key="frame" x="21" y="119" width="323" height="100"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <prototypes>
+                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderCanceledTableViewCell" id="9Z3-yq-bEb" customClass="OrderCanceledTableViewCell" customModule="Pharmacy" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="44.5" width="323" height="15.5"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Z3-yq-bEb" id="VRl-Rm-Lzf">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="323" height="15.5"/>
+                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                            <subviews>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NBT-yr-Z0x">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="323" height="15.5"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x Vitamin C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-oz-uwy">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="323" height="15.5"/>
+                                                                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="11"/>
+                                                                                            <color key="textColor" name="blue"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="bottom" secondItem="NBT-yr-Z0x" secondAttribute="bottom" id="OHk-Ay-oGm"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="NBT-yr-Z0x" secondAttribute="trailing" id="VzU-XL-zaQ"/>
+                                                                                <constraint firstItem="NBT-yr-Z0x" firstAttribute="top" secondItem="VRl-Rm-Lzf" secondAttribute="top" id="Wq4-cD-9a5"/>
+                                                                                <constraint firstItem="NBT-yr-Z0x" firstAttribute="leading" secondItem="VRl-Rm-Lzf" secondAttribute="leading" id="ox2-9a-d0r"/>
+                                                                            </constraints>
+                                                                        </tableViewCellContentView>
+                                                                        <connections>
+                                                                            <outlet property="orderCanceledLabel" destination="3Qh-oz-uwy" id="eUb-78-UBr"/>
+                                                                        </connections>
+                                                                    </tableViewCell>
+                                                                </prototypes>
+                                                            </tableView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Mo, Sep 11, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuS-9a-Dpg">
                                                                 <rect key="frame" x="135.5" y="37" width="95" height="20"/>
                                                                 <constraints>
@@ -1610,11 +1641,15 @@ Sep 2007</string>
                                                             <constraint firstItem="FuS-9a-Dpg" firstAttribute="top" secondItem="wVl-S4-YEz" secondAttribute="bottom" constant="2" id="1Eh-fX-qiZ"/>
                                                             <constraint firstAttribute="height" priority="250" constant="202" id="1XB-1t-beI"/>
                                                             <constraint firstItem="sBB-AO-2dh" firstAttribute="leading" secondItem="l0E-sd-o0w" secondAttribute="leading" constant="23" id="Cua-Tp-LOU"/>
+                                                            <constraint firstItem="vdI-wg-LhT" firstAttribute="leading" secondItem="l0E-sd-o0w" secondAttribute="leading" constant="21" id="DVR-sb-5uv"/>
                                                             <constraint firstItem="FuS-9a-Dpg" firstAttribute="centerX" secondItem="l0E-sd-o0w" secondAttribute="centerX" id="JWU-rw-07W"/>
+                                                            <constraint firstAttribute="trailing" secondItem="vdI-wg-LhT" secondAttribute="trailing" constant="22" id="MHk-ty-Bnr"/>
                                                             <constraint firstItem="sBB-AO-2dh" firstAttribute="top" secondItem="FuS-9a-Dpg" secondAttribute="bottom" constant="10" id="O3e-yT-Vqv"/>
+                                                            <constraint firstItem="vdI-wg-LhT" firstAttribute="top" secondItem="sBB-AO-2dh" secondAttribute="bottom" constant="1" id="RTd-bl-UAt"/>
                                                             <constraint firstItem="wVl-S4-YEz" firstAttribute="top" secondItem="l0E-sd-o0w" secondAttribute="top" constant="15" id="SEc-sX-HLz"/>
                                                             <constraint firstAttribute="trailing" secondItem="sBB-AO-2dh" secondAttribute="trailing" constant="20" id="rY7-Ry-875"/>
                                                             <constraint firstItem="wVl-S4-YEz" firstAttribute="centerX" secondItem="l0E-sd-o0w" secondAttribute="centerX" id="tEZ-Iv-TQ9"/>
+                                                            <constraint firstAttribute="bottom" secondItem="vdI-wg-LhT" secondAttribute="bottom" id="yEk-Zl-Hhh"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1635,7 +1670,7 @@ Sep 2007</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-9m-JoQ">
-                                                        <rect key="frame" x="0.0" y="377" width="366" height="222"/>
+                                                        <rect key="frame" x="0.0" y="357" width="366" height="222"/>
                                                         <subviews>
                                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qb7-xy-ta9">
                                                                 <rect key="frame" x="119" y="15" width="128" height="20"/>
@@ -1792,10 +1827,6 @@ Sep 2007</string>
                         <outlet property="canceledBy" destination="Hc9-0G-FP8" id="4Dh-ea-1Kf"/>
                         <outlet property="orderDate" destination="FuS-9a-Dpg" id="HSn-tP-ab0"/>
                         <outlet property="orderPayment" destination="WKN-ua-QGP" id="W1f-Kv-fq2"/>
-                        <outlet property="orderSummary1" destination="EM2-1R-cCm" id="Acf-gb-LNx"/>
-                        <outlet property="orderSummary2" destination="B5D-aU-Xe3" id="AIY-Iu-u5S"/>
-                        <outlet property="orderSummary3" destination="bYA-Ac-aTW" id="Vpb-qQ-TcJ"/>
-                        <outlet property="orderSummary4" destination="ix8-wT-Hwr" id="Jed-za-goh"/>
                         <outlet property="orderType" destination="BS8-w3-Pjv" id="UwY-KF-cIj"/>
                         <outlet property="patientCode" destination="We8-ei-HG1" id="NQ4-Fg-7Wx"/>
                         <outlet property="patientGender" destination="vLo-GA-Jk9" id="plF-Vs-Kcw"/>
@@ -1806,6 +1837,7 @@ Sep 2007</string>
                         <outlet property="patientWeight" destination="Ccb-f0-DZ3" id="lRQ-P0-Ghp"/>
                         <outlet property="patitientEmail" destination="MBk-f0-8XM" id="zse-E5-5s1"/>
                         <outlet property="reasonOfCancel" destination="9pg-TQ-ENV" id="3ib-td-L8m"/>
+                        <outlet property="summaryTableView" destination="vdI-wg-LhT" id="y5U-gw-uTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GA6-BP-Pep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

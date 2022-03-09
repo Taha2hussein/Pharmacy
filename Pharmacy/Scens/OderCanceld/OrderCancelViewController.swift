@@ -12,10 +12,7 @@ import RxSwift
 
 class OrderCancelViewController: BaseViewController {
     
-    @IBOutlet weak var orderSummary1: UILabel!
-    @IBOutlet weak var orderSummary4: UILabel!
-    @IBOutlet weak var orderSummary3: UILabel!
-    @IBOutlet weak var orderSummary2: UILabel!
+    @IBOutlet weak var summaryTableView: UITableView!
     @IBOutlet weak var reasonOfCancel: UILabel!
     @IBOutlet weak var orderType: UILabel!
     @IBOutlet weak var orderPayment: UILabel!
@@ -40,6 +37,7 @@ class OrderCancelViewController: BaseViewController {
         subscribeToLoader()
         backTapped()
         intializeOrderData()
+        bindBranchToTableView()
         articleDetailsViewModel.getOrderDetails()
     }
     
@@ -70,16 +68,22 @@ class OrderCancelViewController: BaseViewController {
             self?.orderPayment.text = cancelOrder.element?.paymentTypeLocalized
             self?.orderType.text = cancelOrder.element?.orderType
             self?.reasonOfCancel.text = cancelOrder.element?.orderNotes
-//            self?.canceledBy.text = cancelOrder.element?
-            self?.orderSummary1.text = "\(cancelOrder.element?.pharmacyOrderItem?[0].quantity ?? 0)" + "x " + (cancelOrder.element?.pharmacyOrderItem?[0].medicationNameLocalized ?? "")
-            
-//            self?.orderSummary2.text = cancelOrder.element?.medicationName_Localized
-//            self?.orderSummary3.text = cancelOrder.element?.medicationName_Localized
-//            self?.orderSummary4.text = cancelOrder.element?.medicationName_Localized
+
             }
 
         } .disposed(by: self.disposeBag)
 
+    }
+    
+    func bindBranchToTableView() {
+        articleDetailsViewModel.cancelOrderSummary
+            .bind(to: self.summaryTableView
+                    .rx
+                    .items(cellIdentifier: String(describing:  OrderCanceledTableViewCell.self),
+                           cellType: OrderCanceledTableViewCell.self)) { row, model, cell in
+                cell.orderCanceledLabel.text = "\(model.quantity ?? 0)" + "x " + (model.medicationNameLocalized ?? "")
+                
+            }.disposed(by: self.disposeBag)
     }
     
     func subscribeToLoader() {

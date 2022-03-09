@@ -166,6 +166,11 @@
 		7200B84427D68690004F6F58 /* AreasAvailableToVisitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7200B83D27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.xib */; };
 		7200B84527D68690004F6F58 /* AreasAvailableToVisitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200B83E27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.swift */; };
 		7200B84627D68690004F6F58 /* DoctorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200B83F27D68690004F6F58 /* DoctorProfileViewController.swift */; };
+		7212E08127D8705B00E1FAB6 /* OrderTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08027D8705B00E1FAB6 /* OrderTrackingViewModel.swift */; };
+		7212E08327D8706000E1FAB6 /* OrderTrackingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08227D8706000E1FAB6 /* OrderTrackingRouter.swift */; };
+		7212E08527D870C100E1FAB6 /* OrderTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08427D870C100E1FAB6 /* OrderTrackingModel.swift */; };
+		7212E08727D878E700E1FAB6 /* OrderCanceledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08627D878E700E1FAB6 /* OrderCanceledTableViewCell.swift */; };
+		7212E08927D87BD400E1FAB6 /* AcceptPharmacyOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08827D87BD400E1FAB6 /* AcceptPharmacyOrder.swift */; };
 		722DA0AB27D1587A00580E0F /* Reviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722DA0AA27D1587A00580E0F /* Reviews.storyboard */; };
 		722DA0AE27D15A2900580E0F /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0AD27D15A2900580E0F /* ReviewsViewController.swift */; };
 		722DA0B027D15A3300580E0F /* ReviewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0AF27D15A3300580E0F /* ReviewsRouter.swift */; };
@@ -366,6 +371,11 @@
 		7200B83D27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreasAvailableToVisitTableViewCell.xib; sourceTree = "<group>"; };
 		7200B83E27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasAvailableToVisitTableViewCell.swift; sourceTree = "<group>"; };
 		7200B83F27D68690004F6F58 /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
+		7212E08027D8705B00E1FAB6 /* OrderTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingViewModel.swift; sourceTree = "<group>"; };
+		7212E08227D8706000E1FAB6 /* OrderTrackingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingRouter.swift; sourceTree = "<group>"; };
+		7212E08427D870C100E1FAB6 /* OrderTrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingModel.swift; sourceTree = "<group>"; };
+		7212E08627D878E700E1FAB6 /* OrderCanceledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCanceledTableViewCell.swift; sourceTree = "<group>"; };
+		7212E08827D87BD400E1FAB6 /* AcceptPharmacyOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptPharmacyOrder.swift; sourceTree = "<group>"; };
 		722DA0AA27D1587A00580E0F /* Reviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reviews.storyboard; sourceTree = "<group>"; };
 		722DA0AD27D15A2900580E0F /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		722DA0AF27D15A3300580E0F /* ReviewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsRouter.swift; sourceTree = "<group>"; };
@@ -802,6 +812,8 @@
 				7241716827D718340049173F /* OrderList.swift */,
 				72942CCF27D7D71400E6CC15 /* CanceledOrder.swift */,
 				72942CD827D7F59B00E6CC15 /* AllBranchesModle.swift */,
+				7212E08427D870C100E1FAB6 /* OrderTrackingModel.swift */,
+				7212E08827D87BD400E1FAB6 /* AcceptPharmacyOrder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -959,6 +971,8 @@
 			children = (
 				7200B83727D68690004F6F58 /* cells */,
 				7200B83A27D68690004F6F58 /* OrderTrackingViewController.swift */,
+				7212E08027D8705B00E1FAB6 /* OrderTrackingViewModel.swift */,
+				7212E08227D8706000E1FAB6 /* OrderTrackingRouter.swift */,
 			);
 			path = "Order Tracking";
 			sourceTree = "<group>";
@@ -1007,6 +1021,7 @@
 				7241716B27D7242F0049173F /* OrderCanceledViewModel.swift */,
 				7241716D27D724390049173F /* OrderCancelRouter.swift */,
 				7241716F27D724470049173F /* OrderCancelViewController.swift */,
+				7212E08627D878E700E1FAB6 /* OrderCanceledTableViewCell.swift */,
 			);
 			path = OderCanceld;
 			sourceTree = "<group>";
@@ -1297,6 +1312,7 @@
 				0044ED6D2788900900598D8D /* EkadTextField.swift in Sources */,
 				00E8353F27A7DCB7009E98A3 /* EditProfileModel.swift in Sources */,
 				7200B84627D68690004F6F58 /* DoctorProfileViewController.swift in Sources */,
+				7212E08127D8705B00E1FAB6 /* OrderTrackingViewModel.swift in Sources */,
 				0058D01B27ABF8CF00B70A85 /* BlogTableViewCell.swift in Sources */,
 				0077044F278998150055CABC /* ConfirmAccountviewModel.swift in Sources */,
 				00C560B527B279CF003F8963 /* PharmacyProfileRouter.swift in Sources */,
@@ -1308,6 +1324,7 @@
 				72F924A327D35B18009BB650 /* AddPharmacist.swift in Sources */,
 				00218AEB27AD763500BA7135 /* LikeBlogsModel.swift in Sources */,
 				0077041D27898BCC0055CABC /* LoginRouter.swift in Sources */,
+				7212E08527D870C100E1FAB6 /* OrderTrackingModel.swift in Sources */,
 				0077043E278993E60055CABC /* ConfirmMobileViewController.swift in Sources */,
 				008C494427A1BE3900363DE6 /* RechargeModel.swift in Sources */,
 				00E8354827A7E0B4009E98A3 /* EditProfileRouter.swift in Sources */,
@@ -1320,6 +1337,7 @@
 				00770437278993080055CABC /* VerificationRouter.swift in Sources */,
 				722DA0B027D15A3300580E0F /* ReviewsRouter.swift in Sources */,
 				7241717027D724470049173F /* OrderCancelViewController.swift in Sources */,
+				7212E08327D8706000E1FAB6 /* OrderTrackingRouter.swift in Sources */,
 				72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */,
 				72F9249627D35399009BB650 /* StarRatingView.swift in Sources */,
 				0077042327898DFF0055CABC /* FirstRegisterViewModel.swift in Sources */,
@@ -1363,6 +1381,7 @@
 				009541342788F5FB005C3D18 /* RadioButton.swift in Sources */,
 				00E6B8C52799A476006BEA8F /* WalletsViewModel.swift in Sources */,
 				00E6B8D32799F2C6006BEA8F /* Duration.swift in Sources */,
+				7212E08927D87BD400E1FAB6 /* AcceptPharmacyOrder.swift in Sources */,
 				7241716327D715A10049173F /* OrderListTableViewCell.swift in Sources */,
 				0044ED732788906D00598D8D /* EkadUIViewShadow.swift in Sources */,
 				00CAFD6C27A02DCF0087F164 /* BarChartClass.swift in Sources */,
@@ -1404,6 +1423,7 @@
 				72F9249527D35399009BB650 /* StarRatingStackView.swift in Sources */,
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
 				00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */,
+				7212E08727D878E700E1FAB6 /* OrderCanceledTableViewCell.swift in Sources */,
 				000FCD5427A6C9C000E12E11 /* ProfileViewModel.swift in Sources */,
 				722DA0B227D15A3C00580E0F /* ReviewsViewModel.swift in Sources */,
 				72FE350B27B8506000DAF700 /* BlogDetailsRouter.swift in Sources */,
