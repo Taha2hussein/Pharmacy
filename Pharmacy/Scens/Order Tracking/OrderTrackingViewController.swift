@@ -12,6 +12,8 @@ import RxSwift
 
 class OrderTrackingViewController: BaseViewController {
     
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var orderType: UILabel!
     @IBOutlet weak var orderPayment: UILabel!
     @IBOutlet weak var orderDate: UILabel!
@@ -36,9 +38,14 @@ class OrderTrackingViewController: BaseViewController {
         backTapped()
         intializeOrderData()
         bindViewControllerRouter()
+        acceptOrderAfterRemoveSubView()
         bindBranchToTableView()
+        acceptTapped()
+        CancelOrderAfterRemoveSubView()
+        cancelOrderTapped()
         articleDetailsViewModel.getOrderTracking()
     }
+    
     
     func backTapped() {
         backButton.rx.tap.subscribe { [weak self] _ in
@@ -47,6 +54,23 @@ class OrderTrackingViewController: BaseViewController {
         
     }
     
+    func CancelOrderAfterRemoveSubView() {
+        cancelRemoveSubview.subscribe { [weak self] cancelRemove in
+            if cancelRemove.element == true {
+            self?.articleDetailsViewModel.cancelOrder(BranchID: branchSelected)
+            }
+        } .disposed(by: self.disposeBag)
+
+    }
+    
+    func acceptOrderAfterRemoveSubView() {
+        removeSubview.subscribe { [weak self] removeSubview in
+            if removeSubview.element == true {
+            self?.articleDetailsViewModel.acceptOrder(BranchID: branchSelected)
+            }
+        } .disposed(by: self.disposeBag)
+
+    }
     
     func subscribeToLoader() {
         articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
@@ -84,6 +108,34 @@ class OrderTrackingViewController: BaseViewController {
                 self?.orderNotes.text =  orderTrackin.element?.orderNotes
             }
         } .disposed(by: self.disposeBag)
+    }
+    
+    func acceptTapped() {
+
+        addBranchesAsSubview()
+    }
+    
+    func cancelOrderTapped() {
+        showCancelationPopView()
+    }
+    
+    func showCancelationPopView() {
+        cancelButton.rx.tap.subscribe { [weak self] _ in
+            let subView = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.popCancelationview.rawValue)
+            
+            subView.view.frame = (self?.view.bounds)!
+            self?.view.addSubview(subView.view)
+        }.disposed(by: self.disposeBag)
+    }
+    
+    func addBranchesAsSubview() {
+        acceptButton.rx.tap.subscribe { [weak self] _ in
+            let subView = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.BranchesPopView.rawValue)
+            
+            subView.view.frame = (self?.view.bounds)!
+            self?.view.addSubview(subView.view)
+        }.disposed(by: self.disposeBag)
+
     }
     
     func bindBranchToTableView() {

@@ -22,7 +22,6 @@ class OrderTrackingRouter {
         
         let viewController = view.instantiateViewController(withIdentifier: ViewController.orderTracking.rawValue)as? OrderTrackingViewController
         viewController?.articleDetailsViewModel.orderId = orderId
-        
         return viewController!
     }
     

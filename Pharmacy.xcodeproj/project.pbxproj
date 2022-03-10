@@ -166,11 +166,16 @@
 		7200B84427D68690004F6F58 /* AreasAvailableToVisitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7200B83D27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.xib */; };
 		7200B84527D68690004F6F58 /* AreasAvailableToVisitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200B83E27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.swift */; };
 		7200B84627D68690004F6F58 /* DoctorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200B83F27D68690004F6F58 /* DoctorProfileViewController.swift */; };
+		720ECAC827D9C42000EA7BA6 /* CancelReasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720ECAC727D9C42000EA7BA6 /* CancelReasons.swift */; };
+		720ECACA27D9C59D00EA7BA6 /* PopCancelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720ECAC927D9C59D00EA7BA6 /* PopCancelViewCell.swift */; };
+		720ECACC27D9C97D00EA7BA6 /* RejectOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720ECACB27D9C97D00EA7BA6 /* RejectOrderModel.swift */; };
 		7212E08127D8705B00E1FAB6 /* OrderTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08027D8705B00E1FAB6 /* OrderTrackingViewModel.swift */; };
 		7212E08327D8706000E1FAB6 /* OrderTrackingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08227D8706000E1FAB6 /* OrderTrackingRouter.swift */; };
 		7212E08527D870C100E1FAB6 /* OrderTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08427D870C100E1FAB6 /* OrderTrackingModel.swift */; };
 		7212E08727D878E700E1FAB6 /* OrderCanceledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08627D878E700E1FAB6 /* OrderCanceledTableViewCell.swift */; };
 		7212E08927D87BD400E1FAB6 /* AcceptPharmacyOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08827D87BD400E1FAB6 /* AcceptPharmacyOrder.swift */; };
+		7212E08C27D87EC300E1FAB6 /* AllBranchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08B27D87EC300E1FAB6 /* AllBranchesViewController.swift */; };
+		7212E08E27D8858200E1FAB6 /* PopViewTableviewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7212E08D27D8858200E1FAB6 /* PopViewTableviewcell.swift */; };
 		722DA0AB27D1587A00580E0F /* Reviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722DA0AA27D1587A00580E0F /* Reviews.storyboard */; };
 		722DA0AE27D15A2900580E0F /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0AD27D15A2900580E0F /* ReviewsViewController.swift */; };
 		722DA0B027D15A3300580E0F /* ReviewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DA0AF27D15A3300580E0F /* ReviewsRouter.swift */; };
@@ -183,6 +188,7 @@
 		7241716C27D7242F0049173F /* OrderCanceledViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7241716B27D7242F0049173F /* OrderCanceledViewModel.swift */; };
 		7241716E27D724390049173F /* OrderCancelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7241716D27D724390049173F /* OrderCancelRouter.swift */; };
 		7241717027D724470049173F /* OrderCancelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7241716F27D724470049173F /* OrderCancelViewController.swift */; };
+		7253D9F627D8A8DF00C9141F /* PopViewCancelationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D9F527D8A8DF00C9141F /* PopViewCancelationViewController.swift */; };
 		72543BC827B3BFB300E29E8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BC727B3BFB300E29E8E /* Constants.swift */; };
 		72543BCD27B3FED300E29E8E /* PharmcyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */; };
 		72543BCF27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */; };
@@ -371,11 +377,16 @@
 		7200B83D27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreasAvailableToVisitTableViewCell.xib; sourceTree = "<group>"; };
 		7200B83E27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasAvailableToVisitTableViewCell.swift; sourceTree = "<group>"; };
 		7200B83F27D68690004F6F58 /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
+		720ECAC727D9C42000EA7BA6 /* CancelReasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasons.swift; sourceTree = "<group>"; };
+		720ECAC927D9C59D00EA7BA6 /* PopCancelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCancelViewCell.swift; sourceTree = "<group>"; };
+		720ECACB27D9C97D00EA7BA6 /* RejectOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectOrderModel.swift; sourceTree = "<group>"; };
 		7212E08027D8705B00E1FAB6 /* OrderTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingViewModel.swift; sourceTree = "<group>"; };
 		7212E08227D8706000E1FAB6 /* OrderTrackingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingRouter.swift; sourceTree = "<group>"; };
 		7212E08427D870C100E1FAB6 /* OrderTrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingModel.swift; sourceTree = "<group>"; };
 		7212E08627D878E700E1FAB6 /* OrderCanceledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCanceledTableViewCell.swift; sourceTree = "<group>"; };
 		7212E08827D87BD400E1FAB6 /* AcceptPharmacyOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptPharmacyOrder.swift; sourceTree = "<group>"; };
+		7212E08B27D87EC300E1FAB6 /* AllBranchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBranchesViewController.swift; sourceTree = "<group>"; };
+		7212E08D27D8858200E1FAB6 /* PopViewTableviewcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewTableviewcell.swift; sourceTree = "<group>"; };
 		722DA0AA27D1587A00580E0F /* Reviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reviews.storyboard; sourceTree = "<group>"; };
 		722DA0AD27D15A2900580E0F /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		722DA0AF27D15A3300580E0F /* ReviewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsRouter.swift; sourceTree = "<group>"; };
@@ -388,6 +399,7 @@
 		7241716B27D7242F0049173F /* OrderCanceledViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCanceledViewModel.swift; sourceTree = "<group>"; };
 		7241716D27D724390049173F /* OrderCancelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCancelRouter.swift; sourceTree = "<group>"; };
 		7241716F27D724470049173F /* OrderCancelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCancelViewController.swift; sourceTree = "<group>"; };
+		7253D9F527D8A8DF00C9141F /* PopViewCancelationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewCancelationViewController.swift; sourceTree = "<group>"; };
 		72543BC727B3BFB300E29E8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		72543BCC27B3FED300E29E8E /* PharmcyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmcyProfileModel.swift; sourceTree = "<group>"; };
 		72543BCE27B401FA00E29E8E /* PharmacyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -612,6 +624,7 @@
 		0044ED7A278895C600598D8D /* Scens */ = {
 			isa = PBXGroup;
 			children = (
+				7212E08A27D87EAB00E1FAB6 /* PopViews */,
 				72942CD127D7ED8A00E6CC15 /* Order Delivered */,
 				7241716A27D7241E0049173F /* OderCanceld */,
 				7200B83B27D68690004F6F58 /* Doctor Profile */,
@@ -814,6 +827,8 @@
 				72942CD827D7F59B00E6CC15 /* AllBranchesModle.swift */,
 				7212E08427D870C100E1FAB6 /* OrderTrackingModel.swift */,
 				7212E08827D87BD400E1FAB6 /* AcceptPharmacyOrder.swift */,
+				720ECAC727D9C42000EA7BA6 /* CancelReasons.swift */,
+				720ECACB27D9C97D00EA7BA6 /* RejectOrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1002,6 +1017,17 @@
 				7200B83E27D68690004F6F58 /* AreasAvailableToVisitTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		7212E08A27D87EAB00E1FAB6 /* PopViews */ = {
+			isa = PBXGroup;
+			children = (
+				7212E08B27D87EC300E1FAB6 /* AllBranchesViewController.swift */,
+				7212E08D27D8858200E1FAB6 /* PopViewTableviewcell.swift */,
+				7253D9F527D8A8DF00C9141F /* PopViewCancelationViewController.swift */,
+				720ECAC927D9C59D00EA7BA6 /* PopCancelViewCell.swift */,
+			);
+			path = PopViews;
 			sourceTree = "<group>";
 		};
 		722DA0AC27D1599600580E0F /* Reviews */ = {
@@ -1343,6 +1369,7 @@
 				0077042327898DFF0055CABC /* FirstRegisterViewModel.swift in Sources */,
 				00516AD127929D0900A4CCFD /* State.swift in Sources */,
 				0044ED512788883D00598D8D /* UIApplication+ScreenShot.swift in Sources */,
+				7253D9F627D8A8DF00C9141F /* PopViewCancelationViewController.swift in Sources */,
 				7200B84327D68690004F6F58 /* OrderTrackingViewController.swift in Sources */,
 				722DA0AE27D15A2900580E0F /* ReviewsViewController.swift in Sources */,
 				0044ED8B2788A8F700598D8D /* ForgetViewController.swift in Sources */,
@@ -1391,9 +1418,11 @@
 				006621CC2788DC25001596A7 /* CompleteRegisterViewController.swift in Sources */,
 				72942CD027D7D71400E6CC15 /* CanceledOrder.swift in Sources */,
 				0044ED6F2788901300598D8D /* EkadLabel.swift in Sources */,
+				720ECACA27D9C59D00EA7BA6 /* PopCancelViewCell.swift in Sources */,
 				00516ACA279297F000A4CCFD /* AllCountryLists.swift in Sources */,
 				72FE350D27B8506600DAF700 /* BlogDetailsViewModel.swift in Sources */,
 				006621CE2788DC51001596A7 /* IntroViewController.swift in Sources */,
+				7212E08E27D8858200E1FAB6 /* PopViewTableviewcell.swift in Sources */,
 				008C494027A195F300363DE6 /* DashboardBranchesList.swift in Sources */,
 				72F924A727D3BDBE009BB650 /* PreviousOrderList.swift in Sources */,
 				00E8354427A7E08C009E98A3 /* EditProfileViewController.swift in Sources */,
@@ -1404,6 +1433,7 @@
 				00770445278994B90055CABC /* ResetPasswordRouter.swift in Sources */,
 				72543BC827B3BFB300E29E8E /* Constants.swift in Sources */,
 				00E6B8CB2799F0EB006BEA8F /* NSDate+Timepiece.swift in Sources */,
+				7212E08C27D87EC300E1FAB6 /* AllBranchesViewController.swift in Sources */,
 				008C493C27A16BC000363DE6 /* UperRouter.swift in Sources */,
 				00CAFD7027A049F00087F164 /* WalletModel.swift in Sources */,
 				72543BCD27B3FED300E29E8E /* PharmcyProfileModel.swift in Sources */,
@@ -1418,10 +1448,12 @@
 				00971EAD27A548EE009A9909 /* ConfirmMobileRouter.swift in Sources */,
 				008C494727A1BEC800363DE6 /* RechageViewController.swift in Sources */,
 				008C493327A14C9400363DE6 /* DatePicker.swift in Sources */,
+				720ECAC827D9C42000EA7BA6 /* CancelReasons.swift in Sources */,
 				7241716927D718340049173F /* OrderList.swift in Sources */,
 				00516ACF2792991100A4CCFD /* Network.swift in Sources */,
 				72F9249527D35399009BB650 /* StarRatingStackView.swift in Sources */,
 				00E6B8BF2799A44C006BEA8F /* DashboardRouter.swift in Sources */,
+				720ECACC27D9C97D00EA7BA6 /* RejectOrderModel.swift in Sources */,
 				00F5812927A1DEFB00997DA1 /* WalletTransactionTableViewCell.swift in Sources */,
 				7212E08727D878E700E1FAB6 /* OrderCanceledTableViewCell.swift in Sources */,
 				000FCD5427A6C9C000E12E11 /* ProfileViewModel.swift in Sources */,
