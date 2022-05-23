@@ -12,7 +12,7 @@ import RxCocoa
 
 var branchSelected  = Int()
 var removeSubview = BehaviorRelay<Bool>(value:false)
-
+var showCancelPopViewAfterShowingBranches: Bool = false
 class AllBranchesViewController: BaseViewController {
     
     @IBOutlet weak var branchesTableView: UITableView!

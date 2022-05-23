@@ -30,8 +30,25 @@ class WalletTransactionTableViewCell: UITableViewCell {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.balanceLabel.text = ""
+        self.valueLabel.text = ""
+        self.chargeDate.text = ""
+
+        //set cell to initial state here
+        //set like button to initial state - title, font, color, etc.
+    }
+    
     func setData( product: walletTransactionMessage, selected: transactionSegmentSelected) {
-        if selected == .received {
+        switch selected {
+            
+        case .all:
+            self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))"
+            self.valueLabel.text = "\(product.amount ?? 0.0)"
+            self.chargeDate.text = product.transactionDate
+            
+        case.received:
             if product.factor == 1 {
                 self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))"
                 self.valueLabel.text = "\(product.amount ?? 0.0)"
@@ -41,7 +58,8 @@ class WalletTransactionTableViewCell: UITableViewCell {
                 self.containerView.isHidden = true
                 self.heightConstraint.constant = 0.0
             }
-        } else if selected == .used  {
+            
+        case .used:
             if product.factor == -1 {
                 self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))"
                 self.valueLabel.text = "\(product.amount ?? 0.0)"
@@ -51,10 +69,9 @@ class WalletTransactionTableViewCell: UITableViewCell {
                 self.containerView.isHidden = true
                 self.heightConstraint.constant = 0.0
             }
-        } else {
-            self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))"
-            self.valueLabel.text = "\(product.amount ?? 0.0)"
-            self.chargeDate.text = product.transactionDate
+            
         }
+        
+     
     }
 }

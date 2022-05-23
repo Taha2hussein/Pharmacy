@@ -63,4 +63,9 @@ protocol LocalDataProtocol {
     
     func saveForgetPasswordId(using id: String)
     func getForgetPasswordId()-> String
+    
+    func saveBrandFilter(using  brandFilter: Int)
+    func getBrandFilter() -> Int
+    
+
  }

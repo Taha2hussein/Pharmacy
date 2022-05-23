@@ -12,7 +12,7 @@ import RxSwift
 
 class KeyboardViewController : UIViewController {
 
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     let tap = UITapGestureRecognizer()
     
     override func viewDidLoad() {

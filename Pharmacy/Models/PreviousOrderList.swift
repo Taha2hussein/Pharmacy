@@ -26,7 +26,7 @@ struct PreviousOrderListMessage: Codable {
     let orderStatusLocalized: String?
     let singleOrderStatus, patientAddressFk, patientFk, paymentType: Int?
     let paymentTypeLocalized: String?
-    let preescriptionFk: JSONNull?
+    let preescriptionFk: Int?
     let addressLang, addressLat: Double?
     let patientName, patientProfileImage, patientAddressLocalized: String?
     let patientMapAddress: String?

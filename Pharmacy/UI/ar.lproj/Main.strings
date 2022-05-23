@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Welcome Back"; ObjectID = "7MI-Os-eaY"; */
+"7MI-Os-eaY.text" = "Welcome Back";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "Qzi-Y3-TzL"; */
+"Qzi-Y3-TzL.text" = "Password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "R30-iL-rph"; */
+"R30-iL-rph.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "Z3r-Lu-ZOD"; */
+"Z3r-Lu-ZOD.text" = "Login";
+
+/* Class = "UIButton"; configuration.title = "Create Account"; ObjectID = "bNL-qp-VDf"; */
+"bNL-qp-VDf.configuration.title" = "Create Account";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bNL-qp-VDf"; */
+"bNL-qp-VDf.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Forget Password ?"; ObjectID = "c1u-e7-KMU"; */
+"c1u-e7-KMU.configuration.title" = "Forget Password ?";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "c1u-e7-KMU"; */
+"c1u-e7-KMU.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Mobile"; ObjectID = "nNU-hc-lRM"; */
+"nNU-hc-lRM.text" = "Mobile";
+
+/* Class = "UILabel"; text = "OR"; ObjectID = "qpJ-WW-NQO"; */
+"qpJ-WW-NQO.text" = "OR";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "tR8-5u-t9x"; */
+"tR8-5u-t9x.configuration.title" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tR8-5u-t9x"; */
+"tR8-5u-t9x.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Mobile"; ObjectID = "z1f-3z-J8r"; */
+"z1f-3z-J8r.placeholder" = "Mobile";

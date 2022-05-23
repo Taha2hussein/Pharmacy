@@ -6,52 +6,28 @@
 //
 
 import UIKit
-import Koyomi
 import DropDown
 
-class DashboardViewController: BaseViewController, KoyomiDelegate {
+class DashboardViewController: BaseViewController {
     
+    @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var monthSelected: UITextField!
     @IBOutlet weak var yearSelected: UITextField!
-    @IBOutlet weak var basicBarChart: BarChartView!
     @IBOutlet weak var ownerImage: UIImageView!
     @IBOutlet weak var ownerName: UILabel!
-    @IBOutlet weak var segmentView: UISegmentedControl!
     @IBOutlet weak var dailyTotalOrders: UITextField!
     @IBOutlet weak var goButton: UIButton!
     
-    @IBOutlet fileprivate weak var koyomi: Koyomi! {
-        didSet {
-            switch UIDevice.current.userInterfaceIdiom {
-            case .phone:
-                koyomi.circularViewDiameter = 0.6
-            case .pad:
-                koyomi.circularViewDiameter = 0.2
-            case .tv:
-                print("tv")
-            case .carPlay:
-                print("carplay")
-            case .unspecified:
-                print("undufed")
-            @unknown default:
-                break
-            }
-            
-            koyomi.calendarDelegate = self
-            koyomi.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            koyomi.weeks = ("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT")
-            koyomi.dayPosition = .center
-            koyomi.selectionMode = .single(style: .circle)
-            
-            let colors = UIColor.blue
-            koyomi.selectedStyleColor = colors
-           
-            koyomi
-                .setDayFont(fontName: "Segoe UI", size: 19)
-                .setWeekFont(fontName: "Segoe UI",size: 12)
-            
-        }
-    }
+    @IBOutlet weak var goButtons: UIButton!
+    @IBOutlet weak var customDateStackView: UIStackView!
+    @IBOutlet weak var endDateButton: UIButton!
+    @IBOutlet weak var fromDateButton: UIButton!
+    @IBOutlet weak var dateCustomButton: UIButton!
+    @IBOutlet weak var thisMonthButton: UIButton!
+    @IBOutlet weak var lasT7DaysButton: UIButton!
+    @IBOutlet weak var todayButton: UIButton!
+    
+    let radioController: RadioButtonController = RadioButtonController()
     lazy var dropDowns: DropDown = {
         return self.selectCityFromDropDown
     }()
@@ -69,6 +45,10 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
     private var dailyOrdersBranches = [TotalDailyOrdersBranch]()
     private var brnaches = [Branch]()
     private var dailyOderSelectedIndex = 0
+    
+    private var startDate: String?
+    private var endDate: String?
+    private var DatePickers = DatePicker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,23 +56,145 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         setup()
         requestDashboard()
         subscribeToLoader()
-        articleDetailsViewModel.getDashboard()
         setGesturesForBrnachecs()
         subscribeToDailyOrderBranches()
         subscribeToBranches()
         setGesturesForYear()
         setGesturesForMonth()
         requestListBrhaches()
+        subscribeToDailyOrdes()
+        intializeRadioButtons()
+        todayButtonTapped()
+        lasT7DaysButtonTapped()
+        dateCustomButtonTapped()
+        thisMonthButtonTapped()
+        showFromDateAction()
+        showEndDateAction()
+        goButtonTapped()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       
+        pieChart.segments = []
+        articleDetailsViewModel.getDashboard(fromDate:startDate ?? "" , endDate:endDate ?? "")
+        articleDetailsViewModel.getTotalDialyOderWithSpecificBranch(fromDate: startDate ?? "", toDate: endDate ?? "", branchId: dailyOderSelectedIndex)
+    }
+    
+    func intializeRadioButtons() {
+        getCurrentDates()
+        hideCustomDateButtons()
+        radioController.buttonsArray = [todayButton,lasT7DaysButton,thisMonthButton,dateCustomButton]
+        radioController.defaultButton = todayButton
+    }
+    
+    func getCurrentDates() {
+        endDate = getCurrentDate()
+        startDate = getCurrentDate()
+    }
+    
+    func hideCustomDateButtons() {
+        goButtons.isHidden = true
+        customDateStackView.isHidden = true
+    }
+    
+    func showCustomDateButtons() {
+        goButtons.isHidden = false
+        customDateStackView.isHidden = false
     }
     
     func setup() {
-        let currentDateString = koyomi.currentDateString(withFormat: "yyyy'-'MM'-'dd")
-        segmentView.setTitle(currentDateString, forSegmentAt: 1)
+        let padding: CGFloat = 20
+        let height = (view.frame.height - padding * 3) / 2
 
+        pieChart.frame = CGRect(
+          x: 0, y: padding, width: view.frame.size.width, height: height
+        )
+        pieChart.segmentLabelFont = .systemFont(ofSize: 10)
+    }
+    
+    func getDashboardDependonChoosenDate(startDate: String? , endDate: String?) {
+        pieChart.segments = []
+        articleDetailsViewModel.getDashboard(fromDate:startDate ?? "" , endDate:endDate ?? "")
+        articleDetailsViewModel.getTotalDialyOderWithSpecificBranch(fromDate: startDate ?? "", toDate: endDate ?? "", branchId: self.dailyOderSelectedIndex)
+    }
+    
+    func todayButtonTapped() {
+        todayButton.rx.tap.subscribe {[weak self] _ in
+            self?.radioController.buttonArrayUpdated(buttonSelected: (self?.todayButton)!)
+            self?.hideCustomDateButtons()
+            self?.startDate = getCurrentDate()
+            self?.endDate = getCurrentDate()
+            self?.getDashboardDependonChoosenDate(startDate: self?.startDate, endDate:   self?.endDate)
+           
+        }.disposed(by: self.disposeBag)
+        
+    }
+    
+    func thisMonthButtonTapped() {
+        thisMonthButton.rx.tap.subscribe {[weak self] _ in
+            self?.radioController.buttonArrayUpdated(buttonSelected: (self?.thisMonthButton)!)
+            self?.hideCustomDateButtons()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let lastMonthDate = Calendar.current.date(byAdding: .weekOfYear, value: -30, to: Date())!
+            let last30endDate = formatter.string(from: lastMonthDate)
+            self?.startDate = getCurrentDate()
+            self?.endDate = last30endDate
+            self?.getDashboardDependonChoosenDate(startDate:  self?.startDate, endDate: self?.endDate )
+
+        }.disposed(by: self.disposeBag)
+    }
+    
+    func lasT7DaysButtonTapped() {
+        lasT7DaysButton.rx.tap.subscribe {[weak self] _ in
+            self?.radioController.buttonArrayUpdated(buttonSelected: (self?.lasT7DaysButton)!)
+            self?.hideCustomDateButtons()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: -7, to: Date())!
+            let last7days = formatter.string(from: lastWeekDate)
+            self?.startDate = getCurrentDate()
+            self?.endDate = last7days
+            self?.getDashboardDependonChoosenDate(startDate:  self?.startDate, endDate: self?.endDate )
+
+        }.disposed(by: self.disposeBag)
+        
+    }
+    
+    func dateCustomButtonTapped() {
+        dateCustomButton.rx.tap.subscribe {[weak self] _ in
+            self?.radioController.buttonArrayUpdated(buttonSelected: (self?.dateCustomButton)!)
+            self?.showCustomDateButtons()
+
+        }.disposed(by: self.disposeBag)
+    }
+    
+    func showFromDateAction() {
+        fromDateButton.rx.tap.subscribe {[weak self] _ in
+            self?.DatePickers.ShowPickerView(pickerView: self!, completionHandler: { date in
+                self?.fromDateButton.setTitle(date, for: .normal)
+                self?.startDate = date
+
+            })
+        } .disposed(by: self.disposeBag)
+    }
+    
+    func showEndDateAction() {
+        endDateButton.rx.tap.subscribe {[weak self] _ in
+            self?.DatePickers.ShowPickerView(pickerView: self!, completionHandler: { date in
+                self?.endDate = date
+                self?.endDateButton.setTitle(date, for: .normal)
+            })
+        } .disposed(by: self.disposeBag)
+        
+    }
+    
+    func goButtonTapped() {
+        goButtons.rx.tap.subscribe {[weak self] _ in
+//            self?.articleDetailsViewModel.getDashboard(fromDate:self!.startDate ?? "" , endDate:self!.endDate ?? "")
+            self?.getDashboardDependonChoosenDate(startDate: self!.startDate , endDate: self!.endDate)
+print("dsfsdf")
+//      sd      self?.articleDetailsViewModel.getTotalDialyOderWithSpecificBranch(fromDate: self!.startDate ?? "", toDate: self!.endDate ?? "", branchId: self?.dailyOderSelectedIndex ?? 0)
+        } .disposed(by: self.disposeBag)
     }
     
     func setGesturesForBrnachecs() {
@@ -112,9 +214,42 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         monthSelected.isUserInteractionEnabled = true
         monthSelected.addGestureRecognizer(country)
     }
+    
     func subscribeToDailyOrderBranches() {
-        articleDetailsViewModel.dailyTotalOrders.subscribe {[weak self] dailyOrders in
-            self?.dailyOrdersBranches = dailyOrders.element!
+        articleDetailsViewModel.dailyBranches.subscribe {[weak self] dailyOrders in
+
+            self?.dailyOrdersBranches = dailyOrders.element ?? []
+        }.disposed(by: self.disposeBag)
+    }
+    
+    //dailyTotalOrders
+    func subscribeToDailyOrdes() {
+        articleDetailsViewModel.dailyTotalOrders.subscribe {[weak self]  dailyOrders in
+            DispatchQueue.main.async {
+                
+            
+            print(dailyOrders, "dailyOrdersdailyOrders")
+            if let totalOrders = dailyOrders.element {
+            for item in totalOrders{
+                var chartColor: UIColor!
+                if item.type == "جديد" {
+                    chartColor = .blue
+                }
+                if item.type == "في الانتظار" {
+                    chartColor = .yellow
+                }
+                if item.type == "الغاء" {
+                    chartColor = .red
+                }
+                if item.type == "تم التسليم" {
+                    chartColor = .green
+                }
+              
+                let chart =  LabelledSegment(color: chartColor, name:  "",   value: CGFloat(item.total ?? 0))
+                self?.pieChart.segments.append(chart)
+                }
+              }
+            }
         }.disposed(by: self.disposeBag)
     }
     
@@ -122,9 +257,9 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         articleDetailsViewModel.branchesObject.subscribe {[weak self] branchs in
             DispatchQueue.main.async{
             self?.brnaches = branchs.element!
+                
                 let totalVlaue = self?.brnaches.map({(Double($0.ordersCount ?? 0)) })
-                self?.basicBarChart.drawChart(totalVlaue ?? [])
-      
+         
             }
         }.disposed(by: self.disposeBag)
     }
@@ -163,52 +298,10 @@ class DashboardViewController: BaseViewController, KoyomiDelegate {
         } .disposed(by: self.disposeBag)
         
     }
-    
-    @IBAction func segmentAction(_ sender: UISegmentedControl) {
-        let month: MonthType = {
-            switch sender.selectedSegmentIndex {
-            case 0:  return .previous
-            case 1:  return .current
-            default: return .next
-            }
-        }()
-        koyomi.display(in: month)
-    }
-    
-    func configureStyle(_ style: KoyomiStyle) {
-        koyomi.style = style
-        koyomi.reloadData()
-    }
 }
 extension DashboardViewController {
     func bindViewControllerRouter() {
         articleDetailsViewModel.bind(view: self, router: router)
-    }
-}
-extension DashboardViewController {
-    
-    func koyomi(_ koyomi: Koyomi, didSelect date: Date?, forItemAt indexPath: IndexPath) {
-        print("You Selected: \(String(describing: date))")
-        
-        let dates = date?.stringFromFormat("yyyy'-'MM'-'dd")
-        
-        // here store date in array
-        segmentView.setTitle(dates, forSegmentAt: 1)
-        
-        // end store date
-    }
-
-    func koyomi(_ koyomi: Koyomi, deSelect date: Date?, forItemAt indexPath: IndexPath) {
-        print("You Deselected: \(String(describing: date))")
-    }
-    
-    @objc(koyomi:shouldSelectDates:to:withPeriodLength:)
-    func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool {
-        if length > invalidPeriodLength {
-            print("More than \(invalidPeriodLength) days are invalid period.")
-            return false
-        }
-        return true
     }
 }
 
@@ -230,7 +323,8 @@ extension DashboardViewController {
             
             self?.dailyTotalOrders.text = item
             self?.dailyOderSelectedIndex = countryIds[index]
-            
+            self?.pieChart.segments = []
+            self?.articleDetailsViewModel.getTotalDialyOderWithSpecificBranch(fromDate: self!.startDate ?? "", toDate: self!.endDate ?? "", branchId: self?.dailyOderSelectedIndex ?? 0)
         }
         
     }

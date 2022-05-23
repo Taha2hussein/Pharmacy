@@ -9,9 +9,9 @@ import UIKit
 import RxCocoa
 import RxRelay
 import RxSwift
-
+import MOLH
 class MoreViewController: BaseViewController {
-
+    
     var articleDetailsViewModel = MoreViewModel()
     private var router = MoreRouter()
     
@@ -35,7 +35,7 @@ class MoreViewController: BaseViewController {
         setGesturesForLogout()
         subscribeToLoader()
     }
-   
+    
     func setGesturesForProfile() {
         let myProfile = UITapGestureRecognizer(target: self, action: #selector(self.editProfile))
         myProfileView.isUserInteractionEnabled = true
@@ -106,7 +106,7 @@ extension MoreViewController {
     }
     
     @objc func editChangePassword() {
-        
+        router.showChangePassword()
     }
     
     @objc func editHelp() {
@@ -115,6 +115,26 @@ extension MoreViewController {
     
     @objc func editLanguage() {
         
+        
+        if #available(iOS 13.0, *) {
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            MOLH.setLanguageTo(MOLHLanguage.currentAppleLanguage() == "en" ? "ar" : "en")
+            MOLH.reset(transition: .transitionCrossDissolve, duration: 0.25)
+            delegate!.swichRoot()
+        } else {
+            // Fallback on earlier versions
+            MOLH.setLanguageTo(MOLHLanguage.currentAppleLanguage() == "en" ? "ar" : "en")
+            MOLH.reset(transition: .transitionCrossDissolve, duration: 0.25)
+            MOLH.reset()
+        }
+        //        MOLH.setLanguageTo(MOLHLanguage.currentAppleLanguage() == "en" ? "ar" : "en")
+        //        MOLH.reset(transition: .transitionCrossDissolve, duration: 0.25)
+    }
+    
+    private func viewControllerToShow() -> UIViewController {
+        let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
+        let tabBar = tabBarView.instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)
+        return tabBar
     }
     
     @objc func editLogout() {

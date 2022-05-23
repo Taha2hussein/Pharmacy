@@ -9,47 +9,57 @@ import Foundation
 
 // MARK: - DashboardModel
 struct DashboardModel: Codable {
-    var successtate: Int?
-    var errormessage: JSONNull?
-    var message: dashboardMessage?
+    let successtate: Int?
+    let errormessage: String?
+    let message: DashboardMessage?
 }
 
 // MARK: - Message
-struct dashboardMessage: Codable {
-    var employeeName, profileImage: String?
-    var employeeTypeFk: Int?
-    var employeeTypeFkLocalized: String?
-    var totalDailyOrders: JSONNull?
-    var totalDailyOrdersBranches: [TotalDailyOrdersBranch]?
-    var branches: [Branch]?
+struct DashboardMessage: Codable {
+    let employeeName, profileImage: String?
+    let employeeTypeFk: Int?
+    let employeeTypeFkLocalized: String?
+    let totalDailyOrders: [TotalDailyOrder]?
+    let totalDailyOrdersBranches: [TotalDailyOrdersBranch]?
+    let branches: [Branch]?
 
     enum CodingKeys: String, CodingKey {
-        case employeeName, profileImage, employeeTypeFk
+        case employeeName = "employeeName", profileImage = "profileImage", employeeTypeFk = "employeeTypeFk"
         case employeeTypeFkLocalized = "employeeTypeFk_Localized"
-        case totalDailyOrders, totalDailyOrdersBranches, branches
+        case totalDailyOrders = "totalDailyOrders", totalDailyOrdersBranches = "totalDailyOrdersBranches", branches = "branches"
     }
 }
 
 // MARK: - Branch
 struct Branch: Codable {
-    var branchID: Int?
-    var branchName: String?
-    var ordersCount: Int?
+    let branchID: Int?
+    let branchName: String?
+    let ordersCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case branchID = "branchId"
-        case branchName, ordersCount
+        case branchName = "branchName", ordersCount = "ordersCount"
+    }
+}
+
+// MARK: - TotalDailyOrder
+struct TotalDailyOrder: Codable {
+    let type: String?
+    let total: Int?
+    enum CodingKeys: String, CodingKey {
+        case type = "type"
+        case total = "total"
     }
 }
 
 // MARK: - TotalDailyOrdersBranch
 struct TotalDailyOrdersBranch: Codable {
-    var branchID: Int?
-    var branchName: String?
-    var totalDailyOrders: JSONNull?
+    let branchID: Int?
+    let branchName: String?
+    let totalDailyOrders: [TotalDailyOrder]?
 
     enum CodingKeys: String, CodingKey {
         case branchID = "branchId"
-        case branchName, totalDailyOrders
+        case branchName = "branchName", totalDailyOrders = "totalDailyOrders"
     }
 }

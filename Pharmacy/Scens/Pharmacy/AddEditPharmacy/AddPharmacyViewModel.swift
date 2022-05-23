@@ -100,7 +100,6 @@ extension AddPharmacyViewModel {
                          "TwintyFourHoursService": TwintyFourHoursService,
                          
         ] as [String : Any]
-        print(parameter)
         state.isLoading.accept(true)
         var request = URLRequest(url: URL(string:addOrEditPharmacy)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -110,7 +109,6 @@ extension AddPharmacyViewModel {
         request.httpBody = jsonString?.data(using: .utf8)
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
-        print(request)
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -121,7 +119,6 @@ extension AddPharmacyViewModel {
                 
                 let decoder = JSONDecoder()
                 self.SavePharmacyInstance = try decoder.decode(SavePharmacy.self, from: data)
-                print( self.SavePharmacyInstance)
                 if  self.SavePharmacyInstance?.successtate == 200 {
                     DispatchQueue.main.async {
                         self.router?.backView()

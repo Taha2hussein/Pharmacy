@@ -6,9 +6,12 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
+import RxRelay
 class BranchTableViewCell: UITableViewCell {
 
+    
     @IBOutlet weak var totalBalance: UILabel!
     @IBOutlet weak var expnseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
@@ -25,6 +28,10 @@ class BranchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
     func setData(product: BrahcnListMessage) {
         self.totalBalance.text = "\(Int(product.totalBalance ?? 0))"
         self.incomeLabel.text = "\(Int(product.totalIncome ?? 0))"

@@ -36,6 +36,7 @@ class ResetPasswordViewModel {
 
 extension ResetPasswordViewModel {
     func resetPassword(newPassword: String , newConfirmationPassword: String) {
+        guard newPassword == newConfirmationPassword else {return}
         let tokenCode = LocalStorage().getTokenCode()
         let id = LocalStorage().getForgetPasswordId()
         let parameters = [
@@ -48,7 +49,7 @@ extension ResetPasswordViewModel {
         
         state.isLoading.accept(true)
         var request = URLRequest(url: URL(string: forgetPasswordthirdApi)!)
-        
+        print("parametersss", parameters)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,10 +40,13 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search by Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7n-f6-vxG">
-                                        <rect key="frame" x="60" y="0.0" width="294" height="36"/>
+                                        <rect key="frame" x="60" y="0.0" width="86.5" height="36"/>
                                         <color key="textColor" name="blue"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Search by Name"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,7 +57,6 @@
                                     <constraint firstItem="t7n-f6-vxG" firstAttribute="leading" secondItem="muQ-fb-tHz" secondAttribute="trailing" constant="20" id="H49-gt-XK4"/>
                                     <constraint firstAttribute="height" constant="36" id="R1b-Ez-twY"/>
                                     <constraint firstItem="t7n-f6-vxG" firstAttribute="top" secondItem="sdU-AJ-zQj" secondAttribute="top" id="l9k-It-fiN"/>
-                                    <constraint firstAttribute="trailing" secondItem="t7n-f6-vxG" secondAttribute="trailing" constant="20" id="lyW-J2-B4T"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -96,7 +98,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AR-ty-vEc">
-                                                            <rect key="frame" x="0.0" y="170" width="374" height="30"/>
+                                                            <rect key="frame" x="0.0" y="170" width="41.5" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="omD-1y-Gwk"/>
                                                             </constraints>
@@ -111,17 +113,17 @@
                                                                 <constraint firstAttribute="height" constant="25" id="V4h-Kk-fP0"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cUi-rO-8e3">
-                                                            <rect key="frame" x="45" y="220" width="309" height="37"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cUi-rO-8e3">
+                                                            <rect key="frame" x="45" y="220" width="46" height="37"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr , Taha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pr-ok-Ja8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="309" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="16"/>
                                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hp7-Fa-bdy">
-                                                                    <rect key="frame" x="0.0" y="21" width="309" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="21" width="28" height="16"/>
                                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -209,10 +211,8 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="Qv2-WK-NcC" firstAttribute="leading" secondItem="oW2-Gn-ocn" secondAttribute="leading" id="BmD-RZ-JHp"/>
-                                                        <constraint firstAttribute="trailing" secondItem="8AR-ty-vEc" secondAttribute="trailing" id="Jt9-6H-SOF"/>
                                                         <constraint firstItem="hcj-D5-dgQ" firstAttribute="leading" secondItem="oW2-Gn-ocn" secondAttribute="leading" id="LbE-Vn-wqe"/>
                                                         <constraint firstItem="Qv2-WK-NcC" firstAttribute="top" secondItem="oW2-Gn-ocn" secondAttribute="top" id="XQX-tJ-r90"/>
-                                                        <constraint firstAttribute="trailing" secondItem="cUi-rO-8e3" secondAttribute="trailing" constant="20" id="Zah-Dk-6bC"/>
                                                         <constraint firstAttribute="trailing" secondItem="Qv2-WK-NcC" secondAttribute="trailing" id="i8R-wX-U7L"/>
                                                         <constraint firstItem="8AR-ty-vEc" firstAttribute="leading" secondItem="oW2-Gn-ocn" secondAttribute="leading" id="j2M-ap-RHN"/>
                                                         <constraint firstAttribute="height" constant="273" id="jTR-eg-KPH"/>
@@ -333,7 +333,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tt-5j-5RM">
-                                                <rect key="frame" x="0.0" y="170" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="170" width="41.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="l3j-6J-PNe"/>
                                                 </constraints>
@@ -348,17 +348,17 @@
                                                     <constraint firstAttribute="width" constant="25" id="G1I-OQ-Ihw"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xch-6N-OgP">
-                                                <rect key="frame" x="45" y="220" width="309" height="37"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xch-6N-OgP">
+                                                <rect key="frame" x="45" y="220" width="46" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr , Taha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRT-HH-ZOc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="309" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="16"/>
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="788-bC-7R3">
-                                                        <rect key="frame" x="0.0" y="21" width="309" height="16"/>
+                                                        <rect key="frame" x="0.0" y="21" width="28" height="16"/>
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -445,7 +445,6 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="8tt-5j-5RM" secondAttribute="trailing" id="5Ti-eY-TOo"/>
                                             <constraint firstAttribute="trailing" secondItem="ZRR-Ve-BzN" secondAttribute="trailing" id="Cbd-u9-k2b"/>
                                             <constraint firstItem="sS3-W2-3Hb" firstAttribute="bottom" secondItem="ZRR-Ve-BzN" secondAttribute="bottom" constant="13" id="JB0-1E-sjW"/>
                                             <constraint firstItem="8tt-5j-5RM" firstAttribute="leading" secondItem="JML-Ja-dtj" secondAttribute="leading" id="JBe-Jv-8AS"/>
@@ -458,7 +457,6 @@
                                             <constraint firstAttribute="trailing" secondItem="sS3-W2-3Hb" secondAttribute="trailing" constant="50" id="j2j-wc-GZ7"/>
                                             <constraint firstItem="48X-VF-Q2k" firstAttribute="top" secondItem="8tt-5j-5RM" secondAttribute="bottom" constant="20" id="kND-Ng-knz"/>
                                             <constraint firstItem="8tt-5j-5RM" firstAttribute="top" secondItem="ZRR-Ve-BzN" secondAttribute="bottom" constant="10" id="tIr-wj-f3V"/>
-                                            <constraint firstAttribute="trailing" secondItem="xch-6N-OgP" secondAttribute="trailing" constant="20" id="wa7-S5-6T1"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">

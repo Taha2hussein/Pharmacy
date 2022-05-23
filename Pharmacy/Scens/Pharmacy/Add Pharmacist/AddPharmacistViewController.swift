@@ -58,7 +58,7 @@ class AddPharmacistViewController: BaseViewController {
         setUPForDelivery()
         PharmacistAction()
         ownerSuperAdminAction()
-        validateData()
+//        validateData()
         backButtonTapped()
         saveTapped()
         subscribeToLoader()

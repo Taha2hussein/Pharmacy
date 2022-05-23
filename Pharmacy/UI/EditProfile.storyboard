@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,6 +27,9 @@
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Edit Profile"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ge6-6t-k9V">
                                 <rect key="frame" x="20" y="66" width="20" height="20"/>
@@ -54,6 +57,9 @@
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="EditProfileName"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqx-3v-rXj">
                                                                 <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
@@ -68,6 +74,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="EditProfileName"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -80,6 +87,9 @@
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="last Name ar"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIK-gY-0SH">
                                                                 <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
@@ -94,6 +104,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="last Name ar"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -111,6 +122,9 @@
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Date of Birth"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0000-00-00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zs2-C5-5KB">
                                                                 <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
@@ -125,6 +139,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="0000-00-00"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -137,6 +152,9 @@
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Gender"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZY-ve-mQH">
                                                                 <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
@@ -151,6 +169,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Gender"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -168,6 +187,9 @@
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Mobile"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+20" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVG-ZZ-Pbo">
                                                                 <rect key="frame" x="0.0" y="22.5" width="46" height="35"/>
@@ -188,6 +210,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                         <real key="value" value="1"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="+20"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -205,6 +228,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Mobile"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
@@ -220,6 +244,9 @@
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="First Name"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vn5-kd-TV5">
                                                                 <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
@@ -234,6 +261,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="First Name"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -246,6 +274,9 @@
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="First Name ar"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ol7-7q-EFf">
                                                                 <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
@@ -260,6 +291,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="First Name ar"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -274,6 +306,9 @@
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                         <color key="textColor" name="blue"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Email"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmw-Qe-U6S">
                                                         <rect key="frame" x="0.0" y="22.5" width="334" height="35"/>
@@ -288,6 +323,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Email"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
@@ -314,6 +350,7 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Change Profile"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-aO-0gQ">
@@ -337,16 +374,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7a1-jD-ObE">
-                                                <rect key="frame" x="20" y="522.5" width="334" height="48"/>
+                                                <rect key="frame" x="20" y="522.5" width="67.5" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2n-yG-Za2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="67.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Role"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pharmacist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0T-5w-RYC">
-                                                        <rect key="frame" x="0.0" y="29" width="334" height="19"/>
+                                                        <rect key="frame" x="0.0" y="29" width="67.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -375,6 +415,7 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Save"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
@@ -399,7 +440,6 @@
                                             <constraint firstItem="f8u-tw-cpg" firstAttribute="centerX" secondItem="BJ1-Q9-zNZ" secondAttribute="centerX" id="nJg-qt-YFe"/>
                                             <constraint firstAttribute="bottom" secondItem="f8u-tw-cpg" secondAttribute="bottom" constant="30" id="nno-3C-7jy"/>
                                             <constraint firstItem="8zD-Ln-WYu" firstAttribute="top" secondItem="3TQ-wQ-Fgu" secondAttribute="bottom" constant="10" id="nxN-CO-0VG"/>
-                                            <constraint firstAttribute="trailing" secondItem="7a1-jD-ObE" secondAttribute="trailing" constant="20" id="oyw-sU-KmT"/>
                                             <constraint firstAttribute="trailing" secondItem="3TQ-wQ-Fgu" secondAttribute="trailing" constant="20" id="q0S-VK-EzX"/>
                                             <constraint firstItem="BvO-NB-Vr4" firstAttribute="centerX" secondItem="BJ1-Q9-zNZ" secondAttribute="centerX" id="stB-jc-lnY"/>
                                             <constraint firstItem="Rhd-zK-sqt" firstAttribute="top" secondItem="QVl-30-dT9" secondAttribute="bottom" constant="10" id="w0O-dv-hVu"/>

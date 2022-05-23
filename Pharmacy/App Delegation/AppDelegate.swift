@@ -8,44 +8,83 @@
 import UIKit
 import CoreData
 import Firebase
+import MOLH
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  var window: UIWindow?
-
-  lazy var services: [ApplicationDelegate] = {
-    [ApplicationService()]
-  }()
     
-func application(_ application: UIApplication,
-                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    var window: UIWindow?
     
-    FirebaseApp.configure()
-
-    let center = UNUserNotificationCenter.current()
-       center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
-
-           // If granted comes true you can enabled features based on authorization.
-           guard granted else { return }
-           DispatchQueue.main.async {
-           application.registerForRemoteNotifications()
-           }
-       }
+    lazy var services: [ApplicationDelegate] = {
+        [ApplicationService()]
+    }()
     
-  return services
-    .map { ($0.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? true) }
-    .first { !$0 } ?? true
-}
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
+        MOLHFont.shared.arabic = UIFont(name: "Segoe UI", size: 12)!
+        MOLHLanguage.setDefaultLanguage("en")
+        MOLH.shared.activate(true)
+        MOLH.shared.specialKeyWords = ["Cancel","Done"]
+        swichRoot()
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+            
+            // If granted comes true you can enabled features based on authorization.
+            guard granted else { return }
+            DispatchQueue.main.async {
+                application.registerForRemoteNotifications()
+            }
+        }
+        
+        return services
+            .map { ($0.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? true) }
+            .first { !$0 } ?? true
+        
+        
+    }
+    
+    @available(iOS 13.0, *)
+        func swichRoot(){
+            //Flip Animation before changing rootView
+            animateView()
 
-func application(_ app: UIApplication,
-                 open url: URL,
-                 options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-
-  return services
-    .map { $0.application?(app, open: url, options: options) ?? false }
-    .first { $0 } ?? false
-}
-
+            // switch root view controllers
+            let story = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)
+            let scene = UIApplication.shared.connectedScenes.first
+            if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
+//                sd.window!.rootViewController = story
+                UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: story)
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+            }
+            
+        }
+       @available(iOS 13.0, *)
+        func animateView() {
+            var transition = UIView.AnimationOptions.transitionFlipFromRight
+            if !MOLHLanguage.isRTLLanguage() {
+                transition = .transitionFlipFromLeft
+            }
+           animateView(transition: transition)
+        }
+        
+        @available(iOS 13.0, *)
+        func animateView(transition: UIView.AnimationOptions) {
+            if let delegate = UIApplication.shared.connectedScenes.first?.delegate {
+                UIView.transition(with: (((delegate as? SceneDelegate)!.window)!), duration: 0.5, options: transition, animations: {}) { (f) in
+                }
+            }
+        }
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        
+        return services
+            .map { $0.application?(app, open: url, options: options) ?? false }
+            .first { $0 } ?? false
+    }
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("Device Token : ",token)
@@ -58,34 +97,34 @@ func application(_ app: UIApplication,
     }
     
     // MARK: UISceneSession Lifecycle
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "Pharmacy")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -99,9 +138,9 @@ func application(_ app: UIApplication,
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -115,6 +154,5 @@ func application(_ app: UIApplication,
             }
         }
     }
-
+    
 }
-

@@ -32,7 +32,7 @@ class RegisterViewController: BaseViewController {
         super.viewDidLoad()
         bindViewControllerRouter()
         subscribeToContinueRegister()
-        selectImageTappedForOwner()
+//        selectImageTappedForOwner()
         bindFirstName()
         bindLastName()
         bindImageToOwnerImage()

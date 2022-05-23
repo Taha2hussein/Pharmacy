@@ -79,3 +79,49 @@ extension ConfirmMobileViewModel {
         }.resume()
     }
 }
+
+extension ConfirmMobileViewModel {
+    func sendVerificationCode() {
+        let userMobiel  = LocalStorage().getownerPhone()
+        
+        let parameters = [
+                          "Mobile": userMobiel,
+                          "Type": 4,
+                          ] as [String : Any]
+        
+        state.isLoading.accept(true)
+        var request = URLRequest(url: URL(string: forgetPasswordFirstApi)!)
+
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        let jsonString = String(data: jsonData!, encoding: .utf8)
+        request.httpBody = jsonString?.data(using: .utf8)
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            self.state.isLoading.accept(false)
+            do {
+                
+                let decoder = JSONDecoder()
+                let ForgetPasswordFirst: ForgetPasswordFirstModel!
+                ForgetPasswordFirst = try decoder.decode(ForgetPasswordFirstModel.self, from: data)
+                if ForgetPasswordFirst.successtate == 200 {
+                    DispatchQueue.main.async {
+                 
+                        LocalStorage().saveTokenCode(using: ForgetPasswordFirst.message?.tokencode ?? "")
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                    Alert().displayError(text: ForgetPasswordFirst.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                    }
+                }
+            } catch let err {
+                print("Err", err)
+            }
+        }.resume()
+    }
+}

@@ -62,6 +62,7 @@ class WalletsDetailsViewModel {
                 var walletTranscation = WalletTransactionList()
                 walletTranscation = try decoder.decode(WalletTransactionList.self, from: data)
                 if walletTranscation.successtate == 200 {
+                    
                     self.walletTransaction.onNext(walletTranscation.message ?? [])
                 }
             } catch let err {
@@ -81,6 +82,7 @@ extension WalletsDetailsViewModel {
             self.pharmacyExpense.accept("\(Int(article.totalExpense ?? 0))")
             self.pahrmacyImage.accept(article.imagepath ?? "")
             self.branchId.accept("\(article.pharmacyProviderBranchFk ?? 0)")
+            self.view?.animateProgress(incomde: Double(article.totalIncome ?? 0.0), expanse: Double(article.totalExpense ?? 0.0))
         }
     }
 }

@@ -12,6 +12,8 @@ import RxCocoa
 
 class WalletDetailsViewController: BaseViewController {
     
+    @IBOutlet weak var linearProgressView: MultiProgressView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var pharmacyName: UILabel!
     @IBOutlet weak var goButton: UIButton!
@@ -45,6 +47,7 @@ class WalletDetailsViewController: BaseViewController {
         super.viewDidLoad()
         bindWalletTransactionToTableView()
         setUP()
+        localizeSegmentBar()
         bindViewControllerRouter()
         segmentAction()
         showFromDateAction()
@@ -54,8 +57,16 @@ class WalletDetailsViewController: BaseViewController {
         backButtonAction()
         subscribeToLoader()
         rechargeAction()
+//        subsribeToWalletTransactions()
     }
     
+    func localizeSegmentBar() {
+
+        egmentedBar.setTitle("All".localized, forSegmentAt: 0)
+        egmentedBar.setTitle("Received".localized, forSegmentAt: 1)
+        egmentedBar.setTitle("Used".localized, forSegmentAt: 2)
+
+    }
     func checkView() {
         if previosView == .pharmacy {
             balnceView.isHidden = true
@@ -91,13 +102,16 @@ class WalletDetailsViewController: BaseViewController {
             if index.element == 0 {
                 self?.transactionSelected = .all
                 
+                
             } else if index.element == 1 {
                 self?.transactionSelected = .received
+      
                 
             } else {
                 self?.transactionSelected = .used
-                
+        
             }
+            
             self?.walletTransactionTableView.reloadData()
         }.disposed(by: self.disposeBag)
     }
@@ -111,6 +125,27 @@ class WalletDetailsViewController: BaseViewController {
                 
                 cell.setData( product: model, selected: self.transactionSelected)
             }.disposed(by: self.disposeBag)
+    }
+    
+     func animateProgress(incomde:Double, expanse:Double) {
+
+        let incomeProgress = Progress(totalUnitCount: Int64(incomde))
+        let expnseProgress = Progress(totalUnitCount: Int64(expanse))
+
+        linearProgressView.add(incomeProgress, progressTintColor: .green)
+        linearProgressView.add(expnseProgress, progressTintColor: .red)
+
+    }
+  
+    
+    func subsribeToWalletTransactions() {
+        self.articleDetailsViewModel.walletTransaction.subscribe { [weak self] walletTransaction in
+            DispatchQueue.main.async {
+                self?.tableViewHeight.constant = CGFloat(walletTransaction.element?.count ?? 0) * 100
+
+            }
+        }.disposed(by: self.disposeBag)
+
     }
     
     func backButtonAction() {
@@ -181,6 +216,7 @@ extension WalletDetailsViewController {
     }
 }
 
+
 extension WalletDetailsViewController {
     func bindToPharmacyLabel() {
         articleDetailsViewModel.pharmacyName
@@ -188,6 +224,7 @@ extension WalletDetailsViewController {
             .disposed(by: self.disposeBag)
         
     }
+    
     
     func bindToPharmacyLocationLabel() {
         articleDetailsViewModel.pharmacyLocation

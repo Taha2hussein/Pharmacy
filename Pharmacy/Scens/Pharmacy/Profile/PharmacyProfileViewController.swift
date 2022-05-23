@@ -17,6 +17,8 @@ enum segmet {
 
 class PharmacyProfileViewController: BaseViewController {
     
+ 
+    
     @IBOutlet weak var uperView: UIView!
     @IBOutlet weak var addBewPharmacyButton: UIButton!
     @IBOutlet weak var branchTableview: UITableView!
@@ -42,12 +44,16 @@ class PharmacyProfileViewController: BaseViewController {
         subscribeToLoader()
         bindBranchToTableView()
         assignParmacyProfile()
-        subsribeToSegmentSelected()
         editPharmacyAction()
         seeAllReview()
         addPharmacyAction()
         articleDetailsViewModel.embedUperView(uperView: headerView)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          subsribeToSegmentSelected()
     }
     
     func setup(){
@@ -103,9 +109,42 @@ class PharmacyProfileViewController: BaseViewController {
                 cell.branchView.isHidden = true
                 cell.setDataForPharmacist(pharmacist: model)
     
+                cell.pharmacistActivationButton.rx.tap.subscribe { [weak self] _ in
+                    guard let id = model.id else {return}
+                    self?.articleDetailsViewModel.activePharmacist(id: id, activation: true)
+                } .disposed(by: cell.bag)
+
+                
+                // branch menu button
+                cell.pharmacistMenu.rx.tap.subscribe {  _ in
+                    cell.pharmcistView.isHidden = true
+                    cell.branchView.isHidden = true
+                    cell.pharmacistMenuView.isHidden = false
+                } .disposed(by: cell.bag)
+
+                // Deactivate
+                cell.pharmacistMenuCDeactivate.rx.tap.subscribe { [weak self] _ in
+                    guard let id = model.id else {return}
+                    self?.articleDetailsViewModel.activePharmacist(id: id, activation: false)
+                    cell.pharmacistMenuView.isHidden = true
+
+                }.disposed(by: cell.bag)
+                
+                // edit Branch
+                cell.pharmacistMenuEdit.rx.tap.subscribe { [weak self] _ in
+                    cell.pharmacistMenuView.isHidden = true
+                    self?.router.addPharmacist()
+                }.disposed(by: cell.bag)
+
+                // close menu
+                cell.pharmacistMenuClose.rx.tap.subscribe { _ in
+                    cell.pharmacistMenuView.isHidden = true
+                    cell.pharmcistView.isHidden = false
+
+                }.disposed(by: cell.bag)
             }.disposed(by: self.disposeBag)
     }
-    
+
     func bindBranchToTableView() {
         articleDetailsViewModel.brnachesProfile
             .bind(to: self.branchTableview
@@ -119,8 +158,36 @@ class PharmacyProfileViewController: BaseViewController {
                 cell.branchActiveButton.rx.tap.subscribe { [weak self] _ in
                     guard let branchId = model.id else {return}
                     self?.articleDetailsViewModel.activeBranch(branchId: branchId, activation: true)
-                } .disposed(by: self.disposeBag)
+                } .disposed(by: cell.bag)
 
+                // branch menu button
+                cell.branhcMenu.rx.tap.subscribe {  _ in
+                    cell.pharmcistView.isHidden = true
+                    cell.branchView.isHidden = true
+                    cell.branchMenuView.isHidden = false
+                } .disposed(by: cell.bag)
+
+                // Deactivate
+                cell.branchMenuDeleteButton.rx.tap.subscribe { [weak self] _ in
+                    guard let branchId = model.id else {return}
+                    self?.articleDetailsViewModel.activeBranch(branchId: branchId, activation: false)
+                    cell.branchMenuView.isHidden = true
+
+                }.disposed(by: cell.bag)
+                
+                // edit Branch
+                cell.branchMenuEditButton.rx.tap.subscribe { [weak self] _ in
+                    cell.branchMenuView.isHidden = true
+                    self?.articleDetailsViewModel.pushNextView()
+                }.disposed(by: cell.bag)
+
+                // close menu
+                cell.branchMenuCloseButton.rx.tap.subscribe { _ in
+                    cell.branchMenuView.isHidden = true
+                    cell.branchView.isHidden = false
+
+                }.disposed(by: cell.bag)
+                
             }.disposed(by: self.disposeBag)
     }
     

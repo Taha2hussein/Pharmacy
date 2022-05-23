@@ -11,7 +11,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    
+//    func reset() {
+//
+//        let story = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)
+//        window?.rootViewController = story
+//       }
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let _ = (scene as? UIWindowScene) else { return }

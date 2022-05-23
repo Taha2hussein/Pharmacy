@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 extension UITextField {
     @IBInspectable var IsPrimaryColor:Bool {
         get{return true}

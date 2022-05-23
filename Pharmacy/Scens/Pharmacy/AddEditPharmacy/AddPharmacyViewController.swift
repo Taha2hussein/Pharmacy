@@ -67,7 +67,7 @@ class AddPharmacyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewControllerRouter()
-        validateData()
+//        validateData()
         setUPForPayment()
         setUPForDelivery()
         setUPForDeliveryServiceFeess()

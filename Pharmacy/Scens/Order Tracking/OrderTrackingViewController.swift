@@ -10,8 +10,18 @@ import RxCocoa
 import RxRelay
 import RxSwift
 
+ var offerPharmacyOrderId = Int()
+var toggleFinishOrderView = PublishSubject<Bool>()
 class OrderTrackingViewController: BaseViewController {
     
+    // received
+    @IBOutlet weak var receivedViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var receivedFlagColor: UIView!
+    @IBOutlet weak var receivedViewDetails: UIView!
+    @IBOutlet weak var receivedOrderLabel: UILabel!
+    @IBOutlet weak var receivedORderPricingButton: UIButton!
+    
+    @IBOutlet weak var filesCollectionView: UICollectionView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var orderType: UILabel!
@@ -29,13 +39,29 @@ class OrderTrackingViewController: BaseViewController {
     @IBOutlet weak var summaryTableView: UITableView!
     @IBOutlet weak var orderNotes: UILabel!
     
+    @IBOutlet weak var preparingOrderHeigh: NSLayoutConstraint!
+    
+    @IBOutlet weak var preparingView: UIView!
+    @IBOutlet weak var finishView: UIView!
+    @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var noShow: UIButton!
+    @IBOutlet weak var finishOrderHeigh: NSLayoutConstraint!
+    
+    @IBOutlet weak var pricingViewHeigh: NSLayoutConstraint!
+    @IBOutlet weak var cancelPricing: UIButton!
+    @IBOutlet weak var acceptPricing: UIButton!
+    @IBOutlet weak var editPricingButton: UIButton!
+    @IBOutlet weak var pricingTableView: UITableView!
     var articleDetailsViewModel = OrderTrackingViewModel()
     private var router = OrderTrackingRouter()
+    private var OrderTracking: OrderTrackingMessage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeToLoader()
         backTapped()
+        setup()
+        pricingButtonTapped()
         intializeOrderData()
         bindViewControllerRouter()
         acceptOrderAfterRemoveSubView()
@@ -43,15 +69,115 @@ class OrderTrackingViewController: BaseViewController {
         acceptTapped()
         CancelOrderAfterRemoveSubView()
         cancelOrderTapped()
-        articleDetailsViewModel.getOrderTracking()
+        subcribeToFiles()
+        bindPricingMeddicineToTableView()
+        cancelPricingTapped()
+        bindfilesToCollectionview()
+        subcribeToOrders()
+        showPricingView()
+        acceptPricingTapped()
+        noShowButtonTapped()
+        showFinishView()
+        finishOrder()
+        showFinishViewDirectly()
+        validateViewFromNeedAction()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        articleDetailsViewModel.getOrderTracking()
+
+    }
+    
+    func validateViewFromNeedAction() {
+        print("ddd",articleDetailsViewModel.singleOrderStatus)
+        if articleDetailsViewModel.singleOrderStatus == 0 {
+            
+        }
+        
+        else if articleDetailsViewModel.singleOrderStatus == 1 {
+            cancelButton.isHidden = true
+            acceptButton.isHidden = true
+            showReceivedView()
+        }
+        
+        else{
+            
+        }
+    }
+    
+    func showFinishViewDirectly() {
+        if orderSelected == .upcoming {
+           receivedORderPricingButton.isHidden = true
+            cancelButton.isHidden = true
+            acceptButton.isHidden = true
+            acceptPricing.isHidden = true
+            cancelPricing.isHidden = true
+            pricingViewHeigh.constant = 250
+            finishOrderHeigh.constant = 100
+            preparingOrderHeigh.constant = 100
+            receivedViewHeight.constant = 100
+            preparingView.isHidden = false
+            finishView.isHidden = false
+        }
+    }
+    
+    func setup() {
+        self.receivedViewHeight.constant = 0
+        self.pricingViewHeigh.constant = 30
+        self.preparingOrderHeigh.constant = 30
+        self.finishOrderHeigh.constant = 30
+        self.preparingOrderHeigh.constant = 30
+        self.finishOrderHeigh.constant = 30
+        self.preparingView.isHidden = true
+        self.finishView.isHidden = true
+    }
     
     func backTapped() {
         backButton.rx.tap.subscribe { [weak self] _ in
+            saveOrderForCusomerSuccess.onNext(false)
+            toggleFinishOrderView.onNext(false)
             self?.router.backAction()
         } .disposed(by: self.disposeBag)
         
+    }
+    
+    func showPricingView() {
+        saveOrderForCusomerSuccess.subscribe { [weak self] _ in
+            self?.pricingViewHeigh.constant = 250
+            self?.finishOrderHeigh.constant = 100
+            self?.receivedORderPricingButton.isHidden = true
+            self?.cancelButton.isHidden = true
+            self?.acceptButton.isHidden = true
+        }.disposed(by: self.disposeBag)
+
+    }
+    
+    func showFinishView() {
+        toggleFinishOrderView.subscribe { [weak self] _ in
+            self?.preparingOrderHeigh.constant = 100
+            self?.receivedORderPricingButton.isHidden = true
+            self?.cancelButton.isHidden = true
+            self?.acceptButton.isHidden = true
+            self?.acceptPricing.isHidden = true
+            self?.cancelPricing.isHidden = true
+        }.disposed(by: self.disposeBag)
+
+    }
+    
+    
+    func finishOrder() {
+        finishButton.rx.tap.subscribe { [weak self] _ in
+            self?.articleDetailsViewModel.finishOrder(offerId: self?.OrderTracking?.orderID ?? 0)
+        } .disposed(by: self.disposeBag)
+
+    }
+    
+    func noShowButtonTapped() {
+        noShow.rx.tap.subscribe { [weak self] _ in
+            self?.router.backAction()
+        } .disposed(by: self.disposeBag)
+
     }
     
     func CancelOrderAfterRemoveSubView() {
@@ -62,12 +188,18 @@ class OrderTrackingViewController: BaseViewController {
         } .disposed(by: self.disposeBag)
 
     }
-    
+    //showCancelPopViewAfterShowingBranches
     func acceptOrderAfterRemoveSubView() {
         removeSubview.subscribe { [weak self] removeSubview in
             if removeSubview.element == true {
+                if showCancelPopViewAfterShowingBranches {
             self?.articleDetailsViewModel.acceptOrder(BranchID: branchSelected)
+                }
+                else {
+                    self?.showCancelationPopView()
+                }
             }
+          
         } .disposed(by: self.disposeBag)
 
     }
@@ -89,11 +221,12 @@ class OrderTrackingViewController: BaseViewController {
     func intializeOrderData() {
         articleDetailsViewModel.orderTrackingInstance.subscribe { [weak self] orderTrackin in
             DispatchQueue.main.async {
-                
-                
+                print("zxcxzc",orderTrackin)
+                self?.OrderTracking = orderTrackin.element
                 if let url = URL(string: baseURLImage + (orderTrackin.element?.patientProfileImage ?? "")) {
                     self?.patientImage.load(url: url)
                 }
+                offerPharmacyOrderId = orderTrackin.element?.currentOffer?.pharmacyOrderOfferID ?? 0
                 self?.patientName.text = orderTrackin.element?.patientName
                 self?.patientNumber.text = "\(orderTrackin.element?.patientID ?? 0)"
                 self?.patientGender.text = (orderTrackin.element?.patientGender == 1) ? "Male" : "Female"
@@ -110,32 +243,103 @@ class OrderTrackingViewController: BaseViewController {
         } .disposed(by: self.disposeBag)
     }
     
-    func acceptTapped() {
+    func acceptPricingTapped(){
+        acceptPricing.rx.tap.subscribe { [weak self] _  in
+            self?.articleDetailsViewModel.acceptPricing(offerId: offerPharmacyOrderId )
+        } .disposed(by: self.disposeBag)
 
-        addBranchesAsSubview()
+    }
+    func acceptTapped() {
+        addBranchesAsSubviewForAccept()
     }
     
     func cancelOrderTapped() {
-        showCancelationPopView()
+        addBranchesAsSubviewForCancel()
     }
     
     func showCancelationPopView() {
-        cancelButton.rx.tap.subscribe { [weak self] _ in
             let subView = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.popCancelationview.rawValue)
-            
-            subView.view.frame = (self?.view.bounds)!
-            self?.view.addSubview(subView.view)
-        }.disposed(by: self.disposeBag)
+            subView.view.frame = (self.view.bounds)
+            self.view.addSubview(subView.view)
     }
     
-    func addBranchesAsSubview() {
+    func subcribeToFiles() {
+        articleDetailsViewModel.orderTrackingFiles.subscribe {[weak self] pharmacyFiles in
+            DispatchQueue.main.async {
+            if (pharmacyFiles.element?.count ?? 0) > 0 {
+                self?.filesCollectionView.isHidden = false
+            }
+            else {
+                 self?.filesCollectionView.isHidden = true
+               }
+            }
+        } .disposed(by: self.disposeBag)
+        
+    }
+    
+    func subcribeToOrders() {
+        articleDetailsViewModel.orderTrackingSummary.subscribe {[weak self] orders in
+            DispatchQueue.main.async {
+            if (orders.element?.count ?? 0) > 0 {
+                self?.summaryTableView.isHidden = false
+            }
+            else {
+                self?.summaryTableView.isHidden = true
+               }
+            }
+        } .disposed(by: self.disposeBag)
+
+    }
+    
+    func bindfilesToCollectionview() {
+        articleDetailsViewModel.orderTrackingFiles
+            .bind(to: self.filesCollectionView
+                    .rx
+                    .items(cellIdentifier: String(describing:  FilesCollectionViewCell.self),
+                           cellType: FilesCollectionViewCell.self)) { row, model, cell in
+                cell.setImage(image: model)
+            }.disposed(by: self.disposeBag)
+    }
+    
+    func addBranchesAsSubviewForAccept() {
         acceptButton.rx.tap.subscribe { [weak self] _ in
             let subView = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.BranchesPopView.rawValue)
-            
+            showCancelPopViewAfterShowingBranches = true
             subView.view.frame = (self?.view.bounds)!
             self?.view.addSubview(subView.view)
         }.disposed(by: self.disposeBag)
 
+    }
+    
+    func addBranchesAsSubviewForCancel() {
+        cancelButton.rx.tap.subscribe { [weak self] _ in
+            let subView = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.BranchesPopView.rawValue)
+            showCancelPopViewAfterShowingBranches = false
+            subView.view.frame = (self?.view.bounds)!
+            self?.view.addSubview(subView.view)
+        }.disposed(by: self.disposeBag)
+
+    }
+    
+    func  cancelPricingTapped() {
+        cancelPricing.rx.tap.subscribe { [weak self] _ in
+            let subView = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.BranchesPopView.rawValue)
+            showCancelPopViewAfterShowingBranches = false
+            subView.view.frame = (self?.view.bounds)!
+            self?.view.addSubview(subView.view)
+        }.disposed(by: self.disposeBag)
+
+    }
+    
+    func bindPricingMeddicineToTableView() {
+        articleDetailsViewModel.orderTrackingSummary
+            .bind(to: self.pricingTableView
+                    .rx
+                    .items(cellIdentifier: String(describing:  OrderTrackingPrcingTableViewCell.self),
+                           cellType: OrderTrackingPrcingTableViewCell.self)) { row, model, cell in
+                cell.medicinLabel.text = model.medicationNameLocalized
+                
+            }.disposed(by: self.disposeBag)
     }
     
     func bindBranchToTableView() {
@@ -148,8 +352,20 @@ class OrderTrackingViewController: BaseViewController {
                 
             }.disposed(by: self.disposeBag)
     }
-}
+    
+    func showReceivedView() {
+        self.receivedViewDetails.isHidden = false
+        self.receivedFlagColor.backgroundColor = .blue
+        self.receivedViewHeight.constant = 100
+    }
+    
+    func pricingButtonTapped() {
+        receivedORderPricingButton.rx.tap.subscribe { [weak self] _ in
+            self?.router.showPricingView(OrderTrackingModel: self?.OrderTracking)
+        }.disposed(by: self.disposeBag)
 
+    }
+}
 
 extension OrderTrackingViewController {
     func bindViewControllerRouter() {

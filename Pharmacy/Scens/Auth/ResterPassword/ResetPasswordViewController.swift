@@ -52,6 +52,7 @@ class ResetPasswordViewController: BaseViewController {
     
     func resetPasswordTapped() {
         resetPasswordButton.rx.tap.subscribe { [weak self] _ in
+            
             self?.articleDetailsViewModel.resetPassword(newPassword: self?.newPasswordTextField.text ?? "", newConfirmationPassword: self?.confirmationNewPassword.text ?? "")
         }.disposed(by: self.disposeBag)
         

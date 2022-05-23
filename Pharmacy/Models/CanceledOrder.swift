@@ -1,9 +1,11 @@
+////
+////  CanceledOrder.swift
+////  Pharmacy
+////
+////  Created by taha hussein on 08/03/2022.
+////
 //
-//  CanceledOrder.swift
-//  Pharmacy
-//
-//  Created by taha hussein on 08/03/2022.
-//
+
 
 import Foundation
 
@@ -17,7 +19,8 @@ struct CanceledOrder: Codable {
 // MARK: - Message
 struct CanceledOrderMessage: Codable {
     let orderID: Int?
-    let offerFk, preescriptionFk, preescriptionDoctorID: Int?
+    let offerFk, preescriptionFk: Int?
+    let preescriptionDoctorID: Int?
     let preescriptionDoctorName: String?
     let currentStatus: Int?
     let orderDate, orderLastDate, orderNo: String?
@@ -28,15 +31,19 @@ struct CanceledOrderMessage: Codable {
     let patientID: Int?
     let patientName, patientProfileImage, patientEmail, patientMobile: String?
     let patientMobileCode: String?
-    let patientGender, patientHeight, patientWeight: Int?
+    let patientGender: Int?
+    let patientHeight, patientWeight: Int?
     let patientBirthDate: String?
     let patientAddreesID: Int?
     let patientAddressLocalized: String?
-    let patientMapAddress, orderNotes: String?
+    let patientMapAddress: String?
+    let orderNotes: String?
     let pharmacyOrderFile: [JSONAny]?
     let offerData: JSONNull?
     let pharmacyOrderItem: [PharmacyOrderItem]?
-    let cancelorderDetails: JSONNull?
+    let currentOffer: CurrentOffer?
+    let pharmacyOrderReview:String?
+    let cancelorderDetails: CancelorderDetails?
 
     enum CodingKeys: String, CodingKey {
         case orderID = "orderId"
@@ -49,8 +56,53 @@ struct CanceledOrderMessage: Codable {
         case patientName, patientProfileImage, patientEmail, patientMobile, patientMobileCode, patientGender, patientHeight, patientWeight, patientBirthDate
         case patientAddreesID = "patientAddreesId"
         case patientAddressLocalized = "patientAddress_Localized"
-        case patientMapAddress, orderNotes, pharmacyOrderFile, offerData, pharmacyOrderItem, cancelorderDetails
+        case patientMapAddress, orderNotes, pharmacyOrderFile, offerData, pharmacyOrderItem, currentOffer, pharmacyOrderReview, cancelorderDetails
     }
+}
+
+// MARK: - CurrentOffer
+struct CurrentOffer: Codable {
+    let pharmacyOrderOfferID, deliveryFees, deliveryTimeInMinuts: Int?
+    let hasDelivery, isOnlinePayment: Bool?
+    let offerDate: String?
+    let offerendwithinminuts: Int?
+    let offerNotes: String?
+    let offerStatus: Int?
+    let offerStatusLocalized: String?
+    let orderDiscount, orderFees, orderTotalFees: Int?
+    let orderitems: [Orderitem]?
+
+    enum CodingKeys: String, CodingKey {
+        case pharmacyOrderOfferID = "pharmacyOrderOfferId"
+        case deliveryFees, deliveryTimeInMinuts, hasDelivery, isOnlinePayment, offerDate, offerendwithinminuts, offerNotes, offerStatus
+        case offerStatusLocalized = "offerStatus_Localized"
+        case orderDiscount, orderFees, orderTotalFees, orderitems
+    }
+}
+
+// MARK: - Orderitem
+struct Orderitem: Codable {
+    let pharmacyOrderOfferItemID: Int?
+    let medicationnameLocalized: String?
+    let medicationFk, medicineType, medicineCategoryFk: Int?
+    let medicineImagePathMobile: String?
+    let priceType: Int?
+    let isAlternative, isAvaliable: Bool?
+    let quantity, pharmacyOrderItemFk, itemFees, baseItemMedicationFk: Int?
+    let baseMedicationnameLocalized: String?
+
+    enum CodingKeys: String, CodingKey {
+        case pharmacyOrderOfferItemID = "pharmacyOrderOfferItemId"
+        case medicationnameLocalized = "medicationname_Localized"
+        case medicationFk, medicineType, medicineCategoryFk, medicineImagePathMobile, priceType, isAlternative, isAvaliable, quantity, pharmacyOrderItemFk, itemFees, baseItemMedicationFk
+        case baseMedicationnameLocalized = "baseMedicationname_Localized"
+    }
+}
+
+// MARK: - CancelorderDetails
+struct CancelorderDetails: Codable {
+    let reasonfk: Int?
+    let reason, reasontype: String?
 }
 
 // MARK: - PharmacyOrderItem
@@ -60,7 +112,7 @@ struct PharmacyOrderItem: Codable {
     let priceType, medicineCategoryFk, medicineType, quantity: Int?
     let strenghtValue, medicineTypeNameLocalized, strenghtNameLocalized, formNameLocalized: String?
     let amountDetailsLocalized: String?
-    let prescriptionData: JSONNull?
+    let prescriptionData: PrescriptionData?
 
     enum CodingKeys: String, CodingKey {
         case pharmacyOrderItemID = "pharmacyOrderItemId"

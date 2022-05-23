@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>966450438169-vd9bi3iiljq2u5cn2mqrij8tio3hs6kt.apps.googleusercontent.com</string>
+	<string>107293504862-k8ptd2afmlutqbjki943ve4dfvttl5bi.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.966450438169-vd9bi3iiljq2u5cn2mqrij8tio3hs6kt</string>
+	<string>com.googleusercontent.apps.107293504862-k8ptd2afmlutqbjki943ve4dfvttl5bi</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>107293504862-p3k89cdrc97ib2t1es6auni5vqhtjh99.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDvlcYDulPzwj3oLJFC09CzMjTArk7f_qk</string>
+	<string>AIzaSyATDb51mOZIYR4HLl2O5atK9ywmYKqS27s</string>
 	<key>GCM_SENDER_ID</key>
-	<string>966450438169</string>
+	<string>107293504862</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Taha.Pharmacy</string>
+	<string>Taha.Pharmacy.E4Clinic.sa</string>
 	<key>PROJECT_ID</key>
-	<string>pharmacy-4d3e2</string>
+	<string>e4clinic-bec33</string>
 	<key>STORAGE_BUCKET</key>
-	<string>pharmacy-4d3e2.appspot.com</string>
+	<string>e4clinic-bec33.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:966450438169:ios:4d764fe7c16880270eca88</string>
+	<string>1:107293504862:ios:80ca5f798811ed49a58bcf</string>
 </dict>
 </plist>

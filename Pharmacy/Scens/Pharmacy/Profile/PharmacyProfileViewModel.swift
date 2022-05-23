@@ -20,6 +20,7 @@ class PharmacyProfileViewModel {
     var pharmacyObject = PublishSubject<PharmacyProfileModel>()
     var segmentSelected = BehaviorRelay<segmet>(value: .brahnch)
     var activatonInstance: ActivePharmacyBranch?
+    var activatePharmacist: ActivatePharmacistModel?
     func bind(view: PharmacyProfileViewController, router: PharmacyProfileRouter) {
         self.view = view
         self.router = router
@@ -75,7 +76,6 @@ extension PharmacyProfileViewModel {
         
         state.isLoading.accept(true)
         var request = URLRequest(url: URL(string: activeBranchApi + "ID=\(branchId)&&Status=\(activation)")!)
-
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
        
@@ -91,7 +91,8 @@ extension PharmacyProfileViewModel {
                 self.activatonInstance = try decoder.decode(ActivePharmacyBranch.self, from: data)
                 if self.activatonInstance?.successtate == 200 {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: self.activatonInstance?.message ?? "sucess", viewController: self.view!)
+                        self.getPharmacyProfile()
+
                     }
                 }
                 else {
@@ -113,5 +114,42 @@ extension PharmacyProfileViewModel : pushView {
     
     func embedUperView(uperView: UIView) {
         router?.embedUperView(uperView: uperView)
+    }
+}
+
+
+extension PharmacyProfileViewModel {
+    func activePharmacist(id:Int, activation: Bool) {
+
+        state.isLoading.accept(true)
+        var request = URLRequest(url: URL(string: activePharmacistApi + "ID=\(id)&&Status=\(activation)")!)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            self.state.isLoading.accept(false)
+            do {
+                
+                let decoder = JSONDecoder()
+                self.activatePharmacist = try decoder.decode(ActivatePharmacistModel.self, from: data)
+                if self.activatePharmacist?.successtate == 200 {
+                    DispatchQueue.main.async {
+                        self.getPharmacyProfile()
+
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        Alert().displayError(text: self.activatePharmacist?.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                    }
+                }
+            } catch let err {
+                print("Err", err)
+            }
+        }.resume()
     }
 }

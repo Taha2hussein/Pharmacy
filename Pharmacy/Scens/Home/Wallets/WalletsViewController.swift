@@ -9,7 +9,6 @@ import UIKit
 import RxRelay
 import RxSwift
 import RxCocoa
-import LinearProgressBar
 import DateTimePicker
 
 class WalletsViewController: BaseViewController {
@@ -23,9 +22,8 @@ class WalletsViewController: BaseViewController {
     @IBOutlet weak var totalExpnseLabel: UILabel!
     @IBOutlet weak var totalincomeLabel: UILabel!
     @IBOutlet weak var totalBalance: UILabel!
-    @IBOutlet weak var linearProgressBar: LinearProgressBar!
+    @IBOutlet weak var linearProgressBar: MultiProgressView!
     @IBOutlet weak var balanceView: UIView!
-    
     var articleDetailsViewModel = WalletsViewModel()
     private var router = WalletsRouter()
     private var DatePickers = DatePicker()
@@ -42,20 +40,19 @@ class WalletsViewController: BaseViewController {
         selectBranch()
         articleDetailsViewModel.getWallet()
         setGesturesForBalanceView()
-        linearProgressBar.barColorForValue = { value in
-            switch value {
-            case 0..<20:
-                return UIColor.red
-            case 20..<60:
-                return UIColor.orange
-            case 60..<80:
-                return UIColor.yellow
-            default:
-                return UIColor.green
-            }
-        }
+    
     }
     
+    private func animateProgress(incomde:Double, expanse:Double) {
+
+        let incomeProgress = Progress(totalUnitCount: Int64(incomde))
+        let expnseProgress = Progress(totalUnitCount: Int64(expanse))
+
+        linearProgressBar.add(incomeProgress, progressTintColor: .green)
+        linearProgressBar.add(expnseProgress, progressTintColor: .red)
+
+    }
+  
     func setGesturesForBalanceView() {
         let balanceView = UITapGestureRecognizer(target: self, action: #selector(self.tabBalnce))
         self.balanceView.isUserInteractionEnabled = true
@@ -98,7 +95,7 @@ class WalletsViewController: BaseViewController {
                 self?.totalExpnseLabel.text = "\(Int(walletElement?.message?.totalExpense ?? 0))"
                 self?.LinearIncome.text = "\(Int(walletElement?.message?.totalIncome ?? 0))"
                 self?.linearExpnse.text = "\(Int(walletElement?.message?.totalExpense ?? 0))"
-                
+                self?.animateProgress(incomde: Double(walletElement?.message?.totalIncome ?? 0.0), expanse: Double(walletElement?.message?.totalExpense ?? 0.0))
             }
         }.disposed(by: self.disposeBag)
         
@@ -151,3 +148,6 @@ extension WalletsViewController {
     }
         
 }
+
+
+

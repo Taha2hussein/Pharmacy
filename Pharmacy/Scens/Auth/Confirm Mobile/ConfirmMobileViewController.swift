@@ -15,7 +15,7 @@ class ConfirmMobileViewController: BaseViewController {
 
     var articleDetailsViewModel = ConfirmMobileViewModel()
     private var router = ConfirmMobileRouter()
-    
+    private var VerfiicationViewModel = VerificationViewModel()
     @IBOutlet weak var resendCodeButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var verificationCodeTextField: KKPinCodeTextField!
@@ -27,6 +27,7 @@ class ConfirmMobileViewController: BaseViewController {
         bindVerificationCode()
         subscribeToVerification()
         subscribeToLoader()
+        resendCodeTapped()
     }
     
     func validateData() {
@@ -48,6 +49,13 @@ class ConfirmMobileViewController: BaseViewController {
                 }
             }
         }).disposed(by: self.disposeBag)
+    }
+
+    func resendCodeTapped() {
+        resendCodeButton.rx.tap.subscribe { [weak self] _ in
+            self?.articleDetailsViewModel.sendVerificationCode()
+        }.disposed(by: self.disposeBag)
+
     }
     
     func subscribeToVerification() {

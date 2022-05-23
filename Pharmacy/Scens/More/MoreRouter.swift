@@ -44,6 +44,14 @@ class MoreRouter {
         self.sourceView?.navigationController?.pushViewController(blogView, animated: true)
     }
     
+    func showChangePassword() {
+
+        let loginView = UIStoryboard.init(name: Storyboards.forgetPassword.rawValue, bundle: nil)
+        let login = loginView.instantiateViewController(withIdentifier: ViewController.forgetPassword.rawValue)
+        UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: login)
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
     func rootToLogin() {
         let loginView = UIStoryboard.init(name: Storyboards.main.rawValue, bundle: nil)
         let login = loginView.instantiateViewController(withIdentifier: ViewController.loginView.rawValue)

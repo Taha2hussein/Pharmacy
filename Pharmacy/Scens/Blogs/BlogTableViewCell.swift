@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
+import RxRelay
 class BlogTableViewCell: UITableViewCell {
     
     @IBOutlet weak var blogAvatar: UIImageView!
@@ -17,16 +19,20 @@ class BlogTableViewCell: UITableViewCell {
     @IBOutlet weak var blogDescrbtion: UILabel!
     @IBOutlet weak var blogImageView: UIImageView!
     
+    var  bag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        bag = DisposeBag()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
-        //set cell to initial state here
-        //set like button to initial state - title, font, color, etc.
+        bag = DisposeBag()
+//        likeButton = nil
+        likeButton.setImage(UIImage(named:"like"), for: .normal)
+      
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -12,6 +12,7 @@ import RxSwift
 
 class OrderCancelViewController: BaseViewController {
     
+    @IBOutlet weak var orderLocation: UILabel!
     @IBOutlet weak var summaryTableView: UITableView!
     @IBOutlet weak var reasonOfCancel: UILabel!
     @IBOutlet weak var orderType: UILabel!
@@ -51,14 +52,12 @@ class OrderCancelViewController: BaseViewController {
     func intializeOrderData() {
         articleDetailsViewModel.canceledOrdersInstance.subscribe { [weak self] cancelOrder in
             DispatchQueue.main.async {
-                
-            
             if let url = URL(string: baseURLImage + (cancelOrder.element?.patientProfileImage ?? "")) {
                 self?.patientImage.load(url: url)
             }
             self?.patientName.text = cancelOrder.element?.patientName
             self?.patientNumber.text = "\(cancelOrder.element?.patientID ?? 0)"
-            self?.patientGender.text = (cancelOrder.element?.patientGender == 1) ? "Male" : "Female"
+                self?.patientGender.text = (cancelOrder.element?.patientGender == 1) ? "Male" : "Female"
             self?.patientName.text = ( "Wt: " + "\(cancelOrder.element?.patientWeight ?? 0)" + "Kg, Ht: "  + "\(cancelOrder.element?.patientHeight ?? 0)" + "cm")
             self?.patitientEmail.text = cancelOrder.element?.patientEmail
             self?.patientName.text = cancelOrder.element?.patientName
@@ -67,8 +66,8 @@ class OrderCancelViewController: BaseViewController {
             self?.orderDate.text = cancelOrder.element?.orderDate
             self?.orderPayment.text = cancelOrder.element?.paymentTypeLocalized
             self?.orderType.text = cancelOrder.element?.orderType
-            self?.reasonOfCancel.text = cancelOrder.element?.orderNotes
-
+            self?.reasonOfCancel.text = cancelOrder.element?.cancelorderDetails?.reason
+                self?.orderLocation.text = cancelOrder.element?.patientMapAddress
             }
 
         } .disposed(by: self.disposeBag)

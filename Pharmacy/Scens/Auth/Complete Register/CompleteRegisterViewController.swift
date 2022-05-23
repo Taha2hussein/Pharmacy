@@ -32,8 +32,8 @@ class CompleteRegisterViewController: BaseViewController {
     
     private var chooseImaageSelection = false
     private var Images = [ZTAssetWrapper]()
-    private var countrySelectedIndex = 0
-    private var citySelectedIndex = 0
+    private var countrySelectedIndex = -1
+    private var citySelectedIndex = -1
     private var countrySelected = 0
     private var citySelected = 0
     private var areaSelected = 0
@@ -262,7 +262,8 @@ extension CompleteRegisterViewController {
 extension CompleteRegisterViewController {
     @objc
     func tapCountry(sender:UITapGestureRecognizer) {
-        
+        citySelectedIndex = -1
+
         selectCityFromDropDown.anchorView = pharmacyCountry
         selectCityFromDropDown.direction = .any
         selectCityFromDropDown.backgroundColor = UIColor.white
@@ -285,12 +286,13 @@ extension CompleteRegisterViewController {
     
     @objc
     func tapCity(sender:UITapGestureRecognizer) {
-        
+//        citySelectedIndex = -1
         selectCityFromDropDown.anchorView = pharmacyCity
         selectCityFromDropDown.direction = .any
         selectCityFromDropDown.backgroundColor = UIColor.white
         selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
-        let city = countryList[countrySelectedIndex].lookupCity ?? []
+        guard countrySelectedIndex != -1 else {return}
+        if let city = countryList[countrySelectedIndex].lookupCity {
         let cityName = city.map({($0.cityNameEn ?? "") })
         let cityIds = city.map({($0.cityID ?? 0) })
         self.selectCityFromDropDown.dataSource =  cityName
@@ -302,8 +304,8 @@ extension CompleteRegisterViewController {
             self?.pharmacyCity.text = item
             self?.citySelected = cityIds[index]
             self?.citySelectedIndex = index
+           }
         }
-        
     }
     
     @objc
@@ -313,7 +315,8 @@ extension CompleteRegisterViewController {
         selectCityFromDropDown.direction = .any
         selectCityFromDropDown.backgroundColor = UIColor.white
         selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
-        let area = countryList[countrySelectedIndex].lookupCity?[citySelectedIndex].lookupArea ?? []
+        guard citySelectedIndex != -1 else {return}
+        if let area = countryList[countrySelectedIndex].lookupCity?[citySelectedIndex].lookupArea {
         let areaName = area.map({($0.areaNameEn ?? "") })
         let areaIds = area.map({($0.areaID ?? 0) })
         self.selectCityFromDropDown.dataSource = areaName
@@ -324,8 +327,8 @@ extension CompleteRegisterViewController {
             
             self?.pharmacyArea.text = item
             self?.areaSelected = areaIds[index]
+           }
         }
-        
     }
 }
 

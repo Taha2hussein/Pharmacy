@@ -18,7 +18,7 @@ class DatePicker: DateTimePickerDelegate {
     
     func ShowPickerView(pickerView: UIViewController , completionHandler: @escaping((String)->()))
     {
-        let min = Date().addingTimeInterval(-60 * 60 * 24 * 30)
+        let min = Date().addingTimeInterval(-60 * 60 * 24 * 60)
         let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
         let picker = DateTimePicker.create(minimumDate: min, maximumDate: max)
         

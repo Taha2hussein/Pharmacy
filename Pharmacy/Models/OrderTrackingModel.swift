@@ -17,7 +17,7 @@ struct OrderTrackingModel: Codable {
 // MARK: - Message
 struct OrderTrackingMessage: Codable {
     let orderID: Int?
-    let offerFk, preescriptionFk, preescriptionDoctorID: JSONNull?
+    let offerFk, preescriptionFk, preescriptionDoctorID: Int?
     let preescriptionDoctorName: String?
     let currentStatus: Int?
     let orderDate, orderLastDate, orderNo: String?
@@ -35,10 +35,12 @@ struct OrderTrackingMessage: Codable {
     let patientAddressLocalized: String?
     let patientMapAddress: String?
     let orderNotes: String?
-    let pharmacyOrderFile: [JSONAny]?
+    let pharmacyOrderFile: [PharmacyOrderFile]?
     let offerData: String?
     let pharmacyOrderItem: [OrderTrackingPharmacyOrderItem]?
-    let currentOffer, pharmacyOrderReview, cancelorderDetails: String?
+    let currentOffer: OrderTrackingCurrentOffer?
+    let pharmacyOrderReview: String?
+   let cancelorderDetails: CancelorderDetails?
 
     enum CodingKeys: String, CodingKey {
         case orderID = "orderId"
@@ -55,24 +57,78 @@ struct OrderTrackingMessage: Codable {
     }
 }
 
+// MARK: - CurrentOffer
+struct OrderTrackingCurrentOffer: Codable {
+    let pharmacyOrderOfferID: Int?
+    let deliveryFees, deliveryTimeInMinuts: Int?
+    let hasDelivery, isOnlinePayment: Bool?
+    let offerDate: String?
+    let offerendwithinminuts: Int?
+    let offerNotes: String?
+    let offerStatus: Int?
+    let offerStatusLocalized: String?
+    let orderDiscount, orderFees, orderTotalFees: Int?
+    let orderitems: [Orderitem]?
+
+    enum CodingKeys: String, CodingKey {
+        case pharmacyOrderOfferID = "pharmacyOrderOfferId"
+        case deliveryFees, deliveryTimeInMinuts, hasDelivery, isOnlinePayment, offerDate, offerendwithinminuts, offerNotes, offerStatus
+        case offerStatusLocalized = "offerStatus_Localized"
+        case orderDiscount, orderFees, orderTotalFees, orderitems
+    }
+}
+
+
+// MARK: - PharmacyOrderFile
+struct PharmacyOrderFile: Codable {
+    let pharmacyOrderFileID: Int?
+    let filePath: String?
+
+    enum CodingKeys: String, CodingKey {
+        case pharmacyOrderFileID = "pharmacyOrderFileId"
+        case filePath
+    }
+}
+
 // MARK: - PharmacyOrderItem
 struct OrderTrackingPharmacyOrderItem: Codable {
-    let pharmacyOrderItemID, itemFees, medicationFk: Int?
+    let pharmacyOrderItemID, medicationFk: Int?
+    let itemFees: Double?
     let medicationNameLocalized: String?
     let priceType, medicineCategoryFk, medicineType, quantity: Int?
     let strenghtValue, medicineTypeNameLocalized, strenghtNameLocalized, formNameLocalized: String?
     let amountDetailsLocalized: String?
-    let prescriptionData: String?
+    let prescriptionData: PrescriptionData?
 
     enum CodingKeys: String, CodingKey {
         case pharmacyOrderItemID = "pharmacyOrderItemId"
-        case itemFees, medicationFk
+        case itemFees = "itemFees"
+        case medicationFk = "medicationFk"
         case medicationNameLocalized = "medicationName_Localized"
-        case priceType, medicineCategoryFk, medicineType, quantity, strenghtValue
+        case priceType = "priceType"
+        case medicineCategoryFk = "medicineCategoryFk"
+        case medicineType = "medicineType"
+        case quantity = "quantity"
+        case strenghtValue = "strenghtValue"
         case medicineTypeNameLocalized = "medicineType_name_Localized"
         case strenghtNameLocalized = "strenghtName_Localized"
         case formNameLocalized = "formName_Localized"
         case amountDetailsLocalized = "amountDetails_Localized"
-        case prescriptionData
+        case prescriptionData = "prescriptionData"
+    }
+}
+
+// MARK: - PrescriptionData
+struct PrescriptionData: Codable {
+    let quantity: Int?
+    let whenMedicationTakenNameLocalized: String?
+    let durationValue: Int?
+    let durationTypetNameLocalized: String?
+
+    enum CodingKeys: String, CodingKey {
+        case quantity
+        case whenMedicationTakenNameLocalized = "whenMedicationTakenName_Localized"
+        case durationValue
+        case durationTypetNameLocalized = "durationTypetName_Localized"
     }
 }
