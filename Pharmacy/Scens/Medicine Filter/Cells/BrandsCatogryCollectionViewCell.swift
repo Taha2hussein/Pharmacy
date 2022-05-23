@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class BrandsCatogryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var brandLabel: UILabel!
@@ -14,7 +14,9 @@ class BrandsCatogryCollectionViewCell: UICollectionViewCell {
     func setDataForBrands(braand: FilterBrandMessage) {
         self.brandLabel.text = braand.companyName
         if let url = URL(string: baseURLImage + (braand.image ?? "")) {
-            self.brandImageView.load(url: url)
+//            self.brandImageView.load(url: url)
+            self.brandImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar"))
+
         }
     }
 }

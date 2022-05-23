@@ -46,10 +46,8 @@ class MoreRouter {
     
     func showChangePassword() {
 
-        let loginView = UIStoryboard.init(name: Storyboards.forgetPassword.rawValue, bundle: nil)
-        let login = loginView.instantiateViewController(withIdentifier: ViewController.forgetPassword.rawValue)
-        UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: login)
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        let changePassword = ChangePasswordRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(changePassword, animated: true)
     }
     
     func rootToLogin() {
@@ -58,5 +56,26 @@ class MoreRouter {
         UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: login)
         UIApplication.shared.windows.first?.makeKeyAndVisible()
         
+    }
+    
+    func showTermsAndcondition() {
+        let termsAndCondition = TermsAndConditionRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(termsAndCondition, animated: true)
+    }
+    
+    func showProvacyPolicy() {
+        let privacyPolicy = PrivacyPolicyRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(privacyPolicy, animated: true)
+        
+    }
+    
+    func showContactUs() {
+        let contactUs = ContactUsRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(contactUs, animated: true)
+    }
+    
+    func showFAQ() {
+        let fAQ = FAQRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(fAQ, animated: true)
     }
 }

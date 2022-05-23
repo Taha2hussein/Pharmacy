@@ -22,8 +22,9 @@ class ForgetViewController: BaseViewController {
         super.viewDidLoad()
         bindViewControllerRouter()
         sendTapped()
-        validateData()
+//        validateData()
         bindUserMobile()
+        subscribeToLoader()
     }
     
     func validateData() {
@@ -33,16 +34,52 @@ class ForgetViewController: BaseViewController {
 
     }
     
+    func subscribeToLoader() {
+        articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
+            DispatchQueue.main.async {
+                if isLoading {
+                    
+                    self?.showLoading()
+                    
+                } else {
+                    self?.hideLoading()
+                }
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
     func bindUserMobile() {
         enterMobileTextField.rx.text
             .orEmpty
             .bind(to: articleDetailsViewModel.userMobile).disposed(by: self.disposeBag)
     }
     
+    func showAlert(message:String) {
+        Alert().displayError(text: message, viewController: self)
+    }
+    
+    func validateALLField() {
+        if enterMobileTextField.text!.isEmpty {
+            showAlert(message: LocalizedStrings().emptyField)
+        }
+        
+       
+      
+        else if enterMobileTextField.text!.count < 11 {
+            showAlert(message: LocalizedStrings().validPhoneNumber)
+        }
+        
+        else {
+            self.articleDetailsViewModel.sendVerificationCode(userMobiel: self.enterMobileTextField.text ?? "")
+        }
+        
+    }
+    
     func sendTapped() {
         self.sendButton.rx.tap.asObservable()
             .subscribe { [weak self] _  in
-                self?.articleDetailsViewModel.sendAction(userMobile: self?.enterMobileTextField.text ?? "")
+              
+                self?.validateALLField()
             }.disposed(by: self.disposeBag)
     }
 }

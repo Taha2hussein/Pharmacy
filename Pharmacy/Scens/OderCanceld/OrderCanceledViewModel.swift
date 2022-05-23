@@ -18,6 +18,7 @@ class OrderCanceledViewModel{
     private var router: OrderCancelRouter?
     var  state = State()
     var orderId = Int()
+    var singleOrderStatus = Int()
     var canceledOrdersInstance = PublishSubject<CanceledOrderMessage>()
     var cancelOrderSummary = PublishSubject <[PharmacyOrderItem]>()
     func bind(view: OrderCancelViewController, router: OrderCancelRouter) {
@@ -38,6 +39,7 @@ class OrderCanceledViewModel{
         print(parameters,  key ,"parameters")
 
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -60,7 +62,7 @@ class OrderCanceledViewModel{
                 
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: cancelOrder?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: cancelOrder?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
     
                     }
                 }

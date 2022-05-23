@@ -6,24 +6,37 @@
 //
 
 import UIKit
+import RxCocoa
+import RxRelay
+import RxSwift
 
-class PreparingOrderViewController: UIViewController {
+class PreparingOrderViewController: BaseViewController {
 
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var minutesTextField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .black.withAlphaComponent(0.5)
+        doneAction()
+        closeAction()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func closeAction() {
+        closeButton.rx.tap.subscribe { [weak self] _ in
+            self?.view.removeFromSuperview()
+        }.disposed(by: self.disposeBag)
     }
-    */
+    
+    func doneAction() {
+        doneButton.rx.tap.subscribe { [weak self] _ in
+            singlton.shared.deliverytime = self?.minutesTextField.text ?? "0"
+            self?.view.removeFromSuperview()
+        }.disposed(by: self.disposeBag)
+
+    }
+
+
 
 }

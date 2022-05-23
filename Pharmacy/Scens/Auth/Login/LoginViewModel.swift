@@ -17,7 +17,7 @@ class LoginViewModel{
     let isValid :  Observable<Bool>!
     var phone = BehaviorRelay<String>(value:"")
     var password = BehaviorRelay<String>(value:"")
-    var loginResponse = LoginModel()
+    var loginResponse : LoginModel?
 
     var state = State()
     
@@ -34,28 +34,27 @@ class LoginViewModel{
         self.router = router
         self.router?.setSourceView(view)
     }
- 
+    
     func loginUser() {
         let deviceId = LocalStorage().getDeviceId()
         let deviceToken = LocalStorage().getdeviceToken()
-        
+        print(deviceToken,"deviceTokenTaha")
         let parameters = ["Username":phone.value,
                           "Password":password.value,
                           "Decvice_id":deviceId,
                           "Device_token":deviceToken,
                           "PatientMobileCode":"+2",
-                          "Device_type":1,
+                          "Device_type":2,
                           "UserType":4] as [String : Any]
         
         state.isLoading.accept(true)
         var request = URLRequest(url: URL(string:loginApi)!)
-
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
-        
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
             self.state.isLoading.accept(false)
@@ -63,20 +62,22 @@ class LoginViewModel{
                 
                 let decoder = JSONDecoder()
                 self.loginResponse = try decoder.decode(LoginModel.self, from: data)
-                if  self.loginResponse.apiresponseresult?.successtate == 200 {
+                print(parameters,"ddd1",self.loginResponse)
+
+                if  self.loginResponse?.apiresponseresult?.successtate == 200 {
                     DispatchQueue.main.async {
                         defer {
                             self.router?.navigateToDetailsView()
                         }
-                        LocalStorage().savePharmacistID(using: self.loginResponse.apiresponseresult?.message?.pharmacistID ?? 0)
-                        LocalStorage().savePharmacyProviderFk(using: self.loginResponse.apiresponseresult?.message?.pharmacyProviderFk ?? 0)
+                        LocalStorage().savePharmacistID(using: self.loginResponse?.apiresponseresult?.message?.pharmacistID ?? 0)
+                        LocalStorage().savePharmacyProviderFk(using: self.loginResponse?.apiresponseresult?.message?.pharmacyProviderFk ?? 0)
                         LocalStorage().savelogedBefore(using: true)
-                        LocalStorage().saveLoginToken(using: self.loginResponse.token ?? "")
+                        LocalStorage().saveLoginToken(using: self.loginResponse?.token ?? "")
                     }
                 }
                 else {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: self.loginResponse.apiresponseresult?.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                        Alert().displayError(text: self.loginResponse?.apiresponseresult?.errormessage ?? "An error occured , please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {

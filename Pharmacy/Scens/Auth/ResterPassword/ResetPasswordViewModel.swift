@@ -58,6 +58,7 @@ extension ResetPasswordViewModel {
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
             self.state.isLoading.accept(false)
@@ -73,7 +74,7 @@ extension ResetPasswordViewModel {
                 }
                 else {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: ForgetPasswordThird.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                        Alert().displayError(text: ForgetPasswordThird.errormessage ?? "An error occured , please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {

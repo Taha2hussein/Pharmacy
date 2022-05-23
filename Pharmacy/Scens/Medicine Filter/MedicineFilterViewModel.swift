@@ -43,6 +43,7 @@ extension MedicineFilterViewModel {
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         state.isLoading.accept(true)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
@@ -60,7 +61,7 @@ extension MedicineFilterViewModel {
                 
                 else {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: FilterCatogry?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: FilterCatogry?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {
@@ -83,6 +84,7 @@ extension MedicineFilterViewModel {
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         state.isLoading.accept(true)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
@@ -100,7 +102,7 @@ extension MedicineFilterViewModel {
                 
                 else {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: FilterCatogryForBrnds?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: FilterCatogryForBrnds?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {

@@ -6,7 +6,7 @@
 //
 
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 import RxRelay
@@ -19,7 +19,7 @@ class EditProfileViewModel {
     private var branches = [Int]()
     var state = State()
     private var editOrofile : EditProfileModel?
-    
+    var PharmacistProfileInstance  = PublishSubject<PharmacistProfileModel>()
     let isValid :  Observable<Bool>!
     var firstNameEN = BehaviorRelay<String>(value:"")
     var lastNameEN = BehaviorRelay<String>(value:"")
@@ -29,7 +29,8 @@ class EditProfileViewModel {
     var phone = BehaviorRelay<String>(value:"")
     var gender = BehaviorRelay<String>(value:"")
     var date_Birth = BehaviorRelay<String>(value:"")
-    
+    let selectedImageOwner = PublishSubject<UIImage>()
+
     func bind(view: EditProfileViewController, router: EditProfileRouter) {
         self.view = view
         self.router = router
@@ -60,7 +61,43 @@ class EditProfileViewModel {
         
     }
     
-    func editProfile(gender: Int) {
+    func getPharmacistProfile() {
+        var request = URLRequest(url: URL(string: pharmacistProfileApi  + "\(LocalStorage().getPharmacsitID())")!)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
+        state.isLoading.accept(true)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            self.state.isLoading.accept(false)
+            do {
+                
+                let decoder = JSONDecoder()
+                var PharmacistProfile : PharmacistProfileModel?
+                PharmacistProfile = try decoder.decode(PharmacistProfileModel.self, from: data)
+                if PharmacistProfile?.successtate == 200 {
+                    if let PharmacistProfile = PharmacistProfile {
+                    self.PharmacistProfileInstance.onNext(PharmacistProfile)
+                    }
+//                    self.toogleLikeIcon.accept(false)
+//                    self.likeBlogs.onNext(blog)
+                }
+                
+                else {
+                    DispatchQueue.main.async {
+                        Alert().displayError(text: PharmacistProfile?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
+                    }
+                }
+            } catch let err {
+                print("Err", err)
+            }
+        }.resume()
+    }
+    
+    func editProfile(gender: Int,Image:String) {
         let PharmacyProviderFk = LocalStorage().getPharmacyProviderFk()
         let getPharmacsitID = LocalStorage().getPharmacsitID()
         
@@ -76,7 +113,8 @@ class EditProfileViewModel {
                           "FirstNameAr": firstNameAR.value,
                           "Email":email.value,
                           "DateOfBirth":date_Birth.value,
-                          "Branches":branches
+                          "Branches":branches,
+                          "Image":Image
                          ] as [String : Any]
         print(parameters)
         state.isLoading.accept(true)
@@ -86,6 +124,7 @@ class EditProfileViewModel {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -106,7 +145,7 @@ class EditProfileViewModel {
                 else {
                     
                     DispatchQueue.main.async {
-                    Alert().displayError(text: self.editOrofile?.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                        Alert().displayError(text: self.editOrofile?.errormessage ?? "An error occured , please try again".localized, viewController: self.view!)
                     }
                 }
                 

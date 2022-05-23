@@ -9,7 +9,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RxRelay
-import WPMediaPicker
+import UIKit
+//import WPMediaPicker
 
 typealias Parameters = [String: String]
 
@@ -17,8 +18,10 @@ class CompleteRegisterViewModel {
     
     private weak var view: CompleteRegisterViewController?
     private var router: CompleteRegisterRouter?
-    let selectedImages =  PublishSubject<[ZTAssetWrapper?]>()
-    let selectedImagePharmacy = PublishSubject<ZTAssetWrapper>()
+    let selectedImagesForLicence =  BehaviorSubject<[UIImage]>(value: [])
+    var ownerImagePath: String?
+//    let selectedImagePharmacy = PublishSubject<ZTAssetWrapper>()
+    let selectedImageOwner = PublishSubject<UIImage>()
     private let disposeBag = DisposeBag()
     var state = State()
     var registerParamerters : RegisterParameters!
@@ -106,7 +109,7 @@ extension CompleteRegisterViewModel {
         let jsonData = try? JSONSerialization.data(withJSONObject: parameter, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
-        
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
             self.state.isLoading.accept(false)
@@ -121,13 +124,13 @@ extension CompleteRegisterViewModel {
                             self.router?.showVerificationCode()
                         }
                         LocalStorage().saveTokenCode(using:  self.completeRegisterInstance.message?.tokenCode ?? "")
-                        
+                        LocalStorage().saveEmail(using: self.registerParamerters.email )
                         LocalStorage().saveActiveLink(using: self.completeRegisterInstance.message?.activateLink ?? "")
                     }
                 }
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: self.completeRegisterInstance.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: self.completeRegisterInstance.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {

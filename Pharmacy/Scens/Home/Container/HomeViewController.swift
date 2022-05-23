@@ -22,6 +22,12 @@ class HomeViewController: BaseViewController {
         segmentAction()
         container!.segueIdentifierReceivedFromParent("previous")
         embedUperView()
+        addImagesToSegment()
+    }
+    
+    func addImagesToSegment() {
+//        let newImage = segmentController.texte
+//        segmentController.setImage(newImage , forSegmentAt: 0)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

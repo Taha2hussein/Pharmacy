@@ -10,7 +10,7 @@ import Foundation
 // MARK: - LoginModel
 struct LoginModel: Codable {
     var token: String?
-//    var expiration: Date?
+    var expiration: String?
     var apiresponseresult: Apiresponseresult?
 }
 
@@ -24,11 +24,12 @@ struct Apiresponseresult: Codable {
 // MARK: - Message
 struct LoginMessage: Codable {
     var roleLst: [String]?
+    var token: JSONNull?
     var doctorID, patientID, medicalRepID, businessProviderFk: Int?
     var pharmacistID, pharmacyProviderFk, pharmacistType, clubUserID: Int?
 
     enum CodingKeys: String, CodingKey {
-        case roleLst
+        case roleLst, token
         case doctorID = "doctor_id"
         case patientID = "patient_id"
         case medicalRepID = "medicalRep_id"

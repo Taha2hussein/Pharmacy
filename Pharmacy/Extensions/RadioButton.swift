@@ -36,33 +36,3 @@ class RadioButtonController: NSObject {
     }
 }
 
-//
-//import UIKit
-//
-//class CheckoutVC: UIViewController {
-//
-//    @IBOutlet weak var btnPaytm: UIButton!
-//    @IBOutlet weak var btnOnline: UIButton!
-//    @IBOutlet weak var btnCOD: UIButton!
-//
-//    let radioController: RadioButtonController = RadioButtonController()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        radioController.buttonsArray = [btnPaytm,btnCOD,btnOnline]
-//        radioController.defaultButton = btnPaytm
-//    }
-//
-//    @IBAction func btnPaytmAction(_ sender: UIButton) {
-//        radioController.buttonArrayUpdated(buttonSelected: sender)
-//    }
-//
-//    @IBAction func btnOnlineAction(_ sender: UIButton) {
-//        radioController.buttonArrayUpdated(buttonSelected: sender)
-//    }
-//
-//    @IBAction func btnCodAction(_ sender: UIButton) {
-//        radioController.buttonArrayUpdated(buttonSelected: sender)
-//    }
-//}

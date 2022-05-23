@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUd-tJ-8nQ">
-                                <rect key="frame" x="20" y="248" width="374" height="400"/>
+                                <rect key="frame" x="20" y="198" width="374" height="500"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqG-nx-7Tv">
                                         <rect key="frame" x="60" y="20" width="254" height="19"/>
@@ -93,7 +93,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ION-Ts-d7d">
-                                        <rect key="frame" x="107" y="300" width="160" height="35"/>
+                                        <rect key="frame" x="107" y="386" width="160" height="35"/>
                                         <color key="backgroundColor" name="blue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="HGI-CA-FgX"/>
@@ -111,12 +111,75 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Done"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PrX-rN-uie">
+                                        <rect key="frame" x="20" y="277" width="334" height="89"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9hH-O2-zgA">
+                                                <rect key="frame" x="0.0" y="0.0" width="162" height="89"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expire Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdQ-Uf-hH8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="19"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                                        <color key="textColor" name="blue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Expire Date"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="000-000-000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ckb-bi-hTB">
+                                                        <rect key="frame" x="0.0" y="39" width="162" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="nUb-Id-qfU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="0000-0000"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eCR-Y0-rvU">
+                                                <rect key="frame" x="172" y="0.0" width="162" height="89"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFi-bd-ULC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="19"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                                        <color key="textColor" name="blue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Security Code"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="000-000-000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ymf-MS-cEP">
+                                                        <rect key="frame" x="0.0" y="39" width="162" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="m33-NK-r2V"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="0000-0000"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="vqG-nx-7Tv" firstAttribute="leading" secondItem="gUd-tJ-8nQ" secondAttribute="leading" constant="60" id="2j4-4F-NIh"/>
+                                    <constraint firstAttribute="trailing" secondItem="PrX-rN-uie" secondAttribute="trailing" constant="20" id="7j9-cH-h7m"/>
                                     <constraint firstItem="btu-SU-vJa" firstAttribute="top" secondItem="SB9-nI-Vlj" secondAttribute="bottom" constant="20" id="7t9-X4-bVV"/>
                                     <constraint firstItem="vqG-nx-7Tv" firstAttribute="top" secondItem="gUd-tJ-8nQ" secondAttribute="top" constant="20" id="99E-nJ-qog"/>
+                                    <constraint firstItem="PrX-rN-uie" firstAttribute="leading" secondItem="gUd-tJ-8nQ" secondAttribute="leading" constant="20" id="B6a-2y-PMf"/>
                                     <constraint firstItem="3Rf-jt-2Kz" firstAttribute="top" secondItem="gUd-tJ-8nQ" secondAttribute="top" constant="20" id="CDd-uz-sIW"/>
                                     <constraint firstAttribute="trailing" secondItem="btu-SU-vJa" secondAttribute="trailing" constant="20" id="CIK-bk-abY"/>
                                     <constraint firstItem="3Rf-jt-2Kz" firstAttribute="leading" secondItem="vqG-nx-7Tv" secondAttribute="trailing" constant="20" id="Emh-S4-uL4"/>
@@ -125,11 +188,12 @@
                                     <constraint firstAttribute="trailing" secondItem="SB9-nI-Vlj" secondAttribute="trailing" constant="20" id="Rm1-FP-8et"/>
                                     <constraint firstAttribute="trailing" secondItem="3Rf-jt-2Kz" secondAttribute="trailing" constant="20" id="ZjJ-d2-Ceo"/>
                                     <constraint firstItem="SB9-nI-Vlj" firstAttribute="top" secondItem="vqG-nx-7Tv" secondAttribute="bottom" constant="20" id="cTy-jU-vMA"/>
+                                    <constraint firstItem="ION-Ts-d7d" firstAttribute="top" secondItem="PrX-rN-uie" secondAttribute="bottom" constant="20" id="ggP-z5-7PP"/>
                                     <constraint firstItem="btu-SU-vJa" firstAttribute="leading" secondItem="gUd-tJ-8nQ" secondAttribute="leading" constant="20" id="gu0-2w-J7o"/>
                                     <constraint firstItem="ION-Ts-d7d" firstAttribute="centerX" secondItem="gUd-tJ-8nQ" secondAttribute="centerX" id="ibq-gl-3kZ"/>
                                     <constraint firstAttribute="trailing" secondItem="3Rf-jt-2Kz" secondAttribute="trailing" constant="20" id="jHy-N0-Yo3"/>
-                                    <constraint firstAttribute="height" constant="400" id="sng-ld-oIQ"/>
-                                    <constraint firstItem="ION-Ts-d7d" firstAttribute="top" secondItem="btu-SU-vJa" secondAttribute="bottom" constant="43" id="xmu-8R-qle"/>
+                                    <constraint firstItem="PrX-rN-uie" firstAttribute="top" secondItem="btu-SU-vJa" secondAttribute="bottom" constant="20" id="qcg-JB-wBU"/>
+                                    <constraint firstAttribute="height" constant="500" id="sng-ld-oIQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">

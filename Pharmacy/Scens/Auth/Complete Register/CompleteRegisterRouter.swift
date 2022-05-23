@@ -14,14 +14,22 @@ class CompleteRegisterRouter {
     }
     
     private var sourceView: UIViewController?
-    
+    private var imagePath: String?
     private func createViewController() -> UIViewController {
       
         let view = UIStoryboard.init(name: Storyboards.register.rawValue, bundle: nil)
         
-        let viewController = view.instantiateViewController(withIdentifier: ViewController.CompleteRegister.rawValue)
-        
+        let viewController = view.instantiateViewController(withIdentifier: ViewController.CompleteRegister.rawValue)as! CompleteRegisterViewController
+        viewController.articleDetailsViewModel.ownerImagePath = self.imagePath
         return viewController
+    }
+    
+    init() {
+        
+    }
+    
+    init(imagePath:String) {
+        self.imagePath = imagePath
     }
     
     func setSourceView(_ sourceView: UIViewController?) {
@@ -33,7 +41,9 @@ class CompleteRegisterRouter {
         let mapView = MapRouter().viewController
         sourceView?.navigationController?.pushViewController(mapView, animated: true)
     }
-    
+    func backView(){
+        sourceView?.navigationController?.popViewController(animated: true)
+    }
     func showVerificationCode() {
         let verificationCode = ConfirmAccountRouter().viewController
         sourceView?.navigationController?.pushViewController(verificationCode, animated: true)

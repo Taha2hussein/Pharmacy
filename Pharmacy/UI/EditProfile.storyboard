@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Segoe UI Bold.ttf">
+            <string>SegoeUI-Bold</string>
+        </array>
         <array key="Segoe UI.ttf">
             <string>SegoeUI</string>
         </array>
@@ -23,16 +26,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eax-Mp-rUK">
-                                <rect key="frame" x="60" y="64" width="314" height="24"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="60" y="64" width="314" height="19"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                <color key="textColor" name="blue"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Edit Profile"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ge6-6t-k9V">
-                                <rect key="frame" x="20" y="66" width="20" height="20"/>
+                                <rect key="frame" x="20" y="63.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Lcl-ei-fnH"/>
                                     <constraint firstAttribute="height" constant="20" id="gci-gw-Vd6"/>
@@ -41,28 +44,28 @@
                                 <buttonConfiguration key="configuration" style="plain" image="backBlue"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ahx-uW-gvO">
-                                <rect key="frame" x="20" y="108" width="374" height="738"/>
+                                <rect key="frame" x="20" y="103" width="374" height="743"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJ1-Q9-zNZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="738"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="743"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QVl-30-dT9">
-                                                <rect key="frame" x="20" y="252.5" width="334" height="57.5"/>
+                                                <rect key="frame" x="20" y="252.5" width="334" height="90"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SJY-2L-kYp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="90"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name &quot;En&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d76-L4-3jA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d76-L4-3jA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="50"/>
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="EditProfileName"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="last Name en"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name &quot;En&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqx-3v-rXj">
-                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqx-3v-rXj">
+                                                                <rect key="frame" x="0.0" y="55" width="162" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="PMa-uD-RTJ"/>
                                                                 </constraints>
@@ -74,16 +77,16 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="EditProfileName"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="last Name en"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dZs-yp-GwW">
-                                                        <rect key="frame" x="172" y="0.0" width="162" height="57.5"/>
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name &quot;Ar&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnA-mo-lnT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="17.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="50"/>
                                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                                 <color key="textColor" name="blue"/>
                                                                 <nil key="highlightedColor"/>
@@ -92,7 +95,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name &quot;Ar&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIK-gY-0SH">
-                                                                <rect key="frame" x="0.0" y="22.5" width="162" height="35"/>
+                                                                <rect key="frame" x="0.0" y="55" width="162" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="6m1-ED-mIT"/>
                                                                 </constraints>
@@ -112,7 +115,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8zD-Ln-WYu">
-                                                <rect key="frame" x="20" y="455" width="334" height="57.5"/>
+                                                <rect key="frame" x="20" y="487.5" width="334" height="57.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5b0-UA-gU0">
                                                         <rect key="frame" x="0.0" y="0.0" width="162" height="57.5"/>
@@ -177,7 +180,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3TQ-wQ-Fgu">
-                                                <rect key="frame" x="20" y="387.5" width="334" height="57.5"/>
+                                                <rect key="frame" x="20" y="420" width="334" height="57.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="E3K-BJ-uY4">
                                                         <rect key="frame" x="0.0" y="0.0" width="46" height="57.5"/>
@@ -299,7 +302,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rhd-zK-sqt">
-                                                <rect key="frame" x="20" y="320" width="334" height="57.5"/>
+                                                <rect key="frame" x="20" y="352.5" width="334" height="57.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AQ-Zv-NXN">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="17.5"/>
@@ -353,48 +356,43 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Change Profile"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-aO-0gQ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group3065" translatesAutoresizingMaskIntoConstraints="NO" id="kF0-9o-vlF">
                                                 <rect key="frame" x="147" y="30" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="HQh-z1-ezf"/>
-                                                    <constraint firstAttribute="width" constant="80" id="vtj-TU-ain"/>
+                                                    <constraint firstAttribute="height" constant="80" id="Ain-t6-SUS"/>
+                                                    <constraint firstAttribute="width" constant="80" id="mAI-6L-ZL1"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="avatar"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="dark"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="40"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </button>
+                                            </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7a1-jD-ObE">
-                                                <rect key="frame" x="20" y="522.5" width="67.5" height="48"/>
+                                                <rect key="frame" x="20" y="555" width="50" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2n-yG-Za2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="67.5" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="blue"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Role"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pharmacist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0T-5w-RYC">
-                                                        <rect key="frame" x="0.0" y="29" width="67.5" height="19"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0T-5w-RYC">
+                                                        <rect key="frame" x="0.0" y="60" width="50" height="50"/>
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Pharmacist"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8u-tw-cpg">
-                                                <rect key="frame" x="107" y="600.5" width="160" height="35"/>
+                                                <rect key="frame" x="107" y="695" width="160" height="35"/>
                                                 <color key="backgroundColor" name="blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="XTu-Xb-Xds"/>
@@ -421,11 +419,10 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="f8u-tw-cpg" firstAttribute="top" secondItem="7a1-jD-ObE" secondAttribute="bottom" constant="30" id="0aX-as-7io"/>
-                                            <constraint firstItem="BvO-NB-Vr4" firstAttribute="top" secondItem="LVy-aO-0gQ" secondAttribute="bottom" constant="20" id="615-Cg-e4z"/>
+                                            <constraint firstItem="kF0-9o-vlF" firstAttribute="top" secondItem="BJ1-Q9-zNZ" secondAttribute="top" constant="30" id="4Fv-Sx-7gm"/>
                                             <constraint firstItem="3TQ-wQ-Fgu" firstAttribute="leading" secondItem="BJ1-Q9-zNZ" secondAttribute="leading" constant="20" id="6NC-1A-FmP"/>
-                                            <constraint firstItem="LVy-aO-0gQ" firstAttribute="centerX" secondItem="BJ1-Q9-zNZ" secondAttribute="centerX" id="7oZ-dk-N0q"/>
                                             <constraint firstAttribute="trailing" secondItem="QVl-30-dT9" secondAttribute="trailing" constant="20" id="8xd-lw-6Ko"/>
-                                            <constraint firstItem="LVy-aO-0gQ" firstAttribute="top" secondItem="BJ1-Q9-zNZ" secondAttribute="top" constant="30" id="CjX-16-hzF"/>
+                                            <constraint firstItem="kF0-9o-vlF" firstAttribute="centerX" secondItem="BJ1-Q9-zNZ" secondAttribute="centerX" id="CC6-4g-7pT"/>
                                             <constraint firstItem="8zD-Ln-WYu" firstAttribute="leading" secondItem="BJ1-Q9-zNZ" secondAttribute="leading" constant="20" id="Dqs-Ur-jor"/>
                                             <constraint firstItem="wbg-75-0kO" firstAttribute="centerX" secondItem="BJ1-Q9-zNZ" secondAttribute="centerX" id="JTQ-s6-kP2"/>
                                             <constraint firstItem="7a1-jD-ObE" firstAttribute="leading" secondItem="BJ1-Q9-zNZ" secondAttribute="leading" constant="20" id="K0M-zM-XIO"/>
@@ -434,6 +431,7 @@
                                             <constraint firstItem="wbg-75-0kO" firstAttribute="leading" secondItem="BJ1-Q9-zNZ" secondAttribute="leading" constant="20" id="R8Y-lM-Nij"/>
                                             <constraint firstItem="QVl-30-dT9" firstAttribute="top" secondItem="wbg-75-0kO" secondAttribute="bottom" constant="20" id="SGS-6j-SA0"/>
                                             <constraint firstAttribute="trailing" secondItem="Rhd-zK-sqt" secondAttribute="trailing" constant="20" id="YlC-UZ-1wq"/>
+                                            <constraint firstItem="BvO-NB-Vr4" firstAttribute="top" secondItem="kF0-9o-vlF" secondAttribute="bottom" constant="20" id="cXm-dI-0ZG"/>
                                             <constraint firstItem="7a1-jD-ObE" firstAttribute="top" secondItem="8zD-Ln-WYu" secondAttribute="bottom" constant="10" id="ee0-ag-1zP"/>
                                             <constraint firstItem="QVl-30-dT9" firstAttribute="leading" secondItem="BJ1-Q9-zNZ" secondAttribute="leading" constant="20" id="gUQ-2J-bhr"/>
                                             <constraint firstItem="3TQ-wQ-Fgu" firstAttribute="top" secondItem="Rhd-zK-sqt" secondAttribute="bottom" constant="10" id="jDI-8b-MZ0"/>
@@ -500,7 +498,7 @@
                         <outlet property="lastNameAR" destination="NIK-gY-0SH" id="yGb-ub-MS1"/>
                         <outlet property="lastNameEN" destination="oqx-3v-rXj" id="F1T-gd-fV2"/>
                         <outlet property="mobile" destination="Aql-vO-8xh" id="uoY-BE-CRY"/>
-                        <outlet property="ownerImage" destination="LVy-aO-0gQ" id="qyl-Ws-Jyg"/>
+                        <outlet property="ownerImage" destination="kF0-9o-vlF" id="YV2-ux-i2u"/>
                         <outlet property="role" destination="S0T-5w-RYC" id="im5-Ir-9DJ"/>
                         <outlet property="savebutton" destination="f8u-tw-cpg" id="tNM-6N-cn1"/>
                     </connections>
@@ -511,8 +509,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatar" width="50" height="50"/>
         <image name="backBlue" width="16.815999984741211" height="18.764999389648438"/>
+        <image name="group3065" width="60" height="60"/>
         <namedColor name="blue">
             <color red="0.071000002324581146" green="0.46700000762939453" blue="0.81999999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

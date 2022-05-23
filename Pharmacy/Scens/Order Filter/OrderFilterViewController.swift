@@ -6,24 +6,26 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
+import RxCocoa
+class OrderFilterViewController: BaseViewController {
 
-class OrderFilterViewController: UIViewController {
-
+    
+    var articleDetailsViewModel = OrderFilterViewModel()
+    private var router = OrderFilterRouter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        bindViewControllerRouter()
+        
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension OrderFilterViewController {
+    func bindViewControllerRouter() {
+        articleDetailsViewModel.bind(view: self, router: router)
     }
-    */
-
 }

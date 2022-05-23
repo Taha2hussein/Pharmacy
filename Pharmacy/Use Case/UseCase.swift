@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MOLH
 protocol pushView {
     func pushNextView()
 }
@@ -27,4 +28,16 @@ protocol validateTokenCode {
 
 protocol uperSection {
     func embedUperView(uperView: UIView)
+}
+
+func getCurrentLanguage() -> String {
+    if MOLHLanguage.currentAppleLanguage() == "en" {
+        return "2"
+    }
+    else  if MOLHLanguage.currentAppleLanguage() == "ar"{
+        return "1"
+    }
+    else {
+        return "2"
+    }
 }

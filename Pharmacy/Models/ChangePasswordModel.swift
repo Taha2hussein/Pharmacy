@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+// MARK: - ChangePasswordModel
+struct ChangePasswordModel: Codable {
+    var successtate: Int?
+    var errormessage, message: String?
+}

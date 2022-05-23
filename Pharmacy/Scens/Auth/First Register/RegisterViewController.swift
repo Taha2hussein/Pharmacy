@@ -10,10 +10,10 @@ import RxSwift
 import RxRelay
 import RxCocoa
 import DropDown
-import WPMediaPicker
 
 class RegisterViewController: BaseViewController {
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var ownerImageButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -22,24 +22,50 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var ownertLastName: UITextField!
     @IBOutlet weak var ownertFirstName: UITextField!
     @IBOutlet weak var nextButton: UIButton!
-    
+    @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var flagImage: UIImageView!
+
     var articleDetailsViewModel = FirstRegisterViewModel()
     private var router = FirstRegisterRouter()
-    private var Images = [ZTAssetWrapper]()
+//    private var Images = [ZTAssetWrapper]()
     private var selectedImageCheckOnce = true
-    
+    private var profileImagePath: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewControllerRouter()
         subscribeToContinueRegister()
-//        selectImageTappedForOwner()
+        selectImageTappedForOwner()
         bindFirstName()
         bindLastName()
         bindImageToOwnerImage()
         bindEmail()
         bindMobile()
         bindPassword()
-        validateData()
+        addTooglePasswordShowButton()
+        backAction()
+//        validateData()
+        subscribeToLoader()
+        setUpPhone()
+    }
+    
+    func setUpPhone() {
+        ImageCountryCode().setCountryCode(countryImage: flagImage)
+        
+    }
+    
+    func addTooglePasswordShowButton() {
+        confirmPassword.enablePasswordToggle(textField: confirmPassword)
+        passwordTextField.enablePasswordToggle(textField: passwordTextField)
+
+    }
+    
+   
+    
+    func backAction() {
+        backButton.rx.tap.subscribe { [weak self] _ in
+            self?.router.backView()
+        } .disposed(by: self.disposeBag)
+
     }
     
     func validateData() {
@@ -48,25 +74,35 @@ class RegisterViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
         
     }
-    
+
     func useWPmediaPicker() {
-        let options =  WPMediaPickerOptions()
-        options.filter = .image
-        options.allowMultipleSelection = true
-        options.showMostRecentFirst = true
-        options.allowCaptureOfMedia = false
-        let picker = WPNavigationMediaPickerViewController(options: options)
-        picker.modalPresentationStyle = .fullScreen
-        picker.delegate = self
-        self.present(picker, animated: true)
+
+        ImagePickerManager().pickImage(self){ image in
+            self.articleDetailsViewModel.selectedImageOwner.onNext(image)
+           }
+    }
+    
+    
+    func subscribeToLoader() {
+        AlamofireMultiPart.shared.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
+            DispatchQueue.main.async {
+                if isLoading {
+                    self?.showLoading()
+                    
+                } else {
+                    self?.hideLoading()
+                }
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     func bindImageToOwnerImage() {
         articleDetailsViewModel.selectedImageOwner.subscribe {[weak self] image in
             if let image = image.element {
                 DispatchQueue.main.async {
-                self?.ownerImageButton.setImage(image.image, for: .normal)
-                LocalStorage().saveOwnerImage(using: image.image ?? UIImage(named:"Avatar")!)
+                self?.ownerImageButton.setImage(image, for: .normal)
+                    singlton.shared.userImage.append(UploadDataa(data: image.jpegData(compressionQuality: 0.1)!, Key: "personal_image"))
+                    AlamofireMultiPart.shared.PostMultiWithModel(model: SuccessModelImage.self, url: uploadImageApi, Images: singlton.shared.userImage, header: headers, parameters: [:],completion: self!.ProfileImageNetwork)
                 }
             }
         }.disposed(by: self.disposeBag)
@@ -81,7 +117,7 @@ class RegisterViewController: BaseViewController {
     }
     
     func pushView() {
-        articleDetailsViewModel.pushNextView()
+        self.router.navigateToCompleteRegisterView(imagePath: self.profileImagePath)
     }
     
     func assignValueToLocal() {
@@ -104,9 +140,49 @@ extension RegisterViewController {
 }
 
 extension RegisterViewController {
+    
+    func showAlert(message:String) {
+        Alert().displayError(text: message, viewController: self)
+    }
+    
+    func validateALLField() {
+        if ownertFirstName.text!.isEmpty || ownertLastName.text!.isEmpty || ownerEmail.text!.isEmpty || phoneTextField.text!.isEmpty || passwordTextField.text!.isEmpty || confirmPassword.text!.isEmpty{
+            showAlert(message: LocalizedStrings().emptyField)
+        }
+        
+        else if ownertFirstName.text!.count < 3 ||  ownertFirstName.text!.count > 75 || ownertLastName.text!.count < 3 ||  ownertLastName.text!.count > 75 {
+            showAlert(message: LocalizedStrings().validateUserName)
+        }
+        
+        
+        else if passwordTextField.text!.count < 8 || confirmPassword.text!.count < 8 {
+            showAlert(message: LocalizedStrings().passwordCount)
+        }
+        
+        else if isEmailValid(ownerEmail.text!) == false {
+            showAlert(message: LocalizedStrings().unvalidemail)
+        }
+      
+        else if passwordTextField.text! != confirmPassword.text! {
+            showAlert(message: LocalizedStrings().passwordMatch)
+        }
+        
+        else if phoneTextField.text!.count < 11 {
+            showAlert(message: LocalizedStrings().validPhoneNumber)
+        }
+        else if profileImagePath == ""{
+            showAlert(message: LocalizedStrings().uploadImage)
+        }
+        else {
+            self.pushCompleteRegisterView()
+        }
+        
+    }
+    
     func subscribeToContinueRegister() {
         nextButton.rx.tap.subscribe { [weak self] _ in
-            self?.pushCompleteRegisterView()
+            self?.validateALLField()
+//            self?.pushCompleteRegisterView()
         } .disposed(by: self.disposeBag)
     }
 }
@@ -144,27 +220,22 @@ extension RegisterViewController {
     }
 }
 
-extension RegisterViewController: WPMediaPickerViewControllerDelegate {
-    private func mediaPickerController(_ picker: WPMediaPickerViewController?, previewViewControllerForAssets assets: [WPMediaAsset?]?, selectedIndex selected: Int) {
-        
-    }
-    
-    func mediaPickerController(_ picker: WPMediaPickerViewController, didFinishPicking assets: [WPMediaAsset]) {
-        picker.dismiss(animated: true, completion: nil)
-        
-        for (_ , element ) in assets.enumerated() {
-            
-            if element.assetType() == .image  {
-                element.image(with: CGSize(width: 100, height: 100), completionHandler: { image, err in
-                    
-                    let selectedImage = ZTAssetWrapper(url: nil, type: .image, avAssetUrl: nil, image: image)
-                    if self.selectedImageCheckOnce {
-                        self.articleDetailsViewModel.selectedImageOwner.onNext(selectedImage)
-                        self.selectedImageCheckOnce = false
-                    }
-                   }
-                )
+extension RegisterViewController {
+    func ProfileImageNetwork(result : ServerResponse<SuccessModelImage>){
+        switch result {
+        case .success(let model):
+            if model.successtate == 200 {
+                self.profileImagePath = model.message ?? ""
+                print(model.message ?? "","model.messages")
+            }else{
+                print("model: \(model)")
+    //            self.showMessage(title: "", sub: model.errormessage, type: .error, layout: .messageView)
             }
+            break
+        case .failure(let err):
+            guard let err = err else {return}
+            print("err: \(err)")
         }
     }
+
 }

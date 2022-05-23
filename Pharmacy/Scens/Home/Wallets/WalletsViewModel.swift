@@ -29,6 +29,7 @@ class WalletsViewModel{
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
             self.state.isLoading.accept(false)
@@ -57,6 +58,7 @@ class WalletsViewModel{
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)

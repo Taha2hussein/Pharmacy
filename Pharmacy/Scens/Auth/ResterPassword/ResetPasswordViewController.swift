@@ -50,10 +50,34 @@ class ResetPasswordViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
     }
     
+    
+    func showAlert(message:String) {
+        Alert().displayError(text: message, viewController: self)
+    }
+    
+    func validateALLField() {
+        if newPasswordTextField.text!.isEmpty  || confirmationNewPassword.text!.isEmpty{
+            showAlert(message: LocalizedStrings().emptyField)
+        }
+        
+        else if newPasswordTextField.text!.count < 8 ||  confirmationNewPassword.text!.count < 8 {
+            showAlert(message: LocalizedStrings().passwordCount)
+        }
+        
+        else if newPasswordTextField.text != confirmationNewPassword.text {
+            showAlert(message: LocalizedStrings().passwordMatch)
+        }
+        
+        else {
+            self.articleDetailsViewModel.resetPassword(newPassword: self.newPasswordTextField.text ?? "", newConfirmationPassword: self.confirmationNewPassword.text ?? "")
+        }
+        
+    }
+    
     func resetPasswordTapped() {
         resetPasswordButton.rx.tap.subscribe { [weak self] _ in
-            
-            self?.articleDetailsViewModel.resetPassword(newPassword: self?.newPasswordTextField.text ?? "", newConfirmationPassword: self?.confirmationNewPassword.text ?? "")
+                    
+            self?.validateALLField()
         }.disposed(by: self.disposeBag)
         
     }

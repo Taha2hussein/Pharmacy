@@ -10,8 +10,22 @@ import RxCocoa
 import RxRelay
 import RxSwift
 import DropDown
+import SwiftUI
+
+enum deliveryTime {
+    case firstTime
+    case secondTime
+    case thirdTime
+}
 class AddPharmacyViewController: BaseViewController {
     
+    @IBOutlet weak var deliveryTimeStackView: UIStackView!
+    @IBOutlet weak var howFarTopConstraints: NSLayoutConstraint!
+    @IBOutlet weak var fromTimeLabel: UILabel!
+    @IBOutlet weak var openingFullTimeLabel: UILabel!
+    @IBOutlet weak var pharmacyDeliveryNoLabel: UILabel!
+    @IBOutlet weak var pharmacyDeliveryYesLabel: UILabel!
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var backButtonAction: UIButton!
     @IBOutlet weak var markLocationButton: UIButton!
     @IBOutlet weak var kilometerField: UITextField!
@@ -20,18 +34,33 @@ class AddPharmacyViewController: BaseViewController {
     @IBOutlet weak var fromDateButton: UIButton!
     @IBOutlet weak var chooseDateStackView: UIStackView!
     @IBOutlet weak var openingfullTime: UIButton!
-    @IBOutlet weak var deliveryFessNo: UIButton!
-    @IBOutlet weak var deliveryFeesYes: UIButton!
+    
+    @IBOutlet weak var enterFeesTime: UILabel!
+    @IBOutlet weak var enterFeesHeaderLabel: UILabel!
+    @IBOutlet weak var enterFeesStackView: UIStackView!
+    @IBOutlet weak var enterFeesField: UITextField!
+    //    @IBOutlet weak var deliveryFessNo: UIButton!
+//    @IBOutlet weak var deliveryFeesYes: UIButton!
+    
+    
+    @IBOutlet weak var firstDeliveryTimeButton: UIButton!
+    @IBOutlet weak var firstDeliveryTimeLabel: UILabel!
+    @IBOutlet weak var secondDeliveryTimeButton: UIButton!
+    @IBOutlet weak var secondDeliveryTimeLabel: UILabel!
+    @IBOutlet weak var thirdDeliveryTimeButton: UIButton!
+    @IBOutlet weak var thirdDeliveryTimeLabel: UILabel!
+    @IBOutlet weak var enterDeliveryTimeTextField: UITextField!
+    
     @IBOutlet weak var paymentOnline: UIButton!
     @IBOutlet weak var paymentCashButton: UIButton!
     @IBOutlet weak var pharmacyDeliveryNo: UIButton!
     @IBOutlet weak var pharmacyDeliveryYes: UIButton!
     @IBOutlet weak var landmarkAr: UITextField!
     @IBOutlet weak var landmarkEn: UITextField!
-    @IBOutlet weak var buildingNameAr: UITextField!
-    @IBOutlet weak var buildingNameEn: UITextField!
-    @IBOutlet weak var streetNameAr: UITextField!
-    @IBOutlet weak var streetNameEn: UITextField!
+//    @IBOutlet weak var buildingNameAr: UITextField!
+//    @IBOutlet weak var buildingNameEn: UITextField!
+//    @IBOutlet weak var streetNameAr: UITextField!
+//    @IBOutlet weak var streetNameEn: UITextField!
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var areaField: UITextField!
     @IBOutlet weak var mobileTextField: UITextField!
@@ -39,6 +68,7 @@ class AddPharmacyViewController: BaseViewController {
     @IBOutlet weak var brnachNameEn: UITextField!
     @IBOutlet weak var saveAction: UIButton!
     @IBOutlet weak var countryField: UITextField!
+    @IBOutlet weak var headerLabel: UILabel!
     
     var articleDetailsViewModel = AddPharmacyViewModel()
     private var router = AddPharmacyRouter()
@@ -49,10 +79,11 @@ class AddPharmacyViewController: BaseViewController {
     private var paymentWay: Int = 1
     private var countrySelectedIndex = 0
     private var citySelectedIndex = 0
-    private var countrySelected = 0
+    private var countrySelected = 1
     private var citySelected = 0
+    var deliveryTimes: Int = 0
     private var areaSelected = 0
-
+    private var deliveryTime : deliveryTime = .firstTime
     let radioController: RadioButtonController = RadioButtonController()
     let radioControlleDeliveryFees: RadioButtonController = RadioButtonController()
     let radioControllerPayment: RadioButtonController = RadioButtonController()
@@ -67,28 +98,30 @@ class AddPharmacyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewControllerRouter()
-//        validateData()
+        //        validateData()
         setUPForPayment()
         setUPForDelivery()
         setUPForDeliveryServiceFeess()
-        bindbrnachNameEn()
-        bindbranchNameAr()
-        bindmobile()
-        bindcityField()
-        bindareaField()
-        bindstreetNameEn()
-        bindstreetNameAr()
-        bindbuildingNameEn()
-        bindbuildingNameAr()
-        bindlandmarkEn()
-        bindlandmarkAr()
-        bindhowFarService()
+        bindAllTextFields()
+//        bindbrnachNameEn()
+//        bindbranchNameAr()
+//        bindmobile()
+//        bindcityField()
+//        bindareaField()
+//        bindstreetNameEn()
+//        bindstreetNameAr()
+//        bindbuildingNameEn()
+//        bindbuildingNameAr()
+//        bindlandmarkEn()
+//        bindlandmarkAr()
+//        bindhowFarService()
         showFromDateAction()
         subscribeToLoader()
         NoActionForDelivery()
         yesActionForDelivery()
-        NoActionForDeloveryFees()
-        YesActionForDeloveryFees()
+        firstActionForDeloveryFees()
+        secondActionForDeloveryFees()
+        thirdDeliveryTimeAction()
         PaymentCash()
         PaymentOnline()
         requestCountryList()
@@ -103,47 +136,71 @@ class AddPharmacyViewController: BaseViewController {
         showEndDateAction()
         saveTapped()
         backTapped()
+        subsribeEditBranch()
+        addImageToTextFields()
+        setUPForDeliveryServiceFeess()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setLocationName()
+        
+        if articleDetailsViewModel.addOrEdit == true {
+            articleDetailsViewModel.getBranchForEdit()
+        }
+        headerLabel.text = articleDetailsViewModel.headerLabel.localized
+        
+    }
+    
+    func addImageToTextFields() {
+        cityField.setRightImage(imageName: "icNext",textField: cityField)
+        areaField.setRightImage(imageName: "icNext",textField: areaField)
     }
     
     func setLocationName() {
         guard let location = LocalStorage().getLocationName()  as? String , !location.isEmpty else {return}
-        markLocationButton.setTitle(location, for: .normal)
+        self.locationTextField.text = location
+//        markLocationButton.setTitle(location, for: .normal)
     }
     
     func backTapped() {
         backButtonAction.rx.tap.subscribe { [weak self] _ in
             self?.router.backView()
         } .disposed(by: self.disposeBag)
-
+        
     }
     
     func setUPForDelivery() {
         radioController.buttonsArray = [pharmacyDeliveryNo,pharmacyDeliveryYes]
-        radioController.defaultButton = pharmacyDeliveryNo
-
+        radioController.defaultButton = pharmacyDeliveryYes
+        pharmacyDeliveryYesLabel.textColor = .blue
+        pharmacyDeliveryNoLabel.textColor = .gray
+        
     }
     
     func setUPForDeliveryServiceFeess() {
-        radioControlleDeliveryFees.buttonsArray = [deliveryFessNo,deliveryFeesYes]
-        radioControlleDeliveryFees.defaultButton = deliveryFessNo
+        radioControlleDeliveryFees.buttonsArray = [firstDeliveryTimeButton,secondDeliveryTimeButton,thirdDeliveryTimeButton]
+        radioControlleDeliveryFees.defaultButton = firstDeliveryTimeButton
+        
+        firstDeliveryTimeLabel.textColor = .blue
+        secondDeliveryTimeLabel.textColor = .gray
+        thirdDeliveryTimeLabel.textColor = .gray
 
+        
     }
     
     func setUPForPayment() {
         radioControllerPayment.buttonsArray = [paymentCashButton,paymentOnline]
         radioControllerPayment.defaultButton = paymentCashButton
-
+        
     }
     
     func setUPForOpeingTime() {
         radioControllerOpeningtime.buttonsArray = [openingfullTime,openingCustomTime]
         radioControllerOpeningtime.defaultButton = openingfullTime
-
+        openingFullTimeLabel.textColor = .blue
+        fromTimeLabel.textColor = .gray
+        
     }
     func setGesturesForCountry() {
         let country = UITapGestureRecognizer(target: self, action: #selector(CompleteRegisterViewController.tapCountry))
@@ -168,7 +225,7 @@ class AddPharmacyViewController: BaseViewController {
         articleDetailsViewModel.isValid.subscribe(onNext: {[weak self] (isEnabled) in
             isEnabled ? (self?.saveAction.isEnabled = true) : (self?.saveAction.isEnabled = false)
         }).disposed(by: self.disposeBag)
-
+        
     }
     
     func ActionForOpeningFullTime() {
@@ -176,6 +233,8 @@ class AddPharmacyViewController: BaseViewController {
             self?.radioControllerOpeningtime.buttonArrayUpdated(buttonSelected: (self?.openingfullTime)!)
             self?.openingTime = true
             self?.chooseDateStackView.isHidden = true
+            self?.openingFullTimeLabel.textColor = .blue
+            self?.fromTimeLabel.textColor = .gray
         }.disposed(by: self.disposeBag)
         
     }
@@ -185,13 +244,27 @@ class AddPharmacyViewController: BaseViewController {
             self?.radioControllerOpeningtime.buttonArrayUpdated(buttonSelected: (self?.openingCustomTime)!)
             self?.hasDelivery = false
             self?.chooseDateStackView.isHidden = false
+            self?.openingFullTimeLabel.textColor = .gray
+            self?.fromTimeLabel.textColor = .blue
         }.disposed(by: self.disposeBag)
     }
-
+    
     func NoActionForDelivery() {
         pharmacyDeliveryNo.rx.tap.subscribe {[weak self] _ in
             self?.radioController.buttonArrayUpdated(buttonSelected: (self?.pharmacyDeliveryNo)!)
             self?.hasDelivery = false
+            self?.enterFeesStackView.isHidden = true
+            self?.enterFeesHeaderLabel.isHidden = true
+            self?.enterFeesTime.isHidden = true
+            self?.deliveryTimeStackView.isHidden = true
+            self?.enterFeesTime.isHidden = true
+            if self?.deliveryTime == .firstTime || self?.deliveryTime == .secondTime {
+            self?.howFarTopConstraints.constant = -190
+            }
+            else {
+                self?.howFarTopConstraints.constant = -200
+
+            }
         }.disposed(by: self.disposeBag)
         
     }
@@ -200,22 +273,47 @@ class AddPharmacyViewController: BaseViewController {
         pharmacyDeliveryYes.rx.tap.subscribe {[weak self] _ in
             self?.radioController.buttonArrayUpdated(buttonSelected: (self?.pharmacyDeliveryYes)!)
             self?.hasDelivery = true
+            self?.enterFeesStackView.isHidden = false
+            self?.enterFeesHeaderLabel.isHidden = false
+            self?.enterFeesTime.isHidden = false
+            self?.deliveryTimeStackView.isHidden = false
+
+            self?.howFarTopConstraints.constant = 10
         }.disposed(by: self.disposeBag)
     }
     
     
-    func NoActionForDeloveryFees() {
-        deliveryFessNo.rx.tap.subscribe {[weak self] _ in
-            self?.radioControlleDeliveryFees.buttonArrayUpdated(buttonSelected: (self?.deliveryFessNo)!)
-            self?.deliveryFees = false
+    func firstActionForDeloveryFees() {
+        firstDeliveryTimeButton.rx.tap.subscribe {[weak self] _ in
+            self?.radioControlleDeliveryFees.buttonArrayUpdated(buttonSelected: (self?.firstDeliveryTimeButton)!)
+            self?.enterDeliveryTimeTextField.isHidden = true
+            self?.firstDeliveryTimeLabel.textColor = .blue
+            self?.secondDeliveryTimeLabel.textColor = .gray
+            self?.thirdDeliveryTimeLabel.textColor = .gray
+            self?.deliveryTime = .firstTime
         }.disposed(by: self.disposeBag)
         
     }
     
-    func YesActionForDeloveryFees() {
-        deliveryFeesYes.rx.tap.subscribe {[weak self] _ in
-            self?.radioControlleDeliveryFees.buttonArrayUpdated(buttonSelected: (self?.deliveryFeesYes)!)
-            self?.deliveryFees = true
+    func secondActionForDeloveryFees() {
+        secondDeliveryTimeButton.rx.tap.subscribe {[weak self] _ in
+            self?.radioControlleDeliveryFees.buttonArrayUpdated(buttonSelected: (self?.secondDeliveryTimeButton)!)
+            self?.enterDeliveryTimeTextField.isHidden = true
+            self?.firstDeliveryTimeLabel.textColor = .gray
+            self?.secondDeliveryTimeLabel.textColor = .blue
+            self?.thirdDeliveryTimeLabel.textColor = .gray
+            self?.deliveryTime = .secondTime
+        }.disposed(by: self.disposeBag)
+    }
+    
+    func thirdDeliveryTimeAction() {
+        thirdDeliveryTimeButton.rx.tap.subscribe {[weak self] _ in
+            self?.radioControlleDeliveryFees.buttonArrayUpdated(buttonSelected: (self?.thirdDeliveryTimeButton)!)
+            self?.enterDeliveryTimeTextField.isHidden = false
+            self?.firstDeliveryTimeLabel.textColor = .gray
+            self?.secondDeliveryTimeLabel.textColor = .gray
+            self?.thirdDeliveryTimeLabel.textColor = .blue
+            self?.deliveryTime = .thirdTime
         }.disposed(by: self.disposeBag)
     }
     
@@ -275,11 +373,91 @@ class AddPharmacyViewController: BaseViewController {
         
     }
     
+    func showAlert(message:String) {
+        Alert().displayError(text: message, viewController: self)
+    }
+    
+    func validateDataForSaveAndEditBranch() {
+        if branchNameAr.text!.isEmpty || brnachNameEn.text!.isEmpty || mobileTextField.text!.isEmpty || cityField.text!.isEmpty || areaField.text!.isEmpty || landmarkAr.text!.isEmpty || landmarkEn.text!.isEmpty {
+            showAlert(message: LocalizedStrings().emptyField)
+        }
+        
+        else if mobileTextField.text!.count < 11 {
+            showAlert(message: LocalizedStrings().unvalidemail)
+        }
+
+        else {
+            sendDataToSave()
+        }
+    }
+    
+    func sendDataToSave(){
+        if self.deliveryTime == .firstTime {
+            deliveryTimes = 30
+        }
+        else if self.deliveryTime == .firstTime {
+            deliveryTimes = 60
+        }
+        else {
+            deliveryTimes = Int(self.enterDeliveryTimeTextField.text ?? "0") ?? 0
+        }
+        self.articleDetailsViewModel.saveEditPharmacy(HasDelivery: self.hasDelivery , TwintyFourHoursService: self.openingTime , paymentType: self.paymentWay , selectedCountry: self.countrySelected , selectedCity: self.citySelected, selectedArea: self.areaSelected, DeliveryFees:Int(enterFeesField.text ?? "0") ?? 0 , DeliveryTimeInMinuts:deliveryTimes ,ClosingTime: (endDateButton.titleLabel?.text ?? "") , OpeninigTime:(fromDateButton.titleLabel?.text ?? ""))
+    }
+    
     func saveTapped() {
         saveAction.rx.tap.subscribe { [weak self] _ in
-            self?.articleDetailsViewModel.saveEditPharmacy(HasDelivery: self?.hasDelivery ?? true, TwintyFourHoursService: self?.openingTime ?? true, paymentType: self?.paymentWay ?? 0, selectedCountry: self?.countrySelected ?? 0, selectedCity: self?.citySelected ?? 0, selectedArea: self?.areaSelected ?? 0)
+            self?.validateDataForSaveAndEditBranch()
         } .disposed(by: self.disposeBag)
-
+        
+    }
+    
+    func subsribeEditBranch() {
+        articleDetailsViewModel.EditBranchInstance.subscribe { [weak self] editBranch in
+            if let editBranch = editBranch.element {
+                DispatchQueue.main.async {
+                    self?.countrySelected = editBranch.countryID ?? 0
+                    self?.citySelected = editBranch.cityID ?? 0
+                    self?.areaSelected = editBranch.areaID ?? 0
+                    self?.paymentWay = editBranch.paymentType ?? 0
+                    self?.hasDelivery = editBranch.hasDelivery ?? false
+                    self?.openingTime = editBranch.twintyFourHoursService ?? false
+                    self?.branchNameAr.text = editBranch.branchNameAr
+                    self?.brnachNameEn.text = editBranch.branchNameEn
+                    self?.mobileTextField.text = editBranch.mobileNumber
+                    self?.countryField.text = "Egypt".localized
+                    self?.cityField.text = editBranch.cityName
+                    self?.areaField.text = editBranch.areaName
+//                    self?.streetNameAr.text = editBranch.address
+//                    self?.streetNameEn.text = editBranch.address
+                    LocalStorage().saveLocationName(locationName: editBranch.address ?? "")
+                    let lon = Double(editBranch.lang ?? "")
+                    let lat = Double(editBranch.lat ?? "")
+                    LocalStorage().saveLocationLatitude(latitude: lat ?? 0.0)
+                    LocalStorage().saveLocationLogitude(longtitude: lon ?? 0.0)
+                    self?.landmarkAr.text = editBranch.landMarkAr
+                    self?.landmarkEn.text = editBranch.landMarkEn
+                    
+                    self?.kilometerField.text = "\(editBranch.provideServiceInKM ?? 0)"
+                    self?.bindAllTextFields()
+                }
+            }
+        }.disposed(by: self.disposeBag)
+        
+    }
+    
+    func bindAllTextFields(){
+        bindbrnachNameEn()
+        bindbranchNameAr()
+        bindmobile()
+        bindcityField()
+        bindareaField()
+//        bindstreetNameEn()
+//        bindstreetNameAr()
+//        bindbuildingNameEn()
+//        bindbuildingNameAr()
+        bindlandmarkEn()
+        bindlandmarkAr()
+        bindhowFarService()
     }
 }
 
@@ -325,29 +503,29 @@ extension AddPharmacyViewController {
     
     
     
-    func bindstreetNameEn() {
-        streetNameEn.rx.text
-            .orEmpty
-            .bind(to: articleDetailsViewModel.streetNameEn).disposed(by: self.disposeBag)
-    }
-    
-    func bindstreetNameAr() {
-        streetNameAr.rx.text
-            .orEmpty
-            .bind(to: articleDetailsViewModel.streetNameAr).disposed(by: self.disposeBag)
-    }
-    
-    func bindbuildingNameEn() {
-        buildingNameEn.rx.text
-            .orEmpty
-            .bind(to: articleDetailsViewModel.buildinghNameEn).disposed(by: self.disposeBag)
-    }
-    
-    func bindbuildingNameAr() {
-        buildingNameAr.rx.text
-            .orEmpty
-            .bind(to: articleDetailsViewModel.buildingNameAr).disposed(by: self.disposeBag)
-    }
+//    func bindstreetNameEn() {
+//        streetNameEn.rx.text
+//            .orEmpty
+//            .bind(to: articleDetailsViewModel.streetNameEn).disposed(by: self.disposeBag)
+//    }
+//
+//    func bindstreetNameAr() {
+//        streetNameAr.rx.text
+//            .orEmpty
+//            .bind(to: articleDetailsViewModel.streetNameAr).disposed(by: self.disposeBag)
+//    }
+//
+//    func bindbuildingNameEn() {
+//        buildingNameEn.rx.text
+//            .orEmpty
+//            .bind(to: articleDetailsViewModel.buildinghNameEn).disposed(by: self.disposeBag)
+//    }
+//
+//    func bindbuildingNameAr() {
+//        buildingNameAr.rx.text
+//            .orEmpty
+//            .bind(to: articleDetailsViewModel.buildingNameAr).disposed(by: self.disposeBag)
+//    }
     
     func bindlandmarkEn() {
         landmarkEn.rx.text

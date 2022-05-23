@@ -9,10 +9,12 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.966450438169-vd9bi3iiljq2u5cn2mqrij8tio3hs6kt</string>
+				<string>com.googleusercontent.apps.107293504862-k8ptd2afmlutqbjki943ve4dfvttl5bi</string>
 			</array>
 		</dict>
 	</array>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

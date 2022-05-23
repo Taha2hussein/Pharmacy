@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+// MARK: - UpdateBasicDataModel
+struct UpdateBasicDataModel: Codable {
+    var successtate: Int?
+    var errormessage, message: String?
+}

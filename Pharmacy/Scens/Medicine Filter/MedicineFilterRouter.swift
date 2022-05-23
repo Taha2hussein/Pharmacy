@@ -40,6 +40,7 @@ class MedicineFilterRouter {
 
 //
     func backAction() {
+//        selectedMedicineArr.removeAll()
         self.sourceView?.navigationController?.popViewController(animated: true)
     }
 }

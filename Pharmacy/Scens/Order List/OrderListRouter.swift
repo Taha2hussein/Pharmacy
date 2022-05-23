@@ -31,11 +31,17 @@ class OrderListRouter {
  
     func showOrderTracking(orderId: Int , singleOrderStatus:Int) {
         let canceledOrder = OrderTrackingRouter(orderId: orderId,singleOrderStatus:singleOrderStatus).viewController
+        
         self.sourceView?.navigationController?.pushViewController(canceledOrder, animated: true)
     }
     
-    func showCanceledOrder(orderId: Int) {
-        let canceledOrder = OrderCancelRouter(orderId: orderId).viewController
+    func showCanceledOrder(orderId: Int,singleOrderStatus:Int) {
+        let canceledOrder = OrderCancelRouter(orderId: orderId, singleOrderStatus: singleOrderStatus).viewController
         self.sourceView?.navigationController?.pushViewController(canceledOrder, animated: true)
+    }
+    
+    func showFilter() {
+        let filterView = OrderFilterRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(filterView, animated: true)
     }
 }

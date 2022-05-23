@@ -10,13 +10,13 @@ import RxReachability
 import RxCocoa
 import RxSwift
 import Reachability
-import RxKeyboard
+//import RxKeyboard
 
-class CheckInternetViewController: KeyboardViewController {
+class CheckInternetViewController : UIViewController{
     
     let reachability: Reachability! = try? Reachability()
-   var alertError = Alert()
-    
+    var alertError = Alert()
+    var disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         //      reachability.rx.isReachable

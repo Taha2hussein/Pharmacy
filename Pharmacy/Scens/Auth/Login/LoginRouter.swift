@@ -33,6 +33,11 @@ class LoginRouter {
         sourceView?.navigationController?.pushViewController(createAccount, animated: true)
     }
     
+    func showTermsAndcondition() {
+        let termsAndCondition = TermsAndConditionRouter().viewController
+        self.sourceView?.navigationController?.pushViewController(termsAndCondition, animated: true)
+    }
+    
     func showForgetPasswordView()  {
         let verificationview = ForgetPasswordRouter().viewController
         self.sourceView?.navigationController?.pushViewController(verificationview, animated: true)
@@ -41,6 +46,7 @@ class LoginRouter {
     func navigateToDetailsView() {
         let tabBarView = UIStoryboard.init(name: Storyboards.tabBar.rawValue, bundle: nil)
         let tabBar = tabBarView.instantiateViewController(withIdentifier: ViewController.tabBarView.rawValue)
-        sourceView?.navigationController?.pushViewController(tabBar, animated: true)
+        UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: tabBar)
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }

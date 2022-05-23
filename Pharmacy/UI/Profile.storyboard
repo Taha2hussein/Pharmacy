@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJY-pf-okO">
-                                <rect key="frame" x="20" y="66" width="20" height="20"/>
+                                <rect key="frame" x="20" y="63.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="BaN-o4-J3I"/>
                                     <constraint firstAttribute="height" constant="20" id="dFg-Xi-5Wr"/>
@@ -35,19 +35,19 @@
                                 <buttonConfiguration key="configuration" style="plain" image="backBlue"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3c-vc-hG9">
-                                <rect key="frame" x="60" y="64" width="314" height="24"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="60" y="64" width="314" height="19"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                <color key="textColor" name="blue"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="My Profile"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lke-Jd-TXO">
-                                <rect key="frame" x="20" y="102" width="374" height="155"/>
+                                <rect key="frame" x="20" y="97" width="374" height="155"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="wBx-4M-qwR">
-                                        <rect key="frame" x="20" y="20" width="50" height="50"/>
+                                        <rect key="frame" x="20" y="52.5" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="fHy-75-OEh"/>
                                             <constraint firstAttribute="width" constant="50" id="jLy-41-q48"/>
@@ -111,15 +111,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="IHX-ez-Tft" firstAttribute="leading" secondItem="wBx-4M-qwR" secondAttribute="trailing" constant="20" id="2VE-Hx-5TO"/>
-                                    <constraint firstItem="wBx-4M-qwR" firstAttribute="top" secondItem="Lke-Jd-TXO" secondAttribute="top" constant="20" id="6HC-U8-tDJ"/>
                                     <constraint firstItem="IHX-ez-Tft" firstAttribute="top" secondItem="Lke-Jd-TXO" secondAttribute="top" constant="20" id="BCM-d0-5Ee"/>
                                     <constraint firstItem="wBx-4M-qwR" firstAttribute="leading" secondItem="Lke-Jd-TXO" secondAttribute="leading" constant="20" id="DAy-sq-KBA"/>
                                     <constraint firstItem="S78-yG-vjO" firstAttribute="leading" secondItem="wBx-4M-qwR" secondAttribute="trailing" constant="20" id="FUM-O1-Acw"/>
                                     <constraint firstAttribute="bottom" secondItem="S78-yG-vjO" secondAttribute="bottom" constant="10" id="Kbg-Bz-7K0"/>
-                                    <constraint firstItem="AwN-Dy-YHi" firstAttribute="top" secondItem="wBx-4M-qwR" secondAttribute="top" id="ZkM-x0-cx4"/>
+                                    <constraint firstItem="AwN-Dy-YHi" firstAttribute="top" secondItem="Lke-Jd-TXO" secondAttribute="top" constant="20" id="Vmc-kh-512"/>
                                     <constraint firstItem="S78-yG-vjO" firstAttribute="top" secondItem="IHX-ez-Tft" secondAttribute="bottom" constant="10" id="sIz-vc-7hj"/>
                                     <constraint firstAttribute="trailing" secondItem="AwN-Dy-YHi" secondAttribute="trailing" constant="20" id="uNt-ML-Dgg"/>
                                     <constraint firstAttribute="height" constant="155" id="wXl-Sx-PRH"/>
+                                    <constraint firstItem="wBx-4M-qwR" firstAttribute="centerY" secondItem="Lke-Jd-TXO" secondAttribute="centerY" id="zBM-58-v2y"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -140,8 +140,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pAc-Au-ZtF">
-                                <rect key="frame" x="20" y="277" width="374" height="575"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pAc-Au-ZtF">
+                                <rect key="frame" x="20" y="272" width="374" height="580"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditProfileTableViewCell" rowHeight="166" id="CVQ-gI-XuR" customClass="EditProfileTableViewCell" customModule="Pharmacy" customModuleProvider="target">
@@ -152,7 +152,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxM-Np-9UP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="166"/>
+                                                    <rect key="frame" x="5" y="5" width="364" height="156"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CCJ-A8-Psx">
                                                             <rect key="frame" x="15" y="15" width="148" height="24"/>
@@ -176,7 +176,7 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBlue" translatesAutoresizingMaskIntoConstraints="NO" id="InB-L3-qPY">
+                                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBlue" translatesAutoresizingMaskIntoConstraints="NO" id="InB-L3-qPY">
                                                             <rect key="frame" x="15" y="54" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="DK6-sy-dpJ"/>
@@ -184,7 +184,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt,Tanta,dfgggggggggEgypt,Tanta,dfgggggggggEgypt,Tanta,dfgggggggggEgypt,Tanta,dfggggggggg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmG-tn-Nhv">
-                                                            <rect key="frame" x="45" y="54" width="597.5" height="17.5"/>
+                                                            <rect key="frame" x="45" y="54" width="304" height="35"/>
                                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -194,6 +194,7 @@
                                                     <constraints>
                                                         <constraint firstItem="InB-L3-qPY" firstAttribute="leading" secondItem="vxM-Np-9UP" secondAttribute="leading" constant="15" id="2gi-AV-mTi"/>
                                                         <constraint firstItem="CCJ-A8-Psx" firstAttribute="leading" secondItem="vxM-Np-9UP" secondAttribute="leading" constant="15" id="7DN-Oy-2eN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PmG-tn-Nhv" secondAttribute="trailing" constant="15" id="ELV-uy-Nls"/>
                                                         <constraint firstItem="InB-L3-qPY" firstAttribute="top" secondItem="PmG-tn-Nhv" secondAttribute="top" id="G9g-d0-0ls"/>
                                                         <constraint firstItem="CCJ-A8-Psx" firstAttribute="top" secondItem="vxM-Np-9UP" secondAttribute="top" constant="15" id="bwy-wR-en4"/>
                                                         <constraint firstAttribute="height" constant="140" id="nb0-zq-ncg"/>
@@ -216,14 +217,15 @@
                                                         <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                                             <size key="value" width="0.0" height="3"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBound" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vxM-Np-9UP" firstAttribute="leading" secondItem="wVs-SJ-QNG" secondAttribute="leading" id="81a-mk-art"/>
-                                                <constraint firstAttribute="bottom" secondItem="vxM-Np-9UP" secondAttribute="bottom" id="AXg-sl-Xcg"/>
-                                                <constraint firstAttribute="trailing" secondItem="vxM-Np-9UP" secondAttribute="trailing" id="iH4-A8-AXr"/>
-                                                <constraint firstItem="vxM-Np-9UP" firstAttribute="top" secondItem="wVs-SJ-QNG" secondAttribute="top" id="iyr-Fe-TUC"/>
+                                                <constraint firstItem="vxM-Np-9UP" firstAttribute="leading" secondItem="wVs-SJ-QNG" secondAttribute="leading" constant="5" id="81a-mk-art"/>
+                                                <constraint firstAttribute="bottom" secondItem="vxM-Np-9UP" secondAttribute="bottom" constant="5" id="AXg-sl-Xcg"/>
+                                                <constraint firstAttribute="trailing" secondItem="vxM-Np-9UP" secondAttribute="trailing" constant="5" id="iH4-A8-AXr"/>
+                                                <constraint firstItem="vxM-Np-9UP" firstAttribute="top" secondItem="wVs-SJ-QNG" secondAttribute="top" constant="5" id="iyr-Fe-TUC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -270,7 +272,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatar" width="50" height="50"/>
+        <image name="avatar" width="225" height="225"/>
         <image name="backBlue" width="16.815999984741211" height="18.764999389648438"/>
         <image name="group3074" width="20" height="20"/>
         <namedColor name="blue">

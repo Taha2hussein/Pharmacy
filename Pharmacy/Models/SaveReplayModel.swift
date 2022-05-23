@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+// MARK: - SaveReplayModel
+struct SaveReplayModel: Codable {
+    var successtate: Int?
+    var errormessage, message: String?
+}

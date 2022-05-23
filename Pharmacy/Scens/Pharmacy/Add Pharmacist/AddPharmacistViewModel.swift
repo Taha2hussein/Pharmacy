@@ -5,7 +5,7 @@
 //  Created by taha hussein on 05/03/2022.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 import RxRelay
@@ -25,6 +25,11 @@ class AddPharmacistViewModel {
     var phone = BehaviorRelay<String>(value:"")
     var gender = BehaviorRelay<String>(value:"")
     var date_Birth = BehaviorRelay<String>(value:"")
+    let selectedImageOwner = PublishSubject<UIImage>()
+    var EditPharmacistInstance = PublishSubject<EditPharmacistMessage>()
+    var addOrEdit = Bool()
+    var headerLabel = String()
+    var id = Int()
     var AllBranchesInstance = PublishSubject<[AllBranchesBranch]>()
     init() {
         isValid = Observable.combineLatest(
@@ -56,7 +61,7 @@ class AddPharmacistViewModel {
         self.router?.setSourceView(view)
     }
     
-    func addPharmacistAction(gender: Int , branches: [Int],role:Int , image: String){
+    func addPharmacistAction(gender: Int , branches: [Int],role:Int , image: String,dateBirth:String){
         let PharmacyProviderFk = LocalStorage().getPharmacyProviderFk()
         let getPharmacsitID = LocalStorage().getPharmacsitID()
         
@@ -71,10 +76,11 @@ class AddPharmacistViewModel {
                           "FirstNameEn":firstNameEN.value,
                           "FirstNameAr": firstNameAR.value,
                           "Email":email.value,
-                          "DateOfBirth":date_Birth.value,
-                          "Branches":branches
+                          "DateOfBirth":dateBirth,
+                          "Branches":branches,
+                          "Image":image
                          ] as [String : Any]
-        print(parameters)
+        print(parameters,"parametersaDd")
         state.isLoading.accept(true)
         var request = URLRequest(url: URL(string: addPharmacistApi)!)
         let key = LocalStorage().getLoginToken()
@@ -82,6 +88,7 @@ class AddPharmacistViewModel {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -102,7 +109,7 @@ class AddPharmacistViewModel {
                 else {
                     
                     DispatchQueue.main.async {
-                    Alert().displayError(text: self.savePharmacistInstance?.errormessage ?? "An error occured , please try again", viewController: self.view!)
+                        Alert().displayError(text: self.savePharmacistInstance?.errormessage ?? "An error occured , please try again".localized, viewController: self.view!)
                     }
                 }
                 
@@ -129,7 +136,7 @@ extension AddPharmacistViewModel {
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
-  
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         state.isLoading.accept(true)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
@@ -146,7 +153,46 @@ extension AddPharmacistViewModel {
                 
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: AllBranches?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: AllBranches?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
+    
+                    }
+                }
+            } catch let err {
+                print("Err", err)
+            }
+        }.resume()
+    }
+}
+
+
+extension AddPharmacistViewModel {
+    func getPharmacistForEdit() {
+      
+        var request = URLRequest(url: URL(string: editPharmacistApi + "\(self.id)")!)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
+        state.isLoading.accept(true)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            self.state.isLoading.accept(false)
+            do {
+                
+                let decoder = JSONDecoder()
+                var EditPharmacist : EditPharmacistModel?
+                EditPharmacist = try decoder.decode(EditPharmacistModel.self, from: data)
+                if EditPharmacist?.successtate == 200 {
+                    if let editPharmacist = EditPharmacist?.message {
+                    self.EditPharmacistInstance.onNext(editPharmacist)
+                    }
+                }
+                
+                else {
+                    DispatchQueue.main.async {
+                        Alert().displayError(text: EditPharmacist?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
     
                     }
                 }

@@ -21,7 +21,7 @@ class ReviewsRouter {
         let view = UIStoryboard.init(name: Storyboards.pharmacyReviews.rawValue, bundle: nil)
         
         let viewController = view.instantiateViewController(withIdentifier: ViewController.pharmacyReviews.rawValue)as? ReviewsViewController
-        viewController?.articleDetailsViewModel.allReviews = reviews
+//        viewController?.articleDetailsViewModel.allReviews = reviews
         return viewController!
     }
     

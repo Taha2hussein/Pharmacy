@@ -9,6 +9,9 @@ import UIKit
 
 class BranchesPopViewCell: UITableViewCell {
 
+    @IBOutlet weak var branchName: UILabel!
+    @IBOutlet weak var selectedButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +23,7 @@ class BranchesPopViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func setDate(branches: AllBranchesBranch) {
+        self.branchName.text = branches.branchName
+    }
 }

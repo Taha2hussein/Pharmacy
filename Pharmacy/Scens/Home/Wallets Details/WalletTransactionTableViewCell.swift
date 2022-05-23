@@ -20,6 +20,7 @@ class WalletTransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var chargeDate: UILabel!
+    @IBOutlet weak var orderName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,30 +45,34 @@ class WalletTransactionTableViewCell: UITableViewCell {
         switch selected {
             
         case .all:
-            self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))"
-            self.valueLabel.text = "\(product.amount ?? 0.0)"
+            self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))" + " EGP".localized
+            self.valueLabel.text = "\(product.amount ?? 0.0)" + " EGP".localized
             self.chargeDate.text = product.transactionDate
-            
+            self.orderName.text = product.orderNum
         case.received:
             if product.factor == 1 {
-                self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))"
-                self.valueLabel.text = "\(product.amount ?? 0.0)"
+                self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))" + " EGP".localized
+                self.valueLabel.text = "\(product.amount ?? 0.0)" + " EGP".localized
                 self.chargeDate.text = product.transactionDate
+                self.orderName.text = product.orderNum
             }
             else {
                 self.containerView.isHidden = true
                 self.heightConstraint.constant = 0.0
+                self.orderName.text = product.orderNum
             }
             
         case .used:
             if product.factor == -1 {
-                self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))"
+                self.balanceLabel.text = "\(Int(product.balanceAfter ?? 0.0))" + " EGP".localized
                 self.valueLabel.text = "\(product.amount ?? 0.0)"
                 self.chargeDate.text = product.transactionDate
+                self.orderName.text = product.orderNum
             }
             else {
                 self.containerView.isHidden = true
                 self.heightConstraint.constant = 0.0
+                self.orderName.text = product.orderNum
             }
             
         }

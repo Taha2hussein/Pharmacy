@@ -6,3 +6,8 @@
 //
 
 import Foundation
+// MARK: - ContactUsModel
+struct ContactUsModels: Codable {
+    var successtate: Int?
+    var errormessage, message: String?
+}

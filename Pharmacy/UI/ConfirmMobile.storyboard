@@ -113,7 +113,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4qE-Rm-kFD">
-                                                <rect key="frame" x="114.5" y="515.5" width="143" height="74"/>
+                                                <rect key="frame" x="114.5" y="515.5" width="143" height="117"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TT-aJ-2Ev">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="31"/>
@@ -133,6 +133,16 @@
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="Resend code"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiT-qk-SRG">
+                                                        <rect key="frame" x="51" y="86" width="41.5" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="30">
+                                                            <color key="baseForegroundColor" name="dark"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Translationkey" value="30"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                 </subviews>
@@ -196,6 +206,8 @@
                     <connections>
                         <outlet property="confirmButton" destination="nlr-92-pF6" id="Hbj-ua-c2O"/>
                         <outlet property="resendCodeButton" destination="4pG-O7-GnR" id="0dZ-GQ-tb5"/>
+                        <outlet property="resendCodeTime" destination="tiT-qk-SRG" id="zmd-eH-Xx5"/>
+                        <outlet property="userMobilePhone" destination="C2L-1U-AEZ" id="gEw-Xs-e2p"/>
                         <outlet property="verificationCodeTextField" destination="DXZ-rT-Rqi" id="1A9-Ur-cJJ"/>
                     </connections>
                 </viewController>
@@ -204,6 +216,11 @@
             <point key="canvasLocation" x="2684" y="48"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="DXZ-rT-Rqi">
+            <size key="intrinsicContentSize" width="25" height="40"/>
+        </designable>
+    </designables>
     <resources>
         <image name="group3032" width="97.5" height="104"/>
         <namedColor name="blue">

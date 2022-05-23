@@ -18,7 +18,8 @@ class PricingViewModel{
     private var router: PricingRouter?
     var  state = State()
     var OrderTrackingMessage: OrderTrackingMessage?
-    var orderItems = PublishSubject<[OrderTrackingPharmacyOrderItem]>()
+    var orderItems = BehaviorSubject<[OrderTrackingPharmacyOrderItem]>(value: [])
+    var discount = PublishSubject<String>()
     func bind(view: PricingViewController, router: PricingRouter) {
         self.view = view
         self.router = router
@@ -31,32 +32,52 @@ class PricingViewModel{
         }
     }
     
-    func saveDataToCustomer(alternativeMedicine: [Medicine],discount:Double) {
+    func saveDataToCustomer(alternativeMedicine: [Medicine] ,ordersMedicind: [OrderTrackingPharmacyOrderItem] ,discount:Double,orderFees:Double) {
         
         var membersArray = [Any]()
          for i in 0..<alternativeMedicine.count {
-             var quantity = 0
-             if  let quauntityCheck = alternativeMedicine[i].medicineAmountDetailsLocalized?.isNumeric {
-             if quauntityCheck {
-                 quantity = 0
-             }
-             else {
-                 quantity = alternativeMedicine[i].numberOfCart ?? 0
-                }
-             }
+//             var quantity = 0
+//             if  let quauntityCheck = alternativeMedicine[i].medicineAmountDetailsLocalized?.isNumeric {
+//             if quauntityCheck {
+//                 quantity = 0
+//             }
+//             else {
+//                 quantity = alternativeMedicine[i].numberOfCart ?? 0
+//                }
+//             }
              
              let json: [String: Any]  = [
-                 "PharmacyOrderOfferItemId": 0,
-                 "OrderOfferFk": 0,
-                 "PharmacyOrderItemFk": 0,
+                 "OrderOfferFk": orderId,
                  "MedicationFk":alternativeMedicine[i].medicationID ?? 0,
-                 "Quantity":quantity,
+                 "Quantity":alternativeMedicine[i].medicineAmountDetailsLocalizeds ?? 1,
                  "ItemFees":alternativeMedicine[i].price ?? 0,
-                 "IsAlternative":true,
+                 "IsAlternative":false,
                  "IsAvaliable":true
              ]
              membersArray.append(json)
          }
+        
+        for i in 0..<ordersMedicind.count {
+//            var quantity = 0
+//            if  let quauntityCheck = ordersMedicind[i].amountDetailsLocalized?.isNumeric {
+//            if quauntityCheck {
+//                quantity = 0
+//            }
+//            else {
+//                quantity = ordersMedicind[i].quantity ?? 0
+//               }
+//            }
+            
+            let json: [String: Any]  = [
+                "OrderOfferFk": orderId,
+                "MedicationFk":ordersMedicind[i].medicationFk ?? 0,
+                "Quantity":ordersMedicind[i].quantity ?? 1,
+                "ItemFees":ordersMedicind[i].itemFees ?? 0,
+                "IsAlternative":ordersMedicind[i].isAlternative ?? false,
+                "IsAvaliable":true
+            ]
+            membersArray.append(json)
+        }
         
         let parameters = [ "PharmacyProviderFk": LocalStorage().getPharmacyProviderFk(),
                            "HasDelivery":OrderTrackingMessage?.hasDelivery ?? false,
@@ -64,12 +85,12 @@ class PricingViewModel{
                            "OrderFk":OrderTrackingMessage?.orderID ?? 0,
                            "OfferNotes":OrderTrackingMessage?.currentOffer?.offerNotes ?? "",
                            "OrderDiscount":discount,
-                           "OrderFees":OrderTrackingMessage?.currentOffer?.orderFees ?? 0,
-                           "PharmacyOrderOfferId":0,
+                           "OrderFees":orderFees,
+                           "PharmacyOrderOfferId":singlton.shared.pharmacyOfferId,
                            "CreatedByFk":LocalStorage().getPharmacsitID(),
                            "DeliveryFees": 0 ,
                            "DeliveryTimeInMinuts":0,
-                           "PharmacyProviderBranchFk":branchSelected,
+                           "PharmacyProviderBranchFk":PharmacyProviderBranchFk,
                            "PharmacyOrderOfferItemList":membersArray] as [String : Any]
         
         var request = URLRequest(url: URL(string: saveOrderToCustomer)!)
@@ -78,7 +99,7 @@ class PricingViewModel{
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         print(parameters ,"parameters")
-
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
@@ -106,7 +127,7 @@ class PricingViewModel{
                 
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: saveOrder?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: saveOrder?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
     
                     }
                 }

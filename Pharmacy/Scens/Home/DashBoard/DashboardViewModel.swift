@@ -39,6 +39,7 @@ class DashboardViewModel{
         let authValue: String? = "Bearer \(key)"
         print("zzzzz" , parameters , key)
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -58,7 +59,7 @@ class DashboardViewModel{
                 }
                 else {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: DashboardElement?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: DashboardElement?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {
@@ -77,6 +78,7 @@ class DashboardViewModel{
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -114,6 +116,7 @@ extension DashboardViewModel {
     let key = LocalStorage().getLoginToken()
     let authValue: String? = "Bearer \(key)"
     request.setValue(authValue, forHTTPHeaderField: "Authorization")
+//    request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
     let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
     let jsonString = String(data: jsonData!, encoding: .utf8)
     request.httpBody = jsonString?.data(using: .utf8)
@@ -126,8 +129,7 @@ extension DashboardViewModel {
             let decoder = JSONDecoder()
             var dailyTotalrders : TotalDialyOrdersModel?
             dailyTotalrders = try decoder.decode(TotalDialyOrdersModel.self, from: data)
-            print(parameters, "ssdd")
-
+               print(dailyTotalrders, "dailyTotalrderss")
             if dailyTotalrders?.successtate == 200 {
 
                 self.dailyTotalOrders.onNext(dailyTotalrders?.message?.totalDailyOrders ?? [])

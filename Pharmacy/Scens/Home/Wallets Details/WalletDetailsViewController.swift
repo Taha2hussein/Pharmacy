@@ -9,9 +9,11 @@ import UIKit
 import RxSwift
 import RxRelay
 import RxCocoa
+import SDWebImage
 
 class WalletDetailsViewController: BaseViewController {
     
+    @IBOutlet weak var mainBranchLabel: UILabel!
     @IBOutlet weak var linearProgressView: MultiProgressView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIButton!
@@ -94,7 +96,7 @@ class WalletDetailsViewController: BaseViewController {
       
         walletTransactionTableView.rowHeight = 100
         walletTransactionTableView.tableFooterView = UIView()
-
+        mainBranchLabel.text = singlton.shared.branchName
     }
     
     func segmentAction() {
@@ -133,7 +135,7 @@ class WalletDetailsViewController: BaseViewController {
         let expnseProgress = Progress(totalUnitCount: Int64(expanse))
 
         linearProgressView.add(incomeProgress, progressTintColor: .green)
-        linearProgressView.add(expnseProgress, progressTintColor: .red)
+        linearProgressView.add(expnseProgress, progressTintColor: .purple)
 
     }
   
@@ -225,7 +227,7 @@ extension WalletDetailsViewController {
         
     }
     
-    
+
     func bindToPharmacyLocationLabel() {
         articleDetailsViewModel.pharmacyLocation
             .bind(to: pharmacyLocation.rx.text)
@@ -261,7 +263,9 @@ extension WalletDetailsViewController {
     
     func setImage(image: String) {
         if let url = URL(string: baseURLImage + (image ?? "")) {
-            self.ownerImage.load(url: url)
+//            self.ownerImage.load(url: url)
+            self.ownerImage.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar"))
+
         }
     }
 }

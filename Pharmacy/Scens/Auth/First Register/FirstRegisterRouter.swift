@@ -30,8 +30,12 @@ class FirstRegisterRouter {
         self.sourceView = view
     }
     
-    func navigateToCompleteRegisterView() {
-        let completeRegsiterView = CompleteRegisterRouter().viewController
+    func backView(){
+        sourceView?.navigationController?.popViewController(animated: true)
+    }
+    
+    func navigateToCompleteRegisterView(imagePath:String) {
+        let completeRegsiterView = CompleteRegisterRouter(imagePath:imagePath).viewController
         sourceView?.navigationController?.pushViewController(completeRegsiterView, animated: true)
     }
 }

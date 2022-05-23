@@ -11,6 +11,7 @@ import RxRelay
 import RxCocoa
 
 var branchSelected  = Int()
+var PharmacyProviderBranchFk = Int()
 var removeSubview = BehaviorRelay<Bool>(value:false)
 var showCancelPopViewAfterShowingBranches: Bool = false
 class AllBranchesViewController: BaseViewController {
@@ -22,6 +23,7 @@ class AllBranchesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .black.withAlphaComponent(0.5)
         removePopview()
         AddPharmacist.getPharmacyBranches()
         bindBranchToTableView()

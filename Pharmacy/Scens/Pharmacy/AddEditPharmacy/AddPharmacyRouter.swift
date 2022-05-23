@@ -15,14 +15,28 @@ class AddPharmacyRouter {
     }
     
     private var sourceView: UIViewController?
-    
+    private var addOrEdit = Bool()
+    private var headerLabel = String()
+    private var id = Int()
     private func createViewController() -> UIViewController {
       
         let view = UIStoryboard.init(name: Storyboards.AddPharmacy.rawValue, bundle: nil)
         
-        let viewController = view.instantiateViewController(withIdentifier: ViewController.AddPharmacyView.rawValue)
-        
+        let viewController = view.instantiateViewController(withIdentifier: ViewController.AddPharmacyView.rawValue)as! AddPharmacyViewController
+        viewController.articleDetailsViewModel.addOrEdit = self.addOrEdit
+        viewController.articleDetailsViewModel.headerLabel = self.headerLabel
+        viewController.articleDetailsViewModel.id = self.id
         return viewController
+    }
+    
+    init() {
+        
+    }
+    
+    init(addOrEdit:Bool ,headerLabel: String,id:Int ){
+        self.addOrEdit = addOrEdit
+        self.headerLabel = headerLabel
+        self.id = id
     }
     
     func setSourceView(_ sourceView: UIViewController?) {

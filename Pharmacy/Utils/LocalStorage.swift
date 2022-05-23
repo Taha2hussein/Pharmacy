@@ -29,7 +29,7 @@ struct LocalStorage:LocalDataProtocol {
     private let pharmcistId = "PharmcistID"
     private let forgetPasswordId = "forgetPasswordId"
     private let brandFilter = "brandFilter"
-
+    private let userEmail = "userEmail"
     func saveFirstName(using ownerFirstName: String) {
         UserDefaults.standard.set(ownerFirstName, forKey: self.firstName)
     }
@@ -46,30 +46,44 @@ struct LocalStorage:LocalDataProtocol {
         return UserDefaults.standard.object(forKey: self.lastName) as? String ?? ""
     }
     
-    func saveOwnerImage(using image: UIImage) {
+    func saveOwnerImage(using image: Data?) {
         UserDefaults.standard.set(image, forKey: self.ownerImage)
+        
+    }
+    
+    func saveUserEmail(email:String) {
+        UserDefaults.standard.set(email, forKey: self.userEmail)
+
+    }
+    
+    func getUserEmail()-> String {
+        return UserDefaults.standard.object(forKey: self.userEmail) as? String ?? ""
 
     }
     
     func savePharmacyProviderFk(using pharmacyProviderFk: Int) {
         UserDefaults.standard.set(pharmacyProviderFk, forKey: self.pharmacyProvider)
-
+        
     }
     
     func getPharmacyProviderFk()-> Int {
         //pharmacyProvider
         return UserDefaults.standard.object(forKey: self.pharmacyProvider) as? Int ?? 0
-
+        
     }
     
     func getOwnerImage()-> UIImage {
-        return UserDefaults.standard.object(forKey: self.ownerImage) as! UIImage
-
+        if let imageData = UserDefaults.standard.object(forKey: self.ownerImage) {
+            let image = UIImage(data: imageData as! Data)
+            
+            return image ?? UIImage()
+        }
+        return  UIImage()
     }
     
     func saveEmail(using ownerEmail: String) {
         UserDefaults.standard.set(ownerEmail, forKey: self.email)
-
+        
     }
     
     func getownerEmail() -> String {
@@ -78,7 +92,7 @@ struct LocalStorage:LocalDataProtocol {
     
     func saveOwnerPhone(using ownerPhone: String) {
         UserDefaults.standard.set(ownerPhone, forKey: self.Phone)
-
+        
     }
     
     func getownerPhone() -> String {
@@ -87,7 +101,7 @@ struct LocalStorage:LocalDataProtocol {
     
     func saveOwnerPassword(using ownerPassword: String) {
         UserDefaults.standard.set(ownerPassword, forKey: self.password)
-
+        
     }
     
     func getOwnerPassword() -> String {
@@ -116,7 +130,7 @@ struct LocalStorage:LocalDataProtocol {
     
     func getLocationLongituded() -> Double {
         return UserDefaults.standard.object(forKey: self.locationLongtiude)as? Double ?? 0.0
-
+        
     }
     
     func saveActiveLink(using ActiveLink: String) {
@@ -137,7 +151,7 @@ struct LocalStorage:LocalDataProtocol {
     
     func saveDeviceToken(using deviceToken: String) {
         UserDefaults.standard.set(deviceToken, forKey: self.deviceToken)
-
+        
     }
     
     func getdeviceToken() -> String {
@@ -146,7 +160,7 @@ struct LocalStorage:LocalDataProtocol {
     
     func saveDeviceId(using deviceId: String) {
         UserDefaults.standard.set(deviceId, forKey: self.deviceID)
-
+        
     }
     
     func getDeviceId() -> String {
@@ -155,52 +169,52 @@ struct LocalStorage:LocalDataProtocol {
     
     func saveLoginToken(using logintoken: String) {
         UserDefaults.standard.set(logintoken, forKey: self.loginToken)
-
+        
     }
     
     func getLoginToken() -> String {
         return UserDefaults.standard.object(forKey: self.loginToken)as? String ?? ""
-
+        
     }
-
+    
     func savelogedBefore(using logedBefore:Bool) {
         UserDefaults.standard.set(logedBefore, forKey: self.logedBefore)
-
+        
     }
     
     func getLogedBefore()-> Bool {
         return UserDefaults.standard.object(forKey: self.logedBefore)as? Bool ?? false
-
+        
     }
-   
+    
     func savePharmacistID(using  pharmacistId: Int) {
         UserDefaults.standard.set(pharmacistId, forKey: self.pharmcistId)
-
+        
     }
     
     func getPharmacsitID() -> Int {
         return UserDefaults.standard.object(forKey: self.pharmcistId)as? Int ?? 0
-
+        
     }
     
     func saveForgetPasswordId(using id: String) {
         UserDefaults.standard.set(id, forKey: self.forgetPasswordId)
-
+        
     }
     
     func getForgetPasswordId() -> String {
         return UserDefaults.standard.object(forKey: self.forgetPasswordId)as? String ?? ""
-
+        
     }
     
     func saveBrandFilter(using brandFilter: Int) {
         UserDefaults.standard.set(brandFilter, forKey: self.brandFilter)
-
+        
     }
     
     func getBrandFilter() -> Int {
         return UserDefaults.standard.object(forKey: self.brandFilter)as? Int ?? 0
-
+        
     }
     
     

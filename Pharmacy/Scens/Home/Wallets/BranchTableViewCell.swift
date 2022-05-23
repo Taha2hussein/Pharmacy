@@ -12,6 +12,7 @@ import RxRelay
 class BranchTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var mainBranchLabel: UILabel!
     @IBOutlet weak var totalBalance: UILabel!
     @IBOutlet weak var expnseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
@@ -33,10 +34,11 @@ class BranchTableViewCell: UITableViewCell {
         
     }
     func setData(product: BrahcnListMessage) {
-        self.totalBalance.text = "\(Int(product.totalBalance ?? 0))"
+        self.totalBalance.text = "\(Int(product.totalBalance ?? 0))" + " EGP".localized
         self.incomeLabel.text = "\(Int(product.totalIncome ?? 0))"
         self.expnseLabel.text = "\(Int(product.totalExpense ?? 0))"
         self.pharmacyName.text =  product.entityNameLocalized
+        self.mainBranchLabel.text = product.branchNameLocalized
 //        self.ownerImage.text = "\(Int(product?.totalExpense ?? 0))"
     }
 

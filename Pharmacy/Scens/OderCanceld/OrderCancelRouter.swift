@@ -16,12 +16,14 @@ class OrderCancelRouter {
     
     private var sourceView: UIViewController?
     private var orderId = Int()
+    private var singleOrderStatus = Int()
     private func createViewController() -> UIViewController {
       
         let view = UIStoryboard.init(name: Storyboards.orders.rawValue, bundle: nil)
         
         let viewController = view.instantiateViewController(withIdentifier: ViewController.orderedCanceled.rawValue)as? OrderCancelViewController
         viewController?.articleDetailsViewModel.orderId = orderId
+        viewController?.articleDetailsViewModel.singleOrderStatus = singleOrderStatus
         return viewController!
     }
     
@@ -29,8 +31,9 @@ class OrderCancelRouter {
         
     }
     
-    init(orderId: Int) {
+    init(orderId: Int,singleOrderStatus:Int) {
         self.orderId = orderId
+        self.singleOrderStatus = singleOrderStatus
     }
     
     func setSourceView(_ sourceView: UIViewController?) {

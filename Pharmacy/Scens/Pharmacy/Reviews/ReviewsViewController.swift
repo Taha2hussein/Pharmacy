@@ -14,7 +14,10 @@ class ReviewsViewController: BaseViewController {
     
     @IBOutlet weak var backButtonAction: UIButton!
     
-    @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var reviewListTableView: UITableView!
+    @IBOutlet weak var rateView: StarRatingView!
+    @IBOutlet weak var totalRate: UILabel!
+    @IBOutlet weak var reviewCollectionView: UICollectionView!
     
     var articleDetailsViewModel = ReviewsViewModel()
     private var router = ReviewsRouter()
@@ -25,21 +28,56 @@ class ReviewsViewController: BaseViewController {
         bindPharmacistToTableView()
         bindViewControllerRouter()
         backTapped()
-        articleDetailsViewModel.intializeData()
+        bindRate()
+        bindReviewList()
+        subscribeToLoader()
+        articleDetailsViewModel.requestAllReviews()
     }
     
-    func setup() {
-        self.reviewTableView.rowHeight = 120
+ 
+    func subscribeToLoader() {
+        articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
+            DispatchQueue.main.async {
+                if isLoading {
+                    
+                    self?.showLoading()
+                    
+                } else {
+                    self?.hideLoading()
+                }
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func bindReviewList() {
+        articleDetailsViewModel.allReviewsListPublishSubject.bind(to: self.reviewListTableView
+            .rx
+            .items(cellIdentifier: String(describing:  ReviewListTableViewCell.self),
+                   cellType: ReviewListTableViewCell.self)) { row, model, cell in
+            
+            cell.setReview(review: model)
+        }.disposed(by: self.disposeBag)
+    }
+    
+    func bindRate() {
+        articleDetailsViewModel.RateInstance.subscribe { [weak self] rate in
+            if let rate = rate.element {
+                self?.totalRate.text = "\(rate.totalRate ?? 0)"
+                self?.rateView.rating = Float(rate.totalRate ?? 0)
+                
+            }
+        }.disposed(by: self.disposeBag)
+        
     }
     
     func bindPharmacistToTableView() {
         articleDetailsViewModel.allReviewPublishSubject
-            .bind(to: self.reviewTableView
-                    .rx
-                    .items(cellIdentifier: String(describing:  ReviewTableViewCell.self),
-                           cellType: ReviewTableViewCell.self)) { row, model, cell in
-              
-                cell.setReviews(review: model)
+            .bind(to: self.reviewCollectionView
+                .rx
+                .items(cellIdentifier: String(describing:  ReviewsCollectionViewCell.self),
+                       cellType: ReviewsCollectionViewCell.self)) { row, model, cell in
+                
+                cell.setReview(review: model)
             }.disposed(by: self.disposeBag)
     }
     
@@ -47,9 +85,9 @@ class ReviewsViewController: BaseViewController {
         backButtonAction.rx.tap.subscribe { [weak self] _ in
             self?.router.backView()
         } .disposed(by: self.disposeBag)
-
+        
     }
-
+    
 }
 extension ReviewsViewController {
     func bindViewControllerRouter() {

@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxRelay
-import WPMediaPicker
 
 class FirstRegisterViewModel {
     
@@ -23,7 +22,7 @@ class FirstRegisterViewModel {
     var phone = BehaviorRelay<String>(value:"")
     var password = BehaviorRelay<String>(value:"")
     var registerData = LocalStorage()
-    let selectedImageOwner = PublishSubject<ZTAssetWrapper>()
+    let selectedImageOwner = PublishSubject<UIImage>()
     
     func bind(view: RegisterViewController, router: FirstRegisterRouter) {
         self.view = view
@@ -57,9 +56,3 @@ class FirstRegisterViewModel {
     }
 }
 
-extension FirstRegisterViewModel: pushView {
-    func pushNextView() {
-        
-        router?.navigateToCompleteRegisterView()
-    }
-}

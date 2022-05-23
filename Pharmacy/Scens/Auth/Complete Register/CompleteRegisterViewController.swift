@@ -10,10 +10,13 @@ import RxSwift
 import RxRelay
 import RxCocoa
 import DropDown
-import WPMediaPicker
 
 class CompleteRegisterViewController: BaseViewController {
     
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var yesLabel: UILabel!
+    @IBOutlet weak var noLabel: UILabel!
+    @IBOutlet weak var locationMapField: UITextField!
     @IBOutlet weak var createAccount: UIButton!
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var yesButton: UIButton!
@@ -31,19 +34,18 @@ class CompleteRegisterViewController: BaseViewController {
     @IBOutlet weak var licenesCollectionView: UICollectionView!
     
     private var chooseImaageSelection = false
-    private var Images = [ZTAssetWrapper]()
     private var countrySelectedIndex = -1
     private var citySelectedIndex = -1
     private var countrySelected = 0
     private var citySelected = 0
     private var areaSelected = 0
     private var hasDelivery = false
-
+    private var pharmacyImagePath = ""
     let radioController: RadioButtonController = RadioButtonController()
     private var countryList = [CountryMessage]()
     var articleDetailsViewModel = CompleteRegisterViewModel()
     private var router = CompleteRegisterRouter()
-    
+    private var licenseImage = [String]()
     lazy var dropDowns: DropDown = {
         return self.selectCityFromDropDown
     }()
@@ -63,10 +65,15 @@ class CompleteRegisterViewController: BaseViewController {
         subscribeToCountry()
         setGesturesForCity()
         setGesturesForArea()
+        backAction()
         NoAction()
         yesAction()
         bindImagesToCollection()
         subscribeToCreateAccount()
+        bindImageToPharmacy()
+//        setUpPhone()
+        addImageToTextFields()
+        subscribeToLoaderForImageUpload()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,45 +83,88 @@ class CompleteRegisterViewController: BaseViewController {
     
     func setUP() {
         radioController.buttonsArray = [noButton,yesButton]
-        radioController.defaultButton = noButton
+        radioController.defaultButton = yesButton
+        noLabel.textColor = .gray
+        yesLabel.textColor = .blue
+    }
+    
+    
+    func addImageToTextFields() {
+        
+        pharmacyCountry.setRightImage(imageName: "icNext",textField: pharmacyCountry)
+        pharmacyCity.setRightImage(imageName: "icNext",textField: pharmacyCity)
+        pharmacyArea.setRightImage(imageName: "icNext",textField: pharmacyArea)
     }
     
     func setLocationName() {
         guard let location = LocalStorage().getLocationName()  as? String , !location.isEmpty else {return}
-        locationButton.setTitle(location, for: .normal)
+        locationMapField.text = location
     }
     
     func selectImageTappedForLicesne() {
         
         uploadPhotoButton.rx.tap.subscribe { [weak self] _ in
-            self?.chooseImaageSelection = false
-            self?.useWPmediaPicker()
+            //            self?.chooseImaageSelection = false
+            //            self?.useWPmediaPicker()
+            ImagePickerManager().pickImage(self!){[weak self] image in
+                
+                guard var license = try? self?.articleDetailsViewModel.selectedImagesForLicence.value() else { return }
+                license.append(image)
+                self?.articleDetailsViewModel.selectedImagesForLicence.onNext(license)
+                self?.uploadImageForLicense(image: image)
+            }
         }.disposed(by: self.disposeBag)
         
+    }
+    
+    func backAction() {
+        backButton.rx.tap.subscribe { [weak self] _ in
+            self?.router.backView()
+        } .disposed(by: self.disposeBag)
+        
+    }
+    
+    func uploadImageForLicense(image: UIImage) {
+        let compresedImage = UploadDataa(data: image.jpegData(compressionQuality: 0.1)!, Key: "personal_image")
+        AlamofireMultiPart.shared.PostMultiWithModel(model: SuccessModelImage.self, url: uploadImageApi, Images: [compresedImage], header: headers, parameters: [:],completion: self.ProfileImageNetworkForLicense)
     }
     
     func selectImageTappedForPharmacy() {
         
         pharmacyImage.rx.tap.subscribe { [weak self] _ in
-            self?.chooseImaageSelection = true
-            self?.useWPmediaPicker()
+            ImagePickerManager().pickImage(self!){[weak self] image in
+                self?.pharmacyImage.setImage(image, for: .normal)
+                self?.articleDetailsViewModel.selectedImageOwner.onNext(image)
+                
+            }
+        }.disposed(by: self.disposeBag)
+        
+    }
+    
+    func bindImageToPharmacy() {
+        articleDetailsViewModel.selectedImageOwner.subscribe {[weak self] image in
+            if let image = image.element {
+                let compresedImage = UploadDataa(data: image.jpegData(compressionQuality: 0.1)!, Key: "personal_image")
+                AlamofireMultiPart.shared.PostMultiWithModel(model: SuccessModelImage.self, url: uploadImageApi, Images: [compresedImage], header: headers, parameters: [:],completion: self!.ProfileImageNetwork)
+                
+            }
         }.disposed(by: self.disposeBag)
         
     }
     
     func bindImageToPharmcyImage() {
-        self.articleDetailsViewModel.selectedImagePharmacy.subscribe {[weak self] assets in
-            self?.pharmacyImage.setImage(assets.image, for: .normal)
-        } .disposed(by: self.disposeBag)
+        //        self.articleDetailsViewModel.selectedImagePharmacy.subscribe {[weak self] assets in
+        //            self?.pharmacyImage.setImage(assets.image, for: .normal)
+        //        } .disposed(by: self.disposeBag)
     }
     
     func bindImagesToCollection() {
-        self.articleDetailsViewModel.selectedImages
+        self.articleDetailsViewModel.selectedImagesForLicence
             .bind(to: self.licenesCollectionView
-                    .rx
-                    .items(cellIdentifier: String(describing:  ImagesCollectionViewCell.self),
-                           cellType: ImagesCollectionViewCell.self)) { row, model, cell in
-                cell.licesnesImage.image = model?.image
+                .rx
+                .items(cellIdentifier: String(describing:  ImagesCollectionViewCell.self),
+                       cellType: ImagesCollectionViewCell.self)) { row, model, cell in
+                cell.licesnesImage.image = model
             }.disposed(by: self.disposeBag)
     }
     
@@ -128,24 +178,51 @@ class CompleteRegisterViewController: BaseViewController {
         }.disposed(by: self.disposeBag)
     }
     
+    func showAlert(message:String) {
+        Alert().displayError(text: message, viewController: self)
+    }
+    
+    func validateALLField() {
+        if pharmacyName.text!.isEmpty || pharmacyBranch.text!.isEmpty || pharmacyStreetName.text!.isEmpty || locationMapField.text!.isEmpty {
+            showAlert(message: LocalizedStrings().emptyField)
+        }
+        
+        else if pharmacyBranch.text!.count < 3 ||  pharmacyBranch.text!.count > 75  {
+            showAlert(message: LocalizedStrings().brnachNameError)
+        }
+        
+        else if pharmacyImagePath == "" {
+            showAlert(message: LocalizedStrings().uploadImage)
+        }
+        
+        else if licenseImage.count == 0 {
+            showAlert(message: LocalizedStrings().licenceError)
+
+        }
+        else {
+            defer {
+                self.articleDetailsViewModel.register()
+            }
+            self.setDataForRegister()
+            
+        }
+        
+    }
+    
+    
     func subscribeToCreateAccount() {
         createAccount.rx.tap.subscribe { [weak self] _ in
-            defer {
-                self?.articleDetailsViewModel.register()
-            }
-            self?.setDataForRegister()
+            
+            self?.validateALLField()
+           
         } .disposed(by: self.disposeBag)
         
     }
     
+    
     func setDataForRegister() {
         let LocalStorage = LocalStorage()
         
-        var parameters = [String]()
-        
-        parameters.append("test.png")
-        let pharmacyimage = "test.png"
-//        let ownerImage = getOwnerImage()
         let register = RegisterParameters(
             firstName: LocalStorage.getownerFirstName(),
             lastName: LocalStorage.getownerLastName(),
@@ -153,8 +230,8 @@ class CompleteRegisterViewController: BaseViewController {
             password: LocalStorage.getOwnerPassword(),
             countryCode: "02",
             phoneNumber: LocalStorage.getownerPhone(),
-            ownerImage: pharmacyimage,
-            pharmacyImage: pharmacyimage,
+            ownerImage: articleDetailsViewModel.ownerImagePath ?? "",
+            pharmacyImage: pharmacyImagePath,
             pharmacyName: self.pharmacyName.text ?? "",
             country: self.countrySelected ,
             adress: self.pharmacyStreetName.text ?? "" ,
@@ -165,24 +242,27 @@ class CompleteRegisterViewController: BaseViewController {
             locationName: LocalStorage.getLocationName(),
             locationLatitude: LocalStorage.getlocationLatitude(),
             locationLongitude: LocalStorage.getLocationLongituded(),
-            licens: parameters,
+            licens: self.licenseImage,
             hasDelivery: self.hasDelivery
         )
-        
         self.articleDetailsViewModel.registerParamerters = register
         
+        
+        
+        
     }
     
-    func getPharmacyImage() -> String {
-        let image = pharmacyImage.currentImage
-        let pharmacyImage = ImageConvert().convertImageToBase64(image: (image  ?? UIImage(named: "avatar"))!)
-        return pharmacyImage
-    }
-    
-    func getOwnerImage() -> String {
-        let image = LocalStorage().getOwnerImage()
-        let ownerImage = ImageConvert().convertImageToBase64(image: image)
-        return ownerImage
+    func subscribeToLoaderForImageUpload() {
+        AlamofireMultiPart.shared.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
+            DispatchQueue.main.async {
+                if isLoading {
+                    self?.showLoading()
+                    
+                } else {
+                    self?.hideLoading()
+                }
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     func subscribeToLoader() {
@@ -202,6 +282,8 @@ class CompleteRegisterViewController: BaseViewController {
         noButton.rx.tap.subscribe {[weak self] _ in
             self?.radioController.buttonArrayUpdated(buttonSelected: (self?.noButton)!)
             self?.hasDelivery = false
+            self?.noLabel.textColor = .blue
+            self?.yesLabel.textColor = .gray
         }.disposed(by: self.disposeBag)
         
     }
@@ -210,6 +292,8 @@ class CompleteRegisterViewController: BaseViewController {
         yesButton.rx.tap.subscribe {[weak self] _ in
             self?.radioController.buttonArrayUpdated(buttonSelected: (self?.yesButton)!)
             self?.hasDelivery = true
+            self?.noLabel.textColor = .gray
+            self?.yesLabel.textColor = .blue
         }.disposed(by: self.disposeBag)
     }
     
@@ -231,17 +315,7 @@ class CompleteRegisterViewController: BaseViewController {
         pharmacyArea.addGestureRecognizer(Area)
     }
     
-    func useWPmediaPicker() {
-        let options =  WPMediaPickerOptions()
-        options.filter = .image
-        options.allowMultipleSelection = true
-        options.showMostRecentFirst = true
-        options.allowCaptureOfMedia = false
-        let picker = WPNavigationMediaPickerViewController(options: options )
-        picker.modalPresentationStyle = .fullScreen
-        picker.delegate = self
-        self.present(picker, animated: true)
-    }
+    
 }
 
 extension CompleteRegisterViewController {
@@ -263,7 +337,7 @@ extension CompleteRegisterViewController {
     @objc
     func tapCountry(sender:UITapGestureRecognizer) {
         citySelectedIndex = -1
-
+        
         selectCityFromDropDown.anchorView = pharmacyCountry
         selectCityFromDropDown.direction = .any
         selectCityFromDropDown.backgroundColor = UIColor.white
@@ -286,25 +360,25 @@ extension CompleteRegisterViewController {
     
     @objc
     func tapCity(sender:UITapGestureRecognizer) {
-//        citySelectedIndex = -1
+        //        citySelectedIndex = -1
         selectCityFromDropDown.anchorView = pharmacyCity
         selectCityFromDropDown.direction = .any
         selectCityFromDropDown.backgroundColor = UIColor.white
         selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
         guard countrySelectedIndex != -1 else {return}
         if let city = countryList[countrySelectedIndex].lookupCity {
-        let cityName = city.map({($0.cityNameEn ?? "") })
-        let cityIds = city.map({($0.cityID ?? 0) })
-        self.selectCityFromDropDown.dataSource =  cityName
-        selectCityFromDropDown.show()
-        // Action triggered on selection
-        
-        selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+            let cityName = city.map({($0.cityNameEn ?? "") })
+            let cityIds = city.map({($0.cityID ?? 0) })
+            self.selectCityFromDropDown.dataSource =  cityName
+            selectCityFromDropDown.show()
+            // Action triggered on selection
             
-            self?.pharmacyCity.text = item
-            self?.citySelected = cityIds[index]
-            self?.citySelectedIndex = index
-           }
+            selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+                
+                self?.pharmacyCity.text = item
+                self?.citySelected = cityIds[index]
+                self?.citySelectedIndex = index
+            }
         }
     }
     
@@ -317,66 +391,54 @@ extension CompleteRegisterViewController {
         selectCityFromDropDown.bottomOffset = CGPoint(x: 0, y:(selectCityFromDropDown.anchorView?.plainView.bounds.height)!)
         guard citySelectedIndex != -1 else {return}
         if let area = countryList[countrySelectedIndex].lookupCity?[citySelectedIndex].lookupArea {
-        let areaName = area.map({($0.areaNameEn ?? "") })
-        let areaIds = area.map({($0.areaID ?? 0) })
-        self.selectCityFromDropDown.dataSource = areaName
-        selectCityFromDropDown.show()
-        // Action triggered on selection
-        
-        selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+            let areaName = area.map({($0.areaNameEn ?? "") })
+            let areaIds = area.map({($0.areaID ?? 0) })
+            self.selectCityFromDropDown.dataSource = areaName
+            selectCityFromDropDown.show()
+            // Action triggered on selection
             
-            self?.pharmacyArea.text = item
-            self?.areaSelected = areaIds[index]
-           }
-        }
-    }
-}
-
-extension CompleteRegisterViewController: WPMediaPickerViewControllerDelegate {
-    private func mediaPickerController(_ picker: WPMediaPickerViewController?, previewViewControllerForAssets assets: [WPMediaAsset?]?, selectedIndex selected: Int) {
-        
-    }
-    
-    func mediaPickerController(_ picker: WPMediaPickerViewController, didFinishPicking assets: [WPMediaAsset]) {
-        picker.dismiss(animated: true, completion: nil)
-        
-        for (_ , element ) in assets.enumerated() {
-            
-            if element.assetType() == .image  {
-                element.image(with: CGSize(width: 100, height: 100), completionHandler: { image, err in
-                    
-                    let selectedImage = ZTAssetWrapper(url: nil, type: .image, avAssetUrl: nil, image: image)
-                    if self.Images.count > 1 {
-                        self.Images.removeFirst()
-                    }
-                    
-                    if self.chooseImaageSelection {
-                        self.articleDetailsViewModel.selectedImagePharmacy.onNext(selectedImage)
-                    }
-                    
-                    else{
-                        self.Images.append(selectedImage)
-                        self.articleDetailsViewModel.selectedImages.onNext(self.Images)
-                       
-
-                      }
-                   }
-                )
+            selectCityFromDropDown.selectionAction = { [weak self] (index, item) in
+                
+                self?.pharmacyArea.text = item
+                self?.areaSelected = areaIds[index]
             }
         }
     }
+}
+
+extension CompleteRegisterViewController {
+    func ProfileImageNetwork(result : ServerResponse<SuccessModelImage>){
+        switch result {
+        case .success(let model):
+            if model.successtate == 200 {
+                self.pharmacyImagePath = model.message ?? ""
+                print(model.message ?? "","model.messages")
+            }else{
+                print("model: \(model)")
+                Alert().displayError(text: model.errormessage ?? "An error occured , Please try again".localized, viewController: self)
+            }
+            break
+        case .failure(let err):
+            guard let err = err else {return}
+            print("err: \(err)")
+        }
+    }
     
-}
-
-struct ZTAssetWrapper {
-    var url : URL?
-    var type : ZTMediaType
-    var avAssetUrl : AVURLAsset?
-    var image : UIImage?
-}
-
-enum ZTMediaType {
-    case audio
-    case image
-    case video
+    
+    func ProfileImageNetworkForLicense(result : ServerResponse<SuccessModelImage>){
+        switch result {
+        case .success(let model):
+            if model.successtate == 200 {
+                self.licenseImage.append(model.message ?? "")
+                print(model.message ?? "","model.messages")
+            }else{
+                print("model: \(model)")
+                Alert().displayError(text: model.errormessage ?? "An error occured , Please try again".localized, viewController: self)
+            }
+            break
+        case .failure(let err):
+            guard let err = err else {return}
+            print("err: \(err)")
+        }
+    }
 }

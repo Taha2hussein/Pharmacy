@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxRelay
 import RxSwift
-
+import SDWebImage
 class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var editProfileButton: UIButton!
@@ -108,7 +108,9 @@ class ProfileViewController: BaseViewController {
     
     func setImage(image: String) {
         if let url = URL(string: baseURLImage + (image)) {
-            self.ownerImage.load(url: url)
+//            self.ownerImage.load(url: url)
+            self.ownerImage.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar"))
+
         }
     }
 }

@@ -49,6 +49,7 @@ class WalletsDetailsViewModel {
         let authValue: String? = "Bearer \(key)"
         
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -78,8 +79,8 @@ extension WalletsDetailsViewModel {
         if let article = articles {
             self.pharmacyName.accept(article.entityNameLocalized ?? "")
             self.pharmacyLocation.accept(article.branchAddressLocalized ?? "")
-            self.pharmacyIncome.accept("\(Int(article.totalIncome ?? 0))")
-            self.pharmacyExpense.accept("\(Int(article.totalExpense ?? 0))")
+            self.pharmacyIncome.accept("\(Int(article.totalIncome ?? 0))" + " EGP".localized)
+            self.pharmacyExpense.accept("\(Int(article.totalExpense ?? 0))" + " EGP".localized)
             self.pahrmacyImage.accept(article.imagepath ?? "")
             self.branchId.accept("\(article.pharmacyProviderBranchFk ?? 0)")
             self.view?.animateProgress(incomde: Double(article.totalIncome ?? 0.0), expanse: Double(article.totalExpense ?? 0.0))
@@ -91,12 +92,12 @@ extension WalletsDetailsViewModel {
     
     func intializeDataForBalance() {
         if let article = Balance  {
-            self.totalBalance.accept("\(Int(article.message?.totalBalance ?? 0))")
-            self.totalIncome.accept("\(Int(article.message?.totalIncome ?? 0))")
-            self.totalExpnse.accept("\(Int(article.message?.totalExpense ?? 0))")
-            self.pharmacyIncome.accept("\(Int(article.message?.totalIncome  ?? 0))")
-            self.pharmacyExpense.accept("\(Int(article.message?.totalExpense ?? 0))")
-            
+            self.totalBalance.accept("\(Int(article.message?.totalBalance ?? 0))" + " EGP".localized)
+            self.totalIncome.accept("\(Int(article.message?.totalIncome ?? 0))" + " EGP".localized)
+            self.totalExpnse.accept("\(Int(article.message?.totalExpense ?? 0))" + " EGP".localized)
+            self.pharmacyIncome.accept("\(Int(article.message?.totalIncome  ?? 0))" + " EGP".localized)
+            self.pharmacyExpense.accept("\(Int(article.message?.totalExpense ?? 0))" + " EGP".localized)
+            self.view?.animateProgress(incomde: Double(article.message?.totalIncome ?? 0.0), expanse: Double(article.message?.totalExpense ?? 0.0))
         }
     }
 }

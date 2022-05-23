@@ -36,7 +36,7 @@ class OrderDeliveredViewModel{
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         print(parameters,  key ,"parameters")
-
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
@@ -59,7 +59,7 @@ class OrderDeliveredViewModel{
                 
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: cancelOrder?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: cancelOrder?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
     
                     }
                 }

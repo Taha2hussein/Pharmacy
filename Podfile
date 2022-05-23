@@ -7,11 +7,11 @@ target 'Pharmacy' do
 
   # Pods for Pharmacy
   
-#     pod 'RxSwift'
-#     pod 'RxCocoa'
+     pod 'FirebaseMessaging'
+     pod 'Firebase'
+     pod 'RxSwift'
+     pod 'RxCocoa'
      pod 'Alamofire', '~> 4.8'
-#     pod 'RxReachability'
-#     pod 'RxKeyboard'
      pod 'NVActivityIndicatorView'
      pod 'PKHUD'
      pod 'KKPinCodeTextField'
@@ -23,4 +23,5 @@ target 'Pharmacy' do
      pod 'Koyomi'
      pod 'LinearProgressBar'
      pod 'DateTimePicker'
+     pod 'IQKeyboardManagerSwift'
 end

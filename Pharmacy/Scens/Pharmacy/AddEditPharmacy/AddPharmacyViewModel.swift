@@ -30,9 +30,13 @@ class AddPharmacyViewModel {
         return areaSubject
     }
     
+    var EditBranchInstance = PublishSubject<EditBrnachMessage>()
+
     var state = State()
     let isValid :  Observable<Bool>!
-    
+    var addOrEdit = Bool()
+    var headerLabel = String()
+    var id = Int()
     var brnachNameEn = BehaviorRelay<String>(value:"")
     var brnachNameAr = BehaviorRelay<String>(value:"")
    
@@ -40,11 +44,11 @@ class AddPharmacyViewModel {
     var city = BehaviorRelay<String>(value:"")
     var area = BehaviorRelay<String>(value:"")
     var mobile = BehaviorRelay<String>(value:"")
-    var streetNameEn = BehaviorRelay<String>(value:"")
-    var streetNameAr = BehaviorRelay<String>(value:"")
-    
-    var buildinghNameEn = BehaviorRelay<String>(value:"")
-    var buildingNameAr = BehaviorRelay<String>(value:"")
+//    var streetNameEn = BehaviorRelay<String>(value:"")
+//    var streetNameAr = BehaviorRelay<String>(value:"")
+//
+//    var buildinghNameEn = BehaviorRelay<String>(value:"")
+//    var buildingNameAr = BehaviorRelay<String>(value:"")
     var landmarkeEn = BehaviorRelay<String>(value:"")
     var landmarkAr = BehaviorRelay<String>(value:"")
     var location = BehaviorRelay<String>(value:"")
@@ -54,17 +58,14 @@ class AddPharmacyViewModel {
 
     init() {
         isValid = Observable.combineLatest(
-            self.brnachNameEn.asObservable() ,self.brnachNameAr.asObservable() ,self.city.asObservable(),self.area.asObservable(),self.mobile.asObservable(),self.streetNameEn.asObservable() , self.streetNameAr.asObservable(),self.buildinghNameEn.asObservable())
+            self.brnachNameEn.asObservable() ,self.brnachNameAr.asObservable() ,self.city.asObservable(),self.area.asObservable(),self.mobile.asObservable())
         
-        { (brnachNameEn , brnachNameAr ,city ,area,mobile,streetNameEn,streetNameAr,buildinghNameEn  ) in
+        { (brnachNameEn , brnachNameAr ,city ,area,mobile  ) in
             return brnachNameEn.count > 0
             && brnachNameAr.count > 0
             && city.count > 0
             && area.count > 0
             && mobile.count > 0
-            && streetNameEn.count > 0
-            && streetNameAr.count > 0
-            && buildinghNameEn.count > 0
         
         }
     }
@@ -77,7 +78,7 @@ class AddPharmacyViewModel {
 }
 
 extension AddPharmacyViewModel {
-    func saveEditPharmacy(HasDelivery: Bool , TwintyFourHoursService: Bool , paymentType : Int , selectedCountry: Int ,selectedCity: Int ,selectedArea: Int  ){
+    func saveEditPharmacy(HasDelivery: Bool , TwintyFourHoursService: Bool , paymentType : Int , selectedCountry: Int ,selectedCity: Int ,selectedArea: Int ,DeliveryFees:Int , DeliveryTimeInMinuts:Int ,ClosingTime:String , OpeninigTime:String){
         let storge = LocalStorage()
         state.isLoading.accept(true)
         let parameter = ["Address": storge.getLocationName(),
@@ -98,9 +99,16 @@ extension AddPharmacyViewModel {
                          "PharmacyProviderFk":  storge.getPharmacyProviderFk(),
                          "ProvideServiceInKm": self.howFarService.value,
                          "TwintyFourHoursService": TwintyFourHoursService,
+                         "DeliveryTimeInMinuts": DeliveryTimeInMinuts,
+                         "DeliveryFees":DeliveryFees,
+                         "OpeninigTime":"",
+                         "ClosingTime":""
                          
         ] as [String : Any]
+        
+
         state.isLoading.accept(true)
+        print(parameter,"parameters")
         var request = URLRequest(url: URL(string:addOrEditPharmacy)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -110,7 +118,7 @@ extension AddPharmacyViewModel {
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
-        
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         URLSession.shared.dataTask(with: request) { data, response, error in
             self.state.isLoading.accept(false)
             guard let data = data else { return }
@@ -126,7 +134,7 @@ extension AddPharmacyViewModel {
                 }
                 else {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: self.SavePharmacyInstance?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: self.SavePharmacyInstance?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {
@@ -159,5 +167,44 @@ extension AddPharmacyViewModel: getAllCountries {
 extension AddPharmacyViewModel: pushView {
     func pushNextView() {
         self.router?.showMapview()
+    }
+}
+
+
+extension AddPharmacyViewModel {
+    func getBranchForEdit() {
+      
+        var request = URLRequest(url: URL(string: editBranchApi + "\(self.id)")!)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        let key = LocalStorage().getLoginToken()
+        let authValue: String? = "Bearer \(key)"
+        request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
+        state.isLoading.accept(true)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            self.state.isLoading.accept(false)
+            do {
+                
+                let decoder = JSONDecoder()
+                var editBranch : EditBrnachModel?
+                editBranch = try decoder.decode(EditBrnachModel.self, from: data)
+                if editBranch?.successtate == 200 {
+                    if let editBranch = editBranch?.message {
+                    self.EditBranchInstance.onNext(editBranch)
+                    }
+                }
+                
+                else {
+                    DispatchQueue.main.async {
+                        Alert().displayError(text: editBranch?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
+    
+                    }
+                }
+            } catch let err {
+                print("Err", err)
+            }
+        }.resume()
     }
 }

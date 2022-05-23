@@ -14,11 +14,11 @@ enum medicineFilter {
     case OtherCategories
     case MedicineCategories
     case BrandsCategories
-
+    
 }
 
 class MedicineFilterViewController: BaseViewController {
-
+    
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var sreachtextField: UITextField!
     @IBOutlet weak var bacndsCatigryCollectionView: UICollectionView!
@@ -39,44 +39,65 @@ class MedicineFilterViewController: BaseViewController {
         bindtoLoader()
         bindBrandsToCollectionView()
         searchButtonTapped()
+        backButtonAction()
         selectFilter()
+        selectFilterForMedicine()
     }
     
     func searchButtonTapped() {
         searchButton.rx.tap.subscribe { [weak self] _ in
             guard self?.sreachtextField.text != "" else {
                 Alert().displayError(text: "Please enter your search", viewController: self!)
-
+                
                 return
             }
             if self?.filterSelected == .OtherCategories  {
                 self?.articleDetailsViewModel.getFilters(MedicineCategoryFor: 2, MedicineCategoryName: self?.sreachtextField.text ?? "")
                 self?.medicineFilterCollectionView.reloadData()
-
+                
             }
             else if self?.filterSelected == .MedicineCategories {
                 self?.articleDetailsViewModel.getFilters(MedicineCategoryFor: 1, MedicineCategoryName: self?.sreachtextField.text ?? "")
                 self?.medicineFilterCollectionView.reloadData()
-
+                
             }
             else {
                 self?.articleDetailsViewModel.getFiltersForBrands(MedicineCategoryName: self?.sreachtextField.text ?? "")
                 self?.bacndsCatigryCollectionView.reloadData()
             }
-            self?.sreachtextField.text = ""
+//            self?.sreachtextField.text = ""
         }.disposed(by: self.disposeBag)
-
         
+        
+    }
+    
+    func backButtonAction() {
+        backButton.rx.tap.subscribe { [weak self] _ in
+            self?.router.backAction()
+        } .disposed(by: self.disposeBag)
+
     }
     
     func selectFilter() {
         Observable.zip(bacndsCatigryCollectionView
-                        .rx
-                        .itemSelected,bacndsCatigryCollectionView.rx.modelSelected(FilterBrandMessage.self)).bind { [weak self] selectedIndex, product in
-            
-            LocalStorage().saveBrandFilter(using: product.id ?? 0)
-            self?.router.backAction()
-        }.disposed(by: self.disposeBag)
+            .rx
+            .itemSelected,bacndsCatigryCollectionView.rx.modelSelected(FilterBrandMessage.self)).bind { [weak self] selectedIndex, product in
+                
+                LocalStorage().saveBrandFilter(using: product.id ?? 0)
+                CompanyId = true
+                self?.router.backAction()
+            }.disposed(by: self.disposeBag)
+    }
+    
+    func selectFilterForMedicine() {
+        Observable.zip(medicineFilterCollectionView
+            .rx
+            .itemSelected,medicineFilterCollectionView.rx.modelSelected(FilterCatogrMessage.self)).bind { [weak self] selectedIndex, product in
+                
+                LocalStorage().saveBrandFilter(using: product.id ?? 0)
+                CompanyId = true
+                self?.router.backAction()
+            }.disposed(by: self.disposeBag)
     }
     
     func showOtherCatoreyCollectionView(){
@@ -84,32 +105,32 @@ class MedicineFilterViewController: BaseViewController {
             self.medicineFilterCollectionView.isHidden = false
             self.bacndsCatigryCollectionView.isHidden = true
         }
-       
+        
     }
     
     func showBrandsCollecitonView() {
         DispatchQueue.main.async {
-        self.medicineFilterCollectionView.isHidden = true
-        self.bacndsCatigryCollectionView.isHidden = false
-       }
+            self.medicineFilterCollectionView.isHidden = true
+            self.bacndsCatigryCollectionView.isHidden = false
+        }
     }
     func bindBranchToCollectionView() {
         articleDetailsViewModel.medicineFilters
             .bind(to: self.medicineFilterCollectionView
-                    .rx
-                    .items(cellIdentifier: String(describing:  FilterCatogryCollectionViewCell.self),
-                           cellType: FilterCatogryCollectionViewCell.self)) { row, model, cell in
+                .rx
+                .items(cellIdentifier: String(describing:  FilterCatogryCollectionViewCell.self),
+                       cellType: FilterCatogryCollectionViewCell.self)) { row, model, cell in
                 cell.filterCatogryLabel.text = model.categoryName
                 
             }.disposed(by: self.disposeBag)
     }
- 
+    
     func bindBrandsToCollectionView() {
         articleDetailsViewModel.medicineFiltersForBrands
             .bind(to: self.bacndsCatigryCollectionView
-                    .rx
-                    .items(cellIdentifier: String(describing:  BrandsCatogryCollectionViewCell.self),
-                           cellType: BrandsCatogryCollectionViewCell.self)) { row, model, cell in
+                .rx
+                .items(cellIdentifier: String(describing:  BrandsCatogryCollectionViewCell.self),
+                       cellType: BrandsCatogryCollectionViewCell.self)) { row, model, cell in
                 cell.setDataForBrands(braand: model)
             }.disposed(by: self.disposeBag)
     }
@@ -136,13 +157,13 @@ class MedicineFilterViewController: BaseViewController {
             else if index.element == 1 {
                 self?.filterSelected = .MedicineCategories
                 self?.articleDetailsViewModel.getFilters(MedicineCategoryFor: 1, MedicineCategoryName: self?.searchName ?? "")
-
+                
             }
             else {
                 self?.filterSelected = .BrandsCategories
                 self?.articleDetailsViewModel.getFiltersForBrands(MedicineCategoryName: self?.searchName ?? "")
             }
-           
+            
             self?.medicineFilterCollectionView.reloadData()
             
         }.disposed(by: self.disposeBag)

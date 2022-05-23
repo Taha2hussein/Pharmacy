@@ -63,3 +63,5 @@ struct TotalDailyOrdersBranch: Codable {
         case branchName = "branchName", totalDailyOrders = "totalDailyOrders"
     }
 }
+
+

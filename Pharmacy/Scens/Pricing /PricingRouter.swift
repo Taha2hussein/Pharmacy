@@ -45,6 +45,7 @@ class PricingRouter {
     }
  
     func backAction() {
+        selectedMedicin.onNext([])
         self.sourceView?.navigationController?.popViewController(animated: true)
     }
 }

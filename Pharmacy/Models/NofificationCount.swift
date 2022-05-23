@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+// MARK: - NoficationCount
+struct NoficationCount: Codable {
+    var successtate: Int?
+    var errormessage: String?
+    var message: Int?
+}

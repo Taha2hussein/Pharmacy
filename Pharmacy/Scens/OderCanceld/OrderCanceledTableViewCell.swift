@@ -9,6 +9,7 @@ import UIKit
 
 class OrderCanceledTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var orderCost: UILabel!
     @IBOutlet weak var orderCanceledLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

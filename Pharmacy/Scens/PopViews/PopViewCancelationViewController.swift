@@ -17,7 +17,7 @@ class PopViewCancelationViewController: BaseViewController {
 
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var cancelationTableView: UITableView!
-    @IBOutlet weak var reasonOfCancel: UITextView!
+//    @IBOutlet weak var reasonOfCancel: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     
     private var cancelReasonsInstance = PublishSubject<[CancelReasonsMessage]>()
@@ -28,6 +28,7 @@ class PopViewCancelationViewController: BaseViewController {
         selectBranch()
         getCancelResons()
         removePopview()
+        self.view.backgroundColor = .black.withAlphaComponent(0.5)
     }
     
     func bindBranchToTableView() {
@@ -47,7 +48,7 @@ class PopViewCancelationViewController: BaseViewController {
                         .rx
                         .itemSelected,cancelationTableView.rx.modelSelected(CancelReasonsMessage.self)).bind { [weak self] selectedIndex, product in
             cancelReasonSelected = product.cancellationReasonID ?? 0
-            cancelReson = self?.reasonOfCancel.text ?? ""
+//            cancelReson = self?.reasonOfCancel.text ?? ""
             cancelRemoveSubview.accept(true)
             self?.view.removeFromSuperview()
         }.disposed(by: self.disposeBag)
@@ -72,6 +73,7 @@ extension PopViewCancelationViewController {
         request.httpMethod = "GET"
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
 //        state.isLoading.accept(true)
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -90,7 +92,7 @@ extension PopViewCancelationViewController {
                 
                 else {
                     DispatchQueue.main.async {
-                        Alert().displayError(text: cancelReasons?.errormessage ?? "An error occured , Please try again", viewController: self)
+                        Alert().displayError(text: cancelReasons?.errormessage ?? "An error occured , Please try again".localized, viewController: self)
                     }
                 }
             } catch let err {

@@ -8,7 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-
+import SDWebImage
 class PharmacyProfileTableViewCell: UITableViewCell {
 
     @IBOutlet weak var branchMenuView: UIView!
@@ -23,6 +23,7 @@ class PharmacyProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var pharmacistMenuCDeactivate: UIButton!
     @IBOutlet weak var pharmacistMenuClose: UIButton!
     
+    @IBOutlet weak var branchActiveView: UIView!
     @IBOutlet weak var branchActiveButton: UIButton!
     @IBOutlet weak var branchView: UIView!
     @IBOutlet weak var branhcMenu: UIButton!
@@ -31,6 +32,7 @@ class PharmacyProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var pharmacyName: UILabel!
     
     
+    @IBOutlet weak var pharmacistActiveView: UIView!
     @IBOutlet weak var pharmacistMenu: UIButton!
     @IBOutlet weak var pharmacistPhone: UILabel!
     @IBOutlet weak var phrmacistEmail: UILabel!
@@ -55,11 +57,17 @@ class PharmacyProfileTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         self.branchMenuView.isHidden = true
         bag = DisposeBag()
-
+        branchMenuView.isHidden = true
+        pharmacistMenuView.isHidden = true
     }
     
     func setDataForPharmacist(pharmacist: EmployeesList) {
-        
+        if pharmacist.isActive == true {
+            self.pharmacistActiveView.backgroundColor = .green
+        }
+        else {
+            self.pharmacistActiveView.backgroundColor = .red
+        }
         self.pharmacistName.text = pharmacist.employeeName
         self.pharmcistJob.text = pharmacist.employeeType
         self.phrmacistEmail.text = pharmacist.employeeEmail
@@ -74,12 +82,20 @@ class PharmacyProfileTableViewCell: UITableViewCell {
 
         }
         if let url = URL(string: baseURLImage + (pharmacist.image ?? "")) {
-            self.phramcistImaeg.load(url: url)
+//            self.phramcistImaeg.load(url: url)
+            self.phramcistImaeg.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar"))
+
         }
     }
     
 
     func setData( product:BranchesList) {
+        if product.isActive == true {
+            self.branchActiveView.backgroundColor = .green
+        }
+        else {
+            self.branchActiveView.backgroundColor = .red
+        }
         self.pharmacyName.text = product.branchName
         self.pharmacyLocation.text = "( \(product.cityName ?? "") )"
         self.pharmacyDetails.text = product.address

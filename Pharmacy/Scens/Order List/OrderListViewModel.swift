@@ -16,7 +16,9 @@ class OrderListViewModel{
     private weak var view: OrderListViewController?
     private var router: OrderListRouter?
     var  state = State()
-    var ordersInstance = PublishSubject<[OrderListMessage]>()
+    var ordersInstance = BehaviorSubject<[OrderListMessage]>(value: [])
+    var ordersInstanceTemp = BehaviorSubject<[OrderListMessage]>(value: [])
+
     func bind(view: OrderListViewController, router: OrderListRouter) {
         self.view = view
         self.router = router
@@ -38,6 +40,7 @@ extension OrderListViewModel {
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -48,16 +51,18 @@ extension OrderListViewModel {
             do {
                 
                 let decoder = JSONDecoder()
-                var order : OrderList?
-                order = try decoder.decode(OrderList.self, from: data)
+                var order : OrderListModel?
+                order = try decoder.decode(OrderListModel.self, from: data)
+
                 if order?.successtate == 200 {
                     self.ordersInstance.onNext(order?.message ?? [])
-                    
+                    self.ordersInstanceTemp.onNext(order?.message ?? [])
+                    self.view?.validateEmptyOrders()
                 }
                 
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: order?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: order?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
     
                     }
                 }

@@ -5,7 +5,7 @@
 ////  Created by A on 29/12/2021.
 ////
 //
-//import UIKit
+import UIKit
 //
 enum Storyboards: String {
 //  case articleDetails = "Details"
@@ -28,6 +28,9 @@ enum Storyboards: String {
     case pharmacyReviews = "Reviews"
     case orders = "Orders"
     case Pricing = "Pricing"
+    case ChangePassword = "ChangePassword"
+    case webPage = "WebPage"
+    case Filter = "Filter"
 }
 
 enum ViewController: String {
@@ -65,6 +68,18 @@ enum ViewController: String {
     case PricingViewController = "PricingViewController"
     case FindAlternativeViewController = "FindAlternativeViewController"
     case MedicineFilterViewController = "MedicineFilterViewController"
+    case ChangePasswordViewController = "ChangePasswordViewController"
+    case BrnachPopViewViewController = "BrnachPopViewViewController"
+    case DeleteBrnachViewController = "DeleteBrnachViewController"
+    case DeactivateViewController = "DeactivateViewController"
+    case BasicDataViewController = "BasicDataViewController"
+    case PrivacyPolicyViewController = "PrivacyPolicyViewController"
+    case TermsAndConditionViewController = "TermsAndConditionViewController"
+    case ContactUsViewController = "ContactUsViewController"
+    case FAQViewController = "FAQViewController"
+    case NotificationListViewController = "NotificationListViewController"
+    case PreparingOrderViewController = "PreparingOrderViewController"
+    case OrderFilterViewController = "OrderFilterViewController"
 }
 
 enum TableView: String {

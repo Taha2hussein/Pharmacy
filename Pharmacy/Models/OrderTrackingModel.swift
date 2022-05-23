@@ -60,14 +60,15 @@ struct OrderTrackingMessage: Codable {
 // MARK: - CurrentOffer
 struct OrderTrackingCurrentOffer: Codable {
     let pharmacyOrderOfferID: Int?
-    let deliveryFees, deliveryTimeInMinuts: Int?
+    let deliveryFees: Double?
+    let deliveryTimeInMinuts: Int?
     let hasDelivery, isOnlinePayment: Bool?
     let offerDate: String?
     let offerendwithinminuts: Int?
     let offerNotes: String?
     let offerStatus: Int?
     let offerStatusLocalized: String?
-    let orderDiscount, orderFees, orderTotalFees: Int?
+    let orderDiscount, orderFees, orderTotalFees: Double?
     let orderitems: [Orderitem]?
 
     enum CodingKeys: String, CodingKey {
@@ -93,17 +94,19 @@ struct PharmacyOrderFile: Codable {
 // MARK: - PharmacyOrderItem
 struct OrderTrackingPharmacyOrderItem: Codable {
     let pharmacyOrderItemID, medicationFk: Int?
-    let itemFees: Double?
+    var itemFees: Double?
     let medicationNameLocalized: String?
     let priceType, medicineCategoryFk, medicineType, quantity: Int?
+    var isAlternative: Bool?
     let strenghtValue, medicineTypeNameLocalized, strenghtNameLocalized, formNameLocalized: String?
     let amountDetailsLocalized: String?
     let prescriptionData: PrescriptionData?
-
+    
     enum CodingKeys: String, CodingKey {
         case pharmacyOrderItemID = "pharmacyOrderItemId"
         case itemFees = "itemFees"
         case medicationFk = "medicationFk"
+        case isAlternative = "isAlternative"
         case medicationNameLocalized = "medicationName_Localized"
         case priceType = "priceType"
         case medicineCategoryFk = "medicineCategoryFk"

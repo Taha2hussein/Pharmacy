@@ -21,6 +21,8 @@ class OrderTrackingViewModel {
     var orderTrackingFiles = PublishSubject<[PharmacyOrderFile]>()
     var orderTrackingSummary = PublishSubject<[OrderTrackingPharmacyOrderItem]>()
     var acceptOrder = PublishSubject<AcceptPharmacyOrder>()
+    var offerPricing = PublishSubject<[Orderitem]>()
+    var currentOffer = PublishSubject<OrderTrackingCurrentOffer?>()
     func bind(view: OrderTrackingViewController, router: OrderTrackingRouter) {
         self.view = view
         self.router = router
@@ -32,14 +34,15 @@ extension OrderTrackingViewModel {
     func getOrderTracking() {
         let parameters = ["OrderID": orderId
                           ,"PharmacyID": LocalStorage().getPharmacyProviderFk(),
-                          "BranchID":0]
+                          "BranchID":orderId]
         var request = URLRequest(url: URL(string: orderTrackingApi)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
-print(parameters, "parametersssdff")
+print(parameters, "parametersssdff" , key)
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -55,15 +58,17 @@ print(parameters, "parametersssdff")
                 if orderTracking?.successtate == 200 {
                     if let ordertracking = orderTracking?.message {
                         self.orderTrackingInstance.onNext(ordertracking)
-                        self.orderTrackingFiles.onNext(ordertracking.pharmacyOrderFile ?? [])
+                        self.orderTrackingFiles.onNext(orderTracking?.message?.pharmacyOrderFile ?? [])
                         self.orderTrackingSummary.onNext(orderTracking?.message?.pharmacyOrderItem ?? [])
+                        self.offerPricing.onNext(orderTracking?.message?.currentOffer?.orderitems ?? [])
+                        self.currentOffer.onNext(orderTracking?.message?.currentOffer ?? nil)
                     }
                     
                 }
                 
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: orderTracking?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: orderTracking?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
     
                     }
                 }
@@ -86,7 +91,9 @@ extension OrderTrackingViewModel {
         let key = LocalStorage().getLoginToken()
         let authValue: String? = "Bearer \(key)"
 
+        
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -102,12 +109,14 @@ extension OrderTrackingViewModel {
                 if acceptOrder?.successtate == 200 {
                     DispatchQueue.main.async {
                         removeSubview.accept(false)
+//                        singlton.shared.pharmacyOfferId = BranchID
                         self.view?.showReceivedView()
+                        self.getOrderTracking()
                     }
                 }
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: acceptOrder?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: acceptOrder?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {
@@ -132,6 +141,7 @@ extension OrderTrackingViewModel {
         let authValue: String? = "Bearer \(key)"
 
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)
@@ -153,7 +163,7 @@ extension OrderTrackingViewModel {
                 }
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: rejectOrder?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: rejectOrder?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {
@@ -174,7 +184,7 @@ extension OrderTrackingViewModel {
         let authValue: String? = "Bearer \(key)"
 
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
-print(request)
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         state.isLoading.accept(true)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
@@ -189,12 +199,13 @@ print(request)
                         cancelRemoveSubview.accept(false)
                         saveOrderForCusomerSuccess.onNext(false)
                         removeSubview.accept(false)
-                        self.router?.backAction()
+                        self.view?.hidePricingButtons()
+//                        self.router?.backAction()
                     }
                 }
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: acceptPricing?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: acceptPricing?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {
@@ -215,7 +226,7 @@ extension OrderTrackingViewModel {
         let authValue: String? = "Bearer \(key)"
 
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
-print(request)
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         state.isLoading.accept(true)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
@@ -236,7 +247,7 @@ print(request)
                 }
                 else {
                     DispatchQueue.main.async {
-                    Alert().displayError(text: finishOrderIsntance?.errormessage ?? "An error occured , Please try again", viewController: self.view!)
+                        Alert().displayError(text: finishOrderIsntance?.errormessage ?? "An error occured , Please try again".localized, viewController: self.view!)
                     }
                 }
             } catch let err {

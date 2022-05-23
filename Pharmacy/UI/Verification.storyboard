@@ -12,6 +12,9 @@
         <array key="Segoe UI Bold.ttf">
             <string>SegoeUI-Bold</string>
         </array>
+        <array key="Segoe UI.ttf">
+            <string>SegoeUI</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Verification View Controller-->
@@ -29,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="372" height="718"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="x6w-zW-gNk">
-                                                <rect key="frame" x="20" y="206" width="332" height="215.5"/>
+                                                <rect key="frame" x="20" y="206" width="332" height="95.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check in Your Mobile !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn7-vg-WIT">
                                                         <rect key="frame" x="0.0" y="0.0" width="332" height="33.5"/>
@@ -41,10 +44,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-hc-6bl">
-                                                        <rect key="frame" x="0.0" y="55.5" width="332" height="160"/>
+                                                        <rect key="frame" x="0.0" y="55.5" width="332" height="40"/>
                                                         <string key="text">We just sent you a 4 digits confirm code
  to your mobile number</string>
-                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="30"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                                         <color key="textColor" name="dark"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
@@ -66,7 +69,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXq-dy-46F">
-                                                <rect key="frame" x="106" y="494.5" width="160" height="35"/>
+                                                <rect key="frame" x="106" y="374.5" width="160" height="35"/>
                                                 <color key="backgroundColor" name="blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="fMf-H5-tc1"/>

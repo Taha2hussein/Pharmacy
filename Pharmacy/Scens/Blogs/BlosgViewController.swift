@@ -7,7 +7,7 @@
 
 import UIKit
 import RxSwift
-
+import Social
 class BlosgViewController: BaseViewController {
     
     @IBOutlet weak var uperView: UIView!
@@ -23,7 +23,7 @@ class BlosgViewController: BaseViewController {
         embedUperView()
         bindViewControllerRouter()
         subscribeToLoader()
-//        subscribeToToogleLike()
+        //        subscribeToToogleLike()
         selectBlog()
         bindBlogsToTableView()
         articleDetailsViewModel.getBlogs(blogCountPerPage: 100)
@@ -32,45 +32,44 @@ class BlosgViewController: BaseViewController {
     
     func bindBlogsToTableView() {
         self.articleDetailsViewModel.Blogs
-            .bind(to: self.bligsTableView
-                .rx
+            .bind(to: self.bligsTableView.rx
                 .items(cellIdentifier: String(describing:  BlogTableViewCell.self),
                        cellType: BlogTableViewCell.self)) {[weak self] row, model, cell in
                 cell.setData( product:model)
-                // like button
+                
                 cell.likeButton.rx.tap.subscribe { [weak self] _ in
-                    //                        self?.cell = cell
-                    if (model.amILiked!) {
-                        self?.articleDetailsViewModel.unlikeBlog(blogID: model.blogID ?? 0)
-                    }
-                    else {
-                        self?.articleDetailsViewModel.likeBlog(blogID: model.blogID ?? 0)
-                    }
-                    
-                    self?.articleDetailsViewModel.getBlogs(blogCountPerPage: 100)
+                self?.articleDetailsViewModel.unlikeBlog(blogID: model.blogID ?? 0)
+                    cell.unLikeButton.isHidden = false
+                    cell.likeButton.isHidden = true
                 } .disposed(by: cell.bag)
                 
+                cell.unLikeButton.rx.tap.subscribe { [weak self] _ in
+                self?.articleDetailsViewModel.likeBlog(blogID: model.blogID ?? 0)
+                    cell.unLikeButton.isHidden = true
+                    cell.likeButton.isHidden = false
+                }.disposed(by: cell.bag)
+                
                 // share
-                cell.likeButton.rx.tap.subscribe { [weak self] _ in
-                    
+                cell.shateButton.rx.tap.subscribe { [weak self] _ in
+                    self?.shareToFaceBookAction(posts: model)
                 } .disposed(by: cell.bag)
                 
             }.disposed(by: self.disposeBag)
         
     }
     
-    //    func subscribeToToogleLike() {
-    //        // correct but need to bind to cell
-    //        articleDetailsViewModel.toogleLikeIcon.subscribe(onNext: {[weak self] (toogle) in
-    //            DispatchQueue.main.async {
-    //                if toogle {
-    //                    self?.cell?.likeButton.setImage(UIImage(named:"avatar"), for: .normal)
-    //                } else {
-    //                    self?.cell?.likeButton.setImage(UIImage(named:"like"), for: .normal)
-    //                }
-    //            }
-    //        }).disposed(by: cell.disposeBag)
-    //    }
+    func shareToFaceBookAction(posts:BlogMessage) {
+        if let message = posts.blogTitle {
+        if let link = URL(string: baseURLImage + (posts.blogFilePath ?? "")) {
+            print(link, "links")
+            let objectsToShare = [message,link] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            self.present(activityVC, animated: true, completion: nil)
+           }
+        }
+    }
+    
     
     func subscribeToLoader() {
         articleDetailsViewModel.state.isLoading.subscribe(onNext: {[weak self] (isLoading) in
@@ -95,10 +94,33 @@ class BlosgViewController: BaseViewController {
     }
     
     func embedUperView() {
-        let vc = UperRouter().viewController
+        let vc = UperRouter(headerTilte: "Blog".localized).viewController
         self.embed(vc, inParent: self, inView: uperView)
     }
     
+    @IBAction func searchBlogAction(_ sender: UITextField) {
+                if  let searchText = sender.text {
+                    guard let sections = try? articleDetailsViewModel.Blogs.value() else { return  }
+                    guard let sectionsTemp = try? articleDetailsViewModel.BlogsTemp.value() else { return  }
+                    var filterArr = (sections.filter({(($0.blogTitle)!.localizedCaseInsensitiveContains(searchText))}))
+        
+                    if filterArr.count > 0 {
+                        articleDetailsViewModel.Blogs.onNext(filterArr)
+                    }
+                    else {
+                        filterArr.removeAll()
+                        articleDetailsViewModel.Blogs.onNext(filterArr)
+                        showToast(LocalizedStrings().emptySearchData)
+        
+                    }
+        
+                    if searchText == "" {
+                        filterArr.removeAll()
+                        articleDetailsViewModel.Blogs.onNext(sectionsTemp)
+                    }
+                    self.bligsTableView.reloadData()
+                }
+    }
 }
 
 extension BlosgViewController {

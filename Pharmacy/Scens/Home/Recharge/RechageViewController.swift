@@ -32,9 +32,24 @@ class RechageViewController: BaseViewController {
         
     }
     
+    func showAlert(message:String) {
+        Alert().displayError(text: message, viewController: self)
+    }
+    
+    func validateALLField() {
+        if amountTextField.text!.isEmpty {
+            showAlert(message: LocalizedStrings().emptyField)
+        }
+        
+        else {
+            self.rechargeAmount(amount: self.amountTextField.text ?? "")
+        }
+        
+    }
+    
     func doneAction() {
         doneButton.rx.tap.subscribe { [weak self] _ in
-            self?.rechargeAmount(amount: self?.amountTextField.text ?? "")
+            self?.validateALLField()
         }.disposed(by: self.disposeBag)
         
     }
@@ -83,6 +98,7 @@ class RechageViewController: BaseViewController {
         print(parameters)
         let authValue: String? = "Bearer \(key)"
         request.setValue(authValue, forHTTPHeaderField: "Authorization")
+        request.setValue(getCurrentLanguage(), forHTTPHeaderField: "lang")
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
         request.httpBody = jsonString?.data(using: .utf8)

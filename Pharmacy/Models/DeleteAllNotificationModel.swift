@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import Foundation
+// MARK: - DeleteAllNotificationModel
+struct DeleteAllNotificationModel: Codable {
+    var successtate: Int?
+    var errormessage, message: String?
+}

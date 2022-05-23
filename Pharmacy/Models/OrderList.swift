@@ -7,36 +7,37 @@
 
 import Foundation
 
-// MARK: - OrderList
-struct OrderList: Codable {
-    let successtate: Int?
-    let errormessage: String?
-    let message: [OrderListMessage]?
+// MARK: - OrderListModel
+struct OrderListModel: Codable {
+    var successtate: Int?
+    var errormessage: String?
+    var message: [OrderListMessage]?
 }
 
 // MARK: - Message
 struct OrderListMessage: Codable {
-    let orderID: Int?
-    let deliveryFees: Int?
-    let orderDiscount, orderFees, orderTotalFees: Int?
-    let hasDelivery, isOnlinePayment: Bool?
-    let orderDate, orderNo: String?
-    let orderNotes: String?
-    let orderPickingUpTime: String?
-    let orderStatus: Int?
-    let orderStatusLocalized: String?
-    let singleOrderStatus, patientAddressFk, patientFk: Int?
-    let paymentType: Int?
-    let paymentTypeLocalized: String?
-    let preescriptionFk: Int?
-    let addressLang, addressLat: Double?
-    let patientName, patientProfileImage, patientAddressLocalized: String?
-    let patientMapAddress: String?
-    let itemCount: Int?
-    let lastStatusDate: String?
-    let hasFixedFees: Bool?
-    let totalRate: Int?
-    let pharmacyBranchFk: Int?
+    var orderID: Int?
+    var deliveryFees: Int?
+    var orderDiscount, orderFees, orderTotalFees: Double?
+    var hasDelivery, isOnlinePayment: Bool?
+    var orderDate, orderNo: String?
+    var orderNotes: String?
+    var orderPickingUpTime: String?
+    var orderStatus: Int?
+    var orderStatusLocalized: String?
+    var singleOrderStatus, patientAddressFk, patientFk: Int?
+    var paymentType: Int?
+    var paymentTypeLocalized: String?
+    var preescriptionFk: Int?
+    var addressLang, addressLat: Double?
+    var patientName: String?
+    var patientProfileImage, patientAddressLocalized: String?
+    var patientMapAddress: String?
+    var itemCount: Int?
+    var lastStatusDate: String?
+    var hasFixedFees: Bool?
+    var totalRate: Int?
+    var pharmacyBranchFk: Int?
 
     enum CodingKeys: String, CodingKey {
         case orderID = "orderId"
@@ -50,4 +51,20 @@ struct OrderListMessage: Codable {
         case patientAddressLocalized = "patientAddress_Localized"
         case patientMapAddress, itemCount, lastStatusDate, hasFixedFees, totalRate, pharmacyBranchFk
     }
+}
+
+enum OrderStatusLocalized: String, Codable {
+    case new = "New"
+}
+
+enum PatientName: String, Codable {
+    case fNameLName = "f name l name"
+    case halimaReda = "halima reda"
+    case mostafaIsmail = "Mostafa Ismail"
+    case ramyPatientPatient = "ramy Patient Patient"
+}
+
+enum PaymentTypeLocalized: String, Codable {
+    case cash = "cash"
+    case empty = ""
 }

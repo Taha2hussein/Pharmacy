@@ -22,10 +22,14 @@ protocol LocalDataProtocol {
     
     func savePharmacyProviderFk(using pharmacyProviderFk: Int)
     func getPharmacyProviderFk()-> Int
+    
     func saveOwnerPhone(using ownerPhone:String)
     func getownerPhone()-> String
     
-    func saveOwnerImage(using image: UIImage)
+    func saveUserEmail(email:String)
+    func getUserEmail()-> String
+    
+    func saveOwnerImage(using image: Data?)
     func getOwnerImage()-> UIImage
     
     func saveOwnerPassword(using ownerPassword:String)

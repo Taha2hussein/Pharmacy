@@ -9,15 +9,17 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxRelay
-
+import SDWebImage
 enum segmet {
     case brahnch
     case pharmacist
 }
+var deactivateBranc = PublishSubject<Bool>()
+var deletBranchCheck = PublishSubject<Bool>()
+var slectedBrnachtoDelete = Int()
 
 class PharmacyProfileViewController: BaseViewController {
     
- 
     
     @IBOutlet weak var uperView: UIView!
     @IBOutlet weak var addBewPharmacyButton: UIButton!
@@ -46,17 +48,21 @@ class PharmacyProfileViewController: BaseViewController {
         assignParmacyProfile()
         editPharmacyAction()
         seeAllReview()
+        deactivateBranch()
         addPharmacyAction()
+        deleteBranch()
         articleDetailsViewModel.embedUperView(uperView: headerView)
 
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-          subsribeToSegmentSelected()
+        subsribeToSegmentSelected()
     }
     
     func setup(){
+        
         self.branchTableview.rowHeight = 120
     }
     
@@ -78,42 +84,43 @@ class PharmacyProfileViewController: BaseViewController {
         seeAllReviewsButton.rx.tap.subscribe { [weak self] _ in
             self?.articleDetailsViewModel.seAllReviews(review:  self?.review ?? [])
         } .disposed(by: self.disposeBag)
-
+        
     }
     
     func addPharmacyAction() {
         addBewPharmacyButton.rx.tap.subscribe { [weak self] _ in
             if self?.segmentSelected == .brahnch {
-            self?.articleDetailsViewModel.pushNextView()
+                self?.router.navigateToADdEditPharmacy(addOrEdit: false, headerLAbel: "Add Branch", id: 0)
+                
             }
             else {
-                self?.router.addPharmacist()
+                self?.router.addPharmacist(addOrEdit: false, headerLAbel: "Add Pharmacist", id: 0)
             }
         } .disposed(by: self.disposeBag)
-
+        
     }
     
     func editPharmacyAction() {
-//        editPharmacyButton.rx.tap.subscribe { [weak self]  _ in
-//            self?.articleDetailsViewModel.pushNextView()
-//        } .disposed(by: self.disposeBag)
+        editPharmacyButton.rx.tap.subscribe { [weak self]  _ in
+            self?.router.navigateToBasicData()
+        } .disposed(by: self.disposeBag)
     }
     
     func bindPharmacistToTableView() {
         articleDetailsViewModel.brahcnhPharmacist
             .bind(to: self.branchTableview
-                    .rx
-                    .items(cellIdentifier: String(describing:  PharmacyProfileTableViewCell.self),
-                           cellType: PharmacyProfileTableViewCell.self)) { row, model, cell in
+                .rx
+                .items(cellIdentifier: String(describing:  PharmacyProfileTableViewCell.self),
+                       cellType: PharmacyProfileTableViewCell.self)) { row, model, cell in
                 cell.pharmcistView.isHidden = false
                 cell.branchView.isHidden = true
                 cell.setDataForPharmacist(pharmacist: model)
-    
+                
                 cell.pharmacistActivationButton.rx.tap.subscribe { [weak self] _ in
                     guard let id = model.id else {return}
                     self?.articleDetailsViewModel.activePharmacist(id: id, activation: true)
                 } .disposed(by: cell.bag)
-
+                
                 
                 // branch menu button
                 cell.pharmacistMenu.rx.tap.subscribe {  _ in
@@ -121,36 +128,36 @@ class PharmacyProfileViewController: BaseViewController {
                     cell.branchView.isHidden = true
                     cell.pharmacistMenuView.isHidden = false
                 } .disposed(by: cell.bag)
-
+                
                 // Deactivate
                 cell.pharmacistMenuCDeactivate.rx.tap.subscribe { [weak self] _ in
                     guard let id = model.id else {return}
                     self?.articleDetailsViewModel.activePharmacist(id: id, activation: false)
                     cell.pharmacistMenuView.isHidden = true
-
+                    
                 }.disposed(by: cell.bag)
                 
                 // edit Branch
                 cell.pharmacistMenuEdit.rx.tap.subscribe { [weak self] _ in
                     cell.pharmacistMenuView.isHidden = true
-                    self?.router.addPharmacist()
+                    self?.router.addPharmacist(addOrEdit: true, headerLAbel: "Edit Pharmacist", id: model.id ?? 0)
                 }.disposed(by: cell.bag)
-
+                
                 // close menu
                 cell.pharmacistMenuClose.rx.tap.subscribe { _ in
                     cell.pharmacistMenuView.isHidden = true
                     cell.pharmcistView.isHidden = false
-
+                    
                 }.disposed(by: cell.bag)
             }.disposed(by: self.disposeBag)
     }
-
+    
     func bindBranchToTableView() {
         articleDetailsViewModel.brnachesProfile
             .bind(to: self.branchTableview
-                    .rx
-                    .items(cellIdentifier: String(describing:  PharmacyProfileTableViewCell.self),
-                           cellType: PharmacyProfileTableViewCell.self)) { row, model, cell in
+                .rx
+                .items(cellIdentifier: String(describing:  PharmacyProfileTableViewCell.self),
+                       cellType: PharmacyProfileTableViewCell.self)) { row, model, cell in
                 cell.pharmcistView.isHidden = true
                 cell.branchView.isHidden = false
                 cell.setData( product:model)
@@ -159,38 +166,80 @@ class PharmacyProfileViewController: BaseViewController {
                     guard let branchId = model.id else {return}
                     self?.articleDetailsViewModel.activeBranch(branchId: branchId, activation: true)
                 } .disposed(by: cell.bag)
-
+                
                 // branch menu button
                 cell.branhcMenu.rx.tap.subscribe {  _ in
                     cell.pharmcistView.isHidden = true
                     cell.branchView.isHidden = true
                     cell.branchMenuView.isHidden = false
                 } .disposed(by: cell.bag)
-
+                
                 // Deactivate
-                cell.branchMenuDeleteButton.rx.tap.subscribe { [weak self] _ in
+                cell.branchMenuCloseButton.rx.tap.subscribe { [weak self] _ in
                     guard let branchId = model.id else {return}
-                    self?.articleDetailsViewModel.activeBranch(branchId: branchId, activation: false)
+                    slectedBrnachtoDelete = branchId
+                    let subView = UIStoryboard.init(name: Storyboards.AddPharmacy.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.DeactivateViewController.rawValue)
+                    
+                    subView.view.frame = (self?.view.bounds)!
+                    //                    self?.view.backgroundColor = .black.withAlphaComponent(0.5)
+                    self?.view.addSubview(subView.view)
+                    
+                    //                    self?.articleDetailsViewModel.activeBranch(branchId: branchId, activation: false)
                     cell.branchMenuView.isHidden = true
-
+                    cell.branchView.isHidden = false
                 }.disposed(by: cell.bag)
                 
                 // edit Branch
                 cell.branchMenuEditButton.rx.tap.subscribe { [weak self] _ in
                     cell.branchMenuView.isHidden = true
-                    self?.articleDetailsViewModel.pushNextView()
+                    self?.router.navigateToADdEditPharmacy(addOrEdit: true, headerLAbel: "Edit Branch", id: model.id ?? 0)
                 }.disposed(by: cell.bag)
-
+                
                 // close menu
-                cell.branchMenuCloseButton.rx.tap.subscribe { _ in
+                cell.branchMenuDeleteButton.rx.tap.subscribe {[weak self] _ in
+                    
+                    guard let branchId = model.id else {return}
+                    slectedBrnachtoDelete = branchId
+                    let subView = UIStoryboard.init(name: Storyboards.AddPharmacy.rawValue, bundle: nil).instantiateViewController(withIdentifier: ViewController.DeleteBrnachViewController.rawValue)
+                    
+                    subView.view.frame = (self?.view.bounds)!
+                    //                    self?.view.backgroundColor = .black.withAlphaComponent(0.5)
+                    self?.view.addSubview(subView.view)
+                    
                     cell.branchMenuView.isHidden = true
                     cell.branchView.isHidden = false
-
+                    
                 }.disposed(by: cell.bag)
                 
             }.disposed(by: self.disposeBag)
     }
     
+    func deactivateBranch() {
+        deactivateBranc.subscribe {[weak self] deactivateBrnachCheck in
+            if deactivateBrnachCheck.element == true {
+                self?.articleDetailsViewModel.deleteBranchs(branchId: slectedBrnachtoDelete)
+                
+            }
+            else {
+                
+            }
+            //            deletBranchCheck.onNext(false)
+        } .disposed(by: self.disposeBag)
+    }
+    
+    func deleteBranch() {
+        deletBranchCheck.subscribe {[weak self] deleteBrnachCheck in
+            if deleteBrnachCheck.element == true {
+                self?.articleDetailsViewModel.activeBranch(branchId: slectedBrnachtoDelete, activation: false)
+                
+            }
+            else {
+                
+            }
+            //            deletBranchCheck.onNext(false)
+        } .disposed(by: self.disposeBag)
+        
+    }
     func segmentAction() {
         segmentPhramcy.rx.selectedSegmentIndex.subscribe { [weak self] index in
             if index.element == 0 {
@@ -254,7 +303,9 @@ extension PharmacyProfileViewController {
     
     func setImage(image: String) {
         if let url = URL(string: baseURLImage + (image)) {
-            self.pharmacyImage.load(url: url)
+//            self.pharmacyImage.load(url: url)
+            self.pharmacyImage.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar"))
+
         }
     }
 }

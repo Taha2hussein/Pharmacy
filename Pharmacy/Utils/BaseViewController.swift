@@ -13,7 +13,7 @@ import PKHUD
 class BaseViewController: CheckInternetViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        keyBoard(withPush: true)
+//        keyBoard(withPush: false)
     }
     
     func showLoading() {
